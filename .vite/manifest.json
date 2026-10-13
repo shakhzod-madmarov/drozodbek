@@ -34,7 +34,7 @@
     "src": "_vendor-utils-DHtLVDbd.css"
   },
   "index.html": {
-    "file": "assets/index-CgQ_HqTB.js",
+    "file": "assets/index-D6LYEvL7.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
@@ -48,7 +48,7 @@
       "node_modules/qrcode/lib/browser.js"
     ],
     "css": [
-      "assets/index-CzTUV1RN.css"
+      "assets/index-B5a3i-Fa.css"
     ],
     "assets": [
       "assets/logo-RobtL5SJ.png",
@@ -59,8 +59,8 @@
       "assets/cert_protocols-B_rvONkk.webp",
       "assets/cert_navigation-EK4tFIjD.webp",
       "assets/cert_seminar-D-s3dpfO.webp",
-      "assets/treatment_braces-Xx0LVDIw.webp",
-      "assets/treatment_crowns-BtnQGPNK.webp",
+      "assets/hero_smile-Xx0LVDIw.webp",
+      "assets/hero_3d_tooth-BtnQGPNK.webp",
       "assets/clinic_room-DUwk5xIL.webp",
       "assets/treatment_implant-EUoIaf_F.webp",
       "assets/treatment_whitening-DAVxj-hD.webp",
@@ -97,11 +97,11 @@
     "src": "src/assets/clinic_room.webp"
   },
   "src/assets/hero_3d_tooth.webp": {
-    "file": "assets/treatment_crowns-BtnQGPNK.webp",
+    "file": "assets/hero_3d_tooth-BtnQGPNK.webp",
     "src": "src/assets/hero_3d_tooth.webp"
   },
   "src/assets/hero_smile.webp": {
-    "file": "assets/treatment_braces-Xx0LVDIw.webp",
+    "file": "assets/hero_smile-Xx0LVDIw.webp",
     "src": "src/assets/hero_smile.webp"
   },
   "src/assets/logo.png": {
@@ -121,19 +121,19 @@
     "src": "src/assets/logo_icon.webp"
   },
   "src/assets/treatment_aligners.webp": {
-    "file": "assets/treatment_braces-Xx0LVDIw.webp",
+    "file": "assets/hero_smile-Xx0LVDIw.webp",
     "src": "src/assets/hero_smile.webp"
   },
   "src/assets/treatment_braces.webp": {
-    "file": "assets/treatment_braces-Xx0LVDIw.webp",
+    "file": "assets/hero_smile-Xx0LVDIw.webp",
     "src": "src/assets/hero_smile.webp"
   },
   "src/assets/treatment_crowns.webp": {
-    "file": "assets/treatment_crowns-BtnQGPNK.webp",
+    "file": "assets/hero_3d_tooth-BtnQGPNK.webp",
     "src": "src/assets/hero_3d_tooth.webp"
   },
   "src/assets/treatment_dentures.webp": {
-    "file": "assets/treatment_crowns-BtnQGPNK.webp",
+    "file": "assets/hero_3d_tooth-BtnQGPNK.webp",
     "src": "src/assets/hero_3d_tooth.webp"
   },
   "src/assets/treatment_implant.webp": {
@@ -149,7 +149,7 @@
     "src": "src/assets/clinic_room.webp"
   },
   "src/assets/treatment_veneers.webp": {
-    "file": "assets/treatment_braces-Xx0LVDIw.webp",
+    "file": "assets/hero_smile-Xx0LVDIw.webp",
     "src": "src/assets/hero_smile.webp"
   },
   "src/assets/treatment_whitening.webp": {

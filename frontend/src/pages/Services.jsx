@@ -104,15 +104,15 @@ const Services = ({ onOpenBooking }) => {
         ))}
       </div>
 
-      {/* Services Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {/* Services Grid with 3D Perspective Elevation */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 [perspective:1200px]">
         {filteredServices.map((service) => (
           <div
             key={service.id}
-            className="bg-white rounded-3xl border border-amber-200/80 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between overflow-hidden group"
+            className="bg-white rounded-3xl border border-amber-200/80 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-primary/50 flex flex-col justify-between overflow-hidden group [transform-style:preserve-3d]"
           >
             <div>
-              {/* Photo Banner */}
+              {/* Photo Banner with Zoom Depth */}
               <div className="relative h-56 w-full overflow-hidden bg-slate-900">
                 <img
                   src={service.image}
@@ -121,15 +121,15 @@ const Services = ({ onOpenBooking }) => {
                   height={600}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-xs text-[10px] font-black uppercase tracking-wider text-primary">
+                <div className="absolute top-4 left-4 z-10">
+                  <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-xs text-[10px] font-black uppercase tracking-wider text-primary shadow-sm">
                     {service.category[lang]}
                   </span>
                 </div>
-                <div className="absolute bottom-4 left-4 right-4 text-white">
+                <div className="absolute bottom-4 left-4 right-4 text-white z-10">
                   <h3 className="text-lg sm:text-xl font-bold font-serif-classic leading-snug">
                     {service.title[lang]}
                   </h3>
@@ -174,7 +174,7 @@ const Services = ({ onOpenBooking }) => {
               </Link>
               <button
                 onClick={() => onOpenBooking(service.id)}
-                className="px-5 py-2.5 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-bold uppercase tracking-wider shadow-xs cursor-pointer"
+                className="px-5 py-2.5 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-bold uppercase tracking-wider shadow-xs cursor-pointer hover:shadow-md hover:-translate-y-0.5 transition-all"
               >
                 {lang === "uz" ? "Qabulga Yozilish" : lang === "ru" ? "Записаться" : "Book"}
               </button>

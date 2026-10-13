@@ -33,21 +33,24 @@ const FloatingActionHub = () => {
       ref={hubRef}
       role="region"
       aria-label={a11y.quickActions}
-      className="fixed bottom-[max(1.25rem,env(safe-area-inset-bottom,0px))] right-[max(1.25rem,env(safe-area-inset-right,0px))] z-40 flex flex-col items-end gap-2 no-print"
+      className="fixed bottom-[max(1.25rem,env(safe-area-inset-bottom,0px))] right-[max(1.25rem,env(safe-area-inset-right,0px))] z-40 flex flex-col items-end gap-2.5 no-print [perspective:1000px]"
     >
+      {/* 3D Staggered Cascade Menu */}
       {expanded && (
         <div
           id="floating-action-menu"
-          className="flex flex-col items-end gap-2.5 mb-1.5 transition-all duration-200"
+          className="flex flex-col items-end gap-2.5 mb-2 transition-all duration-300 [transform-style:preserve-3d] animate-fadeIn"
         >
           {/* Telegram */}
           <a
             href={DOCTOR_INFO.telegramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2.5 bg-[#0088cc] hover:bg-[#0077b5] text-white px-4 py-2.5 rounded-2xl shadow-lg text-xs font-bold transition-transform hover:scale-105"
+            className="flex items-center gap-2.5 bg-gradient-to-r from-[#0088cc] to-[#0099e6] hover:brightness-110 text-white px-4 py-2.5 rounded-2xl shadow-luxury-lg text-xs font-bold transition-all duration-300 hover:scale-105 hover:-translate-x-1 border border-white/25"
           >
-            <IconTelegram className="w-4 h-4 text-white" />
+            <span className="w-6 h-6 rounded-lg bg-white/20 flex items-center justify-center">
+              <IconTelegram className="w-4 h-4 text-white" />
+            </span>
             <span>Telegram (@Stamatolog07)</span>
           </a>
 
@@ -56,51 +59,63 @@ const FloatingActionHub = () => {
             href={DOCTOR_INFO.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2.5 bg-gradient-to-r from-amber-500 via-rose-500 to-purple-600 hover:opacity-95 text-white px-4 py-2.5 rounded-2xl shadow-lg text-xs font-bold transition-transform hover:scale-105"
+            className="flex items-center gap-2.5 bg-gradient-to-r from-amber-500 via-rose-500 to-purple-600 hover:brightness-110 text-white px-4 py-2.5 rounded-2xl shadow-luxury-lg text-xs font-bold transition-all duration-300 hover:scale-105 hover:-translate-x-1 border border-white/25"
           >
-            <IconInstagram className="w-4 h-4 text-white" />
+            <span className="w-6 h-6 rounded-lg bg-white/20 flex items-center justify-center">
+              <IconInstagram className="w-4 h-4 text-white" />
+            </span>
             <span>Instagram (@_vrach_stomatolog)</span>
           </a>
 
-          {/* Phone */}
+          {/* Direct Phone */}
           <a
             href={DOCTOR_INFO.phoneHref}
-            className="flex items-center gap-2.5 bg-[#DF301C] hover:bg-[#C52412] text-white px-4 py-2.5 rounded-2xl shadow-lg text-xs font-bold transition-transform hover:scale-105"
+            className="flex items-center gap-2.5 bg-gradient-to-r from-[#DF301C] to-[#FF4530] hover:brightness-110 text-white px-4 py-2.5 rounded-2xl shadow-luxury-lg text-xs font-bold transition-all duration-300 hover:scale-105 hover:-translate-x-1 border border-white/25"
           >
-            <IconPhone className="w-4 h-4 text-white" />
+            <span className="w-6 h-6 rounded-lg bg-white/20 flex items-center justify-center">
+              <IconPhone className="w-4 h-4 text-white" />
+            </span>
             <span>{DOCTOR_INFO.phoneDisplay}</span>
           </a>
         </div>
       )}
 
-      <div className="flex items-center gap-2">
+      {/* Main Floating Trigger Bar */}
+      <div className="flex items-center gap-2 [transform-style:preserve-3d]">
         {/* Desktop Quick Phone Pill */}
         <a
           href={DOCTOR_INFO.phoneHref}
-          className="hidden sm:flex items-center gap-2 bg-white text-slate-800 hover:text-primary px-4 py-2.5 rounded-2xl shadow-luxury border border-amber-200/80 text-xs font-bold transition-all hover:shadow-luxury-lg"
+          className="hidden sm:flex items-center gap-2 bg-white/95 backdrop-blur-md text-slate-800 hover:text-primary px-4 py-3 rounded-2xl shadow-luxury border border-amber-200/80 text-xs font-bold transition-all hover:shadow-luxury-lg hover:-translate-y-0.5"
         >
           <span className="w-5 h-5 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-            <IconPhone className="w-3 h-3 text-primary" />
+            <IconPhone className="w-3.5 h-3.5 text-primary" />
           </span>
           <span>{DOCTOR_INFO.phoneDisplay}</span>
         </a>
 
-        {/* Toggle Hub Button */}
-        <button
-          onClick={() => setExpanded(!expanded)}
-          aria-label={expanded ? a11y.closeQuickActions : a11y.openQuickActions}
-          aria-expanded={expanded}
-          aria-controls="floating-action-menu"
-          className="w-13 h-13 rounded-2xl bg-primary hover:bg-primary-hover text-white shadow-luxury-lg flex items-center justify-center text-lg font-bold cursor-pointer transition-transform hover:scale-105 border-2 border-white/30"
-        >
-          {expanded ? (
-            <span className="text-xl">✕</span>
-          ) : (
-            <span className="flex items-center justify-center">
-              <IconPhone className="w-5 h-5 text-white animate-bounce" />
-            </span>
+        {/* 3D Floating Hub Button */}
+        <div className="relative">
+          {/* Subtle pulse aura ring when closed */}
+          {!expanded && (
+            <div className="absolute inset-0 rounded-2xl bg-primary/40 animate-ping pointer-events-none" />
           )}
-        </button>
+
+          <button
+            onClick={() => setExpanded(!expanded)}
+            aria-label={expanded ? a11y.closeQuickActions : a11y.openQuickActions}
+            aria-expanded={expanded}
+            aria-controls="floating-action-menu"
+            className="relative w-14 h-14 rounded-2xl bg-gradient-to-tr from-primary to-[#FF5540] hover:brightness-105 text-white shadow-luxury-lg flex items-center justify-center text-lg font-bold cursor-pointer transition-all duration-300 hover:scale-105 border-2 border-white/40 active:scale-95 shadow-[0_10px_25px_-5px_rgba(223,48,28,0.4)]"
+          >
+            {expanded ? (
+              <span className="text-xl transition-transform duration-300 rotate-90">✕</span>
+            ) : (
+              <span className="flex items-center justify-center">
+                <IconPhone className="w-6 h-6 text-white" />
+              </span>
+            )}
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -219,17 +219,17 @@ const SpecialitiesSection = ({ onOpenBooking }) => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 [perspective:1200px]">
         {SERVICES_CATALOG.map((s) => (
           <div
             key={s.id}
-            className="group bg-white rounded-3xl border border-amber-200/80 p-6 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-primary/50 relative overflow-hidden flex flex-col justify-between space-y-5 [transform-style:preserve-3d]"
+            className="group bg-white rounded-3xl border border-amber-200/80 p-6 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2.5 hover:border-primary/50 relative overflow-hidden flex flex-col justify-between space-y-5 [transform-style:preserve-3d]"
           >
             {/* 3D Corner Hover Flare */}
             <div className="absolute top-0 right-0 -mr-16 -mt-16 w-36 h-36 bg-gradient-to-br from-amber-400/25 to-primary/15 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-            <div className="space-y-4 relative z-10">
-              <div className="flex items-center justify-between">
+            <div className="space-y-4 relative z-10 [transform-style:preserve-3d]">
+              <div className="flex items-center justify-between translate-z-20">
                 <span className="w-12 h-12 rounded-2xl bg-amber-50 group-hover:bg-primary/10 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-2xs">
                   {s.icon}
                 </span>
@@ -238,7 +238,7 @@ const SpecialitiesSection = ({ onOpenBooking }) => {
                 </span>
               </div>
 
-              <div>
+              <div className="translate-z-10">
                 <h3 className="text-lg font-bold text-slate-900 group-hover:text-primary transition-colors leading-snug">
                   {s.title[lang]}
                 </h3>
@@ -247,7 +247,7 @@ const SpecialitiesSection = ({ onOpenBooking }) => {
                 </p>
               </div>
 
-              <div className="space-y-1.5 pt-2 border-t border-amber-100 text-xs">
+              <div className="space-y-1.5 pt-2 border-t border-amber-100 text-xs translate-z-10">
                 {s.highlights[lang].slice(0, 2).map((item, idx) => (
                   <div key={idx} className="flex items-start gap-2 text-slate-700">
                     <span className="text-primary font-bold">✓</span>
@@ -257,7 +257,7 @@ const SpecialitiesSection = ({ onOpenBooking }) => {
               </div>
             </div>
 
-            <div className="pt-4 border-t border-amber-100 flex items-center justify-between gap-3">
+            <div className="pt-4 border-t border-amber-100 flex items-center justify-between gap-3 relative z-10 translate-z-20">
               <Link
                 to={to(`/services/${s.id}`)}
                 className="text-xs font-bold text-slate-700 hover:text-primary transition-colors"
@@ -266,7 +266,7 @@ const SpecialitiesSection = ({ onOpenBooking }) => {
               </Link>
               <button
                 onClick={() => onOpenBooking(s.id)}
-                className="px-4 py-2 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-bold shadow-xs cursor-pointer"
+                className="px-4 py-2 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-bold shadow-xs cursor-pointer hover:shadow-md hover:-translate-y-0.5 transition-all"
               >
                 {lang === "uz" ? "Yozilish" : lang === "ru" ? "Запись" : "Book"}
               </button>

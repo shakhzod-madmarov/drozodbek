@@ -218,13 +218,16 @@ const About = ({ onOpenBooking }) => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 [perspective:1000px]">
           {values.map((val, idx) => (
-            <div key={idx} className="p-6 rounded-3xl bg-white border border-amber-200 shadow-sm space-y-3">
-              <span className="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center">
+            <div
+              key={idx}
+              className="p-6 rounded-3xl bg-white border border-amber-200 shadow-sm space-y-3 hover:-translate-y-2 hover:shadow-luxury hover:border-primary/40 transition-all duration-300 [transform-style:preserve-3d]"
+            >
+              <span className="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center translate-z-20 shadow-2xs">
                 {val.icon}
               </span>
-              <h3 className="text-base font-bold text-slate-900">
+              <h3 className="text-base font-bold text-slate-900 translate-z-10">
                 {val.title[lang]}
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -246,9 +249,12 @@ const About = ({ onOpenBooking }) => {
           </h2>
         </div>
 
-        <div className="space-y-4 max-w-3xl mx-auto">
+        <div className="space-y-4 max-w-3xl mx-auto [perspective:1000px]">
           {timeline.map((item, idx) => (
-            <div key={idx} className="p-6 rounded-3xl bg-white border border-amber-200 shadow-2xs space-y-2">
+            <div
+              key={idx}
+              className="p-6 rounded-3xl bg-white border border-amber-200 shadow-2xs space-y-2 hover:-translate-y-1 hover:shadow-md hover:border-amber-300 transition-all duration-300 [transform-style:preserve-3d]"
+            >
               <span className="px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-black">
                 {item.year[lang]}
               </span>

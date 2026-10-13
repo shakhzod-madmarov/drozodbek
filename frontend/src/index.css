@@ -130,17 +130,40 @@ button, a, input, select, textarea {
 }
 
 /* 3D Perspective and Transform Helpers */
+.perspective-800 {
+  perspective: 800px;
+}
 .perspective-1000 {
   perspective: 1000px;
 }
 .perspective-1200 {
   perspective: 1200px;
 }
+.perspective-1500 {
+  perspective: 1500px;
+}
 .preserve-3d {
   transform-style: preserve-3d;
 }
 .backface-hidden {
   backface-visibility: hidden;
+}
+
+/* 3D Parallax Depth Layers */
+.translate-z-10 {
+  transform: translateZ(10px);
+}
+.translate-z-20 {
+  transform: translateZ(20px);
+}
+.translate-z-30 {
+  transform: translateZ(30px);
+}
+.translate-z-40 {
+  transform: translateZ(40px);
+}
+.translate-z-50 {
+  transform: translateZ(50px);
 }
 
 @keyframes float3D {
@@ -155,8 +178,38 @@ button, a, input, select, textarea {
   }
 }
 
+@keyframes subtlePulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(223, 48, 28, 0.4);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 0 0 10px rgba(223, 48, 28, 0);
+  }
+}
+
+@keyframes goldSheen {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
 .animate-float-3d {
   animation: float3D 7s ease-in-out infinite;
+}
+
+.animate-subtle-pulse {
+  animation: subtlePulse 2.4s ease-in-out infinite;
+}
+
+.gold-sheen-border {
+  background: linear-gradient(90deg, #F59E0B, #FDE68A, #D97706, #FDE68A, #F59E0B);
+  background-size: 200% auto;
+  animation: goldSheen 4s linear infinite;
 }
 
 @media print {
@@ -164,3 +217,4 @@ button, a, input, select, textarea {
     display: none !important;
   }
 }
+

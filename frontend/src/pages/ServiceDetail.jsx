@@ -239,10 +239,13 @@ const ServiceDetail = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 [perspective:1000px]">
           {steps.map((st) => (
-            <div key={st.num} className="p-5 rounded-3xl bg-white border border-amber-200 shadow-2xs space-y-2">
-              <span className="w-8 h-8 rounded-xl bg-primary text-white text-xs font-bold flex items-center justify-center">
+            <div
+              key={st.num}
+              className="p-5 rounded-3xl bg-white border border-amber-200 shadow-2xs space-y-2 hover:-translate-y-1.5 hover:shadow-md hover:border-amber-300 transition-all duration-300 [transform-style:preserve-3d]"
+            >
+              <span className="w-8 h-8 rounded-xl bg-primary text-white text-xs font-bold flex items-center justify-center shadow-xs">
                 {st.num}
               </span>
               <h3 className="text-sm font-bold text-slate-900 leading-snug">{st.title}</h3>

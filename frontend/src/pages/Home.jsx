@@ -223,11 +223,11 @@ const SpecialitiesSection = ({ onOpenBooking }) => {
         {SERVICES_CATALOG.map((s) => (
           <div
             key={s.id}
-            className="group bg-white rounded-3xl border border-amber-200/90 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2.5 hover:border-primary/50 overflow-hidden flex flex-col justify-between [transform-style:preserve-3d]"
+            className={`group bg-white rounded-3xl border border-amber-200/90 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2.5 hover:border-primary/50 overflow-hidden flex flex-col justify-between [transform-style:preserve-3d] ${s.badgeTheme?.accentGlow || ""}`}
           >
             <div>
-              {/* Photo Banner with Zoom Depth & Luxury Floating Stickers */}
-              <div className="relative h-44 sm:h-48 w-full overflow-hidden bg-slate-900 [transform-style:preserve-3d]">
+              {/* Photo Banner with Zoom Depth & Authentic Clinical Stickers */}
+              <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-950 [transform-style:preserve-3d]">
                 <img
                   src={s.image}
                   alt={s.title[lang]}
@@ -238,40 +238,49 @@ const SpecialitiesSection = ({ onOpenBooking }) => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
                 {/* Visual Depth Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/35 pointer-events-none" />
 
-                {/* Top Stickers Strip */}
-                <div className="absolute top-3 inset-x-3 flex items-center justify-between gap-2 z-10">
-                  <span className="px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-amber-300 border border-amber-300/40 text-[10px] font-black uppercase tracking-wider shadow-md">
-                    {s.category[lang]}
+                {/* Top Stickers Strip: Hallmark & Official Warranty */}
+                <div className="absolute top-3 inset-x-3 flex items-center justify-between gap-2 z-10 pointer-events-none">
+                  <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full backdrop-blur-md text-[10px] font-black uppercase tracking-wider shadow-md border ${s.badgeTheme?.badgeBg || "bg-slate-950/80 text-amber-300 border-amber-300/40"}`}>
+                    <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
+                    <span>{s.badge?.[lang] || s.category[lang]}</span>
                   </span>
-                  <span className="px-2.5 py-1 rounded-full bg-emerald-950/80 backdrop-blur-md text-emerald-300 border border-emerald-400/40 text-[10px] font-bold tracking-wide shadow-md">
-                    {s.warranty[lang]}
+                  <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full backdrop-blur-md text-[10px] font-bold tracking-wide shadow-md border ${s.badgeTheme?.warrantyBg || "bg-emerald-950/80 text-emerald-300 border-emerald-400/40"}`}>
+                    <IconShieldCheck className="w-3 h-3 shrink-0" />
+                    <span>{s.warranty[lang]}</span>
                   </span>
                 </div>
 
-                {/* Subtle Bottom Title Flare on Image */}
-                <div className="absolute bottom-2.5 left-4 right-4 z-10">
-                  <span className="text-[11px] font-semibold text-white/80 flex items-center gap-1.5">
-                    <IconClock className="w-3.5 h-3.5 text-brandOrange" />
+                {/* Bottom Badges Strip on Image: Tech Origin & Duration */}
+                <div className="absolute bottom-2.5 inset-x-3 flex items-center justify-between gap-2 z-10 pointer-events-none">
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-sm text-[10px] font-semibold text-slate-200 border border-white/10">
+                    <IconSparkleStar className="w-2.5 h-2.5 text-amber-300 shrink-0" />
+                    <span>{s.techTag?.[lang] || s.category[lang]}</span>
+                  </span>
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-sm text-[10px] font-semibold text-slate-200 border border-white/10">
+                    <IconClock className="w-2.5 h-2.5 text-brandOrange shrink-0" />
                     <span>{s.duration[lang]}</span>
                   </span>
                 </div>
               </div>
 
-              {/* Floating Medical Icon Disc on Image Border */}
+              {/* Floating Medical Icon Disc on Image Border & Clinical Pill */}
               <div className="px-5 -mt-6 relative z-20 flex justify-between items-end">
-                <span className="w-12 h-12 rounded-2xl bg-white shadow-lg border-2 border-amber-200/80 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                <span className="w-12 h-12 rounded-2xl bg-white shadow-xl border-2 border-amber-200/90 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
                   {s.icon}
                 </span>
-                <span className="text-[10px] font-black uppercase tracking-wider text-primary bg-red-50 border border-red-200/60 px-2.5 py-0.5 rounded-full shadow-2xs mb-1">
-                  {lang === "uz" ? "100% Og'riqsiz" : lang === "ru" ? "100% Без боли" : "100% Gentle"}
+                <span className="text-[10px] font-black uppercase tracking-wider text-primary bg-red-50 border border-red-200/70 px-2.5 py-1 rounded-full shadow-2xs mb-1">
+                  {s.featurePill?.[lang] || (lang === "uz" ? "100% Og'riqsiz" : lang === "ru" ? "100% Без боли" : "100% Gentle")}
                 </span>
               </div>
 
               {/* Content Body */}
               <div className="p-5 pt-3 space-y-3">
                 <div>
+                  <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-0.5">
+                    {s.category[lang]}
+                  </div>
                   <h3 className="text-lg font-bold text-slate-900 group-hover:text-primary transition-colors leading-snug font-serif-classic">
                     {s.title[lang]}
                   </h3>
@@ -296,10 +305,10 @@ const SpecialitiesSection = ({ onOpenBooking }) => {
             <div className="p-5 pt-0 border-t border-amber-100/60 flex items-center justify-between gap-3 mt-2">
               <Link
                 to={to(`/services/${s.id}`)}
-                className="text-xs font-bold text-slate-700 hover:text-primary transition-colors flex items-center gap-1"
+                className="text-xs font-bold text-slate-700 hover:text-primary transition-colors flex items-center gap-1 group/btn"
               >
                 <span>{lang === "uz" ? "Batafsil" : lang === "ru" ? "Подробнее" : "Details"}</span>
-                <span>→</span>
+                <span className="group-hover/btn:translate-x-1 transition-transform">→</span>
               </Link>
               <button
                 onClick={() => onOpenBooking(s.id)}

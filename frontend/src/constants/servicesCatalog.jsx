@@ -15,6 +15,26 @@ export const SERVICES_CATALOG = [
     id: "dental-implant",
     icon: <DentalImplantFixture className="w-7 h-7 text-primary" />,
     image: assets.treatment_implant,
+    badge: {
+      uz: "MEGAGEN BIOTITAN",
+      ru: "MEGAGEN BIOTITAN",
+      en: "MEGAGEN BIOTITAN",
+    },
+    techTag: {
+      uz: "Janubiy Koreya",
+      ru: "Южная Корея",
+      en: "South Korea",
+    },
+    featurePill: {
+      uz: "Suyak Integratsiyasi 99.5%",
+      ru: "Приживаемость 99.5%",
+      en: "99.5% Integration",
+    },
+    badgeTheme: {
+      badgeBg: "bg-amber-950/85 text-amber-300 border-amber-400/50",
+      warrantyBg: "bg-emerald-950/85 text-emerald-300 border-emerald-400/50",
+      accentGlow: "hover:shadow-amber-500/10",
+    },
     category: {
       uz: "Dental Implantologiya",
       ru: "Дентальная Имплантология",
@@ -57,6 +77,26 @@ export const SERVICES_CATALOG = [
     id: "breketlar",
     icon: <DentalBracesIcon className="w-7 h-7 text-brandOrange" />,
     image: assets.treatment_braces,
+    badge: {
+      uz: "METALL & KERAMIKA",
+      ru: "МЕТАЛЛ И КЕРАМИКА",
+      en: "METAL & CERAMIC",
+    },
+    techTag: {
+      uz: "Damon System",
+      ru: "Система Damon",
+      en: "Damon System",
+    },
+    featurePill: {
+      uz: "To'g'ri Prikus",
+      ru: "Идеальный Прикус",
+      en: "Precise Bite",
+    },
+    badgeTheme: {
+      badgeBg: "bg-orange-950/85 text-orange-300 border-orange-400/50",
+      warrantyBg: "bg-blue-950/85 text-blue-300 border-blue-400/50",
+      accentGlow: "hover:shadow-orange-500/10",
+    },
     category: {
       uz: "Ortodontiya",
       ru: "Ортодонтия",
@@ -73,7 +113,7 @@ export const SERVICES_CATALOG = [
       en: "Comprehensive smile straightening and bite alignment using precision metal and discreet ceramic brackets.",
     },
     duration: { uz: "Individual davolash rejasi", ru: "Индивидуальный план", en: "Personalized plan" },
-    warranty: { uz: "Mustahkam natija", ru: "Устойчивый результат", en: "Permanent alignment" },
+    warranty: { uz: "To'g'ri prikus kafolati", ru: "Гарантия ровного прикуса", en: "Stable bite warranty" },
     highlights: {
       uz: [
         "Klassik metall, o'z-o'zini ligaturlaydigan (Damon) va estetik keramik breketlar",
@@ -99,6 +139,26 @@ export const SERVICES_CATALOG = [
     id: "sirkon-keramika-karonkalar",
     icon: <DentalVeneerCrown className="w-7 h-7 text-primary" />,
     image: assets.treatment_crowns,
+    badge: {
+      uz: "CAD/CAM TSIRKONIY",
+      ru: "CAD/CAM ДИОКСИД ЦИРКОНИЯ",
+      en: "CAD/CAM ZIRCONIA",
+    },
+    techTag: {
+      uz: "Germaniya & Yaponiya",
+      ru: "Германия и Япония",
+      en: "Germany & Japan",
+    },
+    featurePill: {
+      uz: "Milk Qoraymaydi",
+      ru: "Без темных ободков",
+      en: "Zero Dark Margins",
+    },
+    badgeTheme: {
+      badgeBg: "bg-sky-950/85 text-sky-300 border-sky-400/50",
+      warrantyBg: "bg-emerald-950/85 text-emerald-300 border-emerald-400/50",
+      accentGlow: "hover:shadow-sky-500/10",
+    },
     category: {
       uz: "Ortopedik Stomatologiya",
       ru: "Ортопедия",
@@ -115,7 +175,7 @@ export const SERVICES_CATALOG = [
       en: "Restore fractured or damaged teeth with monolithic zirconia and press-ceramic crowns for superior strength and natural luster.",
     },
     duration: { uz: "2 – 3 kun", ru: "2 – 3 дня", en: "2 – 3 days" },
-    warranty: { uz: "10 yilgacha kafolat", ru: "Гарантия до 10 лет", en: "Up to 10-year warranty" },
+    warranty: { uz: "10 yilgacha rasmiy kafolat", ru: "Гарантия до 10 лет", en: "Up to 10-year warranty" },
     highlights: {
       uz: [
         "100% biomoslashuvchan tsirkoniy: milk qorayishi va metall ta'mi yo'q",
@@ -141,6 +201,26 @@ export const SERVICES_CATALOG = [
     id: "vinirlar",
     icon: <DentalVeneerCrown className="w-7 h-7 text-brandCyan" />,
     image: assets.treatment_veneers,
+    badge: {
+      uz: "0.3 MM E-MAX GOLLIVUD",
+      ru: "0.3 ММ E-MAX ГОЛЛИВУД",
+      en: "0.3 MM E-MAX HOLLYWOOD",
+    },
+    techTag: {
+      uz: "Ivoclar Vivadent",
+      ru: "Ivoclar Vivadent",
+      en: "Ivoclar Vivadent",
+    },
+    featurePill: {
+      uz: "O'chmas Gollivud Jilosi",
+      ru: "Голливудский Блеск",
+      en: "Hollywood Luster",
+    },
+    badgeTheme: {
+      badgeBg: "bg-emerald-950/85 text-emerald-300 border-emerald-400/50",
+      warrantyBg: "bg-amber-950/85 text-amber-300 border-amber-400/50",
+      accentGlow: "hover:shadow-emerald-500/10",
+    },
     category: {
       uz: "Estetik Stomatologiya",
       ru: "Эстетическая Стоматология",
@@ -183,6 +263,26 @@ export const SERVICES_CATALOG = [
     id: "pratezlar",
     icon: <DentalDenturesIcon className="w-7 h-7 text-primary" />,
     image: assets.treatment_dentures,
+    badge: {
+      uz: "BYUGEL & ACRY-FREE",
+      ru: "БЮГЕЛЬ И ACRY-FREE",
+      en: "BYUGEL & ACRY-FREE",
+    },
+    techTag: {
+      uz: "Shveytsariya Material",
+      ru: "Швейцария",
+      en: "Swiss Materials",
+    },
+    featurePill: {
+      uz: "100% Qulay Chaynash",
+      ru: "100% Удобное Жевание",
+      en: "100% Easy Chewing",
+    },
+    badgeTheme: {
+      badgeBg: "bg-purple-950/85 text-purple-300 border-purple-400/50",
+      warrantyBg: "bg-indigo-950/85 text-indigo-300 border-indigo-400/50",
+      accentGlow: "hover:shadow-purple-500/10",
+    },
     category: {
       uz: "Protezlash",
       ru: "Протезирование Зубов",
@@ -199,11 +299,11 @@ export const SERVICES_CATALOG = [
       en: "Restore comfortable chewing and speech with lightweight бюгель, flexible nylon, and full precision dentures.",
     },
     duration: { uz: "3 – 5 kun", ru: "3 – 5 дней", en: "3 – 5 days" },
-    warranty: { uz: "Kafolatlangan qulaylik", ru: "Гарантия удобства", en: "Comfort warranty" },
+    warranty: { uz: "100% Qulaylik kafolati", ru: "100% Гарантия удобства", en: "Comfort warranty" },
     highlights: {
       uz: [
         "Elastik neylon va byugel protezlar: tanglayni to'liq yopmaydi, nutqni buzmaydi",
-        "Tishlarga mahkam o'rnashuvchi zamonaviy ko'rinmas qulflar (ataчmenlar)",
+        "Tishlarga mahkam o'rnashuvchi zamonaviy ko'rinmas qulflar (atachmenlar)",
         "Allergiya chaqirmaydigan zamonaviy termoplastik materiallar",
         "Bemorning yoshiga va qulayligiga qarab individual moslashuv",
       ],
@@ -225,6 +325,26 @@ export const SERVICES_CATALOG = [
     id: "elaynerlar",
     icon: <DentalAlignersIcon className="w-7 h-7 text-brandCyan" />,
     image: assets.treatment_aligners,
+    badge: {
+      uz: "3D SHAFFOF KAPA",
+      ru: "3D НЕВИДИМЫЕ КАПЫ",
+      en: "3D CLEAR ALIGNERS",
+    },
+    techTag: {
+      uz: "Digital Ortho 3D",
+      ru: "Digital Ortho 3D",
+      en: "Digital Ortho 3D",
+    },
+    featurePill: {
+      uz: "100% Ko'rinmas",
+      ru: "100% Невидимо",
+      en: "100% Undetectable",
+    },
+    badgeTheme: {
+      badgeBg: "bg-cyan-950/85 text-cyan-300 border-cyan-400/50",
+      warrantyBg: "bg-teal-950/85 text-teal-300 border-teal-400/50",
+      accentGlow: "hover:shadow-cyan-500/10",
+    },
     category: {
       uz: "Shaffof Ortodontiya",
       ru: "Элайнеры",
@@ -241,7 +361,7 @@ export const SERVICES_CATALOG = [
       en: "Straighten teeth discreetly without metal wires or brackets using custom clear aligners that are virtually undetectable.",
     },
     duration: { uz: "Bosqichma-bosqich kapalar", ru: "Серия кап", en: "Sequential trays" },
-    warranty: { uz: "3D Reja bo'yicha natija", ru: "Результат по 3D плану", en: "Predictable 3D results" },
+    warranty: { uz: "3D reja bo'yicha kafolat", ru: "Результат по 3D плану", en: "Predictable 3D results" },
     highlights: {
       uz: [
         "100% shaffof va ko'rinmas: suhbatdoshlaringiz sezmaydi",
@@ -267,6 +387,26 @@ export const SERVICES_CATALOG = [
     id: "tish-oqartirish",
     icon: <DentalWhiteningZoom className="w-7 h-7 text-brandOrange" />,
     image: assets.treatment_whitening,
+    badge: {
+      uz: "ZOOM! & AIRFLOW",
+      ru: "ZOOM! И AIRFLOW",
+      en: "ZOOM! & AIRFLOW",
+    },
+    techTag: {
+      uz: "Philips Zoom! 4",
+      ru: "Philips Zoom! 4",
+      en: "Philips Zoom! 4",
+    },
+    featurePill: {
+      uz: "Emalga 0% Ziyon",
+      ru: "0% Вреда Эмали",
+      en: "0% Enamel Damage",
+    },
+    badgeTheme: {
+      badgeBg: "bg-amber-950/85 text-amber-200 border-amber-300/40",
+      warrantyBg: "bg-emerald-950/85 text-emerald-300 border-emerald-400/50",
+      accentGlow: "hover:shadow-amber-500/10",
+    },
     category: {
       uz: "Profilaktika va Estetika",
       ru: "Отбеливание и Гигиена",
@@ -283,7 +423,7 @@ export const SERVICES_CATALOG = [
       en: "Safely brighten your teeth by 4–8 shades without harming enamel, combined with gentle ultrasonic and AirFlow stain removal.",
     },
     duration: { uz: "40 – 50 daqiqa", ru: "40 – 50 минут", en: "40 – 50 mins" },
-    warranty: { uz: "Uzoq muddatli yorqinlik", ru: "Длительный эффект", en: "Long-lasting brightness" },
+    warranty: { uz: "4–8 ton oqarish kafolati", ru: "Осветление на 4–8 тонов", en: "4–8 shades brighter" },
     highlights: {
       uz: [
         "Emalni yemirmaydigan va sezgirlik chaqirmaydigan xavfsiz fotootbelivaniye",
@@ -309,6 +449,26 @@ export const SERVICES_CATALOG = [
     id: "ogriqsiz-tish-davolash",
     icon: <DentalToothMolar className="w-7 h-7 text-primary" />,
     image: assets.treatment_therapy,
+    badge: {
+      uz: "3M FILTEK & ESTELITE",
+      ru: "3M FILTEK И ESTELITE",
+      en: "3M FILTEK & ESTELITE",
+    },
+    techTag: {
+      uz: "Germaniya & Yaponiya",
+      ru: "Германия и Япония",
+      en: "Germany & Japan",
+    },
+    featurePill: {
+      uz: "Xameleon Rang Uygunligi",
+      ru: "Хамелеон Эффект",
+      en: "Chameleon Blend",
+    },
+    badgeTheme: {
+      badgeBg: "bg-teal-950/85 text-teal-300 border-teal-400/50",
+      warrantyBg: "bg-emerald-950/85 text-emerald-300 border-emerald-400/50",
+      accentGlow: "hover:shadow-teal-500/10",
+    },
     category: {
       uz: "Terapiya va Endodontiya",
       ru: "Терапия и Эндодонтия",
@@ -351,6 +511,26 @@ export const SERVICES_CATALOG = [
     id: "ogriqsiz-tish-olish",
     icon: <DentalSurgeryExtraction className="w-7 h-7 text-primary" />,
     image: assets.treatment_surgery,
+    badge: {
+      uz: "ATRAVMATIK XIRURGIYA",
+      ru: "АТРАВМАТИЧНАЯ ХИРУРГИЯ",
+      en: "ATRAUMATIC SURGERY",
+    },
+    techTag: {
+      uz: "Yevropa Anestetiklari",
+      ru: "Европейская Анестезия",
+      en: "European Anesthesia",
+    },
+    featurePill: {
+      uz: "0% Og'riq & Tez Bitish",
+      ru: "0% Боли & Быстро",
+      en: "0% Pain & Rapid Healing",
+    },
+    badgeTheme: {
+      badgeBg: "bg-rose-950/85 text-rose-300 border-rose-400/50",
+      warrantyBg: "bg-red-950/85 text-red-300 border-red-400/50",
+      accentGlow: "hover:shadow-rose-500/10",
+    },
     category: {
       uz: "Atravmatik Jarrohlik",
       ru: "Бережная Хирургия",

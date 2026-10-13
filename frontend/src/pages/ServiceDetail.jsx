@@ -13,6 +13,7 @@ import {
   IconPhone,
   IconTelegram,
   IconAward,
+  IconSparkleStar,
 } from "../components/MedicalIcons";
 import { useBooking } from "../context/BookingContext";
 
@@ -133,51 +134,100 @@ const ServiceDetail = () => {
         </span>
       </nav>
 
-      {/* Hero Service Banner */}
-      <div className="relative rounded-3xl overflow-hidden bg-slate-900 min-h-[360px] sm:min-h-[420px] flex items-end p-6 sm:p-10 lg:p-12 text-white shadow-luxury">
-        <img
-          src={service.image}
-          alt={service.title[lang]}
-          width={1200}
-          height={600}
-          fetchPriority="high"
-          decoding="async"
-          className="absolute inset-0 w-full h-full object-cover opacity-35"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" />
+      {/* Hero Service Showcase — Editorial Split with Full Clinical Photo Visibility */}
+      <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 p-6 sm:p-8 lg:p-10 text-white shadow-luxury border border-amber-500/20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          {/* Left: Clinical Information & CTA */}
+          <div className="lg:col-span-7 space-y-5">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider shadow-sm border ${service.badgeTheme?.badgeBg || "bg-amber-950/80 text-amber-300 border-amber-400/50"}`}>
+                <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
+                <span>{service.badge?.[lang] || service.category[lang]}</span>
+              </span>
+              <span className="px-3 py-1 rounded-full bg-white/10 text-slate-300 text-[10px] font-bold uppercase tracking-wider border border-white/10">
+                {service.category[lang]}
+              </span>
+              <span className="px-3 py-1 rounded-full bg-emerald-950/80 text-emerald-300 text-[10px] font-bold tracking-wide border border-emerald-400/40">
+                {service.warranty[lang]}
+              </span>
+            </div>
 
-        <div className="relative z-10 space-y-4 max-w-3xl">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="px-3 py-1 rounded-full bg-primary text-white text-[11px] font-semibold uppercase tracking-wider">
-              {service.category[lang]}
-            </span>
-            <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-xs text-white text-[11px] font-semibold">
-              {getExperienceBadge(lang)}
-            </span>
+            <h1 className="font-serif-classic text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.15]">
+              {service.title[lang]}
+            </h1>
+
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+              {service.shortDesc[lang]}
+            </p>
+
+            {/* Quick Metrics Badges */}
+            <div className="grid grid-cols-3 gap-2.5 sm:gap-3 pt-1">
+              <div className="p-3 rounded-2xl bg-white/5 border border-white/10 text-center">
+                <span className="text-[10px] text-slate-400 font-semibold uppercase block">{lang === "uz" ? "Tizim" : "Система"}</span>
+                <span className="text-xs sm:text-sm font-bold text-amber-300 block mt-0.5 truncate">{service.techTag?.[lang] || "Klinik"}</span>
+              </div>
+              <div className="p-3 rounded-2xl bg-white/5 border border-white/10 text-center">
+                <span className="text-[10px] text-slate-400 font-semibold uppercase block">{lang === "uz" ? "Davomiyligi" : "Время"}</span>
+                <span className="text-xs sm:text-sm font-bold text-white block mt-0.5 truncate">{service.duration[lang]}</span>
+              </div>
+              <div className="p-3 rounded-2xl bg-white/5 border border-white/10 text-center">
+                <span className="text-[10px] text-slate-400 font-semibold uppercase block">{lang === "uz" ? "Kafolat" : "Гарантия"}</span>
+                <span className="text-xs sm:text-sm font-bold text-emerald-400 block mt-0.5 truncate">{service.warranty[lang]}</span>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3.5 pt-2">
+              <button
+                onClick={() => openBooking(service.id)}
+                className="px-7 py-3.5 rounded-2xl bg-primary hover:bg-primary-hover text-white text-xs sm:text-sm font-bold uppercase tracking-wider shadow-luxury cursor-pointer hover:shadow-2xl hover:-translate-y-0.5 transition-all"
+              >
+                {lang === "uz" ? "Qabulga Yozilish" : lang === "ru" ? "Записаться на Приём" : "Book Procedure"}
+              </button>
+              <a
+                href={DOCTOR_INFO.phoneHref}
+                className="px-5 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold flex items-center gap-2 backdrop-blur-xs border border-white/10 hover:-translate-y-0.5 transition-all"
+              >
+                <IconPhone className="w-4 h-4 text-primary" />
+                <span>{DOCTOR_INFO.phoneDisplay}</span>
+              </a>
+            </div>
           </div>
 
-          <h1 className="font-serif-classic text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
-            {service.title[lang]}
-          </h1>
+          {/* Right: Dedicated High-Res Clinical Photography Showcase */}
+          <div className="lg:col-span-5">
+            <div className="group relative rounded-2xl overflow-hidden bg-slate-900 border-2 border-amber-300/30 shadow-2xl [transform-style:preserve-3d]">
+              <div className="relative aspect-[4/3] w-full overflow-hidden">
+                <img
+                  src={service.image}
+                  alt={service.title[lang]}
+                  width={800}
+                  height={600}
+                  fetchPriority="high"
+                  decoding="async"
+                  className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20 pointer-events-none" />
 
-          <p className="text-sm sm:text-base text-slate-200 leading-relaxed max-w-2xl">
-            {service.shortDesc[lang]}
-          </p>
+                {/* Floating Top Hallmark */}
+                <div className="absolute top-3 inset-x-3 flex items-center justify-between gap-2 z-10 pointer-events-none">
+                  <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full backdrop-blur-md text-[10px] font-black uppercase tracking-wider shadow-md border ${service.badgeTheme?.badgeBg || "bg-slate-950/80 text-amber-300 border-amber-300/40"}`}>
+                    <IconSparkleStar className="w-3 h-3 text-amber-300" />
+                    <span>{service.badge?.[lang] || service.category[lang]}</span>
+                  </span>
+                  <span className="px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-slate-200 border border-white/20 text-[10px] font-semibold">
+                    {service.techTag?.[lang]}
+                  </span>
+                </div>
 
-          <div className="flex flex-wrap items-center gap-4 pt-2">
-            <button
-              onClick={() => openBooking(service.id)}
-              className="px-7 py-3.5 rounded-2xl bg-primary hover:bg-primary-hover text-white text-xs sm:text-sm font-bold uppercase tracking-wider shadow-luxury cursor-pointer"
-            >
-              {lang === "uz" ? "Qabulga Yozilish" : lang === "ru" ? "Записаться на Приём" : "Book Procedure"}
-            </button>
-            <a
-              href={DOCTOR_INFO.phoneHref}
-              className="px-5 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold flex items-center gap-2 backdrop-blur-xs"
-            >
-              <IconPhone className="w-4 h-4 text-primary" />
-              <span>{DOCTOR_INFO.phoneDisplay}</span>
-            </a>
+                {/* Floating Bottom Pill */}
+                <div className="absolute bottom-3 inset-x-3 flex items-center justify-between gap-2 z-10 pointer-events-none">
+                  <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-950/85 backdrop-blur-md text-emerald-300 border border-emerald-400/50 text-[10px] font-bold tracking-wide shadow-md">
+                    <IconShieldCheck className="w-3.5 h-3.5 shrink-0" />
+                    <span>{service.featurePill?.[lang] || (lang === "uz" ? "100% Og'riqsiz" : "100% Без боли")}</span>
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

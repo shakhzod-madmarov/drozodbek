@@ -13,6 +13,7 @@ import {
   IconCheckCircle,
   IconClock,
   IconShieldCheck,
+  IconSparkleStar,
 } from "../components/MedicalIcons";
 
 const Services = ({ onOpenBooking }) => {
@@ -109,11 +110,11 @@ const Services = ({ onOpenBooking }) => {
         {filteredServices.map((service) => (
           <div
             key={service.id}
-            className="bg-white rounded-3xl border border-amber-200/80 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-primary/50 flex flex-col justify-between overflow-hidden group [transform-style:preserve-3d]"
+            className={`bg-white rounded-3xl border border-amber-200/90 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-primary/50 flex flex-col justify-between overflow-hidden group [transform-style:preserve-3d] ${service.badgeTheme?.accentGlow || ""}`}
           >
             <div>
-              {/* Photo Banner with Zoom Depth */}
-              <div className="relative h-56 w-full overflow-hidden bg-slate-900">
+              {/* Photo Banner with Zoom Depth & Authentic Clinical Stickers */}
+              <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-slate-950 [transform-style:preserve-3d]">
                 <img
                   src={service.image}
                   alt={service.title[lang]}
@@ -121,56 +122,79 @@ const Services = ({ onOpenBooking }) => {
                   height={600}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                <div className="absolute top-4 left-4 z-10">
-                  <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-xs text-[10px] font-black uppercase tracking-wider text-primary shadow-sm">
-                    {service.category[lang]}
+                {/* Visual Depth Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/35 pointer-events-none" />
+
+                {/* Top Stickers Strip: Hallmark & Warranty */}
+                <div className="absolute top-3 inset-x-3 flex items-center justify-between gap-2 z-10 pointer-events-none">
+                  <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full backdrop-blur-md text-[10px] font-black uppercase tracking-wider shadow-md border ${service.badgeTheme?.badgeBg || "bg-slate-950/80 text-amber-300 border-amber-300/40"}`}>
+                    <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
+                    <span>{service.badge?.[lang] || service.category[lang]}</span>
+                  </span>
+                  <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full backdrop-blur-md text-[10px] font-bold tracking-wide shadow-md border ${service.badgeTheme?.warrantyBg || "bg-emerald-950/80 text-emerald-300 border-emerald-400/40"}`}>
+                    <IconShieldCheck className="w-3.5 h-3.5 shrink-0" />
+                    <span>{service.warranty[lang]}</span>
                   </span>
                 </div>
-                <div className="absolute bottom-4 left-4 right-4 text-white z-10">
-                  <h3 className="text-lg sm:text-xl font-bold font-serif-classic leading-snug">
-                    {service.title[lang]}
-                  </h3>
+
+                {/* Bottom Badges Strip on Image: Tech Origin & Duration */}
+                <div className="absolute bottom-3 inset-x-3 flex items-center justify-between gap-2 z-10 pointer-events-none">
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-sm text-[11px] font-semibold text-slate-200 border border-white/10">
+                    <IconSparkleStar className="w-3 h-3 text-amber-300 shrink-0" />
+                    <span>{service.techTag?.[lang] || service.category[lang]}</span>
+                  </span>
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-sm text-[11px] font-semibold text-slate-200 border border-white/10">
+                    <IconClock className="w-3 h-3 text-brandOrange shrink-0" />
+                    <span>{service.duration[lang]}</span>
+                  </span>
                 </div>
               </div>
 
+              {/* Floating Medical Icon Disc on Image Border & Feature Pill */}
+              <div className="px-6 -mt-6 relative z-20 flex justify-between items-end">
+                <span className="w-13 h-13 rounded-2xl bg-white shadow-xl border-2 border-amber-200/90 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                  {service.icon}
+                </span>
+                <span className="text-[10px] font-black uppercase tracking-wider text-primary bg-red-50 border border-red-200/70 px-3 py-1 rounded-full shadow-2xs mb-1">
+                  {service.featurePill?.[lang] || (lang === "uz" ? "100% Og'riqsiz" : lang === "ru" ? "100% Без боли" : "100% Gentle")}
+                </span>
+              </div>
+
               {/* Body */}
-              <div className="p-6 space-y-4">
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  {service.shortDesc[lang]}
-                </p>
+              <div className="p-6 pt-3 space-y-4">
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-0.5">
+                    {service.category[lang]}
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold font-serif-classic text-slate-900 group-hover:text-primary transition-colors leading-snug">
+                    {service.title[lang]}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                    {service.shortDesc[lang]}
+                  </p>
+                </div>
 
                 <div className="space-y-2 pt-2 border-t border-amber-100">
                   {service.highlights[lang].map((hl, idx) => (
                     <div key={idx} className="flex items-start gap-2 text-xs text-slate-700">
                       <IconCheckCircle className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                      <span>{hl}</span>
+                      <span className="leading-snug">{hl}</span>
                     </div>
                   ))}
-                </div>
-
-                <div className="pt-3 border-t border-amber-100 flex items-center justify-between text-xs font-semibold text-slate-500">
-                  <span className="flex items-center gap-1.5">
-                    <IconClock className="w-3.5 h-3.5 text-brandOrange" />
-                    <span>{service.duration[lang]}</span>
-                  </span>
-                  <span className="flex items-center gap-1.5 text-emerald-700 font-bold">
-                    <IconShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>{service.warranty[lang]}</span>
-                  </span>
                 </div>
               </div>
             </div>
 
             {/* Footer Buttons */}
-            <div className="p-6 pt-0 flex items-center justify-between gap-3 border-t border-slate-50">
+            <div className="p-6 pt-0 flex items-center justify-between gap-3 border-t border-amber-100/60 mt-2">
               <Link
                 to={to(`/services/${service.id}`)}
-                className="text-xs font-bold text-slate-700 hover:text-primary transition-colors"
+                className="text-xs font-bold text-slate-700 hover:text-primary transition-colors flex items-center gap-1 group/btn"
               >
-                {lang === "uz" ? "Batafsil ma'lumot →" : lang === "ru" ? "Подробнее →" : "Full details →"}
+                <span>{lang === "uz" ? "Batafsil ma'lumot" : lang === "ru" ? "Подробнее" : "Full details"}</span>
+                <span className="group-hover/btn:translate-x-1 transition-transform">→</span>
               </Link>
               <button
                 onClick={() => onOpenBooking(service.id)}

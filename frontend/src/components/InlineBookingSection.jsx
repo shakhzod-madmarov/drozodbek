@@ -3,21 +3,17 @@ import { useLanguage } from "../context/LanguageContext";
 import { toast } from "react-toastify";
 import confetti from "canvas-confetti";
 import {
-  IconClock,
-  IconCheckCircle,
   IconPhone,
   IconTelegram,
-  IconShieldCheck,
 } from "./MedicalIcons";
 import { DOCTOR_INFO } from "../constants/doctor";
 import {
   fetchDentistAvailability,
   submitDentistBooking,
   buildWorkingHoursSchedule,
-} from "../lib/bookingRelay";
+} from "../lib/medinsonBooking";
 import {
   formatUzPhone,
-  PHONE_PLACEHOLDER,
   isUzPhoneComplete,
 } from "../utils/phone";
 import { CLASSIC_SERVICES } from "../constants/bookingServices";
@@ -54,106 +50,121 @@ const TEXT = {
     kicker: "Onlayn qabul · Dr. Ozodbek Otaxonov",
     heading: "Uchrashuv vaqtini tanlang",
     sub: "Bo'sh kun va soatni tanlab, Dr. Ozodbek Otaxonov qabuliga navbatsiz yoziling.",
-    defaultDaysLabel: "Dushanba - Shanba",
+    defaultDaysLabel: "Dushanba - Shanba (08:30 – 18:30)",
     serviceLabel: "Xizmat yo'nalishi",
     dayGroupLabel: "1-qadam: Qabul kunini tanlang",
     timeGroupLabel: "2-qadam: Bo'sh vaqtni tanlang",
     selectedSlotLabel: "Tanlangan vaqt:",
-    nameLabel: "Ism-sharif *",
+    nameLabel: "Ism va familiya *",
     phoneLabel: "Telefon raqami *",
-    noteLabel: "Shikoyat yoki tanlangan xizmat",
+    dobLabel: "Tug'ilgan sana (ixtiyoriy)",
+    dobHint: "Bir xil telefon raqamidan oila a'zolari yozilganda bemorlarni farqlash uchun yordam beradi.",
+    noteLabel: "Shikoyat yoki izoh (ixtiyoriy)",
     namePlaceholder: "Masalan: Sardorbek Karimov",
     phonePlaceholder: "+998 97 833 89 97",
+    dobPlaceholder: "YYYY-MM-DD",
     notePlaceholder: "Implant, breket, karonka, vinir yoki og'riqsiz davolash bo'yicha...",
-    submit: "Tasdiqlash va Qabulga Yozilish",
+    submit: "Qabulga Yozilishni Tasdiqlash",
     submitting: "Yuborilmoqda...",
-    needName: "Iltimos, ism-sharifingiz va telefon raqamingizni kiriting",
+    needName: "Iltimos, ism va familiyangizni kiriting",
+    needPhone: "Iltimos, to'liq telefon raqamini kiriting",
     needTime: "Iltimos, sana va vaqtni tanlang",
-    taken: "Bu vaqt band qilingan. Iltimos, boshqa soatni tanlang.",
+    conflictError: "Bu vaqt band qilingan. Iltimos, boshqa vaqtni tanlang.",
     failed: "So'rovni yuborib bo'lmadi. Iltimos, telefon orqali bog'laning.",
-    successBadge: "Qabul so'rovi muvaffaqiyatli qabul qilindi",
-    successTitle: "Navbatingiz ro'yxatga olindi!",
-    successBody:
-      "So'rovingiz Dr. Ozodbek Otaxonovga yetkazildi. Telegram orqali 1-bosishda tasdiqlashingiz mumkin:",
+    pausedNotice: "Onlayn qabul vaqtlari yangilanmoqda. To'g'ridan-to'g'ri telefon orqali ham yozilishingiz mumkin:",
+    successBadge: "Qabul so'rovi qabul qilindi",
+    successTitle: "Qabulingiz muvaffaqiyatli ro'yxatga olindi!",
+    successBody: "So‘rovingiz qabul qilindi. Klinika tez orada siz bilan bog‘lanadi.",
     summaryPatient: "Bemor",
     summaryPhone: "Telefon",
+    summaryDob: "Tug'ilgan sana",
     summaryService: "Xizmat",
-    summaryWhen: "Sana va soat",
-    botTitle: "📲 Telegram orqali tasdiqlash va eslatma",
-    botDesc:
-      "Qabul vaqti haqida xabar berish uchun Telegram tugmasini bosing:",
-    botBtn: "Telegram orqali xabar yuborish (@Stamatolog07) ↗",
-    callBtn: "Telefon orqali qo'ng'iroq qilish",
+    summaryWhen: "Qabul vaqti",
+    telegramCardTitle: "📲 Telegram eslatmani yoqing",
+    telegramCardDesc: "Qabul vaqti yaqinlashganda Telegram orqali avtomatik eslatma olish uchun quyidagi tugmani bosing va botda START tugmasini bosing.",
+    telegramCardBtn: "Telegram botga ulanish ↗",
+    callBtn: "Klinikaga qo'ng'iroq qilish",
+    bookAnother: "← Yangi qabulga yozilish",
   },
   ru: {
     kicker: "Онлайн приём · Д-р Озодбек Отахонов",
     heading: "Выберите удобное время визита",
     sub: "Выберите свободный день и время для записи на приём к Д-ру Озодбеку Отахонову без очереди.",
-    defaultDaysLabel: "Понедельник - Суббота",
+    defaultDaysLabel: "Понедельник - Суббота (08:30 – 18:30)",
     serviceLabel: "Направление лечения",
-    dayGroupLabel: "Шаг 1: Выберите день",
+    dayGroupLabel: "Шаг 1: Выберите день приёма",
     timeGroupLabel: "Шаг 2: Выберите свободное время",
     selectedSlotLabel: "Выбранное время:",
-    nameLabel: "Ваше имя *",
+    nameLabel: "Имя и фамилия *",
     phoneLabel: "Номер телефона *",
-    noteLabel: "Жалоба или пожелание",
+    dobLabel: "Дата рождения (необязательно)",
+    dobHint: "Помогает клинике различать членов семьи при записи с одного номера телефона.",
+    noteLabel: "Жалоба или комментарий (необязательно)",
     namePlaceholder: "Например: Сардор Каримов",
     phonePlaceholder: "+998 97 833 89 97",
-    notePlaceholder: "Имплантация, брекеты, коронки, виниры или острая боль...",
-    submit: "Подтвердить Запись на Приём",
+    dobPlaceholder: "ГГГГ-ММ-ДД",
+    notePlaceholder: "Имплантация, брекеты, коронки, виниры или зубная боль...",
+    submit: "Подтвердить запись на приём",
     submitting: "Отправка...",
-    needName: "Пожалуйста, введите имя и номер телефона",
+    needName: "Пожалуйста, введите имя и фамилию",
+    needPhone: "Пожалуйста, введите полный номер телефона",
     needTime: "Пожалуйста, выберите дату и время",
-    taken: "Это время уже занято. Пожалуйста, выберите другое.",
+    conflictError: "Bu vaqt band qilingan. Iltimos, boshqa vaqtni tanlang.",
     failed: "Не удалось отправить заявку. Пожалуйста, позвоните нам.",
+    pausedNotice: "Онлайн слоты обновляются. Записаться можно также напрямую по телефону:",
     successBadge: "Заявка успешно зарегистрирована",
     successTitle: "Вы записаны на приём!",
-    successBody:
-      "Ваша запись зарегистрирована. Подтвердите её в Telegram одним нажатием:",
+    successBody: "So‘rovingiz qabul qilindi. Klinika tez orada siz bilan bog‘lanadi.",
     summaryPatient: "Пациент",
     summaryPhone: "Телефон",
+    summaryDob: "Дата рождения",
     summaryService: "Услуга",
     summaryWhen: "Дата и время",
-    botTitle: "📲 Подтверждение и напоминание в Telegram",
-    botDesc:
-      "Нажмите кнопку Telegram для быстрой отправки деталей доктору:",
-    botBtn: "Отправить в Telegram (@Stamatolog07) ↗",
-    callBtn: "Позвонить по телефону",
+    telegramCardTitle: "📲 Telegram eslatmani yoqing",
+    telegramCardDesc: "Qabul vaqti yaqinlashganda Telegram orqali avtomatik eslatma olish uchun quyidagi tugmani bosing va botda START tugmasini bosing.",
+    telegramCardBtn: "Telegram botga ulanish ↗",
+    callBtn: "Позвонить в клинику",
+    bookAnother: "← Записаться ещё раз",
   },
   en: {
     kicker: "Online Appointment · Dr. Ozodbek Otaxonov",
     heading: "Select your visit time",
     sub: "Choose an available date and time slot to reserve your appointment with Dr. Ozodbek Otaxonov.",
-    defaultDaysLabel: "Monday - Saturday",
+    defaultDaysLabel: "Monday - Saturday (08:30 – 18:30)",
     serviceLabel: "Service Specialty",
     dayGroupLabel: "Step 1: Choose appointment date",
     timeGroupLabel: "Step 2: Choose available time",
     selectedSlotLabel: "Selected slot:",
     nameLabel: "Full Name *",
     phoneLabel: "Phone Number *",
-    noteLabel: "Concern or Notes",
+    dobLabel: "Date of Birth (optional)",
+    dobHint: "Helps distinguish family members sharing the same contact phone number.",
+    noteLabel: "Complaint or Note (optional)",
     namePlaceholder: "e.g. Sardor Karimov",
     phonePlaceholder: "+998 97 833 89 97",
+    dobPlaceholder: "YYYY-MM-DD",
     notePlaceholder: "Implants, braces, crowns, veneers or toothache...",
     submit: "Confirm Appointment Booking",
     submitting: "Submitting...",
-    needName: "Please enter your name and phone number",
+    needName: "Please enter your full name",
+    needPhone: "Please enter a complete phone number",
     needTime: "Please choose a date and time slot",
-    taken: "This slot is already booked. Please choose another slot.",
+    conflictError: "Bu vaqt band qilingan. Iltimos, boshqa vaqtni tanlang.",
     failed: "Submission failed. Please call us directly.",
+    pausedNotice: "Online slots are refreshing. You can also book directly by phone:",
     successBadge: "Appointment Request Confirmed",
     successTitle: "Your visit has been registered!",
-    successBody:
-      "Your appointment has been registered. Confirm with Dr. Ozodbek via Telegram:",
+    successBody: "So‘rovingiz qabul qilindi. Klinika tez orada siz bilan bog‘lanadi.",
     summaryPatient: "Patient",
     summaryPhone: "Phone",
+    summaryDob: "Date of Birth",
     summaryService: "Service",
     summaryWhen: "Date & Time",
-    botTitle: "📲 Telegram Confirmation & Reminder",
-    botDesc:
-      "Click the Telegram button below to send details directly to the doctor:",
-    botBtn: "Open Telegram Chat (@Stamatolog07) ↗",
-    callBtn: "Call Doctor Directly",
+    telegramCardTitle: "📲 Telegram eslatmani yoqing",
+    telegramCardDesc: "Qabul vaqti yaqinlashganda Telegram orqali avtomatik eslatma olish uchun quyidagi tugmani bosing va botda START tugmasini bosing.",
+    telegramCardBtn: "Telegram botga ulanish ↗",
+    callBtn: "Call Clinic Directly",
+    bookAnother: "← Book another appointment",
   },
 };
 
@@ -167,29 +178,47 @@ const InlineBookingSection = () => {
   const [service, setService] = useState(CLASSIC_SERVICES[0].id);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("+998 ");
+  const [dob, setDob] = useState("");
   const [note, setNote] = useState("");
   const [errors, setErrors] = useState({});
 
+  const [isRelayEnabled, setIsRelayEnabled] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [bookingResult, setBookingResult] = useState(null);
   const [botQr, setBotQr] = useState("");
 
-  const loadAvailability = useCallback(() => {
-    fetchDentistAvailability()
-      .then((data) => {
-        if (Array.isArray(data?.days) && data.days.length > 0) {
-          setDays(data.days);
+  const loadAvailability = useCallback(async () => {
+    try {
+      const data = await fetchDentistAvailability();
+      if (data?.enabled === false) {
+        setIsRelayEnabled(false);
+        const fallback = buildWorkingHoursSchedule(10);
+        setDays(fallback);
+        return;
+      }
+      if (Array.isArray(data?.days)) {
+        // Only show dates present in days where times.length > 0
+        const activeDays = data.days.filter((d) => Array.isArray(d.times) && d.times.length > 0);
+        if (activeDays.length > 0) {
+          setIsRelayEnabled(true);
+          setDays(activeDays);
           setSelectedDate((cur) => {
-            const match = data.days.find((d) => d.date === cur) || data.days[0];
+            const match = activeDays.find((d) => d.date === cur) || activeDays[0];
             if (match) {
               setSelectedTime((curT) => (match.times.includes(curT) ? curT : match.times[0] || ""));
             }
             return match ? match.date : "";
           });
+          return;
         }
-      })
-      .catch(() => {});
+      }
+      setIsRelayEnabled(false);
+      setDays(buildWorkingHoursSchedule(10));
+    } catch {
+      setIsRelayEnabled(false);
+      setDays(buildWorkingHoursSchedule(10));
+    }
   }, []);
 
   useEffect(() => {
@@ -217,7 +246,7 @@ const InlineBookingSection = () => {
     const nextErrors = {};
     if (name.trim().length < 2) nextErrors.name = t.needName;
     if (!phone.trim() || !isUzPhoneComplete(phone)) {
-      nextErrors.phone = lang === "ru" ? "Неверный номер телефона" : "Telefon raqami to'liq kiritilishi kerak";
+      nextErrors.phone = t.needPhone;
     }
     if (Object.keys(nextErrors).length > 0) {
       setErrors(nextErrors);
@@ -237,6 +266,7 @@ const InlineBookingSection = () => {
         time: selectedTime,
         name: name.trim(),
         phone: phone.trim(),
+        dob: dob.trim(),
         note: combinedNote,
       });
 
@@ -248,7 +278,7 @@ const InlineBookingSection = () => {
             (mod.default || mod).toDataURL(res.telegramUrl, {
               margin: 2,
               width: 180,
-              color: { dark: "#DF301C", light: "#ffffff" },
+              color: { dark: "#0088cc", light: "#ffffff" },
             }),
           )
           .then(setBotQr)
@@ -256,14 +286,22 @@ const InlineBookingSection = () => {
       }
 
       setIsSuccess(true);
+      // Automatically re-fetch availability so the booked time slot is immediately removed
+      loadAvailability();
+
       confetti({
         particleCount: 80,
         spread: 70,
         origin: { y: 0.6 },
         colors: ["#DF301C", "#FF9100", "#00B7CD"],
       });
-    } catch {
-      toast.error(t.failed);
+    } catch (err) {
+      if (err?.status === 409) {
+        toast.error(t.conflictError);
+        loadAvailability();
+        return;
+      }
+      toast.error(err?.message || t.failed);
     } finally {
       setIsSubmitting(false);
     }
@@ -272,7 +310,7 @@ const InlineBookingSection = () => {
   if (isSuccess && bookingResult) {
     return (
       <section id="booking" className="py-12 bg-white rounded-3xl border border-amber-200 shadow-luxury p-6 sm:p-10 text-center max-w-3xl mx-auto space-y-6">
-        <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto text-2xl">
+        <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto text-2xl font-black">
           ✓
         </div>
         <div className="space-y-2">
@@ -288,58 +326,70 @@ const InlineBookingSection = () => {
         </div>
 
         {/* Appointment Summary */}
-        <div className="p-5 rounded-2xl bg-[#FFFDF9] border border-amber-200 text-left space-y-2 text-xs sm:text-sm">
-          <div className="flex justify-between border-b pb-2">
+        <div className="p-5 rounded-2xl bg-[#FFFDF9] border border-amber-200 text-left space-y-2.5 text-xs sm:text-sm">
+          <div className="flex justify-between border-b border-amber-100 pb-2">
             <span className="text-slate-500">{t.summaryPatient}:</span>
             <span className="font-bold text-slate-900">{name}</span>
           </div>
-          <div className="flex justify-between border-b pb-2">
+          <div className="flex justify-between border-b border-amber-100 pb-2">
             <span className="text-slate-500">{t.summaryPhone}:</span>
             <span className="font-bold text-slate-900">{phone}</span>
           </div>
-          <div className="flex justify-between border-b pb-2">
+          {dob && (
+            <div className="flex justify-between border-b border-amber-100 pb-2">
+              <span className="text-slate-500">{t.summaryDob}:</span>
+              <span className="font-medium text-slate-700">{dob}</span>
+            </div>
+          )}
+          <div className="flex justify-between border-b border-amber-100 pb-2">
             <span className="text-slate-500">{t.summaryService}:</span>
             <span className="font-bold text-primary">{serviceLabel}</span>
           </div>
           <div className="flex justify-between pt-1">
             <span className="text-slate-500">{t.summaryWhen}:</span>
-            <span className="font-bold text-emerald-700">{formatDmy(selectedDate)} — {selectedTime}</span>
+            <span className="font-black text-emerald-700 text-sm sm:text-base">{formatDmy(selectedDate)} — {selectedTime}</span>
           </div>
         </div>
 
-        {/* Telegram Direct Action Box */}
-        <div className="p-6 rounded-2xl bg-sky-50 border border-sky-200 space-y-4">
-          <div className="space-y-1">
-            <h4 className="text-sm font-bold text-sky-950">{t.botTitle}</h4>
-            <p className="text-xs text-sky-800">{t.botDesc}</p>
-          </div>
-
-          {botQr && (
-            <div className="flex justify-center">
-              <img src={botQr} alt="Telegram QR" className="w-36 h-36 rounded-xl border border-sky-200 shadow-xs" />
+        {/* Telegram Action Card */}
+        {bookingResult.telegramUrl && (
+          <div className="p-6 rounded-2xl bg-gradient-to-br from-emerald-50 via-sky-50 to-amber-50/50 border border-emerald-200/80 space-y-4 text-left shadow-xs">
+            <div className="space-y-1 text-center sm:text-left">
+              <h4 className="text-base sm:text-lg font-bold text-slate-900 flex items-center justify-center sm:justify-start gap-2">
+                <span>{t.telegramCardTitle}</span>
+              </h4>
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                {t.telegramCardDesc}
+              </p>
             </div>
-          )}
 
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a
-              href={bookingResult.telegramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3.5 rounded-xl bg-[#0088cc] hover:bg-[#0077b5] text-white text-xs font-bold shadow-md transition-all flex items-center justify-center gap-2"
-            >
-              <IconTelegram className="w-4 h-4 text-white" />
-              <span>{t.botBtn}</span>
-            </a>
+            {botQr && (
+              <div className="flex justify-center pt-1">
+                <img src={botQr} alt="Telegram QR" className="w-36 h-36 rounded-xl border border-sky-200 shadow-xs bg-white p-1.5" />
+              </div>
+            )}
 
-            <a
-              href={DOCTOR_INFO.phoneHref}
-              className="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 text-xs font-bold transition-all flex items-center justify-center gap-2"
-            >
-              <IconPhone className="w-4 h-4 text-primary" />
-              <span>{DOCTOR_INFO.phoneDisplay}</span>
-            </a>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center sm:justify-start pt-2">
+              <a
+                href={bookingResult.telegramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3.5 rounded-xl bg-[#0088cc] hover:bg-[#0077b5] text-white text-xs sm:text-sm font-bold shadow-luxury hover:shadow-luxury-lg hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
+              >
+                <IconTelegram className="w-4 h-4 text-white" />
+                <span>{t.telegramCardBtn}</span>
+              </a>
+
+              <a
+                href={DOCTOR_INFO.phoneHref}
+                className="px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2"
+              >
+                <IconPhone className="w-4 h-4 text-primary" />
+                <span>{DOCTOR_INFO.phoneDisplay}</span>
+              </a>
+            </div>
           </div>
-        </div>
+        )}
 
         <button
           onClick={() => {
@@ -348,7 +398,7 @@ const InlineBookingSection = () => {
           }}
           className="text-xs font-bold text-slate-500 hover:text-primary transition-colors cursor-pointer"
         >
-          ← {lang === "uz" ? "Yangi qabulga yozilish" : lang === "ru" ? "Записаться ещё раз" : "Book another appointment"}
+          {t.bookAnother}
         </button>
       </section>
     );
@@ -369,6 +419,22 @@ const InlineBookingSection = () => {
             {t.sub}
           </p>
         </div>
+
+        {/* Fallback polite banner if online booking paused on relay */}
+        {!isRelayEnabled && (
+          <div className="p-3.5 rounded-2xl bg-amber-50/80 border border-amber-200 text-xs text-amber-900 flex flex-col sm:flex-row items-center justify-between gap-2.5">
+            <div className="flex items-center gap-2">
+              <span className="text-base">📞</span>
+              <span>{t.pausedNotice}</span>
+            </div>
+            <a
+              href={DOCTOR_INFO.phoneHref}
+              className="px-3.5 py-1.5 rounded-xl bg-primary text-white font-bold text-xs hover:bg-primary-hover transition-colors whitespace-nowrap"
+            >
+              {DOCTOR_INFO.phoneDisplay}
+            </a>
+          </div>
+        )}
 
         <form onSubmit={handleSubmit} className="space-y-8">
           {/* Service Selector */}
@@ -468,6 +534,7 @@ const InlineBookingSection = () => {
 
           {/* Step 3: Patient Form Fields */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-amber-100">
+            {/* Full Name */}
             <div className="space-y-1.5">
               <label className="block text-xs font-bold text-slate-700">
                 {t.nameLabel}
@@ -482,6 +549,7 @@ const InlineBookingSection = () => {
               />
             </div>
 
+            {/* Phone */}
             <div className="space-y-1.5">
               <label className="block text-xs font-bold text-slate-700">
                 {t.phoneLabel}
@@ -496,7 +564,30 @@ const InlineBookingSection = () => {
               />
             </div>
 
-            <div className="sm:col-span-2 space-y-1.5">
+            {/* Date of Birth (dob) */}
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between">
+                <label className="block text-xs font-bold text-slate-700">
+                  {t.dobLabel}
+                </label>
+                <span className="text-[10px] text-slate-400 font-medium">YYYY-MM-DD</span>
+              </div>
+              <input
+                type="date"
+                value={dob}
+                onChange={(e) => setDob(e.target.value)}
+                min="1920-01-01"
+                max={new Date().toISOString().split("T")[0]}
+                placeholder={t.dobPlaceholder}
+                className="w-full px-4 py-3 rounded-xl border border-amber-200 bg-[#FFFDF9] focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary text-sm font-medium"
+              />
+              <p className="text-[11px] text-slate-500 leading-tight">
+                {t.dobHint}
+              </p>
+            </div>
+
+            {/* Note / Complaint */}
+            <div className="space-y-1.5">
               <label className="block text-xs font-bold text-slate-700">
                 {t.noteLabel}
               </label>

@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       VITE_MEDINSON_DOMAIN: drozodbek.uz
-      VITE_MEDINSON_SITE_ID: drozodbek
+      VITE_MEDINSON_SITE_ID: pk54wckfbg
       VITE_MEDINSON_API_URL: https://dentist-medinson-license.uz
     steps:
       - name: Checkout

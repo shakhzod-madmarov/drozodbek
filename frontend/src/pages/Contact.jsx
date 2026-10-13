@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
 import { useBooking } from "../context/BookingContext";
 import { DOCTOR_INFO, OPENING_HOURS } from "../constants/doctor";
+import { PRIMARY_CLINIC } from "../constants/clinics";
 import { PAGE_SEO, PAGE_KEYWORDS } from "../constants/seo";
 import Seo from "../components/Seo";
 import { buildContactPageSchema } from "../utils/structuredData";
@@ -78,20 +79,22 @@ const Contact = () => {
         </p>
       </div>
 
-      {/* 3 Contact Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* 4 Contact & Location Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {/* Phone */}
-        <div className="p-6 rounded-3xl bg-white border border-amber-200 shadow-sm space-y-4">
-          <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
-            <IconPhone className="w-6 h-6 text-primary" />
-          </div>
-          <div>
-            <h3 className="text-base font-bold text-slate-900">
-              {lang === "uz" ? "Telefon Qo'ng'irog'i" : "Телефонная Связь"}
-            </h3>
-            <p className="text-xs text-slate-500 mt-1">
-              {hours.full}
-            </p>
+        <div className="p-6 rounded-3xl bg-white border border-amber-200 shadow-sm space-y-4 flex flex-col justify-between">
+          <div className="space-y-4">
+            <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
+              <IconPhone className="w-6 h-6 text-primary" />
+            </div>
+            <div>
+              <h3 className="text-base font-bold text-slate-900">
+                {lang === "uz" ? "Shifokor Telefoni" : "Телефон Врача"}
+              </h3>
+              <p className="text-xs text-slate-500 mt-1">
+                {hours.full}
+              </p>
+            </div>
           </div>
           <a
             href={DOCTOR_INFO.phoneHref}
@@ -102,17 +105,19 @@ const Contact = () => {
         </div>
 
         {/* Telegram */}
-        <div className="p-6 rounded-3xl bg-white border border-amber-200 shadow-sm space-y-4">
-          <div className="w-12 h-12 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center">
-            <IconTelegram className="w-6 h-6 text-sky-500" />
-          </div>
-          <div>
-            <h3 className="text-base font-bold text-slate-900">
-              Telegram Chat
-            </h3>
-            <p className="text-xs text-slate-500 mt-1">
-              {lang === "uz" ? "Savollar va konsultatsiya uchun:" : "Для вопросов и консультаций:"}
-            </p>
+        <div className="p-6 rounded-3xl bg-white border border-amber-200 shadow-sm space-y-4 flex flex-col justify-between">
+          <div className="space-y-4">
+            <div className="w-12 h-12 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center">
+              <IconTelegram className="w-6 h-6 text-sky-500" />
+            </div>
+            <div>
+              <h3 className="text-base font-bold text-slate-900">
+                Telegram Chat
+              </h3>
+              <p className="text-xs text-slate-500 mt-1">
+                {lang === "uz" ? "Savollar va konsultatsiya uchun:" : "Для вопросов и консультаций:"}
+              </p>
+            </div>
           </div>
           <a
             href={DOCTOR_INFO.telegramUrl}
@@ -125,17 +130,19 @@ const Contact = () => {
         </div>
 
         {/* Instagram */}
-        <div className="p-6 rounded-3xl bg-white border border-amber-200 shadow-sm space-y-4">
-          <div className="w-12 h-12 rounded-2xl bg-pink-50 text-pink-600 flex items-center justify-center">
-            <IconInstagram className="w-6 h-6 text-pink-500" />
-          </div>
-          <div>
-            <h3 className="text-base font-bold text-slate-900">
-              Instagram Profil
-            </h3>
-            <p className="text-xs text-slate-500 mt-1">
-              {lang === "uz" ? "Klinik ishlar va natijalar videosi:" : "Фото и видео до/после лечения:"}
-            </p>
+        <div className="p-6 rounded-3xl bg-white border border-amber-200 shadow-sm space-y-4 flex flex-col justify-between">
+          <div className="space-y-4">
+            <div className="w-12 h-12 rounded-2xl bg-pink-50 text-pink-600 flex items-center justify-center">
+              <IconInstagram className="w-6 h-6 text-pink-500" />
+            </div>
+            <div>
+              <h3 className="text-base font-bold text-slate-900">
+                Instagram Profil
+              </h3>
+              <p className="text-xs text-slate-500 mt-1">
+                {lang === "uz" ? "Klinik ishlar va natijalar videosi:" : "Фото и видео до/после лечения:"}
+              </p>
+            </div>
           </div>
           <a
             href={DOCTOR_INFO.instagramUrl}
@@ -145,6 +152,42 @@ const Contact = () => {
           >
             @_vrach_stomatolog ↗
           </a>
+        </div>
+
+        {/* Clinic Location Card */}
+        <div className="p-6 rounded-3xl bg-white border border-amber-200 shadow-sm space-y-4 flex flex-col justify-between">
+          <div className="space-y-4">
+            <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center">
+              <IconLocationPin className="w-6 h-6 text-primary" />
+            </div>
+            <div>
+              <h3 className="text-base font-bold text-slate-900">
+                Smiles Dental Group
+              </h3>
+              <p className="text-xs text-slate-500 mt-1 leading-relaxed">
+                {PRIMARY_CLINIC.shortAddress[lang]}
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 text-xs font-bold pt-1">
+            <a
+              href={PRIMARY_CLINIC.maps.google}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              Google
+            </a>
+            <span className="text-slate-300">•</span>
+            <a
+              href={PRIMARY_CLINIC.maps.yandex}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              Yandex
+            </a>
+          </div>
         </div>
       </div>
 

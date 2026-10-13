@@ -55,19 +55,19 @@ export const PAGE_SEO = {
   },
   contact: {
     uz: {
-      title: "Aloqa va Manzil — Dr. Ozodbek Otaxonov | Vrach Stomatolog",
+      title: "Aloqa va Manzil — Dr. Ozodbek Otaxonov | Smiles Dental Group Andijon",
       description:
-        "Dr. Ozodbek Otaxonov qabuliga yozilish. Telefon: +998 97 833 89 97, Telegram: @Stamatolog07, Instagram: @_vrach_stomatolog.",
+        "Dr. Ozodbek Otaxonov qabuli — Smiles Dental Group (Andijon, 1-kichik daha, 8A-bino). Telefon: +998 97 833 89 97, Telegram: @Stamatolog07, Instagram: @_vrach_stomatolog.",
     },
     ru: {
-      title: "Контакты и Запись на Приём — Д-р Озодбек Отахонов",
+      title: "Контакты и Адрес — Д-р Озодбек Отахонов | Smiles Dental Group Андижан",
       description:
-        "Запись на приём к Д-ру Озодбеку Отахонову. Телефон: +998 97 833 89 97, Telegram: @Stamatolog07, Instagram: @_vrach_stomatolog.",
+        "Приём Д-ра Озодбека Отахонова в клинике Smiles Dental Group (г. Андижан, 1-й микрорайон, 8A). Телефон: +998 97 833 89 97, Telegram: @Stamatolog07.",
     },
     en: {
-      title: "Contact & Appointment Booking — Dr. Ozodbek Otaxonov",
+      title: "Contact & Location — Dr. Ozodbek Otaxonov | Smiles Dental Group Andijan",
       description:
-        "Book an appointment with Dr. Ozodbek Otaxonov. Phone: +998 97 833 89 97, Telegram: @Stamatolog07, Instagram: @_vrach_stomatolog.",
+        "Book visit with Dr. Ozodbek Otaxonov at Smiles Dental Group (8A, 1st Microdistrict, Andijan). Tel: +998 97 833 89 97, Telegram: @Stamatolog07.",
     },
   },
   booking: {
@@ -108,6 +108,11 @@ export const PAGE_KEYWORDS = {
     "dr ozodbek otaxonov",
     "ozodbek stomatolog",
     "vrach stomatolog",
+    "smiles dental group",
+    "smiles dental group andijon",
+    "stomatolog andijon",
+    "andijon tish davolash",
+    "andijon implantat",
     "stomatolog 10 yil tajriba",
     "dental implant",
     "megagen implant",
@@ -127,6 +132,10 @@ export const PAGE_KEYWORDS = {
     "озодбек отахонов",
     "стоматолог озодбек",
     "врач стоматолог",
+    "smiles dental group",
+    "смайлс дентал групп",
+    "смайлс дентал групп андижан",
+    "стоматолог андижан",
     "имплантация megagen",
     "брекеты",
     "циркониевые коронки",
@@ -142,6 +151,10 @@ export const PAGE_KEYWORDS = {
   en: [
     "dr ozodbek otaxonov",
     "dentist ozodbek",
+    "smiles dental group",
+    "smiles dental group andijan",
+    "dentist andijan",
+    "dental clinic andijan",
     "dental implants megagen",
     "orthodontic braces",
     "zirconia crowns",

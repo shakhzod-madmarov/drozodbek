@@ -1,6 +1,7 @@
 import { SITE_ORIGIN } from "../constants/seo";
 import { localizePath } from "./language";
 import { DOCTOR_INFO } from "../constants/doctor";
+import { PRIMARY_CLINIC } from "../constants/clinics";
 
 export const withTrailingSlash = (path) => (path.endsWith("/") ? path : `${path}/`);
 
@@ -167,10 +168,27 @@ export const buildContactPageSchema = (lang = "uz", breadcrumbs = []) => {
     "url": pageUrl,
     "name": lang === "ru" ? "Контакты" : lang === "en" ? "Contact" : "Aloqa",
     "mainEntity": {
-      "@type": "Dentist",
+      "@type": ["Dentist", "MedicalBusiness"],
       "@id": `${SITE_ORIGIN}/#dentist`,
-      "name": DOCTOR_INFO.name,
+      "name": `${DOCTOR_INFO.name} — Smiles Dental Group`,
       "telephone": DOCTOR_INFO.phoneRaw,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1-kichik daha (1-mikrorayon), 8A-bino",
+        "addressLocality": "Andijon",
+        "addressRegion": "Andijon viloyati",
+        "postalCode": "170100",
+        "addressCountry": "UZ",
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": PRIMARY_CLINIC.coordinates.lat,
+        "longitude": PRIMARY_CLINIC.coordinates.lng,
+      },
+      "hasMap": [
+        PRIMARY_CLINIC.maps.googleFull,
+        PRIMARY_CLINIC.maps.yandex,
+      ],
     },
   };
 
@@ -229,10 +247,36 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
     "inLanguage": ["uz", "ru", "en"],
   };
 
+  const clinicEntity = {
+    "@type": "DentalClinic",
+    "@id": `${SITE_ORIGIN}/#clinic`,
+    "name": "Smiles Dental Group",
+    "alternateName": ["Smiles dental group", "Смайлс Дентал Групп", "SMILES DENTAL GROUP"],
+    "telephone": PRIMARY_CLINIC.clinicPhoneRaw,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1-kichik daha, 8A-bino",
+      "addressLocality": "Andijon",
+      "addressRegion": "Andijon viloyati",
+      "postalCode": "170100",
+      "addressCountry": "UZ",
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": PRIMARY_CLINIC.coordinates.lat,
+      "longitude": PRIMARY_CLINIC.coordinates.lng,
+    },
+    "hasMap": [
+      PRIMARY_CLINIC.maps.googleFull,
+      PRIMARY_CLINIC.maps.yandex,
+    ],
+  };
+
   const dentistEntity = {
     "@type": ["Dentist", "MedicalBusiness"],
     "@id": `${SITE_ORIGIN}/#dentist`,
-    "name": `${DOCTOR_INFO.name} — Stomatologiya`,
+    "name": `${DOCTOR_INFO.name} — Smiles Dental Group`,
+    "alternateName": [`${DOCTOR_INFO.name} Stomatolog`, "Dr. Ozodbek Otaxonov"],
     "url": `${SITE_ORIGIN}/`,
     "logo": `${SITE_ORIGIN}/logo_icon.png`,
     "image": `${SITE_ORIGIN}/dr_ozodbek_og.jpg`,
@@ -240,17 +284,29 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
     "priceRange": "$$",
     "currenciesAccepted": "UZS",
     "paymentAccepted": "Cash, Payme, Click, Uzum",
+    "parentOrganization": {
+      "@id": `${SITE_ORIGIN}/#clinic`,
+    },
+    "containedInPlace": {
+      "@id": `${SITE_ORIGIN}/#clinic`,
+    },
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "1-kichik daha (1-mikrorayon), 8A-bino",
       "addressLocality": "Andijon",
       "addressRegion": "Andijon viloyati",
+      "postalCode": "170100",
       "addressCountry": "UZ",
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 40.7821,
-      "longitude": 72.3442,
+      "latitude": PRIMARY_CLINIC.coordinates.lat,
+      "longitude": PRIMARY_CLINIC.coordinates.lng,
     },
+    "hasMap": [
+      PRIMARY_CLINIC.maps.googleFull,
+      PRIMARY_CLINIC.maps.yandex,
+    ],
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -268,6 +324,8 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
     "sameAs": [
       DOCTOR_INFO.telegramUrl,
       DOCTOR_INFO.instagramUrl,
+      PRIMARY_CLINIC.maps.googleFull,
+      PRIMARY_CLINIC.maps.yandex,
     ],
   };
 
@@ -276,20 +334,23 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
     "@id": `${SITE_ORIGIN}/#doctor`,
     "name": DOCTOR_INFO.name,
     "jobTitle": DOCTOR_INFO.title,
-    "description": `${DOCTOR_INFO.name} — 10 yillik tajribaga ega vrach stomatolog. Ukraina stomatologiya tibbiyot akademiyasi bitiruvchisi.`,
+    "description": `${DOCTOR_INFO.name} — 10 yillik tajribaga ega vrach stomatolog. Ukraina stomatologiya tibbiyot akademiyasi bitiruvchisi. Smiles Dental Group (Andijon).`,
     "telephone": DOCTOR_INFO.phoneRaw,
     "url": `${SITE_ORIGIN}/`,
     "image": `${SITE_ORIGIN}/dr_ozodbek_og.jpg`,
+    "worksFor": {
+      "@id": `${SITE_ORIGIN}/#clinic`,
+    },
     "alumniOf": {
       "@type": "EducationalOrganization",
       "name": DOCTOR_INFO.education[lang] || DOCTOR_INFO.education.uz,
     },
     "medicalSpecialty": "https://schema.org/Dentistry",
     "knowsAbout": [
-      "Dental implantatsiya",
+      "Dental implantatsiya MegaGen",
       "Ortodontik breketlar",
       "Sirkon va keramika karonkalar",
-      "Vinirlar",
+      "Vinirlar E-max",
       "Elaynerlar",
       "Tish oqartirish",
       "Og'riqsiz tish davolash",
@@ -297,10 +358,12 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
     "sameAs": [
       DOCTOR_INFO.telegramUrl,
       DOCTOR_INFO.instagramUrl,
+      PRIMARY_CLINIC.maps.googleFull,
+      PRIMARY_CLINIC.maps.yandex,
     ],
   };
 
-  const graph = [websiteEntity, dentistEntity, doctorEntity];
+  const graph = [websiteEntity, clinicEntity, dentistEntity, doctorEntity];
 
   if (Array.isArray(faqItems) && faqItems.length > 0) {
     graph.push({

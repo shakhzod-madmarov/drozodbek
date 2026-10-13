@@ -28,6 +28,8 @@ import {
   IconPhone,
   IconCheckCircle,
   IconGraduationCap,
+  IconTelegram,
+  IconInstagram,
 } from "../components/MedicalIcons";
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -177,72 +179,92 @@ const HeroSection = ({ onOpenBooking }) => {
           </div>
         </div>
 
-        {/* Right Visual (5 cols): Authentic Doctor Portrait & Brand Showcase */}
-        <div className="lg:col-span-5 relative">
-          <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#FFFDF9] via-amber-50/60 to-orange-50/40 border border-amber-200/70 p-6 sm:p-8 shadow-luxury text-center flex flex-col items-center justify-center space-y-4">
-            {/* Real Doctor Portrait */}
-            <div className="relative w-44 h-44 sm:w-52 sm:h-52 mx-auto rounded-3xl overflow-hidden bg-white shadow-luxury border-2 border-amber-200/80 group">
-              <img
-                src="/dr_ozodbek_portrait.png"
-                alt="Dr. Ozodbek Otaxonov — Vrach Stomatolog"
-                width={300}
-                height={300}
-                fetchPriority="high"
-                decoding="async"
-                className="w-full h-full object-cover object-top filter transition-transform duration-300 group-hover:scale-105"
-              />
-              <div className="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-xs text-[10px] font-black uppercase tracking-wider text-primary shadow-xs border border-amber-200">
-                10 Yil Tajriba
+        {/* Right Visual (5 cols): Authentic High-Def Doctor Portrait & Showcase */}
+        <div className="lg:col-span-5 relative flex justify-center">
+          <div className="relative w-full max-w-sm sm:max-w-md rounded-[2.5rem] overflow-hidden bg-gradient-to-b from-[#FFFDF8] via-[#FFF8EC] to-[#FFF1D1]/60 border-2 border-amber-200/80 shadow-luxury-lg group">
+            
+            {/* Top-Left Floating Trust Pill */}
+            <div className="absolute top-4 left-4 z-20 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-md border border-emerald-200/80 text-[11px] font-bold text-slate-800">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              </span>
+              <span>{lang === "uz" ? "Qabulga ochiq" : lang === "ru" ? "Приём открыт" : "Accepting Patients"}</span>
+            </div>
+
+            {/* Top-Right Floating Experience Pill */}
+            <div className="absolute top-4 right-4 z-20 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-md border border-amber-200/80 text-[11px] font-bold text-amber-900">
+              <IconAward className="w-3.5 h-3.5 text-brandOrange" />
+              <span>{t.stat1Num} {t.stat1Label}</span>
+            </div>
+
+            {/* High-Definition Doctor Portrait Container */}
+            <div className="relative w-full aspect-[4/4.8] overflow-hidden bg-gradient-to-b from-slate-100/40 via-amber-50/20 to-amber-100/30">
+              <picture>
+                <source srcSet="/dr_ozodbek_portrait_pro.webp" type="image/webp" />
+                <img
+                  src="/dr_ozodbek_portrait_pro.jpg"
+                  alt="Dr. Ozodbek Otaxonov — Vrach Stomatolog"
+                  width={600}
+                  height={720}
+                  fetchPriority="high"
+                  decoding="async"
+                  className="w-full h-full object-cover object-[center_top] filter transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+              </picture>
+            </div>
+
+            {/* Elegant Frosted Glass Identity & Channels Card */}
+            <div className="p-5 bg-white/95 backdrop-blur-md border-t border-amber-200/70 space-y-3.5">
+              <div className="text-center space-y-1">
+                <h2 className="font-serif-classic text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+                  Dr. Ozodbek Otaxonov
+                </h2>
+                <p className="text-xs font-bold uppercase tracking-wider text-primary">
+                  Vrach Stomatolog · Implantolog & Ortoped
+                </p>
+                <p className="text-xs text-slate-500 font-medium pt-0.5">
+                  Smiles Dental Group · Andijon
+                </p>
               </div>
-            </div>
 
-            <div className="space-y-1">
-              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 font-serif-classic">
-                Dr. Ozodbek Otaxonov
-              </h2>
-              <p className="text-xs font-bold uppercase tracking-wider text-primary">
-                Vrach Stomatolog · 10 Yillik Tajriba
-              </p>
-              <p className="text-xs text-slate-600 max-w-xs mx-auto leading-relaxed pt-1">
-                Ukraina stomatologiya tibbiyot akademiyasi (bakalavr). MegaGen sertifikatlangan implantolog va ortoped.
-              </p>
-            </div>
+              {/* Verified Trust Badges */}
+              <div className="flex flex-wrap items-center justify-center gap-1.5 pt-0.5">
+                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200/60 text-[10px] font-bold">
+                  <IconShieldCheck className="w-3 h-3 text-emerald-600" />
+                  <span>100% Steril</span>
+                </span>
+                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-amber-50 text-amber-900 border border-amber-200/60 text-[10px] font-bold">
+                  <IconAward className="w-3 h-3 text-brandOrange" />
+                  <span>MegaGen Implant</span>
+                </span>
+                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-cyan-50 text-cyan-900 border border-cyan-200/60 text-[10px] font-bold">
+                  <IconGraduationCap className="w-3 h-3 text-brandCyan" />
+                  <span>Ukraina Diplomi</span>
+                </span>
+              </div>
 
-            {/* Verification badges */}
-            <div className="flex flex-wrap items-center justify-center gap-1.5 pt-1">
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200/60 text-[10px] font-bold">
-                <IconShieldCheck className="w-3 h-3 text-emerald-600" />
-                <span>100% Steril</span>
-              </span>
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-amber-50 text-amber-900 border border-amber-200/60 text-[10px] font-bold">
-                <IconAward className="w-3 h-3 text-brandOrange" />
-                <span>MegaGen 2026</span>
-              </span>
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-cyan-50 text-cyan-900 border border-cyan-200/60 text-[10px] font-bold">
-                <IconGraduationCap className="w-3 h-3 text-brandCyan" />
-                <span>Ukraina Diplomi</span>
-              </span>
-            </div>
-
-            {/* Quick direct channel links */}
-            <div className="w-full pt-3.5 border-t border-amber-200/60 flex items-center justify-around text-xs font-semibold">
-              <a
-                href={DOCTOR_INFO.telegramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-50 text-sky-700 hover:bg-sky-100 transition-colors"
-              >
-                <span>✈ Telegram</span>
-              </a>
-              <span className="text-slate-300">•</span>
-              <a
-                href={DOCTOR_INFO.instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-pink-50 text-pink-700 hover:bg-pink-100 transition-colors"
-              >
-                <span>📸 Instagram</span>
-              </a>
+              {/* Direct Quick Channel Actions */}
+              <div className="grid grid-cols-2 gap-2 pt-1 text-xs font-semibold">
+                <a
+                  href={DOCTOR_INFO.telegramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-700 border border-sky-200/70 transition-colors"
+                >
+                  <IconTelegram className="w-3.5 h-3.5 text-sky-500" />
+                  <span>Telegram</span>
+                </a>
+                <a
+                  href={DOCTOR_INFO.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-pink-50 hover:bg-pink-100 text-pink-700 border border-pink-200/70 transition-colors"
+                >
+                  <IconInstagram className="w-3.5 h-3.5 text-pink-500" />
+                  <span>Instagram</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>

@@ -16,8 +16,8 @@ import {
   IconTelegram,
   IconInstagram,
   IconGraduationCap,
-  IconCheckCircle,
 } from "../components/MedicalIcons";
+import Doctor3DCard from "../components/Doctor3DCard";
 
 const About = ({ onOpenBooking }) => {
   const { lang } = useLanguage();
@@ -198,70 +198,9 @@ const About = ({ onOpenBooking }) => {
           </div>
         </div>
 
-        {/* Right Visual (5 cols): Pure High-Def Doctor Portrait with Ambient Lighting Motion */}
+        {/* Right Visual (5 cols): Interactive 3D Perspective Doctor Card */}
         <div className="lg:col-span-5 relative flex justify-center pt-2">
-          {/* Ambient Breathing Lighting Glow behind portrait */}
-          <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-tr from-amber-300/30 via-orange-200/20 to-cyan-300/20 rounded-[3rem] blur-2xl -z-10 opacity-70 animate-pulse-glow pointer-events-none" />
-
-          <div className="relative w-full max-w-sm sm:max-w-md rounded-[2.5rem] overflow-hidden bg-gradient-to-b from-[#FFFDF8] via-[#FFF8EC] to-[#FFF1D1]/60 border-2 border-amber-200/80 shadow-luxury-lg transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:border-amber-300/90 group">
-            {/* Pure, Clean High-Definition Doctor Portrait (Zero text overlays on image) */}
-            <div className="relative w-full aspect-[4/4.5] overflow-hidden bg-gradient-to-b from-slate-100/40 via-amber-50/20 to-amber-100/30">
-              <picture>
-                <source srcSet="/dr_ozodbek_portrait_pro.webp" type="image/webp" />
-                <img
-                  src="/dr_ozodbek_portrait_pro.jpg"
-                  alt={
-                    lang === "ru"
-                      ? "Д-р Озодbek Отахонов — Врач-Стоматолог"
-                      : lang === "en"
-                      ? "Dr. Ozodbek Otaxonov — Dental Surgeon"
-                      : "Dr. Ozodbek Otaxonov — Vrach Stomatolog"
-                  }
-                  width={600}
-                  height={675}
-                  fetchPriority="high"
-                  decoding="async"
-                  className="w-full h-full object-cover object-[center_top] filter transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                />
-              </picture>
-            </div>
-
-            {/* Sleek Minimalist Luxury Footer */}
-            <div className="px-5 py-3.5 bg-white/95 backdrop-blur-md border-t border-amber-200/60 flex items-center justify-between gap-3">
-              <div className="min-w-0">
-                <p className="font-serif-classic text-base sm:text-lg font-bold text-slate-900 tracking-tight truncate">
-                  Dr. Ozodbek Otaxonov
-                </p>
-                <p className="text-[11px] font-bold uppercase tracking-wider text-primary truncate">
-                  {lang === "ru" ? "Врач-Стоматолог · Имплантолог" : lang === "en" ? "Dental Surgeon · Implantologist" : "Vrach Stomatolog · Implantolog"}
-                </p>
-              </div>
-
-              {/* Direct Quick Channel Actions */}
-              <div className="flex items-center gap-1.5 shrink-0">
-                <a
-                  href={DOCTOR_INFO.telegramUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Telegram"
-                  className="w-9 h-9 rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-600 border border-sky-200/60 flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 shadow-2xs"
-                  title="Telegram: @Stamatolog07"
-                >
-                  <IconTelegram className="w-4 h-4 text-sky-500" />
-                </a>
-                <a
-                  href={DOCTOR_INFO.instagramUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  className="w-9 h-9 rounded-xl bg-pink-50 hover:bg-pink-100 text-pink-600 border border-pink-200/60 flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 shadow-2xs"
-                  title="Instagram: @_vrach_stomatolog"
-                >
-                  <IconInstagram className="w-4 h-4 text-pink-500" />
-                </a>
-              </div>
-            </div>
-          </div>
+          <Doctor3DCard lang={lang} />
         </div>
       </div>
 

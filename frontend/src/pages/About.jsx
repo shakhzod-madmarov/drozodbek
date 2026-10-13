@@ -195,10 +195,10 @@ const About = ({ onOpenBooking }) => {
         </div>
 
         <div className="lg:col-span-5 flex justify-center">
-          <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-amber-50/60 via-white to-orange-50/40 border border-amber-200/80 text-center space-y-4 shadow-luxury w-full max-w-sm">
-            <div className="w-28 h-28 sm:w-32 sm:h-32 mx-auto flex items-center justify-center rounded-2xl bg-white shadow-xs border border-amber-100 p-3">
+          <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[#FFFDF9] via-amber-50/60 to-orange-50/40 border border-amber-200/80 text-center space-y-4 shadow-luxury w-full max-w-sm">
+            <div className="relative w-44 h-44 sm:w-48 sm:h-48 mx-auto rounded-3xl overflow-hidden bg-white shadow-luxury border-2 border-amber-200/80 group">
               <img
-                src="/logo_icon.png"
+                src="/dr_ozodbek_portrait.png"
                 alt={
                   lang === "ru"
                     ? "Д-р Озодбек Отахонов — Врач-Стоматолог"
@@ -206,16 +206,41 @@ const About = ({ onOpenBooking }) => {
                     ? "Dr. Ozodbek Otaxonov — Dental Surgeon"
                     : "Dr. Ozodbek Otaxonov — Vrach Stomatolog"
                 }
-                width={120}
-                height={120}
+                width={300}
+                height={300}
                 decoding="async"
-                className="w-full h-full object-contain filter drop-shadow-xs"
+                className="w-full h-full object-cover object-top filter transition-transform duration-300 group-hover:scale-105"
               />
+              <div className="absolute bottom-2 right-2 px-2 py-0.5 rounded-lg bg-white/95 backdrop-blur-xs text-[10px] font-black uppercase tracking-wider text-primary shadow-xs border border-amber-200">
+                {years} Yil Tajriba
+              </div>
             </div>
             <div className="pt-2 border-t border-amber-200/60 space-y-1">
               <p className="font-serif-classic text-xl font-bold text-slate-900">Dr. Ozodbek Otaxonov</p>
-              <p className="text-xs text-primary font-bold uppercase tracking-wider">Vrach Stomatolog</p>
+              <p className="text-xs text-primary font-bold uppercase tracking-wider">
+                {lang === "ru" ? "Врач-Стоматолог · Имплантолог" : lang === "en" ? "Dental Surgeon · Implantologist" : "Vrach Stomatolog · Implantolog"}
+              </p>
               <p className="text-xs text-slate-500 pt-1">Tel: {DOCTOR_INFO.phoneDisplay}</p>
+            </div>
+            <div className="flex items-center justify-center gap-2 pt-1 text-xs">
+              <a
+                href={DOCTOR_INFO.telegramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-50 text-sky-700 hover:bg-sky-100 font-semibold transition-colors"
+              >
+                <IconTelegram className="w-3.5 h-3.5 text-sky-500" />
+                <span>Telegram</span>
+              </a>
+              <a
+                href={DOCTOR_INFO.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-pink-50 text-pink-700 hover:bg-pink-100 font-semibold transition-colors"
+              >
+                <IconInstagram className="w-3.5 h-3.5 text-pink-500" />
+                <span>Instagram</span>
+              </a>
             </div>
           </div>
         </div>

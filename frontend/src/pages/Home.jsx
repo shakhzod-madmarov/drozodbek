@@ -177,20 +177,23 @@ const HeroSection = ({ onOpenBooking }) => {
           </div>
         </div>
 
-        {/* Right Visual (5 cols): Authentic Logo & Brand Showcase */}
+        {/* Right Visual (5 cols): Authentic Doctor Portrait & Brand Showcase */}
         <div className="lg:col-span-5 relative">
           <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#FFFDF9] via-amber-50/60 to-orange-50/40 border border-amber-200/70 p-6 sm:p-8 shadow-luxury text-center flex flex-col items-center justify-center space-y-4">
-            {/* Clean, glowing emblem circle */}
-            <div className="relative w-32 h-32 sm:w-36 sm:h-36 mx-auto flex items-center justify-center rounded-2xl bg-white shadow-xs border border-amber-100/80 p-3.5">
+            {/* Real Doctor Portrait */}
+            <div className="relative w-44 h-44 sm:w-52 sm:h-52 mx-auto rounded-3xl overflow-hidden bg-white shadow-luxury border-2 border-amber-200/80 group">
               <img
-                src="/logo_icon.png"
+                src="/dr_ozodbek_portrait.png"
                 alt="Dr. Ozodbek Otaxonov — Vrach Stomatolog"
-                width={140}
-                height={140}
+                width={300}
+                height={300}
                 fetchPriority="high"
                 decoding="async"
-                className="w-full h-full object-contain filter drop-shadow-xs transition-transform duration-300 hover:scale-105"
+                className="w-full h-full object-cover object-top filter transition-transform duration-300 group-hover:scale-105"
               />
+              <div className="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-xl bg-white/95 backdrop-blur-xs text-[10px] font-black uppercase tracking-wider text-primary shadow-xs border border-amber-200">
+                10 Yil Tajriba
+              </div>
             </div>
 
             <div className="space-y-1">

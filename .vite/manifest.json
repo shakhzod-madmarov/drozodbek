@@ -34,7 +34,7 @@
     "src": "_vendor-utils-DHtLVDbd.css"
   },
   "index.html": {
-    "file": "assets/index-BgkGGiLP.js",
+    "file": "assets/index-DIwM1f0e.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
@@ -48,7 +48,7 @@
       "node_modules/qrcode/lib/browser.js"
     ],
     "css": [
-      "assets/index-BTIJoYB6.css"
+      "assets/index-DUVLeFVK.css"
     ],
     "assets": [
       "assets/logo-RobtL5SJ.png",
@@ -63,7 +63,13 @@
       "assets/hero_3d_tooth-BtnQGPNK.webp",
       "assets/clinic_room-DUwk5xIL.webp",
       "assets/treatment_implant-EUoIaf_F.webp",
+      "assets/treatment_braces-OrWaRMeg.webp",
+      "assets/treatment_aligners-D393Kjtt.webp",
+      "assets/treatment_crowns-BTAe3lTm.webp",
+      "assets/treatment_veneers-16IoRRNE.webp",
+      "assets/treatment_dentures-DSjHw4Gb.webp",
       "assets/treatment_whitening-DAVxj-hD.webp",
+      "assets/treatment_therapy-3mkgVkfS.webp",
       "assets/treatment_surgery-BQyw8eJX.webp"
     ]
   },
@@ -121,20 +127,20 @@
     "src": "src/assets/logo_icon.webp"
   },
   "src/assets/treatment_aligners.webp": {
-    "file": "assets/hero_smile-Xx0LVDIw.webp",
-    "src": "src/assets/hero_smile.webp"
+    "file": "assets/treatment_aligners-D393Kjtt.webp",
+    "src": "src/assets/treatment_aligners.webp"
   },
   "src/assets/treatment_braces.webp": {
-    "file": "assets/hero_smile-Xx0LVDIw.webp",
-    "src": "src/assets/hero_smile.webp"
+    "file": "assets/treatment_braces-OrWaRMeg.webp",
+    "src": "src/assets/treatment_braces.webp"
   },
   "src/assets/treatment_crowns.webp": {
-    "file": "assets/hero_3d_tooth-BtnQGPNK.webp",
-    "src": "src/assets/hero_3d_tooth.webp"
+    "file": "assets/treatment_crowns-BTAe3lTm.webp",
+    "src": "src/assets/treatment_crowns.webp"
   },
   "src/assets/treatment_dentures.webp": {
-    "file": "assets/hero_3d_tooth-BtnQGPNK.webp",
-    "src": "src/assets/hero_3d_tooth.webp"
+    "file": "assets/treatment_dentures-DSjHw4Gb.webp",
+    "src": "src/assets/treatment_dentures.webp"
   },
   "src/assets/treatment_implant.webp": {
     "file": "assets/treatment_implant-EUoIaf_F.webp",
@@ -145,12 +151,12 @@
     "src": "src/assets/treatment_surgery.webp"
   },
   "src/assets/treatment_therapy.webp": {
-    "file": "assets/clinic_room-DUwk5xIL.webp",
-    "src": "src/assets/clinic_room.webp"
+    "file": "assets/treatment_therapy-3mkgVkfS.webp",
+    "src": "src/assets/treatment_therapy.webp"
   },
   "src/assets/treatment_veneers.webp": {
-    "file": "assets/hero_smile-Xx0LVDIw.webp",
-    "src": "src/assets/hero_smile.webp"
+    "file": "assets/treatment_veneers-16IoRRNE.webp",
+    "src": "src/assets/treatment_veneers.webp"
   },
   "src/assets/treatment_whitening.webp": {
     "file": "assets/treatment_whitening-DAVxj-hD.webp",

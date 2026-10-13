@@ -223,46 +223,83 @@ const SpecialitiesSection = ({ onOpenBooking }) => {
         {SERVICES_CATALOG.map((s) => (
           <div
             key={s.id}
-            className="group bg-white rounded-3xl border border-amber-200/80 p-6 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2.5 hover:border-primary/50 relative overflow-hidden flex flex-col justify-between space-y-5 [transform-style:preserve-3d]"
+            className="group bg-white rounded-3xl border border-amber-200/90 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2.5 hover:border-primary/50 overflow-hidden flex flex-col justify-between [transform-style:preserve-3d]"
           >
-            {/* 3D Corner Hover Flare */}
-            <div className="absolute top-0 right-0 -mr-16 -mt-16 w-36 h-36 bg-gradient-to-br from-amber-400/25 to-primary/15 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <div>
+              {/* Photo Banner with Zoom Depth & Luxury Floating Stickers */}
+              <div className="relative h-44 sm:h-48 w-full overflow-hidden bg-slate-900 [transform-style:preserve-3d]">
+                <img
+                  src={s.image}
+                  alt={s.title[lang]}
+                  width={600}
+                  height={350}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                />
+                {/* Visual Depth Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
 
-            <div className="space-y-4 relative z-10 [transform-style:preserve-3d]">
-              <div className="flex items-center justify-between translate-z-20">
-                <span className="w-12 h-12 rounded-2xl bg-amber-50 group-hover:bg-primary/10 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-2xs">
+                {/* Top Stickers Strip */}
+                <div className="absolute top-3 inset-x-3 flex items-center justify-between gap-2 z-10">
+                  <span className="px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-amber-300 border border-amber-300/40 text-[10px] font-black uppercase tracking-wider shadow-md">
+                    {s.category[lang]}
+                  </span>
+                  <span className="px-2.5 py-1 rounded-full bg-emerald-950/80 backdrop-blur-md text-emerald-300 border border-emerald-400/40 text-[10px] font-bold tracking-wide shadow-md">
+                    {s.warranty[lang]}
+                  </span>
+                </div>
+
+                {/* Subtle Bottom Title Flare on Image */}
+                <div className="absolute bottom-2.5 left-4 right-4 z-10">
+                  <span className="text-[11px] font-semibold text-white/80 flex items-center gap-1.5">
+                    <IconClock className="w-3.5 h-3.5 text-brandOrange" />
+                    <span>{s.duration[lang]}</span>
+                  </span>
+                </div>
+              </div>
+
+              {/* Floating Medical Icon Disc on Image Border */}
+              <div className="px-5 -mt-6 relative z-20 flex justify-between items-end">
+                <span className="w-12 h-12 rounded-2xl bg-white shadow-lg border-2 border-amber-200/80 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
                   {s.icon}
                 </span>
-                <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-amber-50 text-amber-900 border border-amber-200/60">
-                  {s.category[lang]}
+                <span className="text-[10px] font-black uppercase tracking-wider text-primary bg-red-50 border border-red-200/60 px-2.5 py-0.5 rounded-full shadow-2xs mb-1">
+                  {lang === "uz" ? "100% Og'riqsiz" : lang === "ru" ? "100% Без боли" : "100% Gentle"}
                 </span>
               </div>
 
-              <div className="translate-z-10">
-                <h3 className="text-lg font-bold text-slate-900 group-hover:text-primary transition-colors leading-snug">
-                  {s.title[lang]}
-                </h3>
-                <p className="text-xs text-slate-600 mt-2 leading-relaxed line-clamp-3">
-                  {s.shortDesc[lang]}
-                </p>
-              </div>
+              {/* Content Body */}
+              <div className="p-5 pt-3 space-y-3">
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-primary transition-colors leading-snug font-serif-classic">
+                    {s.title[lang]}
+                  </h3>
+                  <p className="text-xs text-slate-600 mt-1.5 leading-relaxed line-clamp-2">
+                    {s.shortDesc[lang]}
+                  </p>
+                </div>
 
-              <div className="space-y-1.5 pt-2 border-t border-amber-100 text-xs translate-z-10">
-                {s.highlights[lang].slice(0, 2).map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2 text-slate-700">
-                    <span className="text-primary font-bold">✓</span>
-                    <span className="text-[11px] leading-snug">{item}</span>
-                  </div>
-                ))}
+                {/* 2 Key Clinical Highlights */}
+                <div className="space-y-1.5 pt-2 border-t border-amber-100 text-xs">
+                  {s.highlights[lang].slice(0, 2).map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-2 text-slate-700">
+                      <span className="text-primary font-bold">✓</span>
+                      <span className="text-[11px] leading-snug line-clamp-1">{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <div className="pt-4 border-t border-amber-100 flex items-center justify-between gap-3 relative z-10 translate-z-20">
+            {/* Footer Buttons */}
+            <div className="p-5 pt-0 border-t border-amber-100/60 flex items-center justify-between gap-3 mt-2">
               <Link
                 to={to(`/services/${s.id}`)}
-                className="text-xs font-bold text-slate-700 hover:text-primary transition-colors"
+                className="text-xs font-bold text-slate-700 hover:text-primary transition-colors flex items-center gap-1"
               >
-                {lang === "uz" ? "Batafsil →" : lang === "ru" ? "Подробнее →" : "Learn more →"}
+                <span>{lang === "uz" ? "Batafsil" : lang === "ru" ? "Подробнее" : "Details"}</span>
+                <span>→</span>
               </Link>
               <button
                 onClick={() => onOpenBooking(s.id)}

@@ -1,5 +1,6 @@
 import React, { useState, useRef, useCallback } from "react";
 import { useLanguage } from "../context/LanguageContext";
+import { assets } from "../assets/assets";
 import {
   DentalImplantFixture,
   DentalBracesIcon,
@@ -20,6 +21,7 @@ const treatments = [
   {
     id: "implant",
     serviceId: "dental-implant",
+    image: assets.treatment_implant,
     unitLabel: { uz: "implant dona", ru: "имплант(ов)", en: "implant unit(s)" },
     maxUnits: 10,
     shortTitle: { uz: "Dental Implant", ru: "Имплантация", en: "Dental Implants" },
@@ -54,6 +56,7 @@ const treatments = [
   {
     id: "braces",
     serviceId: "breketlar",
+    image: assets.treatment_braces,
     unitLabel: { uz: "jag' (yuqori/pastki)", ru: "челюсть (верх/низ)", en: "dental arch" },
     maxUnits: 2,
     shortTitle: { uz: "Breketlar", ru: "Брекеты", en: "Braces" },
@@ -88,6 +91,7 @@ const treatments = [
   {
     id: "crowns",
     serviceId: "sirkon-keramika-karonkalar",
+    image: assets.treatment_crowns,
     unitLabel: { uz: "karonka dona", ru: "коронка(и)", en: "crown unit(s)" },
     maxUnits: 14,
     shortTitle: { uz: "Sirkon Karonkalar", ru: "Цирконий Коронки", en: "Zirconia Crowns" },
@@ -122,6 +126,7 @@ const treatments = [
   {
     id: "veneers",
     serviceId: "vinirlar",
+    image: assets.treatment_veneers,
     unitLabel: { uz: "vinir dona", ru: "винир(ов)", en: "veneer unit(s)" },
     maxUnits: 12,
     shortTitle: { uz: "Vinirlar", ru: "Виниры E-max", en: "Veneers" },
@@ -156,6 +161,7 @@ const treatments = [
   {
     id: "aligners",
     serviceId: "elaynerlar",
+    image: assets.treatment_aligners,
     unitLabel: { uz: "bosqich to'plam", ru: "этапный курс", en: "alignment course" },
     maxUnits: 3,
     shortTitle: { uz: "Elaynerlar", ru: "Элайнеры", en: "Aligners" },
@@ -189,6 +195,7 @@ const treatments = [
   {
     id: "dentures",
     serviceId: "pratezlar",
+    image: assets.treatment_dentures,
     unitLabel: { uz: "jag' protez", ru: "протез челюсти", en: "prosthetic arch" },
     maxUnits: 2,
     shortTitle: { uz: "Protezlar", ru: "Протезы", en: "Dentures" },
@@ -223,6 +230,7 @@ const treatments = [
   {
     id: "whitening",
     serviceId: "tish-oqartirish",
+    image: assets.treatment_whitening,
     unitLabel: { uz: "seans (2 ta jag')", ru: "сеанс (2 челюсти)", en: "session (both arches)" },
     maxUnits: 3,
     shortTitle: { uz: "Oqartirish", ru: "Отбеливание", en: "Whitening" },
@@ -257,6 +265,7 @@ const treatments = [
   {
     id: "therapy",
     serviceId: "ogriqsiz-tish-davolash",
+    image: assets.treatment_therapy,
     unitLabel: { uz: "tish dona", ru: "зуб(а)", en: "tooth / teeth" },
     maxUnits: 6,
     shortTitle: { uz: "Tish Davolash", ru: "Лечение Зубов", en: "Tooth Care" },
@@ -291,6 +300,7 @@ const treatments = [
   {
     id: "surgery",
     serviceId: "ogriqsiz-tish-olish",
+    image: assets.treatment_surgery,
     unitLabel: { uz: "tish dona", ru: "зуб(а)", en: "tooth / teeth" },
     maxUnits: 4,
     shortTitle: { uz: "Tish Olish", ru: "Удаление Зубов", en: "Extraction" },
@@ -344,7 +354,6 @@ const Interactive3DCostCalculator = () => {
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    // Subtle 3D tilt: max ~5 degrees
     const rotateY = ((x - centerX) / centerX) * 5;
     const rotateX = -((y - centerY) / centerY) * 4;
     const glareX = (x / rect.width) * 100;
@@ -447,8 +456,8 @@ const Interactive3DCostCalculator = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10 [transform-style:preserve-3d]">
             {/* Left Info Column (8 cols) */}
             <div className="lg:col-span-8 space-y-6 [transform-style:preserve-3d]">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-100/80 text-amber-900 text-[11px] font-black uppercase tracking-wider border border-amber-300/60 translate-z-20">
+              {/* Luxury Gradient Sticker */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-red-500/15 via-amber-500/15 to-transparent text-primary text-[11px] font-black uppercase tracking-wider border border-primary/25 translate-z-20 shadow-xs">
                 <IconSparkleStar className="w-3.5 h-3.5 text-brandOrange" />
                 <span>{activeTreatment.badgeTitle[lang]}</span>
               </div>
@@ -552,34 +561,48 @@ const Interactive3DCostCalculator = () => {
               </div>
             </div>
 
-            {/* Right Action 3D Box (4 cols) */}
-            <div className="lg:col-span-4 p-6 sm:p-7 rounded-3xl bg-white border border-amber-200 shadow-luxury flex flex-col justify-between space-y-6 text-center translate-z-30 hover:scale-[1.02] transition-transform duration-300">
-              <div className="space-y-4">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-brandOrange/10 text-primary flex items-center justify-center mx-auto shadow-inner border border-amber-200/50">
-                  <span className="scale-125">{activeTreatment.icon}</span>
-                </div>
-                <div>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-brandOrange">
-                    {lang === "uz" ? "Dr. Ozodbek Otaxonov" : lang === "ru" ? "Д-р Озодбек Отахонов" : "Dr. Ozodbek Otaxonov"}
-                  </span>
-                  <h4 className="text-lg font-bold text-slate-900 mt-1">
-                    {activeTreatment.shortTitle[lang]}
-                  </h4>
-                  <p className="text-xs text-slate-500 mt-1">
-                    {units} {activeTreatment.unitLabel[lang]} · {formattedDuration}
-                  </p>
+            {/* Right Action 3D Box (4 cols) with Clinical Photo & Stickers */}
+            <div className="lg:col-span-4 p-5 sm:p-6 rounded-3xl bg-white border border-amber-200 shadow-luxury flex flex-col justify-between space-y-5 text-center translate-z-30 hover:scale-[1.02] transition-transform duration-300">
+              <div className="space-y-3.5">
+                {/* Clinical Photo Preview with Frosted Glass Badges */}
+                <div className="relative h-44 w-full rounded-2xl overflow-hidden border border-amber-200/90 shadow-md group">
+                  <img
+                    src={activeTreatment.image}
+                    alt={activeTreatment.title[lang]}
+                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                  <div className="absolute top-2.5 left-2.5 z-10">
+                    <span className="px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-amber-300 border border-amber-300/40 text-[9px] font-black uppercase tracking-wider shadow-sm">
+                      {activeTreatment.shortTitle[lang]}
+                    </span>
+                  </div>
+                  <div className="absolute bottom-2.5 left-3 right-3 text-left z-10 flex items-center justify-between">
+                    <div>
+                      <p className="text-[10px] font-bold text-amber-200 uppercase tracking-wider">
+                        {lang === "uz" ? "Dr. Ozodbek Otaxonov" : lang === "ru" ? "Д-р Озодбек Отахонов" : "Dr. Ozodbek Otaxonov"}
+                      </p>
+                      <p className="text-xs font-bold text-white truncate">
+                        {units} {activeTreatment.unitLabel[lang]} · {formattedDuration}
+                      </p>
+                    </div>
+                    <span className="w-8 h-8 rounded-xl bg-white/90 backdrop-blur-md text-primary flex items-center justify-center shrink-0 shadow-sm">
+                      {activeTreatment.icon}
+                    </span>
+                  </div>
                 </div>
 
                 <div className="p-3 rounded-2xl bg-amber-50/70 border border-amber-200/60 text-left space-y-1">
-                  <p className="text-[11px] font-bold text-slate-800">
-                    ✓ {lang === "uz" ? "Bepul 3D Ko'rik & Diagnostika" : lang === "ru" ? "Бесплатный 3D Осмотр и План" : "Complimentary 3D Consultation"}
+                  <p className="text-[11px] font-bold text-slate-800 flex items-center gap-1.5">
+                    <IconShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                    <span>{activeTreatment.warranty[lang]}</span>
                   </p>
                   <p className="text-[10px] text-slate-500 leading-snug">
                     {lang === "uz"
-                      ? "Shifokor bilan uchrashuvda yakuniy klinik reja va barcha savollarga javob olasiz."
+                      ? "Navbatsiz bepul dastlabki ko'rik va to'liq 3D muolaja rejasi."
                       : lang === "ru"
-                      ? "Точный расчет и консультация с демонстрацией материалов на приеме."
-                      : "Direct doctor consultation with zero waiting time and full transparency."}
+                      ? "Бесплатная первичная консультация и наглядный расчет."
+                      : "Zero queue consultation and transparent clinical roadmap."}
                   </p>
                 </div>
               </div>

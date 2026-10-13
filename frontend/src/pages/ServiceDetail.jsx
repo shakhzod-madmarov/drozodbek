@@ -146,15 +146,15 @@ const ServiceDetail = () => {
 
         <div className="relative z-10 space-y-4 max-w-3xl">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="px-3.5 py-1 rounded-full bg-primary text-white text-xs font-black uppercase tracking-wider">
+            <span className="px-3 py-1 rounded-full bg-primary text-white text-[11px] font-semibold uppercase tracking-wider">
               {service.category[lang]}
             </span>
-            <span className="px-3.5 py-1 rounded-full bg-white/20 backdrop-blur-xs text-white text-xs font-bold">
+            <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-xs text-white text-[11px] font-semibold">
               {getExperienceBadge(lang)}
             </span>
           </div>
 
-          <h1 className="font-serif-classic text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
+          <h1 className="font-serif-classic text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
             {service.title[lang]}
           </h1>
 

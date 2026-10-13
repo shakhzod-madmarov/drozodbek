@@ -104,23 +104,23 @@ const HeroSection = ({ onOpenBooking }) => {
         {/* Left Copy (7 cols) */}
         <div className="lg:col-span-7 space-y-6 text-left">
           {/* Status Badge */}
-          <div className="flex flex-wrap items-center gap-2.5">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs font-bold uppercase tracking-wider text-primary">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-primary border border-red-200/60 text-[11px] font-semibold">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               {t.badge}
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-200/80 text-xs font-bold text-amber-900">
-              <IconGraduationCap className="w-4 h-4 text-primary shrink-0" />
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50/80 text-amber-900 border border-amber-200/60 text-[11px] font-semibold">
+              <IconGraduationCap className="w-3.5 h-3.5 text-brandOrange shrink-0" />
               <span>Ukraina Stomatologiya Akademiyasi</span>
             </span>
           </div>
 
           {/* Title & Headline */}
           <div className="space-y-2">
-            <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.18em] text-brandOrange">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brandOrange">
               {t.specialtyTitle}
             </p>
-            <h1 className="font-serif-classic text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#1A202C] leading-[1.08]">
+            <h1 className="font-serif-classic text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#1A202C] leading-[1.12]">
               {t.headline}
             </h1>
           </div>
@@ -130,10 +130,10 @@ const HeroSection = ({ onOpenBooking }) => {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-wrap items-center gap-3 pt-2">
+          <div className="flex flex-wrap items-center gap-3 pt-1">
             <button
               onClick={() => onOpenBooking()}
-              className="inline-flex items-center gap-2 px-7 py-4 rounded-2xl bg-primary hover:bg-primary-hover text-white font-bold text-xs sm:text-sm uppercase tracking-wider shadow-luxury transition-all duration-200 hover:shadow-luxury-lg hover:-translate-y-0.5 cursor-pointer"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-primary hover:bg-primary-hover text-white font-semibold text-xs sm:text-sm uppercase tracking-wider shadow-xs transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 cursor-pointer"
             >
               <IconClock className="w-4 h-4 text-white" />
               <span>{t.ctaBook}</span>
@@ -141,7 +141,7 @@ const HeroSection = ({ onOpenBooking }) => {
 
             <Link
               to={to("/services")}
-              className="inline-flex items-center gap-2 px-6 py-4 rounded-2xl bg-amber-50 hover:bg-amber-100/70 border border-amber-200 text-slate-800 font-bold text-xs sm:text-sm transition-all duration-200"
+              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-amber-50/80 hover:bg-amber-100/70 border border-amber-200/70 text-slate-800 font-semibold text-xs sm:text-sm transition-all duration-200"
             >
               <span>{t.ctaServices}</span>
               <span>→</span>
@@ -149,7 +149,7 @@ const HeroSection = ({ onOpenBooking }) => {
 
             <a
               href={DOCTOR_INFO.phoneHref}
-              className="inline-flex items-center gap-2 px-4 py-4 rounded-2xl text-primary hover:bg-primary/5 font-bold text-xs sm:text-sm transition-colors"
+              className="inline-flex items-center gap-2 px-3.5 py-3.5 rounded-xl text-primary hover:bg-primary/5 font-semibold text-xs sm:text-sm transition-colors"
             >
               <IconPhone className="w-4 h-4 text-primary" />
               <span>{DOCTOR_INFO.phoneDisplay}</span>
@@ -157,64 +157,84 @@ const HeroSection = ({ onOpenBooking }) => {
           </div>
 
           {/* 4 Stats Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-amber-100">
-            <div className="p-3.5 rounded-2xl bg-amber-50/50 border border-amber-200/60">
-              <p className="font-serif-classic text-2xl font-bold text-primary">{t.stat1Num}</p>
-              <p className="text-[11px] font-semibold text-slate-600 mt-0.5">{t.stat1Label}</p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-5 border-t border-amber-100">
+            <div className="p-3 rounded-2xl bg-gradient-to-b from-amber-50/40 to-white border border-amber-200/50 shadow-2xs">
+              <p className="font-serif-classic text-xl sm:text-2xl font-bold text-primary">{t.stat1Num}</p>
+              <p className="text-[11px] font-medium text-slate-600 mt-0.5">{t.stat1Label}</p>
             </div>
-            <div className="p-3.5 rounded-2xl bg-amber-50/50 border border-amber-200/60">
-              <p className="font-serif-classic text-2xl font-bold text-brandOrange">{t.stat2Num}</p>
-              <p className="text-[11px] font-semibold text-slate-600 mt-0.5">{t.stat2Label}</p>
+            <div className="p-3 rounded-2xl bg-gradient-to-b from-amber-50/40 to-white border border-amber-200/50 shadow-2xs">
+              <p className="font-serif-classic text-xl sm:text-2xl font-bold text-brandOrange">{t.stat2Num}</p>
+              <p className="text-[11px] font-medium text-slate-600 mt-0.5">{t.stat2Label}</p>
             </div>
-            <div className="p-3.5 rounded-2xl bg-amber-50/50 border border-amber-200/60">
-              <p className="font-serif-classic text-2xl font-bold text-emerald-600">{t.stat3Num}</p>
-              <p className="text-[11px] font-semibold text-slate-600 mt-0.5">{t.stat3Label}</p>
+            <div className="p-3 rounded-2xl bg-gradient-to-b from-amber-50/40 to-white border border-amber-200/50 shadow-2xs">
+              <p className="font-serif-classic text-xl sm:text-2xl font-bold text-emerald-600">{t.stat3Num}</p>
+              <p className="text-[11px] font-medium text-slate-600 mt-0.5">{t.stat3Label}</p>
             </div>
-            <div className="p-3.5 rounded-2xl bg-amber-50/50 border border-amber-200/60">
-              <p className="font-serif-classic text-2xl font-bold text-brandCyan">{t.stat4Num}</p>
-              <p className="text-[11px] font-semibold text-slate-600 mt-0.5">{t.stat4Label}</p>
+            <div className="p-3 rounded-2xl bg-gradient-to-b from-amber-50/40 to-white border border-amber-200/50 shadow-2xs">
+              <p className="font-serif-classic text-xl sm:text-2xl font-bold text-brandCyan">{t.stat4Num}</p>
+              <p className="text-[11px] font-medium text-slate-600 mt-0.5">{t.stat4Label}</p>
             </div>
           </div>
         </div>
 
         {/* Right Visual (5 cols): Authentic Logo & Brand Showcase */}
         <div className="lg:col-span-5 relative">
-          <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-white via-amber-50 to-orange-50 border-2 border-amber-200 p-8 sm:p-10 shadow-luxury text-center flex flex-col items-center justify-center space-y-6">
-            <div className="relative w-48 h-48 sm:w-56 sm:h-56 mx-auto">
+          <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#FFFDF9] via-amber-50/60 to-orange-50/40 border border-amber-200/70 p-6 sm:p-8 shadow-luxury text-center flex flex-col items-center justify-center space-y-4">
+            {/* Clean, glowing emblem circle */}
+            <div className="relative w-32 h-32 sm:w-36 sm:h-36 mx-auto flex items-center justify-center rounded-2xl bg-white shadow-xs border border-amber-100/80 p-3.5">
               <img
-                src={assets.logo}
+                src="/logo_icon.png"
                 alt="Dr. Ozodbek Otaxonov — Vrach Stomatolog"
-                className="w-full h-full object-contain filter drop-shadow-md hover:scale-105 transition-transform duration-300"
+                width={140}
+                height={140}
+                className="w-full h-full object-contain filter drop-shadow-xs transition-transform duration-300 hover:scale-105"
               />
             </div>
 
-            <div className="space-y-2">
-              <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-black uppercase tracking-wider">
-                Dr. Ozodbek Otaxonov
-              </span>
+            <div className="space-y-1">
               <h2 className="text-xl sm:text-2xl font-bold text-slate-900 font-serif-classic">
-                Vrach Stomatolog
+                Dr. Ozodbek Otaxonov
               </h2>
-              <p className="text-xs text-slate-600 max-w-xs mx-auto leading-relaxed">
+              <p className="text-xs font-bold uppercase tracking-wider text-primary">
+                Vrach Stomatolog · 10 Yillik Tajriba
+              </p>
+              <p className="text-xs text-slate-600 max-w-xs mx-auto leading-relaxed pt-1">
                 Ukraina stomatologiya tibbiyot akademiyasi (bakalavr). MegaGen sertifikatlangan implantolog va ortoped.
               </p>
             </div>
 
-            <div className="w-full pt-4 border-t border-amber-200/80 flex items-center justify-around text-xs font-bold text-slate-700">
+            {/* Verification badges */}
+            <div className="flex flex-wrap items-center justify-center gap-1.5 pt-1">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200/60 text-[10px] font-bold">
+                <IconShieldCheck className="w-3 h-3 text-emerald-600" />
+                <span>100% Steril</span>
+              </span>
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-amber-50 text-amber-900 border border-amber-200/60 text-[10px] font-bold">
+                <IconAward className="w-3 h-3 text-brandOrange" />
+                <span>MegaGen 2026</span>
+              </span>
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-cyan-50 text-cyan-900 border border-cyan-200/60 text-[10px] font-bold">
+                <IconGraduationCap className="w-3 h-3 text-brandCyan" />
+                <span>Ukraina Diplomi</span>
+              </span>
+            </div>
+
+            {/* Quick direct channel links */}
+            <div className="w-full pt-3.5 border-t border-amber-200/60 flex items-center justify-around text-xs font-semibold">
               <a
                 href={DOCTOR_INFO.telegramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-sky-600 hover:text-sky-700"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-50 text-sky-700 hover:bg-sky-100 transition-colors"
               >
                 <span>✈ Telegram</span>
               </a>
-              <span>•</span>
+              <span className="text-slate-300">•</span>
               <a
                 href={DOCTOR_INFO.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-pink-600 hover:text-pink-700"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-pink-50 text-pink-700 hover:bg-pink-100 transition-colors"
               >
                 <span>📸 Instagram</span>
               </a>
@@ -236,9 +256,9 @@ const SpecialitiesSection = ({ onOpenBooking }) => {
   return (
     <section className="py-12 sm:py-16 space-y-8">
       <div className="text-center max-w-3xl mx-auto space-y-2">
-        <span className="inline-flex items-center gap-2 px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest bg-primary/10 text-primary border border-primary/20">
-          <IconShieldCheck className="w-4 h-4 text-primary" />
-          <span>{lang === "uz" ? "9 TA ASOSIY STOMATOLOGIK YO'NALISH" : lang === "ru" ? "9 ОСНОВНЫХ НАПРАВЛЕНИЙ" : "9 CORE DENTAL SPECIALTIES"}</span>
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-red-50 text-primary border border-red-200/60">
+          <IconShieldCheck className="w-3.5 h-3.5 text-primary" />
+          <span>{lang === "uz" ? "9 Ta Asosiy Stomatologik Yo'nalish" : lang === "ru" ? "9 Основных Направлений" : "9 Core Dental Specialties"}</span>
         </span>
         <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-serif-classic">
           {lang === "uz"
@@ -267,7 +287,7 @@ const SpecialitiesSection = ({ onOpenBooking }) => {
                 <span className="w-12 h-12 rounded-2xl bg-amber-50 group-hover:bg-primary/10 flex items-center justify-center transition-colors">
                   {s.icon}
                 </span>
-                <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-100/70 text-amber-900">
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-amber-50 text-amber-900 border border-amber-200/60">
                   {s.category[lang]}
                 </span>
               </div>

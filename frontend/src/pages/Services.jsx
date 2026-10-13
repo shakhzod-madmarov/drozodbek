@@ -67,11 +67,11 @@ const Services = ({ onOpenBooking }) => {
 
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-3">
-        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-primary/10 text-primary border border-primary/20">
-          <IconShieldCheck className="w-4 h-4 text-primary" />
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-red-50 text-primary border border-red-200/60">
+          <IconShieldCheck className="w-3.5 h-3.5 text-primary" />
           <span>{getServicesTag(lang)}</span>
         </span>
-        <h1 className="font-serif-classic text-3xl sm:text-5xl font-bold text-slate-900 tracking-tight">
+        <h1 className="font-serif-classic text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
           {lang === "uz"
             ? "Stomatologik Xizmatlar Katalogi"
             : lang === "ru"
@@ -88,15 +88,15 @@ const Services = ({ onOpenBooking }) => {
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex flex-wrap items-center justify-center gap-2">
+      <div className="flex flex-wrap items-center justify-center gap-1.5">
         {categories.map((c) => (
           <button
             key={c.id}
             onClick={() => setActiveCategory(c.id)}
-            className={`px-4 py-2 rounded-2xl text-xs font-bold transition-all cursor-pointer ${
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
               activeCategory === c.id
-                ? "bg-primary text-white shadow-luxury scale-105"
-                : "bg-white text-slate-700 border border-amber-200/80 hover:bg-amber-50"
+                ? "bg-primary text-white shadow-xs"
+                : "bg-white text-slate-700 border border-amber-200/70 hover:bg-amber-50"
             }`}
           >
             {c.label[lang]}

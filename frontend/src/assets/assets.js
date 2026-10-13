@@ -1,5 +1,7 @@
 import logo from "./logo.png";
 import logo_webp from "./logo.webp";
+import logo_icon from "./logo_icon.png";
+import logo_icon_webp from "./logo_icon.webp";
 import cert_samarkand from "./cert_samarkand.webp";
 import cert_protocols from "./cert_protocols.webp";
 import cert_navigation from "./cert_navigation.webp";
@@ -20,6 +22,8 @@ import treatment_surgery from "./treatment_surgery.webp";
 export const assets = {
   logo,
   logo_webp,
+  logo_icon,
+  logo_icon_webp,
   cert_samarkand,
   cert_protocols,
   cert_navigation,

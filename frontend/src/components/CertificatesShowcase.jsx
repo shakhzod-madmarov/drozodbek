@@ -103,14 +103,14 @@ const CertificatesShowcase = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest bg-amber-100/70 text-amber-900 border border-amber-300/60">
-            <IconAward className="w-4 h-4 text-brandOrange" />
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-amber-50 text-amber-900 border border-amber-200/60">
+            <IconAward className="w-3.5 h-3.5 text-brandOrange" />
             <span>
               {lang === "uz"
-                ? "DIPLOM VA XALQARO SERTIFIKATLAR"
+                ? "Diplom va Xalqaro Sertifikatlar"
                 : lang === "ru"
-                ? "ДИПЛОМЫ И МЕЖДУНАРОДНЫЕ СЕРТИФИКАТЫ"
-                : "DIPLOMAS & CLINICAL CERTIFICATIONS"}
+                ? "Дипломы и Сертификаты"
+                : "Diplomas & Certifications"}
             </span>
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#1A202C] tracking-tight font-serif-classic">
@@ -135,8 +135,8 @@ const CertificatesShowcase = () => {
             <IconGraduationCap className="w-8 h-8 text-white" />
           </div>
           <div className="flex-1">
-            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-md bg-white border border-amber-200 text-[10px] font-black uppercase tracking-wider text-primary mb-1">
-              {lang === "uz" ? "ASOSIY OLIY TIBBIY MA'LUMOT" : lang === "ru" ? "ВЫСШЕЕ МЕДИЦИНСКОЕ ОБРАЗОВАНИЕ" : "PRIMARY MEDICAL DEGREE"}
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg bg-red-50 border border-red-200/60 text-[10px] font-semibold uppercase tracking-wider text-primary mb-1">
+              {lang === "uz" ? "Asosiy Oliy Tibbiy Ma'lumot" : lang === "ru" ? "Высшее Медицинское Образование" : "Primary Medical Degree"}
             </div>
             <h3 className="text-base sm:text-lg font-bold text-slate-900">
               {lang === "uz"
@@ -177,10 +177,10 @@ const CertificatesShowcase = () => {
 
               <div>
                 <div className="flex items-center justify-between gap-2 mb-3 pt-1">
-                  <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-50 text-amber-900 border border-amber-200/60 truncate">
+                  <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-lg bg-amber-50 text-amber-900 border border-amber-200/60 truncate">
                     {cert.badge[lang]}
                   </span>
-                  <span className="text-xs font-black text-primary bg-primary/10 px-2.5 py-0.5 rounded-full shrink-0">
+                  <span className="text-[11px] font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-lg shrink-0">
                     {cert.year}
                   </span>
                 </div>

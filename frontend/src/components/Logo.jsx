@@ -1,7 +1,7 @@
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 
-const Logo = ({ className = "h-11 sm:h-12", inverted = false }) => {
+const Logo = ({ className = "h-8 sm:h-9", inverted = false }) => {
   const { lang } = useLanguage();
 
   const subtitle =
@@ -19,25 +19,25 @@ const Logo = ({ className = "h-11 sm:h-12", inverted = false }) => {
       : "Dr. Ozodbek Otaxonov — Vrach Stomatolog";
 
   return (
-    <div className="inline-flex items-center gap-2.5 sm:gap-3.5 select-none">
+    <div className="inline-flex items-center gap-2 sm:gap-2.5 select-none">
       <img
-        src="/logo.png"
+        src="/logo_icon.png"
         alt={altText}
-        width={56}
-        height={56}
+        width={38}
+        height={38}
         decoding="async"
-        className={`${className} w-auto object-contain shrink-0 rounded-xl shadow-xs`}
+        className={`${className} w-auto object-contain shrink-0 transition-transform duration-200 group-hover:scale-105`}
       />
-      <div className="flex flex-col leading-none text-left min-w-0">
+      <div className="flex flex-col leading-tight text-left min-w-0">
         <span
-          className={`font-serif-classic text-[16px] sm:text-lg lg:text-xl font-bold tracking-tight truncate ${
+          className={`font-serif-classic text-[15px] sm:text-[16px] font-bold tracking-tight truncate ${
             inverted ? "text-white" : "text-[#1A202C]"
           }`}
         >
           Dr. Ozodbek Otaxonov
         </span>
         <span
-          className={`text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.18em] sm:tracking-[0.2em] mt-1 truncate ${
+          className={`text-[8.5px] sm:text-[9px] font-bold uppercase tracking-[0.14em] truncate mt-0.5 ${
             inverted ? "text-brandCream" : "text-primary"
           }`}
         >

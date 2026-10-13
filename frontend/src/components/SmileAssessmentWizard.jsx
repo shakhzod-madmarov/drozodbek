@@ -116,9 +116,9 @@ const SmileAssessmentWizard = () => {
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-2">
-          <span className="inline-flex items-center gap-2 px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest bg-amber-100 text-amber-900 border border-amber-300">
-            <IconSparkleStar className="w-4 h-4 text-brandOrange" />
-            <span>{lang === "uz" ? "ONLAYN TABASSUM TAHLILI" : lang === "ru" ? "ОНЛАЙН-ПОДБОР ЛЕЧЕНИЯ" : "ONLINE SMILE ASSESSMENT"}</span>
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-amber-50 text-amber-900 border border-amber-200/60">
+            <IconSparkleStar className="w-3.5 h-3.5 text-brandOrange" />
+            <span>{lang === "uz" ? "Onlayn Tabassum Tahlili" : lang === "ru" ? "Онлайн-Подбор Лечения" : "Online Smile Assessment"}</span>
           </span>
           <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 font-serif-classic">
             {lang === "uz"
@@ -153,7 +153,7 @@ const SmileAssessmentWizard = () => {
                   <span className="w-10 h-10 rounded-2xl bg-amber-50 flex items-center justify-center">
                     {item.icon}
                   </span>
-                  <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-amber-100/70 text-amber-900">
+                  <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-lg bg-amber-50 text-amber-900 border border-amber-200/60">
                     {item.tag[lang]}
                   </span>
                 </div>

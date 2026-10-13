@@ -273,9 +273,9 @@ const Interactive3DCostCalculator = () => {
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-2">
-          <span className="inline-flex items-center gap-2 px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest bg-primary/10 text-primary border border-primary/20">
-            <IconShieldCheck className="w-4 h-4 text-primary" />
-            <span>{lang === "uz" ? "INTERAKTIV MUOLAJALAR REJASI" : lang === "ru" ? "ИНТЕРАКТИВНЫЙ ПЛАН ЛЕЧЕНИЯ" : "INTERACTIVE TREATMENT PLAN"}</span>
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-red-50 text-primary border border-red-200/60">
+            <IconShieldCheck className="w-3.5 h-3.5 text-primary" />
+            <span>{lang === "uz" ? "Interaktiv Muolajalar Rejasi" : lang === "ru" ? "Интерактивный План Лечения" : "Interactive Treatment Plan"}</span>
           </span>
           <h2 className="text-2xl sm:text-4xl font-bold text-[#1A202C] font-serif-classic">
             {lang === "uz"

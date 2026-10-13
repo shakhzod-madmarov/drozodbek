@@ -152,19 +152,19 @@ const About = ({ onOpenBooking }) => {
       <div className="bg-white rounded-3xl border border-amber-200 p-6 sm:p-10 lg:p-12 shadow-luxury grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         <div className="lg:col-span-7 space-y-6">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="px-3.5 py-1 rounded-full bg-primary/10 text-primary text-xs font-black uppercase tracking-wider">
+            <span className="px-3 py-1 rounded-full bg-red-50 text-primary border border-red-200/60 text-[11px] font-semibold">
               {getExperienceBadge(lang)}
             </span>
-            <span className="px-3.5 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold">
+            <span className="px-3 py-1 rounded-full bg-amber-50 text-amber-900 border border-amber-200/60 text-[11px] font-semibold">
               Ukraina Akademiyasi Bakalavri
             </span>
           </div>
 
           <div className="space-y-2">
-            <h1 className="font-serif-classic text-3xl sm:text-5xl font-bold text-slate-900 leading-tight">
+            <h1 className="font-serif-classic text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
               Dr. Ozodbek Otaxonov
             </h1>
-            <p className="text-sm font-bold uppercase tracking-wider text-brandOrange">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brandOrange">
               Vrach Stomatolog · Implantolog · Ortoped · Ortodont
             </p>
           </div>
@@ -177,16 +177,16 @@ const About = ({ onOpenBooking }) => {
               : "Dr. Ozodbek Otaxonov brings a decade of clinical dentistry practice. A graduate of the Ukrainian Medical Stomatological Academy, he specializes in MegaGen dental implants, 3D guided surgery, E-max veneers, monolithic zirconia crowns, and orthodontic alignment."}
           </p>
 
-          <div className="flex flex-wrap items-center gap-3 pt-2">
+          <div className="flex flex-wrap items-center gap-3 pt-1">
             <button
               onClick={() => onOpenBooking()}
-              className="px-6 py-3.5 rounded-2xl bg-primary hover:bg-primary-hover text-white text-xs font-bold uppercase tracking-wider shadow-luxury cursor-pointer"
+              className="px-5 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-semibold uppercase tracking-wider shadow-xs transition-all hover:shadow-md cursor-pointer"
             >
               {lang === "uz" ? "Qabulga Yozilish" : lang === "ru" ? "Записаться на Приём" : "Book Visit"}
             </button>
             <a
               href={DOCTOR_INFO.phoneHref}
-              className="px-5 py-3.5 rounded-2xl bg-amber-50 hover:bg-amber-100/70 border border-amber-200 text-slate-800 text-xs font-bold flex items-center gap-2"
+              className="px-4 py-3 rounded-xl bg-amber-50 hover:bg-amber-100/70 border border-amber-200/70 text-slate-800 text-xs font-semibold flex items-center gap-2"
             >
               <IconPhone className="w-4 h-4 text-primary" />
               <span>{DOCTOR_INFO.phoneDisplay}</span>
@@ -195,13 +195,17 @@ const About = ({ onOpenBooking }) => {
         </div>
 
         <div className="lg:col-span-5 flex justify-center">
-          <div className="p-8 rounded-3xl bg-gradient-to-br from-amber-50 via-white to-orange-50 border-2 border-amber-200 text-center space-y-4 shadow-luxury w-full max-w-sm">
-            <img
-              src={assets.logo}
-              alt="Dr. Ozodbek Otaxonov Logo"
-              className="w-40 h-40 object-contain mx-auto filter drop-shadow-md"
-            />
-            <div className="pt-2 border-t border-amber-200/80 space-y-1">
+          <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-amber-50/60 via-white to-orange-50/40 border border-amber-200/80 text-center space-y-4 shadow-luxury w-full max-w-sm">
+            <div className="w-28 h-28 sm:w-32 sm:h-32 mx-auto flex items-center justify-center rounded-2xl bg-white shadow-xs border border-amber-100 p-3">
+              <img
+                src="/logo_icon.png"
+                alt="Dr. Ozodbek Otaxonov Logo"
+                width={120}
+                height={120}
+                className="w-full h-full object-contain filter drop-shadow-xs"
+              />
+            </div>
+            <div className="pt-2 border-t border-amber-200/60 space-y-1">
               <p className="font-serif-classic text-xl font-bold text-slate-900">Dr. Ozodbek Otaxonov</p>
               <p className="text-xs text-primary font-bold uppercase tracking-wider">Vrach Stomatolog</p>
               <p className="text-xs text-slate-500 pt-1">Tel: {DOCTOR_INFO.phoneDisplay}</p>

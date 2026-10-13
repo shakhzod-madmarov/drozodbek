@@ -135,15 +135,16 @@ const HeroSection = ({ onOpenBooking }) => {
           <div className="flex flex-col xs:flex-row flex-wrap items-stretch xs:items-center gap-2.5 sm:gap-3 pt-1">
             <button
               onClick={() => onOpenBooking()}
-              className="inline-flex justify-center items-center gap-2 px-5 sm:px-6 py-3.5 rounded-xl bg-primary hover:bg-primary-hover text-white font-semibold text-xs sm:text-sm uppercase tracking-wider shadow-xs transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 cursor-pointer"
+              className="relative overflow-hidden inline-flex justify-center items-center gap-2 px-5 sm:px-6 py-3.5 rounded-xl bg-primary hover:bg-primary-hover text-white font-semibold text-xs sm:text-sm uppercase tracking-wider shadow-xs transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 cursor-pointer group"
             >
-              <IconClock className="w-4 h-4 text-white" />
-              <span>{t.ctaBook}</span>
+              <span className="absolute inset-0 w-1/2 h-full bg-white/25 -translate-x-full group-hover:animate-shimmer-sweep pointer-events-none" />
+              <IconClock className="w-4 h-4 text-white relative z-10" />
+              <span className="relative z-10">{t.ctaBook}</span>
             </button>
 
             <Link
               to={to("/services")}
-              className="inline-flex justify-center items-center gap-2 px-5 py-3.5 rounded-xl bg-amber-50/80 hover:bg-amber-100/70 border border-amber-200/70 text-slate-800 font-semibold text-xs sm:text-sm transition-all duration-200"
+              className="inline-flex justify-center items-center gap-2 px-5 py-3.5 rounded-xl bg-amber-50/80 hover:bg-amber-100/70 border border-amber-200/70 text-slate-800 font-semibold text-xs sm:text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xs"
             >
               <span>{t.ctaServices}</span>
               <span>→</span>
@@ -151,118 +152,88 @@ const HeroSection = ({ onOpenBooking }) => {
 
             <a
               href={DOCTOR_INFO.phoneHref}
-              className="inline-flex justify-center items-center gap-2 px-3.5 py-3 rounded-xl text-primary hover:bg-primary/5 font-semibold text-xs sm:text-sm transition-colors"
+              className="inline-flex justify-center items-center gap-2 px-3.5 py-3 rounded-xl text-primary hover:bg-primary/5 font-semibold text-xs sm:text-sm transition-colors hover:scale-105 duration-200"
             >
               <IconPhone className="w-4 h-4 text-primary" />
               <span>{DOCTOR_INFO.phoneDisplay}</span>
             </a>
           </div>
 
-          {/* 4 Stats Grid */}
+          {/* 4 Stats Grid with Interactive Hover Motion */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-5 border-t border-amber-100">
-            <div className="p-3 rounded-2xl bg-gradient-to-b from-amber-50/40 to-white border border-amber-200/50 shadow-2xs">
+            <div className="p-3 rounded-2xl bg-gradient-to-b from-amber-50/40 to-white border border-amber-200/50 shadow-2xs hover:-translate-y-1 hover:border-amber-300 hover:shadow-md transition-all duration-300 cursor-default">
               <p className="font-serif-classic text-xl sm:text-2xl font-bold text-primary">{t.stat1Num}</p>
               <p className="text-[11px] font-medium text-slate-600 mt-0.5">{t.stat1Label}</p>
             </div>
-            <div className="p-3 rounded-2xl bg-gradient-to-b from-amber-50/40 to-white border border-amber-200/50 shadow-2xs">
+            <div className="p-3 rounded-2xl bg-gradient-to-b from-amber-50/40 to-white border border-amber-200/50 shadow-2xs hover:-translate-y-1 hover:border-amber-300 hover:shadow-md transition-all duration-300 cursor-default">
               <p className="font-serif-classic text-xl sm:text-2xl font-bold text-brandOrange">{t.stat2Num}</p>
               <p className="text-[11px] font-medium text-slate-600 mt-0.5">{t.stat2Label}</p>
             </div>
-            <div className="p-3 rounded-2xl bg-gradient-to-b from-amber-50/40 to-white border border-amber-200/50 shadow-2xs">
+            <div className="p-3 rounded-2xl bg-gradient-to-b from-amber-50/40 to-white border border-amber-200/50 shadow-2xs hover:-translate-y-1 hover:border-amber-300 hover:shadow-md transition-all duration-300 cursor-default">
               <p className="font-serif-classic text-xl sm:text-2xl font-bold text-emerald-600">{t.stat3Num}</p>
               <p className="text-[11px] font-medium text-slate-600 mt-0.5">{t.stat3Label}</p>
             </div>
-            <div className="p-3 rounded-2xl bg-gradient-to-b from-amber-50/40 to-white border border-amber-200/50 shadow-2xs">
+            <div className="p-3 rounded-2xl bg-gradient-to-b from-amber-50/40 to-white border border-amber-200/50 shadow-2xs hover:-translate-y-1 hover:border-amber-300 hover:shadow-md transition-all duration-300 cursor-default">
               <p className="font-serif-classic text-xl sm:text-2xl font-bold text-brandCyan">{t.stat4Num}</p>
               <p className="text-[11px] font-medium text-slate-600 mt-0.5">{t.stat4Label}</p>
             </div>
           </div>
         </div>
 
-        {/* Right Visual (5 cols): Authentic High-Def Doctor Portrait & Showcase */}
+        {/* Right Visual (5 cols): Pure High-Def Doctor Portrait with Ambient Lighting Motion */}
         <div className="lg:col-span-5 relative flex justify-center">
-          <div className="relative w-full max-w-sm sm:max-w-md rounded-[2.5rem] overflow-hidden bg-gradient-to-b from-[#FFFDF8] via-[#FFF8EC] to-[#FFF1D1]/60 border-2 border-amber-200/80 shadow-luxury-lg group">
-            
-            {/* Top-Left Floating Trust Pill */}
-            <div className="absolute top-4 left-4 z-20 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-md border border-emerald-200/80 text-[11px] font-bold text-slate-800">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-              </span>
-              <span>{lang === "uz" ? "Qabulga ochiq" : lang === "ru" ? "Приём открыт" : "Accepting Patients"}</span>
-            </div>
+          {/* Ambient Breathing Lighting Glow behind portrait */}
+          <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-tr from-amber-300/30 via-orange-200/20 to-cyan-300/20 rounded-[3rem] blur-2xl -z-10 opacity-70 animate-pulse-glow pointer-events-none" />
 
-            {/* Top-Right Floating Experience Pill */}
-            <div className="absolute top-4 right-4 z-20 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-md border border-amber-200/80 text-[11px] font-bold text-amber-900">
-              <IconAward className="w-3.5 h-3.5 text-brandOrange" />
-              <span>{t.stat1Num} {t.stat1Label}</span>
-            </div>
-
-            {/* High-Definition Doctor Portrait Container */}
-            <div className="relative w-full aspect-[4/4.8] overflow-hidden bg-gradient-to-b from-slate-100/40 via-amber-50/20 to-amber-100/30">
+          <div className="relative w-full max-w-sm sm:max-w-md rounded-[2.5rem] overflow-hidden bg-gradient-to-b from-[#FFFDF8] via-[#FFF8EC] to-[#FFF1D1]/60 border-2 border-amber-200/80 shadow-luxury-lg transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:border-amber-300/90 group">
+            {/* Pure, Clean High-Definition Doctor Portrait (Zero text overlays on image) */}
+            <div className="relative w-full aspect-[4/4.5] overflow-hidden bg-gradient-to-b from-slate-100/40 via-amber-50/20 to-amber-100/30">
               <picture>
                 <source srcSet="/dr_ozodbek_portrait_pro.webp" type="image/webp" />
                 <img
                   src="/dr_ozodbek_portrait_pro.jpg"
                   alt="Dr. Ozodbek Otaxonov — Vrach Stomatolog"
                   width={600}
-                  height={720}
+                  height={675}
                   fetchPriority="high"
                   decoding="async"
-                  className="w-full h-full object-cover object-[center_top] filter transition-transform duration-500 group-hover:scale-[1.02]"
+                  className="w-full h-full object-cover object-[center_top] filter transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 />
               </picture>
             </div>
 
-            {/* Elegant Frosted Glass Identity & Channels Card */}
-            <div className="p-5 bg-white/95 backdrop-blur-md border-t border-amber-200/70 space-y-3.5">
-              <div className="text-center space-y-1">
-                <h2 className="font-serif-classic text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+            {/* Sleek Minimalist Luxury Footer */}
+            <div className="px-5 py-3.5 bg-white/95 backdrop-blur-md border-t border-amber-200/60 flex items-center justify-between gap-3">
+              <div className="min-w-0">
+                <h2 className="font-serif-classic text-base sm:text-lg font-bold text-slate-900 tracking-tight truncate">
                   Dr. Ozodbek Otaxonov
                 </h2>
-                <p className="text-xs font-bold uppercase tracking-wider text-primary">
+                <p className="text-[11px] font-bold uppercase tracking-wider text-primary truncate">
                   Vrach Stomatolog · Implantolog & Ortoped
                 </p>
-                <p className="text-xs text-slate-500 font-medium pt-0.5">
-                  Smiles Dental Group · Andijon
-                </p>
-              </div>
-
-              {/* Verified Trust Badges */}
-              <div className="flex flex-wrap items-center justify-center gap-1.5 pt-0.5">
-                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200/60 text-[10px] font-bold">
-                  <IconShieldCheck className="w-3 h-3 text-emerald-600" />
-                  <span>100% Steril</span>
-                </span>
-                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-amber-50 text-amber-900 border border-amber-200/60 text-[10px] font-bold">
-                  <IconAward className="w-3 h-3 text-brandOrange" />
-                  <span>MegaGen Implant</span>
-                </span>
-                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-cyan-50 text-cyan-900 border border-cyan-200/60 text-[10px] font-bold">
-                  <IconGraduationCap className="w-3 h-3 text-brandCyan" />
-                  <span>Ukraina Diplomi</span>
-                </span>
               </div>
 
               {/* Direct Quick Channel Actions */}
-              <div className="grid grid-cols-2 gap-2 pt-1 text-xs font-semibold">
+              <div className="flex items-center gap-1.5 shrink-0">
                 <a
                   href={DOCTOR_INFO.telegramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-700 border border-sky-200/70 transition-colors"
+                  aria-label="Telegram"
+                  className="w-9 h-9 rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-600 border border-sky-200/60 flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 shadow-2xs"
+                  title="Telegram: @Stamatolog07"
                 >
-                  <IconTelegram className="w-3.5 h-3.5 text-sky-500" />
-                  <span>Telegram</span>
+                  <IconTelegram className="w-4 h-4 text-sky-500" />
                 </a>
                 <a
                   href={DOCTOR_INFO.instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-pink-50 hover:bg-pink-100 text-pink-700 border border-pink-200/70 transition-colors"
+                  aria-label="Instagram"
+                  className="w-9 h-9 rounded-xl bg-pink-50 hover:bg-pink-100 text-pink-600 border border-pink-200/60 flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 shadow-2xs"
+                  title="Instagram: @_vrach_stomatolog"
                 >
-                  <IconInstagram className="w-3.5 h-3.5 text-pink-500" />
-                  <span>Instagram</span>
+                  <IconInstagram className="w-4 h-4 text-pink-500" />
                 </a>
               </div>
             </div>

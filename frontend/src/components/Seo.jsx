@@ -76,6 +76,22 @@ const Seo = ({
       if (ogUrl) ogUrl.setAttribute("content", resolvedCanonical);
     }
 
+    if (alternates && alternates.length > 0) {
+      document.querySelectorAll('link[rel="alternate"][hreflang]').forEach((el) => el.remove());
+      const canonicalLink = document.querySelector('link[rel="canonical"]');
+      alternates.forEach((a) => {
+        const link = document.createElement("link");
+        link.rel = "alternate";
+        link.hreflang = a.hreflang;
+        link.href = a.href;
+        if (canonicalLink && canonicalLink.parentNode) {
+          canonicalLink.parentNode.insertBefore(link, canonicalLink.nextSibling);
+        } else {
+          document.head.appendChild(link);
+        }
+      });
+    }
+
     if (ogImage) {
       const ogImg = document.querySelector('meta[property="og:image"]');
       if (ogImg) ogImg.setAttribute("content", ogImage);

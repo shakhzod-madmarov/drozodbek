@@ -199,9 +199,16 @@ const About = ({ onOpenBooking }) => {
             <div className="w-28 h-28 sm:w-32 sm:h-32 mx-auto flex items-center justify-center rounded-2xl bg-white shadow-xs border border-amber-100 p-3">
               <img
                 src="/logo_icon.png"
-                alt="Dr. Ozodbek Otaxonov Logo"
+                alt={
+                  lang === "ru"
+                    ? "Д-р Озодбек Отахонов — Врач-Стоматолог"
+                    : lang === "en"
+                    ? "Dr. Ozodbek Otaxonov — Dental Surgeon"
+                    : "Dr. Ozodbek Otaxonov — Vrach Stomatolog"
+                }
                 width={120}
                 height={120}
+                decoding="async"
                 className="w-full h-full object-contain filter drop-shadow-xs"
               />
             </div>

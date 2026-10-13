@@ -140,6 +140,8 @@ const ServiceDetail = () => {
           alt={service.title[lang]}
           width={1200}
           height={600}
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover opacity-35"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" />

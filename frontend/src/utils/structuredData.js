@@ -217,3 +217,154 @@ export const buildPageWithBreadcrumbs = (pageType, path, title, lang = "uz", bre
     ...page,
   };
 };
+
+export const buildHomeSchema = (lang = "uz", faqItems = []) => {
+  const homeUrl = urlFor("/", lang);
+  const websiteEntity = {
+    "@type": "WebSite",
+    "@id": `${SITE_ORIGIN}/#website`,
+    "url": `${SITE_ORIGIN}/`,
+    "name": DOCTOR_INFO.name,
+    "description": "Dr. Ozodbek Otaxonov — 10 yillik tajribaga ega vrach stomatolog. Ukraina stomatologiya tibbiyot akademiyasi bitiruvchisi.",
+    "inLanguage": ["uz", "ru", "en"],
+  };
+
+  const dentistEntity = {
+    "@type": ["Dentist", "MedicalBusiness"],
+    "@id": `${SITE_ORIGIN}/#dentist`,
+    "name": `${DOCTOR_INFO.name} — Stomatologiya`,
+    "url": `${SITE_ORIGIN}/`,
+    "logo": `${SITE_ORIGIN}/logo_icon.png`,
+    "image": `${SITE_ORIGIN}/dr_ozodbek_og.jpg`,
+    "telephone": DOCTOR_INFO.phoneRaw,
+    "priceRange": "$$",
+    "currenciesAccepted": "UZS",
+    "paymentAccepted": "Cash, Payme, Click, Uzum",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Andijon",
+      "addressRegion": "Andijon viloyati",
+      "addressCountry": "UZ",
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 40.7821,
+      "longitude": 72.3442,
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "08:30",
+        "closes": "18:30",
+      },
+    ],
+    "medicalSpecialty": [
+      "https://schema.org/Dentistry",
+    ],
+    "founder": {
+      "@id": `${SITE_ORIGIN}/#doctor`,
+    },
+    "sameAs": [
+      DOCTOR_INFO.telegramUrl,
+      DOCTOR_INFO.instagramUrl,
+    ],
+  };
+
+  const doctorEntity = {
+    "@type": "Physician",
+    "@id": `${SITE_ORIGIN}/#doctor`,
+    "name": DOCTOR_INFO.name,
+    "jobTitle": DOCTOR_INFO.title,
+    "description": `${DOCTOR_INFO.name} — 10 yillik tajribaga ega vrach stomatolog. Ukraina stomatologiya tibbiyot akademiyasi bitiruvchisi.`,
+    "telephone": DOCTOR_INFO.phoneRaw,
+    "url": `${SITE_ORIGIN}/`,
+    "image": `${SITE_ORIGIN}/dr_ozodbek_og.jpg`,
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": DOCTOR_INFO.education[lang] || DOCTOR_INFO.education.uz,
+    },
+    "medicalSpecialty": "https://schema.org/Dentistry",
+    "knowsAbout": [
+      "Dental implantatsiya",
+      "Ortodontik breketlar",
+      "Sirkon va keramika karonkalar",
+      "Vinirlar",
+      "Elaynerlar",
+      "Tish oqartirish",
+      "Og'riqsiz tish davolash",
+    ],
+    "sameAs": [
+      DOCTOR_INFO.telegramUrl,
+      DOCTOR_INFO.instagramUrl,
+    ],
+  };
+
+  const graph = [websiteEntity, dentistEntity, doctorEntity];
+
+  if (Array.isArray(faqItems) && faqItems.length > 0) {
+    graph.push({
+      "@type": "FAQPage",
+      "@id": `${homeUrl}#faq`,
+      "mainEntity": faqItems.map((item) => ({
+        "@type": "Question",
+        "name": item.q[lang] || item.q.uz,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.a[lang] || item.a.uz,
+        },
+      })),
+    });
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": graph,
+  };
+};
+
+export const buildBookingPageSchema = (lang = "uz", breadcrumbs = []) => {
+  const pageUrl = urlFor("/booking", lang);
+  const breadcrumbObj = breadcrumbs.length > 0 ? buildBreadcrumbSchema(breadcrumbs, lang) : null;
+
+  const bookingPage = {
+    "@type": "MedicalWebPage",
+    "@id": `${pageUrl}#booking`,
+    "url": pageUrl,
+    "name": lang === "ru" ? "Онлайн запись к Д-ру Озодбеку" : lang === "en" ? "Online Appointment Booking" : "Onlayn qabulga yozilish",
+    "about": {
+      "@type": "Dentist",
+      "@id": `${SITE_ORIGIN}/#dentist`,
+      "name": DOCTOR_INFO.name,
+      "telephone": DOCTOR_INFO.phoneRaw,
+    },
+    "potentialAction": {
+      "@type": "ReserveAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": pageUrl,
+        "actionPlatform": [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/MobileWebPlatform",
+        ],
+      },
+      "result": {
+        "@type": "Reservation",
+        "name": "Stomatologik qabulga yozilish",
+      },
+    },
+  };
+
+  if (breadcrumbObj) {
+    return {
+      "@context": "https://schema.org",
+      "@graph": [breadcrumbObj, bookingPage],
+    };
+  }
+
+  return {
+    "@context": "https://schema.org",
+    ...bookingPage,
+  };
+};
+

@@ -4,7 +4,7 @@ import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
 import Seo from "../components/Seo";
 import InlineBookingSection from "../components/InlineBookingSection";
 import { DOCTOR_INFO, OPENING_HOURS, getYearsOfExperience } from "../constants/doctor";
-import { buildPageWithBreadcrumbs } from "../utils/structuredData";
+import { buildBookingPageSchema } from "../utils/structuredData";
 import { PAGE_SEO } from "../constants/seo";
 import {
   IconPhone,
@@ -25,7 +25,7 @@ const Booking = () => {
     { name: lang === "ru" ? "Главная" : lang === "en" ? "Home" : "Bosh sahifa", path: "/" },
     { name: lang === "ru" ? "Запись на приём" : lang === "en" ? "Appointment Booking" : "Qabulga yozilish", path: "/booking" },
   ];
-  const bookingSchema = buildPageWithBreadcrumbs("MedicalWebPage", "/booking", seo.title, lang, breadcrumbs);
+  const bookingSchema = buildBookingPageSchema(lang, breadcrumbs);
 
   return (
     <div className="py-6 sm:py-10 space-y-10">

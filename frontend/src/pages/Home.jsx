@@ -13,7 +13,7 @@ import InlineBookingSection from "../components/InlineBookingSection";
 import ClinicLocationMap from "../components/ClinicLocationMap";
 import FaqAccordion from "../components/FaqAccordion";
 import { FAQ_ITEMS } from "../constants/faq";
-import { buildFaqSchema } from "../utils/structuredData";
+import { buildHomeSchema } from "../utils/structuredData";
 import { SERVICES_CATALOG } from "../constants/servicesCatalog";
 import CertificatesShowcase from "../components/CertificatesShowcase";
 import Interactive3DCostCalculator from "../components/Interactive3DCostCalculator";
@@ -187,6 +187,8 @@ const HeroSection = ({ onOpenBooking }) => {
                 alt="Dr. Ozodbek Otaxonov — Vrach Stomatolog"
                 width={140}
                 height={140}
+                fetchPriority="high"
+                decoding="async"
                 className="w-full h-full object-contain filter drop-shadow-xs transition-transform duration-300 hover:scale-105"
               />
             </div>
@@ -391,7 +393,7 @@ const BeforeAfterSection = () => {
 const Home = ({ onOpenBooking }) => {
   const { lang } = useLanguage();
   const seo = PAGE_SEO.home[lang] || PAGE_SEO.home.uz;
-  const faqSchema = buildFaqSchema(FAQ_ITEMS, lang);
+  const homeSchema = buildHomeSchema(lang, FAQ_ITEMS);
 
   return (
     <div className="space-y-12 sm:space-y-16 pb-12">
@@ -399,7 +401,7 @@ const Home = ({ onOpenBooking }) => {
         title={seo.title}
         description={seo.description}
         keywords={PAGE_KEYWORDS[lang]}
-        schemaJson={faqSchema}
+        schemaJson={homeSchema}
       />
 
       {/* 1. Hero */}

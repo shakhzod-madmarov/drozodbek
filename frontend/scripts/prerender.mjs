@@ -51,11 +51,12 @@ const setHtmlLang = (html, lang) =>
   html.replace(/<html([^>]*)\s+lang="[^"]*"/, `<html$1 lang="${lang}"`);
 
 const injectAlternates = (html, alternates) => {
-  if (!alternates || alternates.length === 0) return html;
+  let cleaned = html.replace(/<link\s+rel="alternate"\s+hreflang="[^"]*"\s+href="[^"]*"\s*\/?>\s*\n?/gi, "");
+  if (!alternates || alternates.length === 0) return cleaned;
   const tags = alternates
     .map((a) => `    <link rel="alternate" hreflang="${a.hreflang}" href="${escapeAttr(a.href)}" />`)
     .join("\n");
-  return html.replace(/(<link\s+rel="canonical"[^>]*>)/, `$1\n${tags}`);
+  return cleaned.replace(/(<link\s+rel="canonical"[^>]*>)/, `$1\n${tags}`);
 };
 
 const setNoindex = (html) =>

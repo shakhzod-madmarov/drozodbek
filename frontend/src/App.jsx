@@ -17,15 +17,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { useLanguage } from "./context/LanguageContext";
 import { LANGS, DEFAULT_LANG } from "./utils/language";
 
-const FaviconEnforcer = () => {
-  useEffect(() => {
-    const existing = document.querySelector("link[rel*='icon']");
-    if (existing) {
-      existing.href = `/favicon-32x32.png?v=${Date.now()}`;
-    }
-  }, []);
-  return null;
-};
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -63,7 +54,6 @@ const AppShell = () => {
       </a>
       <LangSync />
       <ScrollToTop />
-      <FaviconEnforcer />
       <ToastContainer
         position="top-right"
         autoClose={4000}

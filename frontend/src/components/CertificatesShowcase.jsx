@@ -190,7 +190,10 @@ const CertificatesShowcase = () => {
                   <img
                     src={cert.image}
                     alt={cert.title[lang]}
+                    width={600}
+                    height={450}
                     loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />

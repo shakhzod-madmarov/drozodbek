@@ -469,7 +469,7 @@ const InlineBookingSection = () => {
               </label>
               <span className="text-[11px] text-slate-500 font-medium">{t.defaultDaysLabel}</span>
             </div>
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 scroll-touch">
+            <div className="flex items-center gap-2 overflow-x-auto pb-2 px-1 -mx-2 sm:mx-0 no-scrollbar scroll-touch">
               {days.map((d) => (
                 <button
                   type="button"

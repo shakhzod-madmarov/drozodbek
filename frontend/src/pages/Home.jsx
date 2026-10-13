@@ -100,7 +100,7 @@ const HeroSection = ({ onOpenBooking }) => {
       {/* Brand Accent Top Strip */}
       <div className="h-2 w-full bg-gradient-to-r from-primary via-brandOrange to-brandCyan" />
 
-      <div className="p-6 sm:p-10 lg:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <div className="p-5 sm:p-10 lg:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         {/* Left Copy (7 cols) */}
         <div className="lg:col-span-7 space-y-6 text-left">
           {/* Status Badge */}
@@ -120,7 +120,7 @@ const HeroSection = ({ onOpenBooking }) => {
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brandOrange">
               {t.specialtyTitle}
             </p>
-            <h1 className="font-serif-classic text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#1A202C] leading-[1.12]">
+            <h1 className="font-serif-classic text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#1A202C] leading-[1.14] break-words">
               {t.headline}
             </h1>
           </div>
@@ -130,10 +130,10 @@ const HeroSection = ({ onOpenBooking }) => {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-wrap items-center gap-3 pt-1">
+          <div className="flex flex-col xs:flex-row flex-wrap items-stretch xs:items-center gap-2.5 sm:gap-3 pt-1">
             <button
               onClick={() => onOpenBooking()}
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-primary hover:bg-primary-hover text-white font-semibold text-xs sm:text-sm uppercase tracking-wider shadow-xs transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 cursor-pointer"
+              className="inline-flex justify-center items-center gap-2 px-5 sm:px-6 py-3.5 rounded-xl bg-primary hover:bg-primary-hover text-white font-semibold text-xs sm:text-sm uppercase tracking-wider shadow-xs transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 cursor-pointer"
             >
               <IconClock className="w-4 h-4 text-white" />
               <span>{t.ctaBook}</span>
@@ -141,7 +141,7 @@ const HeroSection = ({ onOpenBooking }) => {
 
             <Link
               to={to("/services")}
-              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-amber-50/80 hover:bg-amber-100/70 border border-amber-200/70 text-slate-800 font-semibold text-xs sm:text-sm transition-all duration-200"
+              className="inline-flex justify-center items-center gap-2 px-5 py-3.5 rounded-xl bg-amber-50/80 hover:bg-amber-100/70 border border-amber-200/70 text-slate-800 font-semibold text-xs sm:text-sm transition-all duration-200"
             >
               <span>{t.ctaServices}</span>
               <span>→</span>
@@ -149,7 +149,7 @@ const HeroSection = ({ onOpenBooking }) => {
 
             <a
               href={DOCTOR_INFO.phoneHref}
-              className="inline-flex items-center gap-2 px-3.5 py-3.5 rounded-xl text-primary hover:bg-primary/5 font-semibold text-xs sm:text-sm transition-colors"
+              className="inline-flex justify-center items-center gap-2 px-3.5 py-3 rounded-xl text-primary hover:bg-primary/5 font-semibold text-xs sm:text-sm transition-colors"
             >
               <IconPhone className="w-4 h-4 text-primary" />
               <span>{DOCTOR_INFO.phoneDisplay}</span>

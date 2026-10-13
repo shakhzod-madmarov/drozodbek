@@ -88,12 +88,12 @@ const Services = ({ onOpenBooking }) => {
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex flex-wrap items-center justify-center gap-1.5">
+      <div className="flex overflow-x-auto sm:flex-wrap items-center justify-start sm:justify-center gap-1.5 pb-1 px-1 -mx-2 sm:mx-0 no-scrollbar scroll-touch">
         {categories.map((c) => (
           <button
             key={c.id}
             onClick={() => setActiveCategory(c.id)}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+            className={`shrink-0 whitespace-nowrap px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
               activeCategory === c.id
                 ? "bg-primary text-white shadow-xs"
                 : "bg-white text-slate-700 border border-amber-200/70 hover:bg-amber-50"

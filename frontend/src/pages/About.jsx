@@ -149,7 +149,7 @@ const About = ({ onOpenBooking }) => {
       </nav>
 
       {/* Doctor Bio Editorial Header */}
-      <div className="bg-white rounded-3xl border border-amber-200 p-6 sm:p-10 lg:p-12 shadow-luxury grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <div className="bg-white rounded-3xl border border-amber-200 p-5 sm:p-10 lg:p-12 shadow-luxury grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         <div className="lg:col-span-7 space-y-6">
           <div className="flex flex-wrap items-center gap-2">
             <span className="px-3 py-1 rounded-full bg-red-50 text-primary border border-red-200/60 text-[11px] font-semibold">
@@ -161,7 +161,7 @@ const About = ({ onOpenBooking }) => {
           </div>
 
           <div className="space-y-2">
-            <h1 className="font-serif-classic text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
+            <h1 className="font-serif-classic text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight break-words">
               Dr. Ozodbek Otaxonov
             </h1>
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brandOrange">
@@ -177,16 +177,16 @@ const About = ({ onOpenBooking }) => {
               : "Dr. Ozodbek Otaxonov brings a decade of clinical dentistry practice. A graduate of the Ukrainian Medical Stomatological Academy, he specializes in MegaGen dental implants, 3D guided surgery, E-max veneers, monolithic zirconia crowns, and orthodontic alignment."}
           </p>
 
-          <div className="flex flex-wrap items-center gap-3 pt-1">
+          <div className="flex flex-col xs:flex-row flex-wrap items-stretch xs:items-center gap-2.5 sm:gap-3 pt-1">
             <button
               onClick={() => onOpenBooking()}
-              className="px-5 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-semibold uppercase tracking-wider shadow-xs transition-all hover:shadow-md cursor-pointer"
+              className="inline-flex justify-center items-center px-5 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-semibold uppercase tracking-wider shadow-xs transition-all hover:shadow-md cursor-pointer"
             >
               {lang === "uz" ? "Qabulga Yozilish" : lang === "ru" ? "Записаться на Приём" : "Book Visit"}
             </button>
             <a
               href={DOCTOR_INFO.phoneHref}
-              className="px-4 py-3 rounded-xl bg-amber-50 hover:bg-amber-100/70 border border-amber-200/70 text-slate-800 text-xs font-semibold flex items-center gap-2"
+              className="inline-flex justify-center items-center px-4 py-3 rounded-xl bg-amber-50 hover:bg-amber-100/70 border border-amber-200/70 text-slate-800 text-xs font-semibold gap-2"
             >
               <IconPhone className="w-4 h-4 text-primary" />
               <span>{DOCTOR_INFO.phoneDisplay}</span>

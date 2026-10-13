@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { DOCTOR_INFO } from "../constants/doctor";
 import { IconTelegram, IconInstagram, IconPhone } from "./MedicalIcons";
@@ -8,18 +8,29 @@ const FloatingActionHub = () => {
   const { lang } = useLanguage();
   const a11y = getA11yLabels(lang);
   const [expanded, setExpanded] = useState(false);
+  const hubRef = useRef(null);
 
   useEffect(() => {
     if (!expanded) return;
+    const handleClickOutside = (e) => {
+      if (hubRef.current && !hubRef.current.contains(e.target)) {
+        setExpanded(false);
+      }
+    };
     const handleKeyDown = (e) => {
       if (e.key === "Escape") setExpanded(false);
     };
+    document.addEventListener("pointerdown", handleClickOutside);
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", handleClickOutside);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   }, [expanded]);
 
   return (
     <div
+      ref={hubRef}
       role="region"
       aria-label={a11y.quickActions}
       className="fixed bottom-[max(1.25rem,env(safe-area-inset-bottom,0px))] right-[max(1.25rem,env(safe-area-inset-right,0px))] z-40 flex flex-col items-end gap-2 no-print"

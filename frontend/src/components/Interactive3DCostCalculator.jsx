@@ -294,12 +294,12 @@ const Interactive3DCostCalculator = () => {
         </div>
 
         {/* Specialty Tabs Grid */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 pb-2">
+        <div className="flex overflow-x-auto sm:flex-wrap items-center justify-start sm:justify-center gap-2 sm:gap-2.5 pb-2 px-1 -mx-2 sm:mx-0 no-scrollbar scroll-touch">
           {treatments.map((t) => (
             <button
               key={t.id}
               onClick={() => setSelectedId(t.id)}
-              className={`flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-2xl text-xs font-bold transition-all duration-200 cursor-pointer ${
+              className={`flex shrink-0 whitespace-nowrap items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-2xl text-xs font-bold transition-all duration-200 cursor-pointer ${
                 selectedId === t.id
                   ? "bg-primary text-white shadow-luxury scale-105"
                   : "bg-amber-50/70 hover:bg-amber-100/60 text-slate-700 border border-amber-200/50"

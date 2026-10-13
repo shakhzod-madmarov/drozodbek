@@ -137,11 +137,11 @@ const QuickBookingModal = ({
       aria-label={a11y.quickBookingModal}
       ref={modalRef}
       tabIndex={-1}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-xs"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-xs"
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-3xl max-w-xl w-full p-5 sm:p-7 max-h-[92vh] overflow-y-auto space-y-5 shadow-2xl relative"
+        className="bg-white rounded-3xl max-w-xl w-full p-4 sm:p-7 max-h-[90vh] max-h-[90dvh] overflow-y-auto space-y-4 sm:space-y-5 shadow-2xl relative"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between border-b pb-3">

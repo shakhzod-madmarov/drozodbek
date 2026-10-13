@@ -27,6 +27,17 @@ const Nav = ({ topOffset = 0 }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (showMenu) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [showMenu]);
+
   const navLinks = [
     { path: "/", label: { uz: "Bosh Sahifa", ru: "Главная", en: "Home" } },
     { path: "/services", label: { uz: "Xizmatlar", ru: "Услуги", en: "Services" } },
@@ -122,12 +133,12 @@ const Nav = ({ topOffset = 0 }) => {
               <span>{DOCTOR_INFO.phoneDisplay}</span>
             </a>
 
-            {/* Compact Book CTA Button */}
+            {/* Compact Book CTA Button (Desktop & Tablet) */}
             <button
               onClick={() => {
                 navigate(to("/booking"));
               }}
-              className={`inline-flex items-center px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs font-semibold shadow-xs transition-all duration-150 cursor-pointer ${
+              className={`hidden sm:inline-flex items-center px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs font-semibold shadow-xs transition-all duration-150 cursor-pointer ${
                 isBookingActive
                   ? "bg-primary text-white ring-2 ring-primary/30"
                   : "bg-primary hover:bg-primary-hover text-white hover:shadow-md hover:-translate-y-0.5"
@@ -173,7 +184,7 @@ const Nav = ({ topOffset = 0 }) => {
           ref={drawerRef}
           id="mobile-navigation-drawer"
           tabIndex={-1}
-          className="fixed inset-0 z-50 lg:hidden flex flex-col bg-white outline-none"
+          className="fixed inset-0 h-screen h-[100dvh] z-50 lg:hidden flex flex-col bg-white outline-none"
         >
           {/* Drawer Header */}
           <div className="flex items-center justify-between p-4 border-b border-amber-100 bg-[#FFFDF9]">

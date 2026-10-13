@@ -161,11 +161,11 @@ const Footer = () => {
         </div>
 
         {/* Bottom Copyright & Disclaimer */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 text-center sm:text-left">
           <p>
             © {new Date().getFullYear()} {DOCTOR_INFO.name}. Barcha huquqlar himoyalangan.
           </p>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
             <a
               href={DOCTOR_INFO.telegramUrl}
               target="_blank"

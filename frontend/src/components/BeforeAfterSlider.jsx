@@ -35,6 +35,11 @@ const BeforeAfterSlider = ({
 
   const handlePointerDown = (e) => {
     isDragging.current = true;
+    try {
+      e.currentTarget.setPointerCapture?.(e.pointerId);
+    } catch {
+      // ignore if unsupported
+    }
     updatePosition(e.clientX);
   };
 
@@ -43,8 +48,15 @@ const BeforeAfterSlider = ({
     updatePosition(e.clientX);
   };
 
-  const handlePointerUp = () => {
+  const handlePointerUp = (e) => {
     isDragging.current = false;
+    try {
+      if (e?.currentTarget?.hasPointerCapture?.(e.pointerId)) {
+        e.currentTarget.releasePointerCapture(e.pointerId);
+      }
+    } catch {
+      // ignore if unsupported
+    }
   };
 
   const handleKeyDown = (e) => {

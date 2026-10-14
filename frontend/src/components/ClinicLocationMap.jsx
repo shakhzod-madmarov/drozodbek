@@ -1,7 +1,8 @@
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
-import { DOCTOR_INFO, OPENING_HOURS } from "../constants/doctor";
+import { DOCTOR_INFO } from "../constants/doctor";
 import { PRIMARY_CLINIC } from "../constants/clinics";
+import { useClinicHours } from "../lib/medinsonBooking";
 import {
   IconLocationPin,
   IconClock,
@@ -14,7 +15,7 @@ import {
 const ClinicLocationMap = ({ compact = false }) => {
   const { lang } = useLanguage();
   const c = PRIMARY_CLINIC;
-  const hours = OPENING_HOURS.labels[lang] || OPENING_HOURS.labels.uz;
+  const hours = useClinicHours(lang);
 
   return (
     <section className={compact ? "py-4" : "py-10 sm:py-14"}>
@@ -45,7 +46,7 @@ const ClinicLocationMap = ({ compact = false }) => {
         {/* Left Info Column (5 cols) */}
         <div className="lg:col-span-5 flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-[#1A202C] text-white space-y-6">
           <div className="space-y-5">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-white border border-primary/40 text-xs font-bold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white/90 border border-white/20 text-xs font-semibold">
               <IconLocationPin className="w-3.5 h-3.5 text-primary shrink-0" />
               <span>{c.badge[lang]}</span>
             </div>
@@ -87,17 +88,6 @@ const ClinicLocationMap = ({ compact = false }) => {
                   </a>
                 </div>
               </div>
-
-              {/* Clinic reception phone */}
-              <div className="flex items-center gap-3 text-xs text-slate-300">
-                <span className="text-slate-400">🏥 {lang === "uz" ? "Klinika resepshni:" : "Ресепшн клиники:"}</span>
-                <a
-                  href={`tel:${c.clinicPhoneRaw}`}
-                  className="font-bold text-white hover:text-brandOrange transition-colors"
-                >
-                  {c.clinicPhoneDisplay}
-                </a>
-              </div>
             </div>
           </div>
 
@@ -133,7 +123,7 @@ const ClinicLocationMap = ({ compact = false }) => {
         <div className="lg:col-span-7 flex flex-col justify-between rounded-2xl overflow-hidden bg-amber-50/50 border border-amber-200 p-4 sm:p-6 space-y-4">
           <div className="space-y-2">
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-bold">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white text-slate-800 border border-slate-200/90 text-xs font-semibold shadow-2xs">
                 <IconShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                 <span>Smiles Dental Group · Andijon</span>
               </span>
@@ -173,16 +163,16 @@ const ClinicLocationMap = ({ compact = false }) => {
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 text-xs font-bold shadow-2xs transition-all hover:shadow-xs"
             >
-              <span>📍 Google Maps ↗</span>
+              <span>Google Maps ↗</span>
             </a>
 
             <a
               href={c.maps.yandex}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#FC3F1D]/10 hover:bg-[#FC3F1D]/20 border border-[#FC3F1D]/30 text-[#FC3F1D] text-xs font-bold transition-all"
+              className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white hover:bg-amber-50/60 border border-amber-200 text-slate-800 text-xs font-bold transition-all shadow-2xs"
             >
-              <span>🗺 Yandex Xarita ↗</span>
+              <span>Yandex Xarita ↗</span>
             </a>
 
             <a
@@ -191,7 +181,7 @@ const ClinicLocationMap = ({ compact = false }) => {
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-bold shadow-xs transition-all"
             >
-              <span>🚗 {lang === "uz" ? "Marshrut" : "Маршрут"} ↗</span>
+              <span>{lang === "uz" ? "Marshrut Olish" : lang === "ru" ? "Маршрут" : "Get Directions"} ↗</span>
             </a>
           </div>
         </div>

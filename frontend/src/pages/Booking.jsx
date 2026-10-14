@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
 import Seo from "../components/Seo";
 import InlineBookingSection from "../components/InlineBookingSection";
-import { DOCTOR_INFO, OPENING_HOURS, getYearsOfExperience } from "../constants/doctor";
+import { DOCTOR_INFO, getYearsOfExperience } from "../constants/doctor";
+import { useClinicHours } from "../lib/medinsonBooking";
 import { buildBookingPageSchema } from "../utils/structuredData";
 import { PAGE_SEO } from "../constants/seo";
 import {
@@ -19,7 +20,7 @@ const Booking = () => {
   const to = useLocalizedPath();
   const years = getYearsOfExperience();
   const seo = PAGE_SEO.booking[lang] || PAGE_SEO.booking.uz;
-  const hours = OPENING_HOURS.labels[lang] || OPENING_HOURS.labels.uz;
+  const hours = useClinicHours(lang);
 
   const breadcrumbs = [
     { name: lang === "ru" ? "Главная" : lang === "en" ? "Home" : "Bosh sahifa", path: "/" },

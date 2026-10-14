@@ -7,6 +7,7 @@
  * Relay Server: https://dentist-medinson-license.uz
  */
 
+import { useState, useEffect } from "react";
 import { DOCTOR_INFO } from "../constants/doctor";
 import { sanitizePatientName, sanitizeNote, isValidIsoDate } from "../utils/security";
 
@@ -242,6 +243,89 @@ export function getCachedAvailability() {
 }
 
 /**
+ * Calculates current active booking hours dynamically from live app availability data.
+ */
+export function getClinicOpeningHours(lang = "uz") {
+  const data = getCachedAvailability();
+  let startTime = "08:30";
+  let endTime = "18:30";
+
+  if (data?.days && Array.isArray(data.days) && data.days.length > 0) {
+    let minT = "";
+    let maxT = "";
+    for (const d of data.days) {
+      if (Array.isArray(d.times)) {
+        for (const t of d.times) {
+          const [h] = t.split(":").map(Number);
+          if (h >= 8 && h <= 21) {
+            if (!minT || t < minT) minT = t;
+            if (!maxT || t > maxT) maxT = t;
+          }
+        }
+      }
+    }
+    if (minT && maxT) {
+      startTime = minT;
+      endTime = maxT;
+    }
+  } else if (data?.dentist?.workingHours?.start && data?.dentist?.workingHours?.end) {
+    const s = data.dentist.workingHours.start;
+    const e = data.dentist.workingHours.end;
+    if (s !== "00:00" || e !== "23:30") {
+      startTime = s;
+      endTime = e;
+    }
+  }
+
+  const daysLabel = {
+    uz: "Dushanba – Shanba",
+    ru: "Понедельник – Суббота",
+    en: "Monday – Saturday",
+  }[lang] || "Dushanba – Shanba";
+
+  const sundayLabel = {
+    uz: "Yakshanba — oldindan yozilish bo'yicha",
+    ru: "Воскресенье — по предварительной записи",
+    en: "Sunday — by prior appointment",
+  }[lang] || "Yakshanba — oldindan yozilish bo'yicha";
+
+  return {
+    start: startTime,
+    end: endTime,
+    days: daysLabel,
+    hours: `${startTime} – ${endTime}`,
+    full: `${daysLabel}: ${startTime} – ${endTime}`,
+    sunday: sundayLabel,
+  };
+}
+
+/**
+ * React hook that dynamically returns the dentist's active booking hours
+ * and automatically re-renders when the dentist updates them from the app.
+ */
+export function useClinicHours(lang = "uz") {
+  const [hours, setHours] = useState(() => getClinicOpeningHours(lang));
+
+  useEffect(() => {
+    setHours(getClinicOpeningHours(lang));
+
+    const handler = () => {
+      setHours(getClinicOpeningHours(lang));
+    };
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("dentist_availability_updated", handler);
+      if (!getCachedAvailability()) {
+        fetchDentistAvailability().catch(() => {});
+      }
+      return () => window.removeEventListener("dentist_availability_updated", handler);
+    }
+  }, [lang]);
+
+  return hours;
+}
+
+/**
  * Endpoint A: Fetch Live Availability & Dentist Profile
  * GET ${API_URL}/api/public/booking/availability?site=${SITE_ID}
  */
@@ -274,6 +358,9 @@ export async function fetchDentistAvailability({
       throw err;
     }
     cachedAvailability = data;
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("dentist_availability_updated", { detail: data }));
+    }
     return data;
   } catch (e) {
     if (timeoutId) clearTimeout(timeoutId);

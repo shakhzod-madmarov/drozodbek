@@ -573,8 +573,9 @@ const Interactive3DCostCalculator = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
                   <div className="absolute top-2.5 left-2.5 z-10">
-                    <span className="px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-amber-300 border border-amber-300/40 text-[9px] font-black uppercase tracking-wider shadow-sm">
-                      {activeTreatment.shortTitle[lang]}
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/70 backdrop-blur-md text-white/95 border border-white/20 text-[10px] font-semibold tracking-wide shadow-xs">
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                      <span>{activeTreatment.shortTitle[lang]}</span>
                     </span>
                   </div>
                   <div className="absolute bottom-2.5 left-3 right-3 text-left z-10 flex items-center justify-between">

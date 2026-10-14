@@ -22,9 +22,9 @@ export const CLINICS = [
       en: "Andijan",
     },
     address: {
-      uz: "Andijon shahri, 1-kichik daha (1-mikrorayon), 8A-bino (pochta indeksi: 170100)",
-      ru: "г. Андижан, 1-й микрорайон, д. 8A (почтовый индекс: 170100)",
-      en: "8A, 1st Microdistrict, Andijan 170100, Uzbekistan",
+      uz: "Andijon shahri, 1-kichik daha (1-mikrorayon), 8A-bino",
+      ru: "г. Андижан, 1-й микрорайон, д. 8A",
+      en: "8A, 1st Microdistrict, Andijan, Uzbekistan",
     },
     shortAddress: {
       uz: "Andijon sh., 1-kichik daha, 8A-uy",
@@ -49,9 +49,6 @@ export const CLINICS = [
     doctorPhone: "+998 97 833 89 97",
     doctorPhoneDisplay: "+998 97 833 89 97",
     doctorPhoneRaw: "+998978338997",
-    clinicPhone: "+998 91 490 22 11",
-    clinicPhoneDisplay: "+998 91 490 22 11",
-    clinicPhoneRaw: "+998914902211",
     telegram: "https://t.me/Stamatolog07",
     telegramHandle: "@Stamatolog07",
     instagram: "https://www.instagram.com/_vrach_stomatolog/",

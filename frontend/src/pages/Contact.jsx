@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
 import { useBooking } from "../context/BookingContext";
-import { DOCTOR_INFO, OPENING_HOURS } from "../constants/doctor";
+import { DOCTOR_INFO } from "../constants/doctor";
 import { PRIMARY_CLINIC } from "../constants/clinics";
+import { useClinicHours } from "../lib/medinsonBooking";
 import { PAGE_SEO, PAGE_KEYWORDS } from "../constants/seo";
 import Seo from "../components/Seo";
 import { buildContactPageSchema } from "../utils/structuredData";
@@ -21,7 +22,7 @@ const Contact = () => {
   const to = useLocalizedPath();
   const { openBooking } = useBooking();
   const seo = PAGE_SEO.contact[lang] || PAGE_SEO.contact.uz;
-  const hours = OPENING_HOURS.labels[lang] || OPENING_HOURS.labels.uz;
+  const hours = useClinicHours(lang);
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("+998 ");

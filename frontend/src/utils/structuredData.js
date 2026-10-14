@@ -252,7 +252,7 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
     "@id": `${SITE_ORIGIN}/#clinic`,
     "name": "Smiles Dental Group",
     "alternateName": ["Smiles dental group", "Смайлс Дентал Групп", "SMILES DENTAL GROUP"],
-    "telephone": PRIMARY_CLINIC.clinicPhoneRaw,
+    "telephone": DOCTOR_INFO.phoneRaw,
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "1-kichik daha, 8A-bino",

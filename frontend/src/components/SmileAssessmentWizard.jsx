@@ -19,7 +19,7 @@ const concerns = [
     serviceId: "ogriqsiz-tish-davolash",
     image: assets.treatment_therapy,
     icon: <DentalToothMolar className="w-5 h-5 text-rose-500" />,
-    badgeColor: "bg-rose-950/80 text-rose-300 border-rose-400/40",
+    badgeColor: "bg-slate-950/70 text-white/95 border-white/20",
     tag: { uz: "Terapiya & Karies", ru: "Терапия и Кариес", en: "Restorative" },
     title: {
       uz: "Tish og'rig'i, karies yoki plomba tushishi",
@@ -49,7 +49,7 @@ const concerns = [
     serviceId: "dental-implant",
     image: assets.treatment_implant,
     icon: <DentalImplantFixture className="w-5 h-5 text-primary" />,
-    badgeColor: "bg-red-950/80 text-red-300 border-red-400/40",
+    badgeColor: "bg-slate-950/70 text-white/95 border-white/20",
     tag: { uz: "Dental Implant", ru: "Имплантация", en: "Implantology" },
     title: {
       uz: "Bir yoki bir nechta tish yo'qolgan (tish qo'yish)",
@@ -79,7 +79,7 @@ const concerns = [
     serviceId: "breketlar",
     image: assets.treatment_braces,
     icon: <DentalBracesIcon className="w-5 h-5 text-brandOrange" />,
-    badgeColor: "bg-amber-950/80 text-amber-300 border-amber-400/40",
+    badgeColor: "bg-slate-950/70 text-white/95 border-white/20",
     tag: { uz: "Ortodontiya", ru: "Ортодонтия", en: "Orthodontics" },
     title: {
       uz: "Qiyshiq tishlar yoki noto'g'ri tishlash (prikus)",
@@ -109,7 +109,7 @@ const concerns = [
     serviceId: "vinirlar",
     image: assets.treatment_veneers,
     icon: <DentalVeneerCrown className="w-5 h-5 text-brandCyan" />,
-    badgeColor: "bg-cyan-950/80 text-cyan-300 border-cyan-400/40",
+    badgeColor: "bg-slate-950/70 text-white/95 border-white/20",
     tag: { uz: "Estetik Tabassum", ru: "Эстетика Улыбки", en: "Cosmetic" },
     title: {
       uz: "Old tishlar rangi, shakli yoki orasi ochiqligi",
@@ -195,7 +195,7 @@ const SmileAssessmentWizard = () => {
                     
                     {/* Category Floating Sticker */}
                     <div className="absolute top-2 left-2 z-10">
-                      <span className={`px-2.5 py-0.5 rounded-full backdrop-blur-md text-[9px] font-black uppercase tracking-wider border shadow-xs ${item.badgeColor}`}>
+                      <span className={`px-2.5 py-1 rounded-full backdrop-blur-md text-[10px] font-semibold tracking-wide border shadow-xs ${item.badgeColor}`}>
                         {item.tag[lang]}
                       </span>
                     </div>
@@ -285,7 +285,7 @@ const SmileAssessmentWizard = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
               <div className="absolute top-2.5 left-2.5">
-                <span className={`px-2.5 py-0.5 rounded-full backdrop-blur-md text-[9px] font-black uppercase tracking-wider border shadow-xs ${selectedConcern.badgeColor}`}>
+                <span className={`px-2.5 py-1 rounded-full backdrop-blur-md text-[10px] font-semibold tracking-wide border shadow-xs ${selectedConcern.badgeColor}`}>
                   {selectedConcern.tag[lang]}
                 </span>
               </div>

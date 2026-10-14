@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
-import { DOCTOR_INFO, OPENING_HOURS, getExperienceBadge, getExperienceText } from "../constants/doctor";
+import { DOCTOR_INFO, getExperienceBadge, getExperienceText } from "../constants/doctor";
+import { useClinicHours } from "../lib/medinsonBooking";
 import {
   IconShieldCheck,
   IconAward,
@@ -16,8 +17,9 @@ import {
 const Footer = () => {
   const { lang } = useLanguage();
   const to = useLocalizedPath();
+  const clinicHours = useClinicHours(lang);
 
-  const hoursDisplay = OPENING_HOURS.labels[lang]?.full || OPENING_HOURS.labels.uz.full;
+  const hoursDisplay = clinicHours.full;
 
   const quickLinks = [
     { path: "/", label: { uz: "Bosh Sahifa", ru: "Главная", en: "Home" } },

@@ -240,37 +240,25 @@ const SpecialitiesSection = ({ onOpenBooking }) => {
                 {/* Visual Depth Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/35 pointer-events-none" />
 
-                {/* Top Stickers Strip: Hallmark & Official Warranty */}
+                {/* Clean, Refined Top Stickers: Hallmark & Warranty */}
                 <div className="absolute top-3 inset-x-3 flex items-center justify-between gap-2 z-10 pointer-events-none">
-                  <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full backdrop-blur-md text-[10px] font-black uppercase tracking-wider shadow-md border ${s.badgeTheme?.badgeBg || "bg-slate-950/80 text-amber-300 border-amber-300/40"}`}>
-                    <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/70 backdrop-blur-md text-[10px] font-semibold tracking-wide text-white/95 border border-white/20 shadow-xs">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
                     <span>{s.badge?.[lang] || s.category[lang]}</span>
                   </span>
-                  <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full backdrop-blur-md text-[10px] font-bold tracking-wide shadow-md border ${s.badgeTheme?.warrantyBg || "bg-emerald-950/80 text-emerald-300 border-emerald-400/40"}`}>
-                    <IconShieldCheck className="w-3 h-3 shrink-0" />
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-950/70 backdrop-blur-md text-[10px] font-semibold tracking-wide text-emerald-300 border border-emerald-400/30 shadow-xs">
+                    <IconShieldCheck className="w-3 h-3 text-emerald-400 shrink-0" />
                     <span>{s.warranty[lang]}</span>
-                  </span>
-                </div>
-
-                {/* Bottom Badges Strip on Image: Tech Origin & Duration */}
-                <div className="absolute bottom-2.5 inset-x-3 flex items-center justify-between gap-2 z-10 pointer-events-none">
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-sm text-[10px] font-semibold text-slate-200 border border-white/10">
-                    <IconSparkleStar className="w-2.5 h-2.5 text-amber-300 shrink-0" />
-                    <span>{s.techTag?.[lang] || s.category[lang]}</span>
-                  </span>
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-sm text-[10px] font-semibold text-slate-200 border border-white/10">
-                    <IconClock className="w-2.5 h-2.5 text-brandOrange shrink-0" />
-                    <span>{s.duration[lang]}</span>
                   </span>
                 </div>
               </div>
 
-              {/* Floating Medical Icon Disc on Image Border & Clinical Pill */}
+              {/* Floating Medical Icon Disc on Image Border & Refined Clinical Pill */}
               <div className="px-5 -mt-6 relative z-20 flex justify-between items-end">
                 <span className="w-12 h-12 rounded-2xl bg-white shadow-xl border-2 border-amber-200/90 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
                   {s.icon}
                 </span>
-                <span className="text-[10px] font-black uppercase tracking-wider text-primary bg-red-50 border border-red-200/70 px-2.5 py-1 rounded-full shadow-2xs mb-1">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/5 border border-primary/20 px-2.5 py-1 rounded-full shadow-2xs mb-1">
                   {s.featurePill?.[lang] || (lang === "uz" ? "100% Og'riqsiz" : lang === "ru" ? "100% Без боли" : "100% Gentle")}
                 </span>
               </div>
@@ -284,7 +272,19 @@ const SpecialitiesSection = ({ onOpenBooking }) => {
                   <h3 className="text-lg font-bold text-slate-900 group-hover:text-primary transition-colors leading-snug font-serif-classic">
                     {s.title[lang]}
                   </h3>
-                  <p className="text-xs text-slate-600 mt-1.5 leading-relaxed line-clamp-2">
+                  {/* Clean treatment meta row: duration & origin */}
+                  <div className="flex items-center gap-2.5 text-[11px] text-slate-500 font-medium pt-1.5">
+                    <span className="inline-flex items-center gap-1 text-slate-600">
+                      <IconClock className="w-3 h-3 text-amber-500 shrink-0" />
+                      <span>{s.duration[lang]}</span>
+                    </span>
+                    <span className="text-slate-300">•</span>
+                    <span className="inline-flex items-center gap-1 text-slate-600 truncate">
+                      <IconSparkleStar className="w-3 h-3 text-amber-500 shrink-0" />
+                      <span>{s.techTag?.[lang] || s.category[lang]}</span>
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-600 mt-2 leading-relaxed line-clamp-2">
                     {s.shortDesc[lang]}
                   </p>
                 </div>

@@ -15,6 +15,7 @@ import {
   buildWorkingHoursSchedule,
   filterAvailabilitySchedule,
   getClinicTodayStr,
+  useClinicHours,
 } from "../lib/medinsonBooking";
 import {
   formatUzPhone,
@@ -207,6 +208,7 @@ const InlineBookingSection = ({ initialService = null }) => {
   const { bookingRequest } = useBooking();
   const [searchParams] = useSearchParams();
   const t = TEXT[lang] || TEXT.uz;
+  const clinicHours = useClinicHours(lang);
 
   const [days, setDays] = useState(() => buildWorkingHoursSchedule(10, 2));
   const [selectedDate, setSelectedDate] = useState(() => {
@@ -596,7 +598,7 @@ const InlineBookingSection = ({ initialService = null }) => {
               <label className="text-xs font-bold uppercase tracking-wider text-slate-700">
                 {t.dayGroupLabel}
               </label>
-              <span className="text-[11px] text-slate-500 font-medium">{t.defaultDaysLabel}</span>
+              <span className="text-[11px] text-slate-500 font-medium">{clinicHours.days} ({clinicHours.hours})</span>
             </div>
             <div className="flex items-center gap-2.5 overflow-x-auto pb-2 px-1 -mx-2 sm:mx-0 no-scrollbar scroll-touch">
               {days.map((d) => {
@@ -627,12 +629,12 @@ const InlineBookingSection = ({ initialService = null }) => {
                       <span>{formatDayPill(d.date, lang)}</span>
                       {isToday && (
                         <span
-                          className={`text-[9px] px-1.5 py-0.5 rounded-full font-extrabold uppercase tracking-wider ${
+                          className={`text-[9px] px-1.5 py-0.5 rounded-full font-bold uppercase tracking-wider border ${
                             isSelected
-                              ? "bg-white/20 text-white"
+                              ? "bg-white/25 text-white border-white/30"
                               : isFull
-                              ? "bg-slate-200 text-slate-600"
-                              : "bg-amber-100 text-amber-900"
+                              ? "bg-slate-200 text-slate-600 border-slate-300"
+                              : "bg-amber-100/90 text-amber-900 border-amber-300/60"
                           }`}
                         >
                           {lang === "uz" ? "Bugun" : lang === "ru" ? "Сегодня" : "Today"}
@@ -661,27 +663,6 @@ const InlineBookingSection = ({ initialService = null }) => {
                   {t.selectedSlotLabel} {formatDmy(selectedDate)} — {selectedTime}
                 </span>
               )}
-            </div>
-
-            {/* Respectful 2+ hours queue notice banner */}
-            <div className="p-3.5 rounded-2xl bg-amber-50/90 border border-amber-200 text-amber-950 text-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-xs">
-              <div className="flex items-start gap-2.5">
-                <span className="text-base shrink-0 mt-0.5">⏳</span>
-                <div className="space-y-0.5">
-                  <p className="font-bold text-slate-900">{t.leadNoticeTitle}</p>
-                  <p className="text-slate-600 leading-relaxed text-[11px] sm:text-xs">
-                    {t.leadNotice}
-                  </p>
-                </div>
-              </div>
-              <a
-                href={DOCTOR_INFO.phoneHref}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-amber-300 text-primary font-bold text-[11px] shrink-0 hover:bg-amber-100/50 transition-colors whitespace-nowrap self-end sm:self-center"
-                title={t.leadNoticeEmergency}
-              >
-                <IconPhone className="w-3.5 h-3.5 text-primary" />
-                <span>{DOCTOR_INFO.phoneDisplay}</span>
-              </a>
             </div>
 
             {activeDay && activeDay.times?.length > 0 ? (

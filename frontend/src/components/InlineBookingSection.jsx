@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
+import { useBooking } from "../context/BookingContext";
 import { toast } from "react-toastify";
 import confetti from "canvas-confetti";
 import {
@@ -168,19 +170,51 @@ const TEXT = {
   },
 };
 
-const InlineBookingSection = () => {
+const InlineBookingSection = ({ initialService = null }) => {
   const { lang } = useLanguage();
+  const { bookingRequest } = useBooking();
+  const [searchParams] = useSearchParams();
   const t = TEXT[lang] || TEXT.uz;
 
   const [days, setDays] = useState(() => buildWorkingHoursSchedule(10));
   const [selectedDate, setSelectedDate] = useState(() => (days[0] ? days[0].date : ""));
   const [selectedTime, setSelectedTime] = useState(() => (days[0]?.times[0] || ""));
-  const [service, setService] = useState(CLASSIC_SERVICES[0].id);
+  const [service, setService] = useState(initialService || CLASSIC_SERVICES[0].id);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("+998 ");
   const [dob, setDob] = useState("");
   const [note, setNote] = useState("");
   const [errors, setErrors] = useState({});
+
+  useEffect(() => {
+    const targetService =
+      bookingRequest?.service ||
+      initialService ||
+      searchParams.get("service") ||
+      searchParams.get("serviceId");
+
+    if (targetService) {
+      const match = CLASSIC_SERVICES.find(
+        (s) =>
+          s.id === targetService ||
+          s.id.toLowerCase() === String(targetService).toLowerCase() ||
+          s.id.includes(targetService) ||
+          String(targetService).includes(s.id),
+      );
+      if (match) {
+        setService(match.id);
+      }
+    }
+    if (bookingRequest?.name) {
+      setName(bookingRequest.name);
+    }
+    if (bookingRequest?.phone) {
+      setPhone(formatUzPhone(bookingRequest.phone));
+    }
+    if (bookingRequest?.note) {
+      setNote(bookingRequest.note);
+    }
+  }, [bookingRequest, initialService, searchParams]);
 
   const [isRelayEnabled, setIsRelayEnabled] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -405,7 +439,7 @@ const InlineBookingSection = () => {
   }
 
   return (
-    <section id="booking" className="py-12 bg-white rounded-3xl border border-amber-200 shadow-luxury p-5 sm:p-8 lg:p-10">
+    <section id="booking" className="py-12 bg-white rounded-3xl border border-amber-200 shadow-luxury p-5 sm:p-8 lg:p-10 scroll-mt-24 sm:scroll-mt-28">
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto space-y-2">

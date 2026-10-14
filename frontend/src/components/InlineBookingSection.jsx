@@ -632,12 +632,12 @@ const InlineBookingSection = ({ initialService = null }) => {
                       <span>{formatDayPill(d.date, lang)}</span>
                       {isToday && (
                         <span
-                          className={`text-[9px] px-1.5 py-0.5 rounded-full font-bold uppercase tracking-wider border ${
+                          className={`text-[9px] px-1.5 py-0.5 rounded-full font-medium uppercase tracking-wide border ${
                             isSelected
-                              ? "bg-white/25 text-white border-white/30"
+                              ? "bg-white/20 text-white border-white/30"
                               : isFull
                               ? "bg-slate-200 text-slate-600 border-slate-300"
-                              : "bg-amber-100/90 text-amber-900 border-amber-300/60"
+                              : "bg-slate-100 text-slate-700 border-slate-200"
                           }`}
                         >
                           {lang === "uz" ? "Bugun" : lang === "ru" ? "Сегодня" : "Today"}
@@ -662,8 +662,9 @@ const InlineBookingSection = ({ initialService = null }) => {
                 {t.timeGroupLabel}
               </label>
               {selectedDate && selectedTime && activeDay && activeDay.times?.includes(selectedTime) && (
-                <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200">
-                  {t.selectedSlotLabel} {formatDmy(selectedDate)} — {selectedTime}
+                <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/80 shadow-2xs">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                  <span>{t.selectedSlotLabel} {formatDmy(selectedDate)} — {selectedTime}</span>
                 </span>
               )}
             </div>

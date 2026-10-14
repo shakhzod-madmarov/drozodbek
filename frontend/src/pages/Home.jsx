@@ -199,7 +199,7 @@ const SpecialitiesSection = ({ onOpenBooking }) => {
   return (
     <section className="py-12 sm:py-16 space-y-8">
       <div className="text-center max-w-3xl mx-auto space-y-2">
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-red-50 text-primary border border-red-200/60">
+        <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-[11px] font-medium uppercase tracking-wider bg-primary/5 text-primary border border-primary/20 shadow-2xs">
           <IconShieldCheck className="w-3.5 h-3.5 text-primary" />
           <span>{lang === "uz" ? "9 Ta Asosiy Stomatologik Yo'nalish" : lang === "ru" ? "9 Основных Направлений" : "9 Core Dental Specialties"}</span>
         </span>
@@ -333,8 +333,8 @@ const BeforeAfterSection = () => {
   return (
     <section className="py-12 sm:py-16 space-y-8">
       <div className="text-center max-w-2xl mx-auto space-y-2">
-        <span className="inline-flex items-center gap-2 px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest bg-amber-100 text-amber-900 border border-amber-300">
-          <IconSparkleStar className="w-4 h-4 text-brandOrange" />
+        <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-[11px] font-medium uppercase tracking-wider bg-amber-50 text-amber-800 border border-amber-200/80 shadow-2xs">
+          <IconSparkleStar className="w-3.5 h-3.5 text-amber-600" />
           <span>{lang === "uz" ? "NATIJALAR VA TAQQOSLASH" : lang === "ru" ? "РЕЗУЛЬТАТЫ ДО И ПОСЛЕ" : "BEFORE & AFTER GALLERY"}</span>
         </span>
         <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-serif-classic">

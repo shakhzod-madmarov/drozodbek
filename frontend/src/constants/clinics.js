@@ -32,9 +32,9 @@ export const CLINICS = [
       en: "8A, 1st Microdistrict, Andijan",
     },
     landmark: {
-      uz: "1-kichik daha, Furqat bolalar shifoxonasi yaqinida",
-      ru: "1-й микрорайон, ориентир: детская больница Фуркат",
-      en: "1st Microdistrict, near Furqat children's hospital",
+      uz: "1-kichik daha, Konechka bozorchasi yaqinida",
+      ru: "1-й микрорайон, ориентир: рынок Конечка",
+      en: "1st Microdistrict, near Konechka market",
     },
     hours: {
       uz: "Dushanba – Shanba: 08:30 – 18:30",

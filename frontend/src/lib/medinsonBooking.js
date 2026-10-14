@@ -8,6 +8,7 @@
  */
 
 import { DOCTOR_INFO } from "../constants/doctor";
+import { sanitizePatientName, sanitizeNote, isValidIsoDate } from "../utils/security";
 
 export const DEFAULT_API_URL =
   (typeof import.meta !== "undefined" &&
@@ -251,20 +252,33 @@ export async function fetchDentistAvailability({
 } = {}) {
   const base = String(apiUrl || DEFAULT_API_URL).replace(/\/+$/, "");
   const params = new URLSearchParams();
-  if (siteId) params.set("site", siteId);
-  if (date) params.set("date", date);
+  if (siteId) params.set("site", String(siteId).slice(0, 50));
+  if (date && /^\d{4}-\d{2}-\d{2}$/.test(date)) params.set("date", date);
   const url = `${base}/api/public/booking/availability${params.toString() ? `?${params}` : ""}`;
 
-  const res = await fetch(url, { headers: { Accept: "application/json" } });
-  const data = await res.json().catch(() => ({}));
-  if (!res.ok) {
-    const err = new Error(data?.message || `Availability error (${res.status})`);
-    err.status = res.status;
-    err.data = data;
-    throw err;
+  const controller = typeof AbortController !== "undefined" ? new AbortController() : null;
+  const timeoutId = controller ? setTimeout(() => controller.abort(), 9000) : null;
+
+  try {
+    const res = await fetch(url, {
+      headers: { Accept: "application/json" },
+      signal: controller ? controller.signal : undefined,
+    });
+    if (timeoutId) clearTimeout(timeoutId);
+
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      const err = new Error(data?.message || `Availability error (${res.status})`);
+      err.status = res.status;
+      err.data = data;
+      throw err;
+    }
+    cachedAvailability = data;
+    return data;
+  } catch (e) {
+    if (timeoutId) clearTimeout(timeoutId);
+    throw e;
   }
-  cachedAvailability = data;
-  return data;
 }
 
 /**
@@ -281,6 +295,13 @@ export async function submitDentistBooking({
   dob = "",
   note = "",
 }) {
+  const cleanName = sanitizePatientName(name);
+  const cleanPhone = String(phone || "").trim().slice(0, 30);
+  const cleanDob = isValidIsoDate(dob) ? dob : "";
+  const cleanNote = sanitizeNote(note, 400);
+  const cleanDate = String(date || "").trim().slice(0, 10);
+  const cleanTime = String(time || "").trim().slice(0, 5);
+
   const base = String(apiUrl || DEFAULT_API_URL).replace(/\/+$/, "");
   if (!cachedAvailability) {
     try {
@@ -301,17 +322,17 @@ export async function submitDentistBooking({
   }
 
   const details = {
-    name: String(name || "").trim(),
-    phone: String(phone || "").trim(),
-    dob: String(dob || "").trim(),
-    note: String(note || "").trim(),
+    name: cleanName,
+    phone: cleanPhone,
+    dob: cleanDob,
+    note: cleanNote,
     linkToken,
   };
 
   const payload = {
-    site: siteId || undefined,
-    date: String(date || "").trim(),
-    time: String(time || "").trim(),
+    site: siteId ? String(siteId).slice(0, 50) : undefined,
+    date: cleanDate,
+    time: cleanTime,
     source: typeof window !== "undefined" ? window.location.hostname : DEFAULT_DOMAIN,
   };
 
@@ -327,16 +348,21 @@ export async function submitDentistBooking({
   }
 
   const bookingId = `OZ-${Date.now().toString(36).toUpperCase().slice(-6)}`;
-  recordLocalBookedSlot(date, time);
+  recordLocalBookedSlot(cleanDate, cleanTime);
 
   const params = siteId ? `?site=${encodeURIComponent(siteId)}` : "";
+
+  const controller = typeof AbortController !== "undefined" ? new AbortController() : null;
+  const timeoutId = controller ? setTimeout(() => controller.abort(), 12000) : null;
 
   try {
     const res = await fetch(`${base}/api/public/booking/request${params}`, {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify(payload),
+      signal: controller ? controller.signal : undefined,
     });
+    if (timeoutId) clearTimeout(timeoutId);
 
     const data = await res.json().catch(() => ({}));
     if (!res.ok || data?.success === false) {
@@ -348,7 +374,17 @@ export async function submitDentistBooking({
         throw err;
       }
       // If 403 or other relay failure, fallback to direct booking so patient is never lost
-      return buildFallbackBookingResult({ date, time, name, phone, dob, note, bookingId, linkToken, botUsername });
+      return buildFallbackBookingResult({
+        date: cleanDate,
+        time: cleanTime,
+        name: cleanName,
+        phone: cleanPhone,
+        dob: cleanDob,
+        note: cleanNote,
+        bookingId,
+        linkToken,
+        botUsername,
+      });
     }
 
     const telegramUrl =
@@ -365,11 +401,22 @@ export async function submitDentistBooking({
       isLiveRelay: true,
     };
   } catch (err) {
+    if (timeoutId) clearTimeout(timeoutId);
     if (err.status === 409) {
       throw err;
     }
     // Network error or 403 fallback
-    return buildFallbackBookingResult({ date, time, name, phone, dob, note, bookingId, linkToken, botUsername });
+    return buildFallbackBookingResult({
+      date: cleanDate,
+      time: cleanTime,
+      name: cleanName,
+      phone: cleanPhone,
+      dob: cleanDob,
+      note: cleanNote,
+      bookingId,
+      linkToken,
+      botUsername,
+    });
   }
 }
 

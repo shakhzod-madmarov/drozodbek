@@ -8,6 +8,7 @@ export default defineConfig(({ isSsrBuild }) => ({
     port: 5175,
   },
   build: {
+    sourcemap: false,
     chunkSizeWarningLimit: 1000,
     manifest: !isSsrBuild,
     ...(isSsrBuild

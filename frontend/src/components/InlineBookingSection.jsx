@@ -20,6 +20,12 @@ import {
   formatUzPhone,
   isUzPhoneComplete,
 } from "../utils/phone";
+import {
+  sanitizePatientName,
+  sanitizeNote,
+  checkRateLimit,
+  isBotSubmission,
+} from "../utils/security";
 import { CLASSIC_SERVICES } from "../constants/bookingServices";
 
 const pad2 = (n) => String(n).padStart(2, "0");
@@ -219,6 +225,8 @@ const InlineBookingSection = ({ initialService = null }) => {
   const [dob, setDob] = useState("");
   const [note, setNote] = useState("");
   const [errors, setErrors] = useState({});
+  const [honeypot, setHoneypot] = useState("");
+  const formMountTime = useMemo(() => Date.now(), []);
 
   useEffect(() => {
     const targetService =
@@ -322,8 +330,31 @@ const InlineBookingSection = ({ initialService = null }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // 1. Anti-Bot Honeypot Protection
+    if (isBotSubmission(honeypot)) {
+      // Fake success to trap automated bot scrapers without calling backend relay
+      setIsSuccess(true);
+      return;
+    }
+
+    // 2. Velocity check: human patient takes at least 1.2s to fill the form
+    if (Date.now() - formMountTime < 1200) {
+      toast.warn(lang === "uz" ? "Iltimos, ma'lumotlarni tekshirib qayta bosing." : "Пожалуйста, проверьте данные.");
+      return;
+    }
+
+    // 3. Client session rate-limiting (10-second cooldown)
+    const rateStatus = checkRateLimit("booking_submission", 10);
+    if (!rateStatus.allowed) {
+      toast.warn(rateStatus.message);
+      return;
+    }
+
+    // 4. Input sanitization & validation
+    const cleanName = sanitizePatientName(name);
     const nextErrors = {};
-    if (name.trim().length < 2) nextErrors.name = t.needName;
+    if (cleanName.length < 2) nextErrors.name = t.needName;
     if (!phone.trim() || !isUzPhoneComplete(phone)) {
       nextErrors.phone = t.needPhone;
     }
@@ -339,11 +370,12 @@ const InlineBookingSection = ({ initialService = null }) => {
 
     setIsSubmitting(true);
     try {
-      const combinedNote = note.trim() ? `${serviceLabel} — ${note.trim()}` : serviceLabel;
+      const cleanNote = sanitizeNote(note, 300);
+      const combinedNote = cleanNote ? `${serviceLabel} — ${cleanNote}` : serviceLabel;
       const res = await submitDentistBooking({
         date: selectedDate,
         time: selectedTime,
-        name: name.trim(),
+        name: cleanName,
         phone: phone.trim(),
         dob: dob.trim(),
         note: combinedNote,
@@ -516,6 +548,24 @@ const InlineBookingSection = ({ initialService = null }) => {
         )}
 
         <form onSubmit={handleSubmit} className="space-y-8">
+          {/* Anti-Bot Honeypot Trap (invisible to humans and screen-readers) */}
+          <div
+            aria-hidden="true"
+            className="opacity-0 pointer-events-none absolute -left-[9999px] -top-[9999px] w-0 h-0 overflow-hidden"
+            tabIndex={-1}
+          >
+            <label htmlFor="patient_hp_fax">Do not fill this field</label>
+            <input
+              id="patient_hp_fax"
+              type="text"
+              name="patient_hp_fax"
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
+              tabIndex={-1}
+              autoComplete="off"
+            />
+          </div>
+
           {/* Service Selector */}
           <div className="space-y-3">
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
@@ -683,6 +733,9 @@ const InlineBookingSection = ({ initialService = null }) => {
               <input
                 type="text"
                 required
+                maxLength={70}
+                autoComplete="name"
+                spellCheck={false}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder={t.namePlaceholder}
@@ -698,6 +751,8 @@ const InlineBookingSection = ({ initialService = null }) => {
               <input
                 type="tel"
                 required
+                maxLength={22}
+                autoComplete="tel"
                 value={phone}
                 onChange={handlePhoneChange}
                 placeholder={t.phonePlaceholder}
@@ -718,7 +773,7 @@ const InlineBookingSection = ({ initialService = null }) => {
                 value={dob}
                 onChange={(e) => setDob(e.target.value)}
                 min="1920-01-01"
-                max={new Date().toISOString().split("T")[0]}
+                max={todayStr}
                 placeholder={t.dobPlaceholder}
                 className="w-full px-4 py-3 rounded-xl border border-amber-200 bg-[#FFFDF9] focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary text-sm font-medium"
               />
@@ -734,6 +789,7 @@ const InlineBookingSection = ({ initialService = null }) => {
               </label>
               <input
                 type="text"
+                maxLength={300}
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
                 placeholder={t.notePlaceholder}

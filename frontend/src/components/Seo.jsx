@@ -145,7 +145,7 @@ const Seo = ({
     return (
       <script
         type={SEO_MARKER_TYPE}
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(payload) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(payload).replace(/</g, "\\u003c") }}
       />
     );
   }

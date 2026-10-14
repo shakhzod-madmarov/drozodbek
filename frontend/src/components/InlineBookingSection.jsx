@@ -71,9 +71,10 @@ const TEXT = {
     dobLabel: "Tug'ilgan sana (ixtiyoriy)",
     dobHint: "Bir xil telefon raqamidan oila a'zolari yozilganda bemorlarni farqlash uchun yordam beradi.",
     noteLabel: "Shikoyat yoki izoh (ixtiyoriy)",
-    namePlaceholder: "Masalan: Sardorbek Karimov",
+    namePlaceholder: "Masalan: Shaxzod Madmarov",
     phonePlaceholder: "+998 97 833 89 97",
-    dobPlaceholder: "YYYY-MM-DD",
+    dobFormat: "kun-oy-yil",
+    dobPlaceholder: "kun-oy-yil",
     notePlaceholder: "Implant, breket, karonka, vinir yoki og'riqsiz davolash bo'yicha...",
     submit: "Qabulga Yozilishni Tasdiqlash",
     submitting: "Yuborilmoqda...",
@@ -119,9 +120,10 @@ const TEXT = {
     dobLabel: "Дата рождения (необязательно)",
     dobHint: "Помогает клинике различать членов семьи при записи с одного номера телефона.",
     noteLabel: "Жалоба или комментарий (необязательно)",
-    namePlaceholder: "Например: Сардор Каримов",
+    namePlaceholder: "Например: Шахзод Мадмаров",
     phonePlaceholder: "+998 97 833 89 97",
-    dobPlaceholder: "ГГГГ-ММ-ДД",
+    dobFormat: "день-месяц-год",
+    dobPlaceholder: "день-месяц-год",
     notePlaceholder: "Имплантация, брекеты, коронки, виниры или зубная боль...",
     submit: "Подтвердить запись на приём",
     submitting: "Отправка...",
@@ -167,9 +169,10 @@ const TEXT = {
     dobLabel: "Date of Birth (optional)",
     dobHint: "Helps distinguish family members sharing the same contact phone number.",
     noteLabel: "Complaint or Note (optional)",
-    namePlaceholder: "e.g. Sardor Karimov",
+    namePlaceholder: "e.g. Shaxzod Madmarov",
     phonePlaceholder: "+998 97 833 89 97",
-    dobPlaceholder: "YYYY-MM-DD",
+    dobFormat: "day-month-year",
+    dobPlaceholder: "day-month-year",
     notePlaceholder: "Implants, braces, crowns, veneers or toothache...",
     submit: "Confirm Appointment Booking",
     submitting: "Submitting...",
@@ -747,7 +750,7 @@ const InlineBookingSection = ({ initialService = null }) => {
                 <label className="block text-xs font-bold text-slate-700">
                   {t.dobLabel}
                 </label>
-                <span className="text-[10px] text-slate-400 font-medium">YYYY-MM-DD</span>
+                <span className="text-[10px] text-slate-400 font-medium">{t.dobFormat}</span>
               </div>
               <input
                 type="date"

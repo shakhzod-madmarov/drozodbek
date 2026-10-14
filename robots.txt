@@ -1,3 +1,43 @@
+# Robots.txt for drozodbek.uz — Dr. Ozodbek Otaxonov (Andijon)
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /dist-ssr/
+
+# Google Search & Google AI
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Yandex Search & Yandex Neuro
+User-agent: Yandex
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# OpenAI / ChatGPT Search
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Perplexity AI Search
+User-agent: PerplexityBot
+Allow: /
+
+# Anthropic / Claude
+User-agent: ClaudeBot
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+# Sitemaps & AI Knowledge Base
+Host: https://drozodbek.uz
 Sitemap: https://drozodbek.uz/sitemap.xml
+# AI Model Knowledge Manifest: https://drozodbek.uz/llms.txt

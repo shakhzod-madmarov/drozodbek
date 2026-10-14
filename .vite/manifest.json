@@ -34,7 +34,7 @@
     "src": "_vendor-utils-DHtLVDbd.css"
   },
   "index.html": {
-    "file": "assets/index-BmsTf8M7.js",
+    "file": "assets/index-Du73hbTD.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
@@ -48,7 +48,7 @@
       "node_modules/qrcode/lib/browser.js"
     ],
     "css": [
-      "assets/index-CJHfATJC.css"
+      "assets/index-CWYsV5te.css"
     ],
     "assets": [
       "assets/logo-RobtL5SJ.png",

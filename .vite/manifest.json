@@ -10,8 +10,8 @@
     "file": "assets/rolldown-runtime-D7zIpOPY.js",
     "name": "rolldown-runtime"
   },
-  "_router-jA34mlwq.js": {
-    "file": "assets/router-jA34mlwq.js",
+  "_router-CdVpsHcY.js": {
+    "file": "assets/router-CdVpsHcY.js",
     "name": "router",
     "imports": [
       "_react-vendor-Ns-oaxmK.js",
@@ -34,12 +34,12 @@
     "src": "_vendor-utils-DHtLVDbd.css"
   },
   "index.html": {
-    "file": "assets/index-DIwM1f0e.js",
+    "file": "assets/index-BmsTf8M7.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
     "imports": [
-      "_router-jA34mlwq.js",
+      "_router-CdVpsHcY.js",
       "_vendor-utils-CxfItI9C.js",
       "_react-vendor-Ns-oaxmK.js",
       "_rolldown-runtime-D7zIpOPY.js"
@@ -48,7 +48,7 @@
       "node_modules/qrcode/lib/browser.js"
     ],
     "css": [
-      "assets/index-DUVLeFVK.css"
+      "assets/index-CJHfATJC.css"
     ],
     "assets": [
       "assets/logo-RobtL5SJ.png",

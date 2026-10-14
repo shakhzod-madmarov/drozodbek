@@ -13,6 +13,8 @@ import {
   fetchDentistAvailability,
   submitDentistBooking,
   buildWorkingHoursSchedule,
+  filterAvailabilitySchedule,
+  getClinicTodayStr,
 } from "../lib/medinsonBooking";
 import {
   formatUzPhone,
@@ -87,6 +89,14 @@ const TEXT = {
     telegramCardBtn: "Telegram botga ulanish ↗",
     callBtn: "Klinikaga qo'ng'iroq qilish",
     bookAnother: "← Yangi qabulga yozilish",
+    leadNoticeTitle: "Adolatli qabul va navbat tartibi",
+    leadNotice: "Jonli navbatdagi bemorlar huquqini hurmat qilgan holda, onlayn qabul kamida 2 soat oldindan band qilinadi (masalan, hozir soat 08:00 bo'lsa, eng yaqin bo'sh vaqt 10:00 dan boshlanadi).",
+    leadNoticeEmergency: "Shoshilinch og'riq bo'lsa, to'g'ridan-to'g'ri qo'ng'iroq qiling:",
+    slotsFullToday: "Bugun to'lgan",
+    slotsFullOther: "Bo'sh joy yo'q",
+    slotsLabel: "bo'sh soat",
+    noSlotsTodayMessage: "Bugun uchun barcha onlayn vaqtlar to'lgan yoki 2 soatlik navbat buferi sababli yopilgan. Iltimos, keyingi sanalardan birini tanlang:",
+    nextAvailableDayBtn: "Keyingi bo'sh kunga o'tish →",
   },
   ru: {
     kicker: "Онлайн приём · Д-р Озодбек Отахонов",
@@ -111,22 +121,30 @@ const TEXT = {
     needName: "Пожалуйста, введите имя и фамилию",
     needPhone: "Пожалуйста, введите полный номер телефона",
     needTime: "Пожалуйста, выберите дату и время",
-    conflictError: "Bu vaqt band qilingan. Iltimos, boshqa vaqtni tanlang.",
+    conflictError: "Это время уже занято. Пожалуйста, выберите другое время.",
     failed: "Не удалось отправить заявку. Пожалуйста, позвоните нам.",
     pausedNotice: "Онлайн слоты обновляются. Записаться можно также напрямую по телефону:",
     successBadge: "Заявка успешно зарегистрирована",
     successTitle: "Вы записаны на приём!",
-    successBody: "So‘rovingiz qabul qilindi. Klinika tez orada siz bilan bog‘lanadi.",
+    successBody: "Ваша заявка принята. Клиника свяжется с вами в ближайшее время.",
     summaryPatient: "Пациент",
     summaryPhone: "Телефон",
     summaryDob: "Дата рождения",
     summaryService: "Услуга",
     summaryWhen: "Дата и время",
-    telegramCardTitle: "📲 Telegram eslatmani yoqing",
-    telegramCardDesc: "Qabul vaqti yaqinlashganda Telegram orqali avtomatik eslatma olish uchun quyidagi tugmani bosing va botda START tugmasini bosing.",
-    telegramCardBtn: "Telegram botga ulanish ↗",
+    telegramCardTitle: "📲 Включите напоминание в Telegram",
+    telegramCardDesc: "Чтобы получить напоминание о визите, нажмите кнопку ниже и запустите Telegram-бота (START).",
+    telegramCardBtn: "Подключить Telegram-бота ↗",
     callBtn: "Позвонить в клинику",
     bookAnother: "← Записаться ещё раз",
+    leadNoticeTitle: "Правило справедливой очереди",
+    leadNotice: "С уважением к пациентам в клинике и живой очереди, онлайн-запись открыта минимум за 2 часа до приёма (например, если сейчас 08:00, ближайшее свободное время — с 10:00).",
+    leadNoticeEmergency: "При острой боли звоните в клинику напрямую:",
+    slotsFullToday: "На сегодня мест нет",
+    slotsFullOther: "Мест нет",
+    slotsLabel: "мест",
+    noSlotsTodayMessage: "На сегодня все онлайн-слоты заняты либо закрыты по правилу 2-часового буфера очереди. Пожалуйста, выберите следующую дату:",
+    nextAvailableDayBtn: "Перейти к ближайшей свободной дате →",
   },
   en: {
     kicker: "Online Appointment · Dr. Ozodbek Otaxonov",
@@ -151,22 +169,30 @@ const TEXT = {
     needName: "Please enter your full name",
     needPhone: "Please enter a complete phone number",
     needTime: "Please choose a date and time slot",
-    conflictError: "Bu vaqt band qilingan. Iltimos, boshqa vaqtni tanlang.",
+    conflictError: "This slot is already booked. Please choose another time.",
     failed: "Submission failed. Please call us directly.",
     pausedNotice: "Online slots are refreshing. You can also book directly by phone:",
     successBadge: "Appointment Request Confirmed",
     successTitle: "Your visit has been registered!",
-    successBody: "So‘rovingiz qabul qilindi. Klinika tez orada siz bilan bog‘lanadi.",
+    successBody: "Your request has been received. The clinic will contact you shortly.",
     summaryPatient: "Patient",
     summaryPhone: "Phone",
     summaryDob: "Date of Birth",
     summaryService: "Service",
     summaryWhen: "Date & Time",
-    telegramCardTitle: "📲 Telegram eslatmani yoqing",
-    telegramCardDesc: "Qabul vaqti yaqinlashganda Telegram orqali avtomatik eslatma olish uchun quyidagi tugmani bosing va botda START tugmasini bosing.",
-    telegramCardBtn: "Telegram botga ulanish ↗",
+    telegramCardTitle: "📲 Enable Telegram Reminders",
+    telegramCardDesc: "To receive an automated reminder as your appointment approaches, tap below and press START in our Telegram bot.",
+    telegramCardBtn: "Connect Telegram Bot ↗",
     callBtn: "Call Clinic Directly",
     bookAnother: "← Book another appointment",
+    leadNoticeTitle: "Fair Queue & Booking Notice",
+    leadNotice: "To respect walk-in patients already waiting in the clinic, online appointments require at least 2 hours advance notice (e.g. at 08:00, earliest booking starts from 10:00).",
+    leadNoticeEmergency: "For emergency pain, please call directly:",
+    slotsFullToday: "Full today",
+    slotsFullOther: "Fully booked",
+    slotsLabel: "slots",
+    noSlotsTodayMessage: "All online slots for today are booked or closed under the 2-hour queue buffer policy. Please select an upcoming date:",
+    nextAvailableDayBtn: "Jump to next available date →",
   },
 };
 
@@ -176,9 +202,17 @@ const InlineBookingSection = ({ initialService = null }) => {
   const [searchParams] = useSearchParams();
   const t = TEXT[lang] || TEXT.uz;
 
-  const [days, setDays] = useState(() => buildWorkingHoursSchedule(10));
-  const [selectedDate, setSelectedDate] = useState(() => (days[0] ? days[0].date : ""));
-  const [selectedTime, setSelectedTime] = useState(() => (days[0]?.times[0] || ""));
+  const [days, setDays] = useState(() => buildWorkingHoursSchedule(10, 2));
+  const [selectedDate, setSelectedDate] = useState(() => {
+    const initDays = buildWorkingHoursSchedule(10, 2);
+    const available = initDays.find((d) => d.times.length > 0) || initDays[0];
+    return available ? available.date : "";
+  });
+  const [selectedTime, setSelectedTime] = useState(() => {
+    const initDays = buildWorkingHoursSchedule(10, 2);
+    const available = initDays.find((d) => d.times.length > 0) || initDays[0];
+    return available?.times?.[0] || "";
+  });
   const [service, setService] = useState(initialService || CLASSIC_SERVICES[0].id);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("+998 ");
@@ -222,46 +256,57 @@ const InlineBookingSection = ({ initialService = null }) => {
   const [bookingResult, setBookingResult] = useState(null);
   const [botQr, setBotQr] = useState("");
 
+  const applyScheduleData = useCallback((rawDays) => {
+    const filtered = filterAvailabilitySchedule(rawDays, 2);
+    const validDays = filtered.length > 0 ? filtered : buildWorkingHoursSchedule(10, 2);
+    setDays(validDays);
+    setSelectedDate((cur) => {
+      const match =
+        validDays.find((d) => d.times.length > 0 && d.date === cur) ||
+        validDays.find((d) => d.times.length > 0) ||
+        validDays[0];
+      if (match) {
+        setSelectedTime((curT) => (match.times.includes(curT) ? curT : match.times[0] || ""));
+      }
+      return match ? match.date : "";
+    });
+  }, []);
+
   const loadAvailability = useCallback(async () => {
     try {
       const data = await fetchDentistAvailability();
       if (data?.enabled === false) {
         setIsRelayEnabled(false);
-        const fallback = buildWorkingHoursSchedule(10);
-        setDays(fallback);
+        applyScheduleData(buildWorkingHoursSchedule(10, 2));
         return;
       }
       if (Array.isArray(data?.days)) {
-        // Only show dates present in days where times.length > 0
-        const activeDays = data.days.filter((d) => Array.isArray(d.times) && d.times.length > 0);
-        if (activeDays.length > 0) {
-          setIsRelayEnabled(true);
-          setDays(activeDays);
-          setSelectedDate((cur) => {
-            const match = activeDays.find((d) => d.date === cur) || activeDays[0];
-            if (match) {
-              setSelectedTime((curT) => (match.times.includes(curT) ? curT : match.times[0] || ""));
-            }
-            return match ? match.date : "";
-          });
-          return;
-        }
+        setIsRelayEnabled(true);
+        applyScheduleData(data.days);
+        return;
       }
       setIsRelayEnabled(false);
-      setDays(buildWorkingHoursSchedule(10));
+      applyScheduleData(buildWorkingHoursSchedule(10, 2));
     } catch {
       setIsRelayEnabled(false);
-      setDays(buildWorkingHoursSchedule(10));
+      applyScheduleData(buildWorkingHoursSchedule(10, 2));
     }
-  }, []);
+  }, [applyScheduleData]);
 
   useEffect(() => {
     loadAvailability();
   }, [loadAvailability]);
 
+  const todayStr = useMemo(() => getClinicTodayStr(), []);
+
+  const firstDayWithSlots = useMemo(
+    () => days.find((d) => d.times && d.times.length > 0) || null,
+    [days],
+  );
+
   const activeDay = useMemo(
-    () => days.find((d) => d.date === selectedDate) || days[0] || null,
-    [days, selectedDate],
+    () => days.find((d) => d.date === selectedDate) || firstDayWithSlots || days[0] || null,
+    [days, selectedDate, firstDayWithSlots],
   );
 
   const serviceObj = CLASSIC_SERVICES.find((s) => s.id === service) || CLASSIC_SERVICES[0];
@@ -503,29 +548,55 @@ const InlineBookingSection = ({ initialService = null }) => {
               </label>
               <span className="text-[11px] text-slate-500 font-medium">{t.defaultDaysLabel}</span>
             </div>
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 px-1 -mx-2 sm:mx-0 no-scrollbar scroll-touch">
-              {days.map((d) => (
-                <button
-                  type="button"
-                  key={d.date}
-                  onClick={() => {
-                    setSelectedDate(d.date);
-                    if (d.times?.length > 0 && !d.times.includes(selectedTime)) {
-                      setSelectedTime(d.times[0]);
-                    }
-                  }}
-                  className={`px-4 py-3 rounded-2xl text-xs font-bold shrink-0 border transition-all cursor-pointer ${
-                    selectedDate === d.date
-                      ? "bg-primary text-white border-primary shadow-luxury scale-105"
-                      : "bg-[#FFFDF9] text-slate-700 border-amber-200/80 hover:bg-amber-50"
-                  }`}
-                >
-                  <div>{formatDayPill(d.date, lang)}</div>
-                  <div className="text-[10px] font-normal opacity-80 mt-0.5">
-                    {d.times?.length || 0} {lang === "uz" ? "bo'sh soat" : lang === "ru" ? "мест" : "slots"}
-                  </div>
-                </button>
-              ))}
+            <div className="flex items-center gap-2.5 overflow-x-auto pb-2 px-1 -mx-2 sm:mx-0 no-scrollbar scroll-touch">
+              {days.map((d) => {
+                const isToday = d.date === todayStr;
+                const isSelected = selectedDate === d.date;
+                const count = d.times?.length || 0;
+                const isFull = count === 0;
+
+                return (
+                  <button
+                    type="button"
+                    key={d.date}
+                    onClick={() => {
+                      setSelectedDate(d.date);
+                      if (count > 0 && (!selectedTime || !d.times.includes(selectedTime))) {
+                        setSelectedTime(d.times[0]);
+                      }
+                    }}
+                    className={`px-4 py-3 rounded-2xl text-xs font-bold shrink-0 border transition-all cursor-pointer text-left ${
+                      isSelected
+                        ? "bg-primary text-white border-primary shadow-luxury scale-105"
+                        : isFull
+                        ? "bg-slate-50/90 text-slate-400 border-slate-200/90 hover:bg-slate-100"
+                        : "bg-[#FFFDF9] text-slate-700 border-amber-200/80 hover:bg-amber-50"
+                    }`}
+                  >
+                    <div className="flex items-center gap-1.5">
+                      <span>{formatDayPill(d.date, lang)}</span>
+                      {isToday && (
+                        <span
+                          className={`text-[9px] px-1.5 py-0.5 rounded-full font-extrabold uppercase tracking-wider ${
+                            isSelected
+                              ? "bg-white/20 text-white"
+                              : isFull
+                              ? "bg-slate-200 text-slate-600"
+                              : "bg-amber-100 text-amber-900"
+                          }`}
+                        >
+                          {lang === "uz" ? "Bugun" : lang === "ru" ? "Сегодня" : "Today"}
+                        </span>
+                      )}
+                    </div>
+                    <div className="text-[10px] font-normal opacity-90 mt-1">
+                      {isFull
+                        ? (isToday ? t.slotsFullToday : t.slotsFullOther)
+                        : `${count} ${t.slotsLabel}`}
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </div>
 
@@ -535,15 +606,36 @@ const InlineBookingSection = ({ initialService = null }) => {
               <label className="text-xs font-bold uppercase tracking-wider text-slate-700">
                 {t.timeGroupLabel}
               </label>
-              {selectedDate && selectedTime && (
-                <span className="text-xs font-bold text-emerald-700">
+              {selectedDate && selectedTime && activeDay && activeDay.times?.includes(selectedTime) && (
+                <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200">
                   {t.selectedSlotLabel} {formatDmy(selectedDate)} — {selectedTime}
                 </span>
               )}
             </div>
 
+            {/* Respectful 2+ hours queue notice banner */}
+            <div className="p-3.5 rounded-2xl bg-amber-50/90 border border-amber-200 text-amber-950 text-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-xs">
+              <div className="flex items-start gap-2.5">
+                <span className="text-base shrink-0 mt-0.5">⏳</span>
+                <div className="space-y-0.5">
+                  <p className="font-bold text-slate-900">{t.leadNoticeTitle}</p>
+                  <p className="text-slate-600 leading-relaxed text-[11px] sm:text-xs">
+                    {t.leadNotice}
+                  </p>
+                </div>
+              </div>
+              <a
+                href={DOCTOR_INFO.phoneHref}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-amber-300 text-primary font-bold text-[11px] shrink-0 hover:bg-amber-100/50 transition-colors whitespace-nowrap self-end sm:self-center"
+                title={t.leadNoticeEmergency}
+              >
+                <IconPhone className="w-3.5 h-3.5 text-primary" />
+                <span>{DOCTOR_INFO.phoneDisplay}</span>
+              </a>
+            </div>
+
             {activeDay && activeDay.times?.length > 0 ? (
-              <div className="grid grid-cols-3 sm:grid-cols-6 lg:grid-cols-11 gap-2">
+              <div className="grid grid-cols-3 sm:grid-cols-6 lg:grid-cols-11 gap-2 pt-1">
                 {activeDay.times.map((slot) => (
                   <button
                     type="button"
@@ -551,7 +643,7 @@ const InlineBookingSection = ({ initialService = null }) => {
                     onClick={() => setSelectedTime(slot)}
                     className={`py-2.5 px-2 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
                       selectedTime === slot
-                        ? "bg-primary text-white border-primary shadow-xs"
+                        ? "bg-primary text-white border-primary shadow-xs scale-102"
                         : "bg-[#FFFDF9] text-slate-800 border-amber-200/80 hover:bg-amber-50"
                     }`}
                   >
@@ -560,9 +652,24 @@ const InlineBookingSection = ({ initialService = null }) => {
                 ))}
               </div>
             ) : (
-              <p className="text-xs text-slate-500 italic">
-                {lang === "uz" ? "Ushbu kunda bo'sh soat qolmagan." : "На эту дату нет свободных мест."}
-              </p>
+              <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-3">
+                <p className="text-xs sm:text-sm text-slate-700 font-medium">
+                  {selectedDate === todayStr ? t.noSlotsTodayMessage : t.slotsFullOther}
+                </p>
+                {firstDayWithSlots && firstDayWithSlots.date !== selectedDate && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedDate(firstDayWithSlots.date);
+                      setSelectedTime(firstDayWithSlots.times[0]);
+                    }}
+                    className="px-4 py-2.5 rounded-xl bg-primary text-white text-xs font-bold hover:bg-primary-hover transition-colors shadow-xs cursor-pointer inline-flex items-center gap-2"
+                  >
+                    <span>{t.nextAvailableDayBtn}</span>
+                    <span className="opacity-80 font-normal">({formatDmy(firstDayWithSlots.date)})</span>
+                  </button>
+                )}
+              </div>
             )}
           </div>
 

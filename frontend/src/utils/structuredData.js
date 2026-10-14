@@ -255,7 +255,7 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
     "telephone": DOCTOR_INFO.phoneRaw,
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "1-kichik daha, 8A-bino",
+      "streetAddress": "1-kichik daha (1-mikrorayon), 8A-bino",
       "addressLocality": "Andijon",
       "addressRegion": "Andijon viloyati",
       "postalCode": "170100",
@@ -270,13 +270,35 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
       PRIMARY_CLINIC.maps.googleFull,
       PRIMARY_CLINIC.maps.yandex,
     ],
+    "areaServed": [
+      { "@type": "City", "name": "Andijon" },
+      { "@type": "City", "name": "Asaka" },
+      { "@type": "City", "name": "Shahrixon" },
+      { "@type": "AdministrativeArea", "name": "Andijon viloyati" },
+      { "@type": "AdministrativeArea", "name": "Farg'ona vodiysi" },
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": DOCTOR_INFO.phoneRaw,
+      "contactType": "emergency dental service",
+      "availableLanguage": ["Uzbek", "Russian", "English"],
+      "areaServed": "UZ",
+    },
+    "sameAs": [
+      "https://www.google.com/maps?cid=18369680373809674194",
+      "https://share.google/cG5vFoJOH4GX6Y3qv",
+      "https://yandex.uz/maps/org/smiles_dental_group/10769129756/",
+      "https://yandex.uz/maps/-/CXu-iKzx",
+      DOCTOR_INFO.instagramUrl,
+      DOCTOR_INFO.telegramUrl,
+    ],
   };
 
   const dentistEntity = {
     "@type": ["Dentist", "MedicalBusiness"],
     "@id": `${SITE_ORIGIN}/#dentist`,
     "name": `${DOCTOR_INFO.name} — Smiles Dental Group`,
-    "alternateName": [`${DOCTOR_INFO.name} Stomatolog`, "Dr. Ozodbek Otaxonov"],
+    "alternateName": [`${DOCTOR_INFO.name} Stomatolog`, "Dr. Ozodbek Otaxonov", "Стоматолог Озодбек Отахонов"],
     "url": `${SITE_ORIGIN}/`,
     "logo": `${SITE_ORIGIN}/logo_icon.png`,
     "image": `${SITE_ORIGIN}/dr_ozodbek_og.jpg`,
@@ -307,6 +329,13 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
       PRIMARY_CLINIC.maps.googleFull,
       PRIMARY_CLINIC.maps.yandex,
     ],
+    "areaServed": [
+      { "@type": "City", "name": "Andijon" },
+      { "@type": "City", "name": "Asaka" },
+      { "@type": "City", "name": "Shahrixon" },
+      { "@type": "AdministrativeArea", "name": "Andijon viloyati" },
+      { "@type": "AdministrativeArea", "name": "Farg'ona vodiysi" },
+    ],
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -321,11 +350,20 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
     "founder": {
       "@id": `${SITE_ORIGIN}/#doctor`,
     },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+    },
     "sameAs": [
+      "https://www.google.com/maps?cid=18369680373809674194",
+      "https://share.google/cG5vFoJOH4GX6Y3qv",
+      "https://yandex.uz/maps/org/smiles_dental_group/10769129756/",
+      "https://yandex.uz/maps/-/CXu-iKzx",
       DOCTOR_INFO.telegramUrl,
       DOCTOR_INFO.instagramUrl,
-      PRIMARY_CLINIC.maps.googleFull,
-      PRIMARY_CLINIC.maps.yandex,
     ],
   };
 
@@ -346,20 +384,26 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
       "name": DOCTOR_INFO.education[lang] || DOCTOR_INFO.education.uz,
     },
     "medicalSpecialty": "https://schema.org/Dentistry",
+    "knowsLanguage": ["uz", "ru", "en"],
     "knowsAbout": [
-      "Dental implantatsiya MegaGen",
-      "Ortodontik breketlar",
-      "Sirkon va keramika karonkalar",
-      "Vinirlar E-max",
-      "Elaynerlar",
-      "Tish oqartirish",
-      "Og'riqsiz tish davolash",
+      "Tish og'rig'i (Toothache) davolash",
+      "Tish kariesi va pulpyit terapiyasi",
+      "Dental implantatsiya MegaGen (Janubiy Koreya)",
+      "Ortodontik breketlar va tishlarni tekislash",
+      "Sirkon va keramika karonkalar (CAD/CAM)",
+      "Estetik vinirlar E-max",
+      "Shaffof elaynerlar (kapalar)",
+      "Tish protezlari (byugel va neylon)",
+      "Professional tish oqartirish",
+      "Og'riqsiz tish olish va jarrohlik",
     ],
     "sameAs": [
+      "https://www.google.com/maps?cid=18369680373809674194",
+      "https://share.google/cG5vFoJOH4GX6Y3qv",
+      "https://yandex.uz/maps/org/smiles_dental_group/10769129756/",
+      "https://yandex.uz/maps/-/CXu-iKzx",
       DOCTOR_INFO.telegramUrl,
       DOCTOR_INFO.instagramUrl,
-      PRIMARY_CLINIC.maps.googleFull,
-      PRIMARY_CLINIC.maps.yandex,
     ],
   };
 

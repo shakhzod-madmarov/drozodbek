@@ -32,9 +32,58 @@ export const buildFaqSchema = (faqItems, lang = "uz") => ({
   })),
 });
 
+const SERVICE_INDICATIONS = {
+  "dental-implant": {
+    uz: "Yo'qotilgan yoki olingan tishlarni suyak darajasida tabiiy tiklash",
+    ru: "Восстановление отсутствующих зубов без обточки соседних",
+    en: "Restoration of missing or lost teeth at the bone level",
+  },
+  "breketlar": {
+    uz: "Egri tishlar, diastema va noto'g'ri tishlash (prikus) anomaliyalari",
+    ru: "Искривление зубов, скученность и аномалии прикуса",
+    en: "Crooked teeth, gaps (diastema), and malocclusion correction",
+  },
+  "sirkon-keramika-karonkalar": {
+    uz: "Yemirilgan, singan yoki qoraygan tishlarni estetik mustahkamlash",
+    ru: "Разрушенные, сколотые или потемневшие зубы",
+    en: "Severely decayed, chipped, or weakened teeth restoration",
+  },
+  "vinirlar": {
+    uz: "Old tishlarning rangi o'zgarishi, emal yemirilishi va estetik nuqsonlar",
+    ru: "Потемнение эмали, диастемы, трещины и эстетические дефекты зоны улыбки",
+    en: "Enamel discoloration, chips, gaps, and aesthetic smile makeover",
+  },
+  "pratezlar": {
+    uz: "Ko'p sonli yoki to'liq tishlar yo'qolishi (chaynash funksiyasini tiklash)",
+    ru: "Частичная или полная потеря зубов, нарушение жевания",
+    en: "Partial or complete edentulism (restoring masticatory function)",
+  },
+  "elaynerlar": {
+    uz: "Tishlarning yengil va o'rta darajadagi egriliklari (breketsiz tekislash)",
+    ru: "Неровный зубной ряд без ношения металлических брекетов",
+    en: "Mild to moderate dental alignment without metal brackets",
+  },
+  "tish-oqartirish": {
+    uz: "Kofe, choy yoki chekish oqibatida sariq yoki qoraygan tish emali",
+    ru: "Желтизна зубов, пигментация от чая, кофе и курения",
+    en: "Yellowing or staining of enamel from coffee, tea, and smoking",
+  },
+  "ogriqsiz-tish-davolash": {
+    uz: "O'tkir tish og'rig'i, chuqur karies, pulpit va tushib ketgan plomba",
+    ru: "Острая зубная боль, глубокий кариес, пульпит и выпавшая пломба",
+    en: "Acute toothache, deep dental caries, pulpitis, and lost filling",
+  },
+  "ogriqsiz-tish-olish": {
+    uz: "Qattiq og'riyotgan aql tishlari (sakkizliklar), ildiz sinishi va yallig'lanish",
+    ru: "Болезненные зубы мудрости, ретинированные зубы и разрушенные корни",
+    en: "Impacted or painful wisdom teeth, broken roots, and severe infection",
+  },
+};
+
 export const buildMedicalProcedureSchema = (service, lang = "uz", breadcrumbs = []) => {
   const serviceUrl = urlFor(`/services/${service.id}`, lang);
   const breadcrumbObj = breadcrumbs.length > 0 ? buildBreadcrumbSchema(breadcrumbs, lang) : null;
+  const indicationText = SERVICE_INDICATIONS[service.id]?.[lang] || SERVICE_INDICATIONS[service.id]?.uz;
 
   const procedure = {
     "@type": "MedicalProcedure",
@@ -49,11 +98,45 @@ export const buildMedicalProcedureSchema = (service, lang = "uz", breadcrumbs = 
       "@type": "MedicalSpecialty",
       "name": "Dentistry",
     },
+    ...(indicationText
+      ? {
+          "indication": {
+            "@type": "MedicalIndication",
+            "name": indicationText,
+          },
+        }
+      : {}),
     "provider": {
+      "@type": ["Dentist", "MedicalBusiness"],
       "@id": `${SITE_ORIGIN}/#dentist`,
+      "name": `${DOCTOR_INFO.name} — Smiles Dental Group`,
+      "telephone": DOCTOR_INFO.phoneRaw,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1-kichik daha (1-mikrorayon), 8A-bino",
+        "addressLocality": "Andijon",
+        "addressRegion": "Andijon viloyati",
+        "postalCode": "170100",
+        "addressCountry": "UZ",
+      },
+      "hasMap": [
+        "https://www.google.com/maps?cid=18369680373809674194",
+        "https://share.google/cG5vFoJOH4GX6Y3qv",
+        "https://yandex.uz/maps/org/smiles_dental_group/10769129756/",
+        "https://yandex.uz/maps/-/CXu-iKzx",
+      ],
     },
     "performer": {
+      "@type": "Physician",
       "@id": `${SITE_ORIGIN}/#doctor`,
+      "name": DOCTOR_INFO.name,
+      "jobTitle": DOCTOR_INFO.title,
+      "telephone": DOCTOR_INFO.phoneRaw,
+      "url": `${SITE_ORIGIN}/`,
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": DOCTOR_INFO.education[lang] || DOCTOR_INFO.education.uz,
+      },
     },
     "offers": {
       "@type": "Offer",
@@ -385,18 +468,45 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
     },
     "medicalSpecialty": "https://schema.org/Dentistry",
     "knowsLanguage": ["uz", "ru", "en"],
-    "knowsAbout": [
-      "Tish og'rig'i (Toothache) davolash",
-      "Tish kariesi va pulpyit terapiyasi",
-      "Dental implantatsiya MegaGen (Janubiy Koreya)",
-      "Ortodontik breketlar va tishlarni tekislash",
-      "Sirkon va keramika karonkalar (CAD/CAM)",
-      "Estetik vinirlar E-max",
-      "Shaffof elaynerlar (kapalar)",
-      "Tish protezlari (byugel va neylon)",
-      "Professional tish oqartirish",
-      "Og'riqsiz tish olish va jarrohlik",
-    ],
+    "knowsAbout":
+      lang === "ru"
+        ? [
+            "Лечение острой зубной боли, пульпита и периодонтита",
+            "Безболезненное лечение кариеса (двухэтапная анестезия)",
+            "Дентальная имплантация зубов MegaGen (Южная Корея)",
+            "Исправление прикуса и установка брекетов (Damon)",
+            "Циркониевые и керамические коронки CAD/CAM",
+            "Эстетические керамические виниры E-max",
+            "Прозрачные элайнеры (капы для выравнивания)",
+            "Съемное и несъемное протезирование (бюгельные и гибкие протезы)",
+            "Профессиональное отбеливание зубов",
+            "Атравматичное удаление зубов и сложных зубов мудрости",
+          ]
+        : lang === "en"
+        ? [
+            "Emergency toothache relief & root canal therapy (pulpitis)",
+            "100% painless dental cavity & caries treatment",
+            "MegaGen biocompatible titanium dental implants",
+            "Orthodontic braces & bite correction (Damon system)",
+            "Monolithic zirconia & ceramic crowns (CAD/CAM)",
+            "Aesthetic E-max porcelain veneers (Hollywood smile)",
+            "Clear orthodontic aligners",
+            "Flexible Valplast & precision cast partial dentures",
+            "Professional dental teeth whitening",
+            "Atraumatic tooth and wisdom tooth extraction",
+          ]
+        : [
+            "Tish og'rig'i (Toothache) va pulpitni tezkor davolash",
+            "Kariesni 100% og'riqsiz davolash (2 bosqichli anesteziya)",
+            "MegaGen biotitan dental implantatsiya (Janubiy Koreya)",
+            "Ortodontik breketlar va tishlarni tekislash",
+            "Sirkon va keramika karonkalar (CAD/CAM)",
+            "Estetik E-max keramik vinirlar",
+            "Shaffof ko'rinmas elaynerlar (kapalar)",
+            "Moslashuvchan neylon va byugel tish protezlari",
+            "Professional tish oqartirish (Zoom whitening)",
+            "Atravmatik tish olish va aql tishlari jarrohligi",
+          ],
     "sameAs": [
       "https://www.google.com/maps?cid=18369680373809674194",
       "https://share.google/cG5vFoJOH4GX6Y3qv",

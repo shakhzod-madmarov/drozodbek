@@ -75,4 +75,28 @@ export const FAQ_ITEMS = [
       en: "Click 'Book Appointment' on the website, call +998 97 833 89 97, or message directly via Telegram (@Stamatolog07) or Instagram (@_vrach_stomatolog).",
     },
   },
+  {
+    q: {
+      uz: "Tish qattiq og'riganda yoki plomba tushib ketganda nima qilish kerak? Tezkor qabul bormi?",
+      ru: "Что делать при острой зубной боли или если выпала пломба? Есть ли приём без задержек?",
+      en: "What should I do if I have severe toothache or a broken filling in Andijan?",
+    },
+    a: {
+      uz: "O'tkir tish og'rig'i (pulpit, periodontit) yoki plomba tushib ketganda zudlik bilan +998 97 833 89 97 raqamiga qo'ng'iroq qiling yoki saytimizda eng yaqin bo'sh vaqtga yoziling. Dr. Ozodbek Otaxonov 2 bosqichli og'riqsiz mikro-anesteziya qo'llab, og'riqni birinchi daqiqalardanoq to'liq bartaraf etadi.",
+      ru: "При острой зубной боли (пульпит, периодонтит) или выпадении пломбы сразу звоните по номеру +998 97 833 89 97 или бронируйте ближайшее свободное время на сайте. Д-р Озодбек Отахонов проводит бережную двухэтапную анестезию и полностью устраняет боль в первые минуты приёма.",
+      en: "For acute dental pain (pulpitis, tooth decay) or a lost filling, call +998 97 833 89 97 immediately or book the earliest online slot. Dr. Ozodbek Otaxonov provides two-stage gentle anesthesia to immediately relieve toothache and treat the tooth safely.",
+    },
+  },
+  {
+    q: {
+      uz: "Klinika qayerda joylashgan va qanday mo'ljal bilan topib borish mumkin?",
+      ru: "Где находится клиника и какие ориентиры для проезда в Андижане?",
+      en: "Where is the dental clinic located and what are the nearby landmarks in Andijan?",
+    },
+    a: {
+      uz: "Klinikamiz Andijon shahri, 1-kichik daha (1-mikrorayon), 8A-binoda, «Smiles Dental Group» markazida joylashgan. Asosiy mo'ljal: Konechka bozorchasi yaqinida. Saytimizdagi Google Xaritalar yoki Yandex Xaritalar tugmasi orqali avtomobil yoki piyoda marshrutini to'g'ridan-to'g'ri ochishingiz mumkin.",
+      ru: "Клиника находится по адресу: г. Андижан, 1-й микрорайон, дом 8А, стоматологический центр «Smiles Dental Group». Главный ориентир — базарчик «Конечка». На сайте есть прямые ссылки на Google Maps и Яндекс Карты для быстрого построения маршрута.",
+      en: "The clinic is located at 8A, 1st Microdistrict, Andijan, Uzbekistan, inside 'Smiles Dental Group'. Main landmark: near Konechka market. You can open direct directions via Google Maps or Yandex Maps from our website.",
+    },
+  },
 ];

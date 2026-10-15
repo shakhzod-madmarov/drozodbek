@@ -233,9 +233,9 @@ const CertificatesShowcase = () => {
           </h2>
           <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto">
             {lang === "uz"
-              ? "Dr. Ozodbek Otaxonov — Ukraina stomatologiya tibbiyot akademiyasi bakalavri hamda MegaGen xalqaro implantologiya markazlarining sertifikatlangan amaliyotchi vrachidir."
+              ? "Dr. Ozodbek Otaxonov — Ukraina Stomatologiya Tibbiyot Akademiyasi bakalavri hamda MegaGen xalqaro implantologiya markazlarining sertifikatlangan amaliyotchi vrachidir."
               : lang === "ru"
-              ? "Д-р Озодбек Отахонов — выпускник Украинской медицинской стоматологической академии и сертифицированный специалист международных программ MegaGen."
+              ? "Д-р Озодбек Отахонов — выпускник Украинской Медицинской Стоматологической Академии и сертифицированный специалист международных программ MegaGen."
               : "Dr. Ozodbek Otaxonov holds a Bachelor's degree from the Ukrainian Medical Stomatological Academy and verified MegaGen international surgical certifications."}
           </p>
         </div>
@@ -251,9 +251,9 @@ const CertificatesShowcase = () => {
             </div>
             <h3 className="text-base sm:text-lg font-bold text-slate-900 font-serif-classic">
               {lang === "uz"
-                ? "Ukraina stomatologiya tibbiyot akademiyasi (Bakalavr)"
+                ? "Ukraina Stomatologiya Tibbiyot Akademiyasi (Bakalavr)"
                 : lang === "ru"
-                ? "Украинская медицинская стоматологическая академия (Бакалавр)"
+                ? "Украинская Медицинская Стоматологическая Академия (Бакалавр)"
                 : "Ukrainian Medical Stomatological Academy (Bachelor of Dentistry)"}
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 mt-0.5">

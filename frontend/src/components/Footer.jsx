@@ -58,9 +58,9 @@ const Footer = () => {
 
             <p className="text-sm text-slate-300/90 leading-relaxed max-w-md">
               {lang === "uz"
-                ? `Dr. Ozodbek Otaxonov — Ukraina stomatologiya tibbiyot akademiyasi (bakalavr) bitiruvchisi, ${getExperienceText("uz").toLowerCase()}. Dental implantatsiya, breketlar, tsirkoniy karonkalar, vinirlar va 100% og'riqsiz davolash.`
+                ? `Dr. Ozodbek Otaxonov — Ukraina Stomatologiya Tibbiyot Akademiyasi (bakalavr) bitiruvchisi, ${getExperienceText("uz").toLowerCase()}. Dental implantatsiya, breketlar, tsirkoniy karonkalar, vinirlar va 100% og'riqsiz davolash.`
                 : lang === "ru"
-                ? `Д-р Озодбек Отахонов — выпускник Украинской медицинской стоматологической академии (бакалавр), ${getExperienceText("ru").toLowerCase()}. Имплантация MegaGen, брекеты, циркониевые коронки, виниры и безболезненное лечение.`
+                ? `Д-р Озодбек Отахонов — выпускник Украинской Медицинской Стоматологической Академии (бакалавр), ${getExperienceText("ru").toLowerCase()}. Имплантация MegaGen, брекеты, циркониевые коронки, виниры и безболезненное лечение.`
                 : `Dr. Ozodbek Otaxonov — Graduate of Ukrainian Medical Stomatological Academy, ${getExperienceText("en")}. MegaGen dental implants, orthodontic braces, zirconia crowns, veneers, and 100% painless dental care.`}
             </p>
 
@@ -77,7 +77,13 @@ const Footer = () => {
               </span>
               <span className="inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1 rounded-lg bg-cyan-900/40 text-cyan-200 border border-cyan-500/40">
                 <IconGraduationCap className="w-3.5 h-3.5 text-cyan-300" />
-                <span>Ukraina Akademiyasi</span>
+                <span>
+                  {lang === "ru"
+                    ? "Украинская Медицинская Стоматологическая Академия"
+                    : lang === "en"
+                    ? "Ukrainian Medical Stomatological Academy"
+                    : "Ukraina Stomatologiya Tibbiyot Akademiyasi"}
+                </span>
               </span>
             </div>
           </div>

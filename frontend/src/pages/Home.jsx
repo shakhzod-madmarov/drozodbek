@@ -46,7 +46,7 @@ const HeroSection = ({ onOpenBooking }) => {
       specialtyTitle: "Implantolog · Ortoped · Ortodont · Terapevt",
       headline: "Tabiiy va Sog'lom Tabassum Uchun 100% Og'riqsiz Zamonaviy Stomatologiya",
       subtitle:
-        "Ukraina stomatologiya tibbiyot akademiyasi bitiruvchisi. MegaGen biotitan implantlari, breketlar, tsirkoniy karonkalar, E-max vinirlar, ko'rinmas elaynerlar va og'riqsiz davolash.",
+        "Ukraina Stomatologiya Tibbiyot Akademiyasi bitiruvchisi. MegaGen biotitan implantlari, breketlar, tsirkoniy karonkalar, E-max vinirlar, ko'rinmas elaynerlar va og'riqsiz davolash.",
       ctaBook: "Qabulga Yozilish",
       ctaServices: "Barcha Xizmatlar",
       stat1Num: "10 Yil",
@@ -64,7 +64,7 @@ const HeroSection = ({ onOpenBooking }) => {
       specialtyTitle: "Имплантолог · Ортопед · Ортодонт · Терапевт",
       headline: "Современная Стоматология Без Боли для Вашей Безупречной Улыбки",
       subtitle:
-        "Выпускник Украинской медицинской стоматологической академии. Дентальная имплантация MegaGen, брекеты, циркониевые коронки, виниры E-max, элайнеры и бережное лечение зубов.",
+        "Выпускник Украинской Медицинской Стоматологической Академии. Дентальная имплантация MegaGen, брекеты, циркониевые коронки, виниры E-max, элайнеры и бережное лечение зубов.",
       ctaBook: "Записаться на Приём",
       ctaServices: "Все Услуги",
       stat1Num: "10 Лет",
@@ -113,7 +113,13 @@ const HeroSection = ({ onOpenBooking }) => {
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50/80 text-amber-900 border border-amber-200/60 text-[11px] font-semibold">
               <IconGraduationCap className="w-3.5 h-3.5 text-brandOrange shrink-0" />
-              <span>Ukraina Stomatologiya Akademiyasi</span>
+              <span>
+                {lang === "ru"
+                  ? "Украинская Медицинская Стоматологическая Академия"
+                  : lang === "en"
+                  ? "Ukrainian Medical Stomatological Academy"
+                  : "Ukraina Stomatologiya Tibbiyot Akademiyasi"}
+              </span>
             </span>
           </div>
 
@@ -212,10 +218,10 @@ const SpecialitiesSection = ({ onOpenBooking }) => {
         </h2>
         <p className="text-sm text-slate-600">
           {lang === "uz"
-            ? "10 yillik tajriba, Ukraina akademiyasi bilimlari hamda Koreya va Germaniyaning eng yuqori sifatli materiallari."
+            ? "10 yillik tajriba, Ukraina Stomatologiya Tibbiyot Akademiyasi bilimlari hamda Koreya va Germaniyaning eng yuqori sifatli materiallari."
             : lang === "ru"
-            ? "10 лет практики, классическая академическая школа и передовые технологии имплантации и ортодонтии."
-            : "A decade of dental mastery combining academic knowledge with genuine German and South Korean materials."}
+            ? "10 лет практики, знания Украинской Медицинской Стоматологической Академии и передовые материалы из Кореи и Германии."
+            : "A decade of dental mastery combining knowledge from Ukrainian Medical Stomatological Academy with genuine German and South Korean materials."}
         </p>
       </div>
 

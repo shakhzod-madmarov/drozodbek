@@ -243,7 +243,7 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
     "@id": `${SITE_ORIGIN}/#website`,
     "url": `${SITE_ORIGIN}/`,
     "name": DOCTOR_INFO.name,
-    "description": "Dr. Ozodbek Otaxonov — 10 yillik tajribaga ega vrach stomatolog. Ukraina stomatologiya tibbiyot akademiyasi bitiruvchisi.",
+    "description": "Dr. Ozodbek Otaxonov — 10 yillik tajribaga ega vrach stomatolog. Ukraina Stomatologiya Tibbiyot Akademiyasi bitiruvchisi.",
     "inLanguage": ["uz", "ru", "en"],
   };
 
@@ -372,7 +372,7 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
     "@id": `${SITE_ORIGIN}/#doctor`,
     "name": DOCTOR_INFO.name,
     "jobTitle": DOCTOR_INFO.title,
-    "description": `${DOCTOR_INFO.name} — 10 yillik tajribaga ega vrach stomatolog. Ukraina stomatologiya tibbiyot akademiyasi bitiruvchisi. Smiles Dental Group (Andijon).`,
+    "description": `${DOCTOR_INFO.name} — 10 yillik tajribaga ega vrach stomatolog. Ukraina Stomatologiya Tibbiyot Akademiyasi bitiruvchisi. Smiles Dental Group (Andijon).`,
     "telephone": DOCTOR_INFO.phoneRaw,
     "url": `${SITE_ORIGIN}/`,
     "image": `${SITE_ORIGIN}/dr_ozodbek_og.jpg`,

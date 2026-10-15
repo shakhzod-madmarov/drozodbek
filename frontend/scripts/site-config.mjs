@@ -31,7 +31,7 @@ export const ROUTES = [
       src: "public/dr_ozodbek_og.jpg",
       title: "Dr. Ozodbek Otaxonov — Vrach Stomatolog (10 Yillik Tajriba)",
       caption:
-        "Ukraina stomatologiya tibbiyot akademiyasi bakalavri, implantolog va estetik stomatolog Dr. Ozodbek Otaxonov",
+        "Ukraina Stomatologiya Tibbiyot Akademiyasi bakalavri, implantolog va estetik stomatolog Dr. Ozodbek Otaxonov",
     },
   },
   {
@@ -53,7 +53,7 @@ export const ROUTES = [
       src: "src/assets/hero_smile.webp",
       title: "Dr. Ozodbek Otaxonov Haqida — 10 Yillik Klinik Tajriba",
       caption:
-        "Ukraina stomatologiya tibbiyot akademiyasi bitiruvchisi, xalqaro MegaGen sertifikatlari egasi",
+        "Ukraina Stomatologiya Tibbiyot Akademiyasi bitiruvchisi, xalqaro MegaGen sertifikatlari egasi",
     },
   },
   {

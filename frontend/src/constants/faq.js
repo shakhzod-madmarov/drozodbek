@@ -22,8 +22,8 @@ export const FAQ_ITEMS = [
       en: "What are Dr. Ozodbek Otaxonov's clinical qualifications and background?",
     },
     a: {
-      uz: "Dr. Ozodbek Otaxonov 10 yillik amaliy klinik tajribaga ega vrach stomatologdir. U mashhur Ukraina stomatologiya tibbiyot akademiyasini (bakalavr) tamomlagan hamda Samarqand Davlat Tibbiyot Universiteti va Janubiy Koreyaning MegaGen xalqaro implantologiya va jarrohlik master-klasslari sertifikatlangan mutaxassisidir.",
-      ru: "Д-р Озодбек Отахонов обладает 10-летним клиническим опытом. Он окончил Украинскую медицинскую стоматологическую академию (бакалавр) и прошёл международную сертификацию по имплантологии MegaGen и СамГМУ.",
+      uz: "Dr. Ozodbek Otaxonov 10 yillik amaliy klinik tajribaga ega vrach stomatologdir. U mashhur Ukraina Stomatologiya Tibbiyot Akademiyasini (bakalavr) tamomlagan hamda Samarqand Davlat Tibbiyot Universiteti va Janubiy Koreyaning MegaGen xalqaro implantologiya va jarrohlik master-klasslari sertifikatlangan mutaxassisidir.",
+      ru: "Д-р Озодбек Отахонов обладает 10-летним клиническим опытом. Он окончил Украинскую Медицинскую Стоматологическую Академию (бакалавр) и прошёл международную сертификацию по имплантологии MegaGen и СамГМУ.",
       en: "Dr. Ozodbek Otaxonov holds 10 years of clinical dentistry experience. He is a graduate of the renowned Ukrainian Medical Stomatological Academy (Bachelor of Dentistry) and certified in advanced MegaGen implantology and surgical protocols.",
     },
   },

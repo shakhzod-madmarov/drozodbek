@@ -65,14 +65,22 @@ const Booking = () => {
 
           <p className="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">
             {lang === "uz"
-              ? "Ukraina stomatologiya tibbiyot akademiyasi bitiruvchisi. MegaGen biotitan implantlari, breketlar, tsirkoniy karonkalar, vinirlar va 100% og'riqsiz davolash."
-              : "Выпускник Украинской медицинской стоматологической академии. Запишитесь на удобный день и время без очереди."}
+              ? "Ukraina Stomatologiya Tibbiyot Akademiyasi bitiruvchisi. MegaGen biotitan implantlari, breketlar, tsirkoniy karonkalar, vinirlar va 100% og'riqsiz davolash."
+              : lang === "ru"
+              ? "Выпускник Украинской Медицинской Стоматологической Академии. Запишитесь на удобный день и время без очереди."
+              : "Graduate of Ukrainian Medical Stomatological Academy. Book your appointment online without waiting in line."}
           </p>
 
           <div className="flex flex-wrap items-center gap-4 text-xs font-semibold text-slate-700 pt-1">
             <span className="flex items-center gap-1.5">
               <IconGraduationCap className="w-4 h-4 text-primary" />
-              <span>Ukraina Akademiyasi</span>
+              <span>
+                {lang === "ru"
+                  ? "Украинская Медицинская Стоматологическая Академия"
+                  : lang === "en"
+                  ? "Ukrainian Medical Stomatological Academy"
+                  : "Ukraina Stomatologiya Tibbiyot Akademiyasi"}
+              </span>
             </span>
             <span className="flex items-center gap-1.5">
               <IconShieldCheck className="w-4 h-4 text-emerald-500" />

@@ -159,7 +159,11 @@ const About = ({ onOpenBooking }) => {
               {getExperienceBadge(lang)}
             </span>
             <span className="px-3 py-1 rounded-full bg-amber-50 text-amber-900 border border-amber-200/60 text-[11px] font-semibold">
-              Ukraina Akademiyasi Bakalavri
+              {lang === "ru"
+                ? "Бакалавр Украинской Медицинской Стоматологической Академии"
+                : lang === "en"
+                ? "Ukrainian Medical Stomatological Academy (Bachelor)"
+                : "Ukraina Stomatologiya Tibbiyot Akademiyasi Bakalavri"}
             </span>
           </div>
 
@@ -174,9 +178,9 @@ const About = ({ onOpenBooking }) => {
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             {lang === "uz"
-              ? "Dr. Ozodbek Otaxonov 10 yillik amaliy tajribaga ega bo'lib, Ukraina stomatologiya tibbiyot akademiyasida tahsil olgan. U Janubiy Koreyaning MegaGen xalqaro implantologiya tizimlari, raqamli 3D navigatsion jarrohlik, estetik E-max vinirlar, tsirkoniy karonkalar hamda zamonaviy breketlar bo'yicha ixtisoslashgan mutaxassisdir."
+              ? "Dr. Ozodbek Otaxonov 10 yillik amaliy tajribaga ega bo'lib, Ukraina Stomatologiya Tibbiyot Akademiyasida tahsil olgan. U Janubiy Koreyaning MegaGen xalqaro implantologiya tizimlari, raqamli 3D navigatsion jarrohlik, estetik E-max vinirlar, tsirkoniy karonkalar hamda zamonaviy breketlar bo'yicha ixtisoslashgan mutaxassisdir."
               : lang === "ru"
-              ? "Д-р Озодбек Отахонов обладает 10-летним практическим опытом. Выпускник Украинской медицинской стоматологической академии. Специализируется на дентальной имплантации MegaGen, навигационной хирургии, эстетических винирах E-max, циркониевых коронках и выравнивании прикуса брекетами."
+              ? "Д-р Озодбек Отахонов обладает 10-летним практическим опытом. Выпускник Украинской Медицинской Стоматологической Академии. Специализируется на дентальной имплантации MegaGen, навигационной хирургии, эстетических винирах E-max, циркониевых коронках и выравнивании прикуса брекетами."
               : "Dr. Ozodbek Otaxonov brings a decade of clinical dentistry practice. A graduate of the Ukrainian Medical Stomatological Academy, he specializes in MegaGen dental implants, 3D guided surgery, E-max veneers, monolithic zirconia crowns, and orthodontic alignment."}
           </p>
 

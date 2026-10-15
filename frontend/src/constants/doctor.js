@@ -7,8 +7,8 @@ export const DOCTOR_INFO = {
   specialtiesText: "Dental implant · Breket · Sirkon & Keramika · Vinirlar · Pratezlar · Elaynerlar · Oqartirish",
   careerStartYear: 2016, // 10 years of clinical experience in 2026
   education: {
-    uz: "Ukraina stomatologiya tibbiyot akademiyasi (Bakalavr)",
-    ru: "Украинская медицинская стоматологическая академия (Бакалавр)",
+    uz: "Ukraina Stomatologiya Tibbiyot Akademiyasi (Bakalavr)",
+    ru: "Украинская Медицинская Стоматологическая Академия (Бакалавр)",
     en: "Ukrainian Medical Stomatological Academy (Bachelor of Dentistry)",
   },
   degree: "Bakalavr",
@@ -64,9 +64,9 @@ export const getExperienceBadge = (lang = "uz") => {
 
 export const getHeroTag = (lang = "uz") => {
   const years = getYearsOfExperience();
-  if (lang === "ru") return `Врач-Стоматолог · ${years} лет практики · Украина Академия`;
-  if (lang === "en") return `Modern Dentist & Implantologist · ${years} Years Experience`;
-  return `Vrach-Stomatolog · ${years} Yillik Tajriba · Ukraina Stomatologiya Akademiyasi`;
+  if (lang === "ru") return `Врач-Стоматолог · ${years} лет практики · Украинская Медицинская Стоматологическая Академия`;
+  if (lang === "en") return `Dentist & Implantologist · ${years} Years Experience · Ukrainian Medical Stomatological Academy`;
+  return `Vrach-Stomatolog · ${years} Yillik Tajriba · Ukraina Stomatologiya Tibbiyot Akademiyasi`;
 };
 
 export const getServicesTag = (lang = "uz") => {

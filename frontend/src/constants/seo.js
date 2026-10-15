@@ -11,11 +11,11 @@ export const PAGE_SEO = {
   home: {
     uz: {
       title: "Dr. Ozodbek Otaxonov — Vrach Stomatolog | 10 Yillik Tajriba",
-      description: `Dr. Ozodbek Otaxonov — 10 yillik tajribaga ega vrach stomatolog. Ukraina stomatologiya tibbiyot akademiyasi bitiruvchisi. Dental implantatsiya, breketlar, sirkon va keramik karonkalar, vinirlar, pratezlar, elaynerlar va 100% og'riqsiz davolash. Tel: +998 97 833 89 97.`,
+      description: `Dr. Ozodbek Otaxonov — 10 yillik tajribaga ega vrach stomatolog. Ukraina Stomatologiya Tibbiyot Akademiyasi bitiruvchisi. Dental implantatsiya, breketlar, sirkon va keramik karonkalar, vinirlar, pratezlar, elaynerlar va 100% og'riqsiz davolash. Tel: +998 97 833 89 97.`,
     },
     ru: {
       title: "Д-р Озодбек Отахонов — Врач-Стоматолог | 10 Лет Опыта",
-      description: `Врач-стоматолог Д-р Озодбек Отахонов. 10 лет клинической практики, выпускник Украинской медицинской стоматологической академии. Имплантация MegaGen, брекеты, циркониевые коронки, виниры, элайнеры, лечение зубов без боли. +998 97 833 89 97.`,
+      description: `Врач-стоматолог Д-р Озодбек Отахонов. 10 лет клинической практики, выпускник Украинской Медицинской Стоматологической Академии. Имплантация MegaGen, брекеты, циркониевые коронки, виниры, элайнеры, лечение зубов без боли. +998 97 833 89 97.`,
     },
     en: {
       title: "Dr. Ozodbek Otaxonov — Modern Dentist & Implantologist | 10 Years Experience",
@@ -42,11 +42,11 @@ export const PAGE_SEO = {
   about: {
     uz: {
       title: `Dr. Ozodbek Otaxonov Haqida — ${years} Yillik Tajribaga Ega Vrach Stomatolog`,
-      description: `Dr. Ozodbek Otaxonov — Ukraina stomatologiya tibbiyot akademiyasi (bakalavr) bitiruvchisi, Samarqand davlat tibbiyot universiteti va MegaGen xalqaro implantologiya sertifikatlari sohibi. ${years} yillik klinik tajriba.`,
+      description: `Dr. Ozodbek Otaxonov — Ukraina Stomatologiya Tibbiyot Akademiyasi (bakalavr) bitiruvchisi, Samarqand davlat tibbiyot universiteti va MegaGen xalqaro implantologiya sertifikatlari sohibi. ${years} yillik klinik tajriba.`,
     },
     ru: {
       title: `О Докторе Озодбеке Отахонове — Врач-Стоматолог с ${years}-Летним Опытом`,
-      description: `Д-р Озодбек Отахонов — выпускник Украинской медицинской стоматологической академии (бакалавр), сертифицированный специалист по имплантологии MegaGen. ${years} лет практики.`,
+      description: `Д-р Озодбек Отахонов — выпускник Украинской Медицинской Стоматологической Академии (бакалавр), сертифицированный специалист по имплантологии MegaGen. ${years} лет практики.`,
     },
     en: {
       title: `About Dr. Ozodbek Otaxonov — Dentist & Implantologist with ${years} Years Experience`,
@@ -132,6 +132,7 @@ export const PAGE_KEYWORDS = {
     "ogriqsiz tish olish andijon",
     "plomba tushishi nima qilish kerak",
     "stomatolog 10 yil tajriba",
+    "ukraina stomatologiya tibbiyot akademiyasi",
     "ukraina stomatologiya akademiyasi",
     "stamatolog07",
   ].join(", "),
@@ -180,6 +181,7 @@ export const PAGE_KEYWORDS = {
     "painless dentistry andijan",
     "wisdom tooth extraction andijan",
     "emergency dentist andijan",
+    "ukrainian medical stomatological academy",
     "ukrainian medical dental academy",
   ].join(", "),
 };

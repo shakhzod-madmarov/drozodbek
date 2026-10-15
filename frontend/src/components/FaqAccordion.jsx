@@ -3,9 +3,29 @@ import { useLanguage } from "../context/LanguageContext";
 import { FAQ_ITEMS } from "../constants/faq";
 import { IconSparkleStar } from "./MedicalIcons";
 
-const FaqAccordion = () => {
+const FaqAccordion = ({ items, badgeText, title, subtitle }) => {
   const { lang } = useLanguage();
   const [openIdx, setOpenIdx] = useState(0);
+
+  const faqList = items || FAQ_ITEMS;
+
+  const defaultBadge = {
+    uz: "SAVOL VA JAVOBLAR",
+    ru: "ВОПРОСЫ И ОТВЕТЫ",
+    en: "FREQUENTLY ASKED QUESTIONS",
+  }[lang];
+
+  const defaultTitle = {
+    uz: "Bemorlar Tomonidan Eng Ko'p Beriladigan Savollar",
+    ru: "Часто Задаваемые Вопросы Пациентов",
+    en: "Common Dental Questions & Doctor Answers",
+  }[lang];
+
+  const defaultSubtitle = {
+    uz: "Davolash, narxlar, kafolat va xavfsizlik haqidagi barcha muhim ma'lumotlar.",
+    ru: "Всё о лечении, материалах, гарантии и безопасности процедур.",
+    en: "Essential details regarding pain-free treatment, warranties, and credentials.",
+  }[lang];
 
   return (
     <section className="py-12 sm:py-16 bg-[#FFFDF9] rounded-3xl border border-amber-200 p-5 sm:p-8 lg:p-10">
@@ -13,26 +33,18 @@ const FaqAccordion = () => {
         <div className="text-center space-y-2">
           <span className="inline-flex items-center gap-2 px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest bg-amber-100 text-amber-900 border border-amber-300">
             <IconSparkleStar className="w-4 h-4 text-brandOrange" />
-            <span>{lang === "uz" ? "SAVOL VA JAVOBLAR" : lang === "ru" ? "ВОПРОСЫ И ОТВЕТЫ" : "FREQUENTLY ASKED QUESTIONS"}</span>
+            <span>{badgeText || defaultBadge}</span>
           </span>
           <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 font-serif-classic">
-            {lang === "uz"
-              ? "Bemorlar Tomonidan Eng Ko'p Beriladigan Savollar"
-              : lang === "ru"
-              ? "Часто Задаваемые Вопросы Пациентов"
-              : "Common Dental Questions & Doctor Answers"}
+            {title || defaultTitle}
           </h2>
           <p className="text-sm text-slate-600">
-            {lang === "uz"
-              ? "Davolash, narxlar, kafolat va xavfsizlik haqidagi barcha muhim ma'lumotlar."
-              : lang === "ru"
-              ? "Всё о лечении, материалах, гарантии и безопасности процедур."
-              : "Essential details regarding pain-free treatment, warranties, and credentials."}
+            {subtitle || defaultSubtitle}
           </p>
         </div>
 
         <div className="space-y-3">
-          {FAQ_ITEMS.map((item, idx) => {
+          {faqList.map((item, idx) => {
             const isOpen = openIdx === idx;
             return (
               <div
@@ -42,6 +54,7 @@ const FaqAccordion = () => {
                 <button
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
                   className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none focus:bg-amber-50/50"
+                  aria-expanded={isOpen}
                 >
                   <span className="text-sm sm:text-base font-bold text-slate-900 leading-snug">
                     {item.q[lang] || item.q.uz}

@@ -1,3 +1,4 @@
+import React from "react";
 import {
   DentalImplantFixture,
   DentalBracesIcon,
@@ -72,6 +73,52 @@ export const SERVICES_CATALOG = [
         "10 years of clinical mastery and premium biocompatible titanium",
       ],
     },
+    indications: {
+      uz: [
+        "Bir yoki bir nechta tish yo'qolishi va chaynash noqulayligi",
+        "Qo'shni sog'lom tishlarni charxlamasdan tish tiklash istagi",
+        "Noqulay olinadigan protezlar o'rniga mustahkam tish kerakligi",
+        "Tish olingandan keyin jag' suyagi yupqalashishining oldini olish",
+      ],
+      ru: [
+        "Отсутствие одного или нескольких зубов, дискомфорт при жевании",
+        "Желание восстановить зуб без обточки соседних здоровых зубов",
+        "Замена неудобных съемных протезов на надежные постоянные зубы",
+        "Предотвращение атрофии и убыли костной ткани челюсти",
+      ],
+      en: [
+        "Loss of one or more teeth causing chewing difficulty",
+        "Desire to replace a tooth without grinding down adjacent healthy teeth",
+        "Replacing loose or uncomfortable removable dentures with permanent teeth",
+        "Preventing jawbone resorption and facial contour collapse after tooth loss",
+      ],
+    },
+    faq: [
+      {
+        q: {
+          uz: "Dental implant o'rnatish og'riqlimi va qancha vaqt davom etadi?",
+          ru: "Больно ли ставить имплант и сколько времени занимает операция?",
+          en: "Is dental implant placement painful and how long does it take?",
+        },
+        a: {
+          uz: "Muolaja mutlaqo og'riqsiz o'tadi! Ikki bosqichli mikro-anesteziya qo'llaniladi (avval milkka mevali muzlatuvchi gel surtiladi, so'ng Yevropa anestetigi yuboriladi). Bitta implantni o'rnatish atigi 15–20 daqiqa vaqt oladi.",
+          ru: "Процедура на 100% безболезненна! Десна предварительно обезболивается гелем, после чего вводится мягкий анестетик. Установка одного имплантата занимает всего 15–20 минут.",
+          en: "The procedure is completely painless! We use two-stage anesthesia: a topical numbing gel is applied first, so you don't even feel the injection. Placing one implant takes just 15–20 minutes.",
+        },
+      },
+      {
+        q: {
+          uz: "MegaGen implantlariga qanday kafolat beriladi va qancha xizmat qiladi?",
+          ru: "Какая гарантия на импланты MegaGen и сколько они служат?",
+          en: "What warranty is provided for MegaGen implants and how long do they last?",
+        },
+        a: {
+          uz: "Janubiy Koreyaning MegaGen AnyRidge va AnyOne biotitan tizimlari 99.5% suyak integratsiyasiga ega va ularga ishlab chiqaruvchi tomonidan rasmiy umrbod kafolat beriladi.",
+          ru: "Южнокорейские премиальные имплантаты MegaGen AnyRidge и AnyOne имеют приживаемость более 99.5% и пожизненную официальную гарантию производителя.",
+          en: "South Korean MegaGen AnyRidge and AnyOne systems have an osseointegration rate exceeding 99.5% and are backed by a lifetime manufacturer warranty.",
+        },
+      },
+    ],
   },
   {
     id: "breketlar",
@@ -134,6 +181,52 @@ export const SERVICES_CATALOG = [
         "Continuous clinical monitoring throughout the treatment course",
       ],
     },
+    indications: {
+      uz: [
+        "Tishlarning egriligi, qiyshiqligi yoki bir-birining ustiga chiqishi",
+        "Tishlar orasidagi tirqishlar (diastema va tremalar)",
+        "Noto'g'ri tishlash (prikus) va ovqat chaynash qiyinligi",
+        "Jag' bo'g'imida chertish yoki noqulaylik sezilishi",
+      ],
+      ru: [
+        "Искривление, скученность или неправильное положение зубов",
+        "Промежутки и щели между зубами (диастемы и тремы)",
+        "Патологии прикуса и затрудненное пережевывание пищи",
+        "Щелчки и напряжение в височно-нижнечелюстном суставе",
+      ],
+      en: [
+        "Crooked, rotated, or overcrowded teeth",
+        "Noticeable gaps between teeth (diastema and spacing)",
+        "Overbite, underbite, crossbite, or chewing difficulties",
+        "Jaw tension or clicking in the temporomandibular joint",
+      ],
+    },
+    faq: [
+      {
+        q: {
+          uz: "Kattalar ham breket taqishi mumkinmi?",
+          ru: "Можно ли ставить брекеты взрослым?",
+          en: "Can adults wear orthodontic braces?",
+        },
+        a: {
+          uz: "Albatta! Breket taqish uchun yosh chegarasi yo'q. Bugungi kunda zamonaviy Damon tizimlari va estetik keramik breketlar yordamida 30, 40 va hatto 50 yoshdan keyin ham tishlarni mukammal tekislash mumkin.",
+          ru: "Конечно! Возрастных ограничений нет. Современные самолигирующие системы Damon и эстетическая керамика позволяют эффективно выравнивать зубы в 30, 40 и 50+ лет.",
+          en: "Absolutely! There is no age limit for braces. Modern self-ligating Damon systems and aesthetic ceramic brackets effectively straighten teeth in patients of any age.",
+        },
+      },
+      {
+        q: {
+          uz: "Breket bilan davolanish qancha vaqt davom etadi?",
+          ru: "Сколько длится ортодонтическое лечение брекетами?",
+          en: "How long does orthodontic treatment take?",
+        },
+        a: {
+          uz: "Tishlarning dastlabki holatiga qarab o'rtacha 8 oydan 18 oygacha davom etadi. Dastlabki ko'rinadigan natijalar esa 2–3 oydayoq yaqqol seziladi.",
+          ru: "В зависимости от сложности клинического случая курс занимает от 8 до 18 месяцев. Первые заметные изменения видны уже через 2–3 месяца.",
+          en: "Depending on the complexity of your bite, treatment typically takes between 8 to 18 months, with noticeable improvements within the first 2–3 months.",
+        },
+      },
+    ],
   },
   {
     id: "sirkon-keramika-karonkalar",
@@ -196,6 +289,52 @@ export const SERVICES_CATALOG = [
         "Temporary crowns provided to ensure immediate aesthetic comfort",
       ],
     },
+    indications: {
+      uz: [
+        "Tish toji 50% dan ortiq yemirilgan, singan yoki plomba ushlamaydigan holatlar",
+        "Asabi (nervi) olingan va vaqt o'tishi bilan qorayib qolgan tishlar",
+        "Eski temir-keramika (metall) qoplamalarni zamonaviy sirkoniyga almashtirish",
+        "Milk qorayishidan xalos bo'lish va tabiiy emal yaltiroqligini tiklash",
+      ],
+      ru: [
+        "Разрушение коронковой части зуба более чем на 50%, сколы и трещины",
+        "Депульпированные (мертвые) потемневшие зубы",
+        "Замена старых металлокерамических коронок с темной каймой у десны",
+        "Желание получить идеальную белизну и прочность без аллергии на металл",
+      ],
+      en: [
+        "Tooth structure broken or decayed by more than 50% where fillings cannot hold",
+        "Discolored, weakened teeth following root canal therapy",
+        "Replacing outdated metal-fused crowns that cause dark gum lines",
+        "Restoring full chewing power with biocompatible, metal-free materials",
+      ],
+    },
+    faq: [
+      {
+        q: {
+          uz: "Sirkon karonkaning oddiy metall-keramikadan asosiy farqi nima?",
+          ru: "В чем главное отличие оксида циркония от металлокерамики?",
+          en: "What is the key advantage of Zirconia over porcelain-fused-to-metal crowns?",
+        },
+        a: {
+          uz: "Sirkoniy tarkibida hech qanday qora metall bo'lmaydi. U milkni aslo qoraytirmaydi, metall ta'mini keltirib chiqarmaydi va yorug'likni tabiiy tish emalidek o'tkazadi.",
+          ru: "В диоксиде циркония полностью отсутствует металл. Он не окисляется, не дает серо-синей каймы на десне и выглядит абсолютно как живой зуб.",
+          en: "Zirconia is 100% metal-free. It never produces a dark line along the gum margin, eliminates metallic taste, and reflects light just like natural tooth enamel.",
+        },
+      },
+      {
+        q: {
+          uz: "Sirkon karonkalar qancha yil xizmat qiladi?",
+          ru: "Какой срок службы у циркониевых коронок?",
+          en: "How long do monolithic zirconia crowns last?",
+        },
+        a: {
+          uz: "To'g'ri gigiyenaga rioya qilinganda sirkoniy qoplamalar 15–20 yildan ortiq mustahkam xizmat qiladi. Klinikamizda 10 yilgacha rasmiy kafolat beriladi.",
+          ru: "При надлежащей гигиене циркониевые коронки служат более 15–20 лет. Мы предоставляем официальную гарантию до 10 лет.",
+          en: "With proper oral hygiene, zirconia crowns last 15 to 20+ years. Our clinic provides an official warranty of up to 10 years.",
+        },
+      },
+    ],
   },
   {
     id: "vinirlar",
@@ -258,6 +397,52 @@ export const SERVICES_CATALOG = [
         "Natural depth and optical translucency matching authentic teeth",
       ],
     },
+    indications: {
+      uz: [
+        "Old tishlarning sarg'ayishi, dog'lar va oqartirishga berilmaydigan pigmentatsiya",
+        "Tishlar orasidagi tirqish (diastema va trema) mavjudligi",
+        "Old tishlarning chetlari sinishi, yorilishi yoki notekis shakli",
+        "Mukammal va jozibador Gollivud tabassumiga ega bo'lish istagi",
+      ],
+      ru: [
+        "Стойкое потемнение эмали, пятна, устойчивые к отбеливанию",
+        "Щель между передними зубами (диастема)",
+        "Сколы, микротрещины и неэстетичная форма передних зубов",
+        "Желание обрести безупречную и сияющую «Голливудскую улыбку»",
+      ],
+      en: [
+        "Deep enamel discoloration resistant to chemical bleaching",
+        "Gap between the front teeth (diastema) and irregular tooth shapes",
+        "Chipped, worn down, or uneven edges in the smile line",
+        "Desire for a flawless, long-lasting Hollywood smile makeover",
+      ],
+    },
+    faq: [
+      {
+        q: {
+          uz: "E-max vinirlar uchun tishni ko'p yonish kerakmi?",
+          ru: "Сильно ли обтачиваются зубы под виниры E-max?",
+          en: "Does placing E-max veneers require aggressive tooth shaving?",
+        },
+        a: {
+          uz: "Yo'q! E-max vinirlarining qalinligi atigi 0.3 – 0.5 mm bo'lib, tish emalining faqat yuzaki qatlami mikro-darajada sayqallanadi. 90% dan ortiq tabiiy tish to'qimasi to'liq saqlab qolinadi.",
+          ru: "Нет! Толщина виниров E-max составляет всего 0.3–0.5 мм. Обработка эмали минимальна и щадящая — более 90% живой ткани зуба сохраняется нетронутой.",
+          en: "No! Ultra-thin E-max veneers are only 0.3 to 0.5 mm thick. Enamel preparation is minimal and conservative, preserving over 90% of your natural tooth structure.",
+        },
+      },
+      {
+        q: {
+          uz: "Vinirlar kofe yoki choydan rangini o'zgartiradimi?",
+          ru: "Окрашиваются ли виниры от кофе, чая или сигарет?",
+          en: "Do porcelain veneers stain from coffee, tea, or smoking?",
+        },
+        a: {
+          uz: "Aslo yo'q! E-max shisha-keramikasi g'ovaksiz silliq tuzilishga ega bo'lib, hech qanday oziq-ovqat bo'yoqlarini yoki tamaki tutunini o'ziga singdirmaydi va 15 yil davomida yaltiroqligini saqlaydi.",
+          ru: "Ни в коем случае! Прессованная керамика E-max не имеет пор, поэтому не впитывает красящие пигменты и сохраняет первоначальный цвет и блеск более 15 лет.",
+          en: "Not at all! Non-porous E-max lithium disilicate glass-ceramic resists all food pigments, coffee, and tobacco stains, retaining its pristine shade for 15+ years.",
+        },
+      },
+    ],
   },
   {
     id: "pratezlar",
@@ -320,6 +505,52 @@ export const SERVICES_CATALOG = [
         "Custom contouring to eliminate pressure points and gum irritation",
       ],
     },
+    indications: {
+      uz: [
+        "Ko'p sonli yoki barcha tishlar yo'qolishi (chaynash funksiyasining buzilishi)",
+        "Implant qo'yishga suyak yetishmovchiligi yoki vaqtinchalik qarshi ko'rsatma",
+        "Yuz terisi osilishi va lab atrofida ajinlar paydo bo'lishining oldini olish",
+        "Qulay, yengil va elastik tish protezlariga ehtiyoj",
+      ],
+      ru: [
+        "Потеря большого количества или всех зубов, нарушение жевания",
+        "Невозможность немедленной имплантации или временные ограничения",
+        "Предотвращение западения щек и преждевременного старения лица",
+        "Потребность в легких, гибких и эстетичных съемных конструкциях",
+      ],
+      en: [
+        "Multiple or complete tooth loss resulting in compromised chewing",
+        "Need for cost-effective functional rehabilitation when implants are deferred",
+        "Preventing facial muscle sagging and speech articulation difficulties",
+        "Requirement for lightweight, comfortable, and natural-looking dental prosthetics",
+      ],
+    },
+    faq: [
+      {
+        q: {
+          uz: "Moslashuvchan neylon (Valplast) protezlari og'izda tushib ketmaydimi?",
+          ru: "Надежно ли держатся гибкие нейлоновые протезы Valplast во рту?",
+          en: "Do flexible nylon (Valplast) dentures stay securely in place?",
+        },
+        a: {
+          uz: "Neylon va byugel protezlar milkka va tishlarga mikron aniqlikda moslanadi. Ular yumshoq, milkni qismaydi, elastik ushlagichlari tufayli og'izda juda mustahkam o'tiradi va ko'rinmaydi.",
+          ru: "Нейлоновые и бюгельные протезы точно повторяют анатомию десен. Они легкие, не натирают и фиксируются незаметными эластичными кламмерами без металлического блеска.",
+          en: "Custom flexible nylon and byugel dentures fit snugly against your natural gum line. They feature invisible gum-colored clasps that prevent slipping without irritation.",
+        },
+      },
+      {
+        q: {
+          uz: "Protezga qancha vaqtda ko'nikiladi?",
+          ru: "Сколько времени занимает привыкание к протезам?",
+          en: "How long does it take to adapt to new dentures?",
+        },
+        a: {
+          uz: "Zamonaviy yupqa materiallar tufayli bemorlarimiz o'rtacha 3–7 kun ichida to'liq ko'nikishadi va bemalol taomlarni chaynashadi.",
+          ru: "Благодаря тонким и легким полимерам адаптация проходит комфортно и занимает в среднем от 3 до 7 дней.",
+          en: "Thanks to lightweight biocompatible polymers, adaptation is smooth and typically takes only 3 to 7 days.",
+        },
+      },
+    ],
   },
   {
     id: "elaynerlar",
@@ -382,6 +613,52 @@ export const SERVICES_CATALOG = [
         "3D digital treatment simulation showing end results in advance",
       ],
     },
+    indications: {
+      uz: [
+        "Tishlarning yengil va o'rta darajadagi egriliklari",
+        "Breket taqishni istamaydigan yoki ommaviy sohada ishlovchi bemorlar",
+        "Tishlar orasidagi tirqishlarni bildirmasdan yopish",
+        "Breket yechilgandan keyin tishlar siljishining oldini olish",
+      ],
+      ru: [
+        "Легкая и средняя степень скученности или неровности зубов",
+        "Желание выровнять зубы незаметно для окружающих без брекетов",
+        "Устранение межзубных щелей и диастем",
+        "Люди публичных профессий, ценящие эстетику и максимальный комфорт",
+      ],
+      en: [
+        "Mild to moderate teeth crowding and misalignment",
+        "Desire for discreet orthodontic correction without visible metal brackets",
+        "Closing aesthetic gaps between anterior teeth",
+        "Professionals and active individuals who prefer removable trays",
+      ],
+    },
+    faq: [
+      {
+        q: {
+          uz: "Elaynerlarni kuniga necha soat taqish kerak?",
+          ru: "Сколько часов в сутки нужно носить элайнеры?",
+          en: "How many hours a day should clear aligners be worn?",
+        },
+        a: {
+          uz: "Kutilgan natijaga erishish uchun elaynerlar kuniga 20–22 soat taqiladi. Ularni faqat ovqatlanish va tish tozalash paytida yechiladi.",
+          ru: "Для максимального эффекта капы необходимо носить 20–22 часа в сутки, снимая только во время приема пищи и чистки зубов.",
+          en: "For optimal teeth movement, clear aligners should be worn for 20 to 22 hours daily, removing them only when eating and brushing.",
+        },
+      },
+      {
+        q: {
+          uz: "Elaynerlar og'izda atrofdagilarga seziladimi?",
+          ru: "Заметны ли элайнеры для окружающих во время разговора?",
+          en: "Are clear aligners noticeable to other people when talking?",
+        },
+        a: {
+          uz: "Umuman sezilmaydi! Ular 100% shaffof tibbiy polimerdan tayyorlanadi va hatto yaqin masofadan suhbatlashganda ham ko'rinmaydi.",
+          ru: "Практически незаметны! Капы изготовлены из кристально прозрачного биополимера и остаются невидимыми даже при близком общении.",
+          en: "Virtually invisible! Crafted from crystal-clear medical polymer, they hug teeth closely and are imperceptible even in close conversation.",
+        },
+      },
+    ],
   },
   {
     id: "tish-oqartirish",
@@ -444,6 +721,52 @@ export const SERVICES_CATALOG = [
         "Post-treatment fluoride remineralization for sensitive enamel",
       ],
     },
+    indications: {
+      uz: [
+        "Qahva, choy, tamaki yoki rangli ichimliklar ta'sirida emal sarg'ayishi",
+        "Yosh o'tishi bilan tishlarning tabiiy yaltiroqligi pasayishi",
+        "To'y, bayram yoki muhim tadbir oldidan tabassumni 4-8 tonga oqartirish",
+        "Emalga zarar yetkazmasdan professional tozalash va jilolash",
+      ],
+      ru: [
+        "Пожелтение эмали от частого употребления чая, кофе или курения",
+        "Возрастное потемнение твердых тканей зуба",
+        "Подготовка к свадьбе, фотосессии или важному событию",
+        "Желание осветлить зубы на 4–8 тонов безопасно для здоровья эмали",
+      ],
+      en: [
+        "Enamel stained by coffee, tea, red wine, or tobacco use",
+        "Age-related loss of natural tooth brightness",
+        "Desire for an instant 4–8 shades brighter smile before weddings or public events",
+        "Safe clinical treatment without damaging tooth surface integrity",
+      ],
+    },
+    faq: [
+      {
+        q: {
+          uz: "Professional tish oqartirish emalga zarar yetkazadimi?",
+          ru: "Вредит ли профессиональное отбеливание зубной эмали?",
+          en: "Does professional clinical whitening harm tooth enamel?",
+        },
+        a: {
+          uz: "Zararsiz! Klinikamizda kislotasiz, xavfsiz nemis va yapon preparatlari hamda maxsus nurlantiruvchi chiroq qo'llaniladi. Muolaja so'ngida emalni minerallashtiruvchi gel surtiladi.",
+          ru: "Абсолютно безопасно! Мы используем щадящие сертифицированные гели и холодный свет LED-лампы, а после процедуры проводим фторирование для защиты эмали.",
+          en: "Completely safe! We apply pH-neutral clinical whitening formulas with controlled LED light, followed by deep remineralizing fluoride protection.",
+        },
+      },
+      {
+        q: {
+          uz: "Oqartirish natijasi qancha vaqt saqlanadi?",
+          ru: "Как долго сохраняется результат отбеливания зубов?",
+          en: "How long does teeth whitening results last?",
+        },
+        a: {
+          uz: "To'g'ri gigiyena va «oq parhez»ga (dastlabki kunlarda rangli ichimliklarni kamaytirish) rioya qilinganda oqlik 1.5–2 yilgacha saqlanadi.",
+          ru: "При соблюдении рекомендаций и качественной гигиене результат сохраняется от 1.5 до 2 лет.",
+          en: "With regular brushing and moderate consumption of staining beverages, results remain luminous for 1.5 to 2 years.",
+        },
+      },
+    ],
   },
   {
     id: "ogriqsiz-tish-davolash",
@@ -506,6 +829,52 @@ export const SERVICES_CATALOG = [
         "Complete restoration of natural enamel translucency and chewing cusp anatomy",
       ],
     },
+    indications: {
+      uz: [
+        "Kechasi bezovta qiluvchi, simillovchi yoki o'tkir pulsatsiyalanuvchi tish og'rig'i",
+        "Sovuq, issiq yoki shirin yeguliklardan so'ng paydo bo'ladigan og'riq",
+        "Tishda karies qora dog'lari paydo bo'lishi, plomba tushib ketishi yoki tish sinishi",
+        "Chaynash paytida tish tagiga og'riq berishi va ovqat tiqilib qolishi",
+      ],
+      ru: [
+        "Острая пульсирующая или ноющая зубная боль, усиливающаяся ночью",
+        "Чувствительность и боль от горячего, холодного или сладкого",
+        "Выпадение старой пломбы, скол зуба или темные кариозные полости",
+        "Боль при накусывании, застревание пищи и воспаление зубного нерва (пульпит)",
+      ],
+      en: [
+        "Severe, sharp, throbbing, or continuous toothache that peaks at night",
+        "Sudden pain triggered by hot, cold, or sugary drinks and food",
+        "Lost, cracked, or loose fillings, visible cavities, and dark decay spots",
+        "Pain when chewing or pressing on the tooth caused by pulpitis or infection",
+      ],
+    },
+    faq: [
+      {
+        q: {
+          uz: "Tish qattiq og'riganda og'riqni bitta tashrifda butunlay qoldirsa bo'ladimi?",
+          ru: "Можно ли полностью снять острую зубную боль за один визит?",
+          en: "Can severe acute tooth pain be completely resolved in a single visit?",
+        },
+        a: {
+          uz: "Ha! Dr. Ozodbek Otaxonov 2 bosqichli og'riqsiz mikro-anesteziya yordamida birinchi daqiqalardanoq og'riqni to'liq bloklaydi va kanalni tozalab, tishni tinchlantiradi.",
+          ru: "Да! Д-р Озодбек Отахонов с помощью двухэтапной анестезии мгновенно блокирует болевой синдром и проводит бережное лечение канала за один приём.",
+          en: "Yes! Utilizing a two-stage numbing protocol, Dr. Ozodbek immediately blocks all pain receptors, treats the inflamed pulp or cavity, and provides instant relief.",
+        },
+      },
+      {
+        q: {
+          uz: "3M Filtek va Estelite plombalari qancha yil xizmat qiladi?",
+          ru: "Сколько служат фотополимерные пломбы 3M Filtek и Estelite?",
+          en: "How durable are 3M Filtek and Estelite nano-composite restorations?",
+        },
+        a: {
+          uz: "Nemis va yapon nanokompozitlari emal bilan mikro-darajada birikib ketadi, rangi o'zgarmaydi va 7–10 yildan ortiq mustahkam turadi. 5 yilgacha rasmiy kafolat beramiz.",
+          ru: "Немецкие и японские нанокомпозиты обладают непревзойденной прочностью, эффектом хамелеона и служат более 7–10 лет с гарантией до 5 лет.",
+          en: "German and Japanese nano-hybrid composites fuse micro-mechanically with tooth enamel, blending seamlessly and lasting 7 to 10+ years.",
+        },
+      },
+    ],
   },
   {
     id: "ogriqsiz-tish-olish",
@@ -568,5 +937,51 @@ export const SERVICES_CATALOG = [
         "Biocompatible healing agents placed in the socket for rapid recovery",
       ],
     },
+    indications: {
+      uz: [
+        "Noto'g'ri o'sayotgan, yonoqqa urilayotgan yoki tish qatorini siqayotgan aql tishlari (sakkizliklar)",
+        "Qattiq yiringlagan, ildizi singan va davolab bo'lmaydigan darajada yemirilgan tishlar",
+        "Milk shishishi, periostit (flyus) xavfi va tish ildizi atrofidagi kista",
+        "Ortodontik davolashdan oldin shifokor ko'rsatmasi bo'yicha tish olish",
+      ],
+      ru: [
+        "Ретинированные и дистопированные зубы мудрости («восьмерки»), травмирующие щеку",
+        "Полное разрушение коронки и корня, не подлежащее терапевтическому лечению",
+        "Отек десны, риск флюса, периодонтит и кисты на верхушке корня",
+        "Плановое удаление по направлению ортодонта перед установкой брекетов",
+      ],
+      en: [
+        "Impacted, partially erupted, or misaligned wisdom teeth (third molars)",
+        "Severe subgingival root fractures or unrestorable extensive decay",
+        "Recurrent gum swelling, abscess, cysts, or risk of periostitis (flux)",
+        "Strategic extractions required prior to orthodontic braces therapy",
+      ],
+    },
+    faq: [
+      {
+        q: {
+          uz: "Aql tishini oldirish og'riqlimi?",
+          ru: "Больно ли удалять зуб мудрости?",
+          en: "Is wisdom tooth extraction painful?",
+        },
+        a: {
+          uz: "Mutlaqo og'riqsiz! Biz kuchli zamonaviy Yevropa anestetiklaridan foydalanamiz. Atravmatik usul tufayli suyak ziyon ko'rmaydi va muolajadan keyin ham asoratlar bo'lmaydi.",
+          ru: "Совершенно без боли! Применяется мощная европейская анестезия. Атравматичная методика сохраняет костные стенки лунки, обеспечивая быстрое заживление.",
+          en: "Not painful at all! With advanced European local anesthesia and atraumatic luxation techniques, bone structure is preserved and healing is fast and gentle.",
+        },
+      },
+      {
+        q: {
+          uz: "Tish olingandan keyin bitish jarayoni qancha vaqt oladi?",
+          ru: "Сколько времени заживает десна после удаления зуба?",
+          en: "How long does healing take after a tooth extraction?",
+        },
+        a: {
+          uz: "Dastlabki bitish 2–3 kunda sodir bo'ladi, to'liq shifo topishi esa 7–10 kun davom etadi. Shifokorimiz muolajadan so'ng barcha zarur parvarish tavsiyalarini beradi.",
+          ru: "Первичное затягивание лунки происходит за 2–3 дня, полное восстановление — за 7–10 дней. Мы даем подробные рекомендации по домашнему уходу.",
+          en: "Initial gum closure takes 2 to 3 days, with full tissue recovery within 7 to 10 days. Comprehensive aftercare instructions are provided.",
+        },
+      },
+    ],
   },
 ];

@@ -83,7 +83,8 @@ const SERVICE_INDICATIONS = {
 export const buildMedicalProcedureSchema = (service, lang = "uz", breadcrumbs = []) => {
   const serviceUrl = urlFor(`/services/${service.id}`, lang);
   const breadcrumbObj = breadcrumbs.length > 0 ? buildBreadcrumbSchema(breadcrumbs, lang) : null;
-  const indicationText = SERVICE_INDICATIONS[service.id]?.[lang] || SERVICE_INDICATIONS[service.id]?.uz;
+  const indicationsList = service.indications?.[lang] || service.indications?.uz;
+  const fallbackIndication = SERVICE_INDICATIONS[service.id]?.[lang] || SERVICE_INDICATIONS[service.id]?.uz;
 
   const procedure = {
     "@type": "MedicalProcedure",
@@ -98,11 +99,18 @@ export const buildMedicalProcedureSchema = (service, lang = "uz", breadcrumbs = 
       "@type": "MedicalSpecialty",
       "name": "Dentistry",
     },
-    ...(indicationText
+    ...(Array.isArray(indicationsList) && indicationsList.length > 0
+      ? {
+          "indication": indicationsList.map((text) => ({
+            "@type": "MedicalIndication",
+            "name": text,
+          })),
+        }
+      : fallbackIndication
       ? {
           "indication": {
             "@type": "MedicalIndication",
-            "name": indicationText,
+            "name": fallbackIndication,
           },
         }
       : {}),
@@ -149,16 +157,30 @@ export const buildMedicalProcedureSchema = (service, lang = "uz", breadcrumbs = 
     },
   };
 
+  const graph = [];
   if (breadcrumbObj) {
-    return {
-      "@context": "https://schema.org",
-      "@graph": [breadcrumbObj, procedure],
-    };
+    graph.push(breadcrumbObj);
+  }
+  graph.push(procedure);
+
+  if (Array.isArray(service.faq) && service.faq.length > 0) {
+    graph.push({
+      "@type": "FAQPage",
+      "@id": `${serviceUrl}#faq`,
+      "mainEntity": service.faq.map((item) => ({
+        "@type": "Question",
+        "name": item.q[lang] || item.q.uz,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.a[lang] || item.a.uz,
+        },
+      })),
+    });
   }
 
   return {
     "@context": "https://schema.org",
-    ...procedure,
+    "@graph": graph,
   };
 };
 

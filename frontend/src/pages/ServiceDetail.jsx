@@ -16,6 +16,7 @@ import {
   IconSparkleStar,
 } from "../components/MedicalIcons";
 import { useBooking } from "../context/BookingContext";
+import FaqAccordion from "../components/FaqAccordion";
 
 const ServiceDetail = () => {
   const { serviceId, slug } = useParams();
@@ -110,12 +111,21 @@ const ServiceDetail = () => {
 
   const procedureSchema = buildMedicalProcedureSchema(service, lang, breadcrumbs);
 
+  const serviceKeywords = [
+    service.title[lang],
+    service.category[lang],
+    service.badge?.[lang],
+    service.techTag?.[lang],
+    ...(service.indications?.[lang] || []),
+    PAGE_KEYWORDS[lang],
+  ].filter(Boolean).join(", ");
+
   return (
     <div className="py-6 sm:py-10 space-y-10">
       <Seo
         title={`${service.title[lang]} — ${seoSuffix}`}
         description={`${service.shortDesc[lang]} Dr. Ozodbek Otaxonov, 10 yillik tajriba. Tel: ${DOCTOR_INFO.phoneDisplay}.`}
-        keywords={PAGE_KEYWORDS[lang]}
+        keywords={serviceKeywords}
         schemaJson={procedureSchema}
       />
 
@@ -271,8 +281,64 @@ const ServiceDetail = () => {
         </div>
       </div>
 
+      {/* Clinical Indications Section */}
+      {service.indications?.[lang] && service.indications[lang].length > 0 && (
+        <section className="p-6 sm:p-8 lg:p-10 rounded-3xl bg-[#FFFDF9] border border-amber-200 shadow-2xs space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="space-y-1">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-widest bg-amber-100 text-amber-900 border border-amber-300">
+                <IconSparkleStar className="w-3.5 h-3.5 text-brandOrange" />
+                <span>
+                  {lang === "uz"
+                    ? "KLINIK KO'RSATMALAR"
+                    : lang === "ru"
+                    ? "ПОКАЗАНИЯ К ЛЕЧЕНИЮ"
+                    : "CLINICAL INDICATIONS"}
+                </span>
+              </span>
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 font-serif-classic">
+                {lang === "uz"
+                  ? "Qachon Ushbu Muolajaga Murojaat Qilish Zarur?"
+                  : lang === "ru"
+                  ? "В Каких Случаях Необходима Данная Процедура?"
+                  : "When Is This Dental Procedure Indicated?"}
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600">
+                {lang === "uz"
+                  ? "Quyidagi holatlar tishlaringizda kuzatilsa, asoratlarning oldini olish uchun ko'rikdan o'tish tavsiya etiladi."
+                  : lang === "ru"
+                  ? "Если у вас наблюдаются следующие симптомы, запишитесь на своевременный осмотр во избежание осложнений."
+                  : "If you experience any of the following symptoms, schedule an examination to prevent complications."}
+              </p>
+            </div>
+            <button
+              onClick={() => openBooking(service.id)}
+              className="self-start sm:self-auto px-5 py-2.5 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-bold uppercase tracking-wider shadow-luxury transition-all cursor-pointer shrink-0"
+            >
+              {lang === "uz" ? "Qabulga Yozilish" : lang === "ru" ? "Записаться" : "Book Visit"}
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            {service.indications[lang].map((ind, idx) => (
+              <div
+                key={idx}
+                className="flex items-start gap-3.5 p-4 rounded-2xl bg-white border border-amber-200/80 shadow-2xs hover:border-amber-300 hover:shadow-xs transition-all"
+              >
+                <div className="w-8 h-8 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-800 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                  0{idx + 1}
+                </div>
+                <span className="text-xs sm:text-sm font-semibold text-slate-900 leading-snug">
+                  {ind}
+                </span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* 4 Steps */}
-      <div className="space-y-6">
+      <section className="space-y-6">
         <div className="text-center max-w-2xl mx-auto space-y-2">
           <span className="text-xs font-bold uppercase tracking-widest text-primary">
             {lang === "uz" ? "MUOLAJA BOSQICHLARI" : lang === "ru" ? "ЭТАПЫ ЛЕЧЕНИЯ" : "PROCEDURE PHASES"}
@@ -295,6 +361,69 @@ const ServiceDetail = () => {
               <p className="text-xs text-slate-600 leading-relaxed">{st.desc}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Service-Specific FAQ Section */}
+      {service.faq && service.faq.length > 0 && (
+        <FaqAccordion
+          items={service.faq}
+          badgeText={
+            lang === "uz"
+              ? `${service.title[lang]} — Savol-Javob`
+              : lang === "ru"
+              ? `${service.title[lang]} — Вопросы и Ответы`
+              : `${service.title[lang]} — FAQ`
+          }
+          title={
+            lang === "uz"
+              ? "Ushbu Muolaja Bo'yicha Eng Ko'p Beriladigan Savollar"
+              : lang === "ru"
+              ? "Частые Вопросы Пациентов по Этой Процедуре"
+              : "Frequently Asked Questions About This Treatment"
+          }
+          subtitle={
+            lang === "uz"
+              ? "Dr. Ozodbek Otaxonovning klinik tajribasidan kelib chiqqan javoblar va amaliy tavsiyalar."
+              : lang === "ru"
+              ? "Практические ответы и клинические рекомендации врача-стоматолога Д-ра Озодбека Отахонова."
+              : "Clinical answers and expert guidance directly from Dr. Ozodbek Otaxonov."
+          }
+        />
+      )}
+
+      {/* Bottom Urgent CTA Box */}
+      <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-amber-500/10 via-amber-400/5 to-transparent border border-amber-200 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="space-y-2 text-center sm:text-left">
+          <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-serif-classic">
+            {lang === "uz"
+              ? "Savollaringiz bormi yoki tishingiz bezovta qilyaptimi?"
+              : lang === "ru"
+              ? "Беспокоит зубная боль или остались вопросы?"
+              : "Experiencing a toothache or need advice?"}
+          </h3>
+          <p className="text-xs sm:text-sm text-slate-600">
+            {lang === "uz"
+              ? `Dr. Ozodbek Otaxonov qabuliga yoziling yoki to'g'ridan-to'g'ri qo'ng'iroq qiling: ${DOCTOR_INFO.phoneDisplay}`
+              : lang === "ru"
+              ? `Запишитесь на приём к Д-ру Озодбеку Отахонову или звоните напрямую: ${DOCTOR_INFO.phoneDisplay}`
+              : `Book an appointment with Dr. Ozodbek Otaxonov or call directly: ${DOCTOR_INFO.phoneDisplay}`}
+          </p>
+        </div>
+        <div className="flex items-center gap-3 shrink-0">
+          <button
+            onClick={() => openBooking(service.id)}
+            className="px-6 py-3 rounded-2xl bg-primary hover:bg-primary-hover text-white text-xs font-bold uppercase tracking-wider shadow-luxury cursor-pointer transition-all"
+          >
+            {lang === "uz" ? "Onlayn Band Qilish" : lang === "ru" ? "Записаться Онлайн" : "Book Online"}
+          </button>
+          <a
+            href={DOCTOR_INFO.phoneHref}
+            className="px-4 py-3 rounded-2xl bg-white hover:bg-amber-50 text-slate-800 border border-amber-200 text-xs font-bold flex items-center gap-2 transition-all"
+          >
+            <IconPhone className="w-4 h-4 text-primary" />
+            <span>{DOCTOR_INFO.phoneDisplay}</span>
+          </a>
         </div>
       </div>
     </div>

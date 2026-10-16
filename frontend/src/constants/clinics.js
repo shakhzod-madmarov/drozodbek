@@ -66,6 +66,7 @@ export const CLINICS = [
       yandexOrgId: "10769129756",
       googlePlaceId: "ChIJH0eS4APtvDgR0nehl6d47v4",
       googleCid: "18369680373809674194",
+      googleReviewUrl: "https://g.page/r/Can7lHvF_ZNWECE/review",
     },
   },
 ];

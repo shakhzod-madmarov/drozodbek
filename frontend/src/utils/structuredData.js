@@ -393,6 +393,7 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
       "areaServed": "UZ",
     },
     "sameAs": [
+      "https://g.page/r/Can7lHvF_ZNWECE/review",
       "https://www.google.com/maps?cid=18369680373809674194",
       "https://share.google/cG5vFoJOH4GX6Y3qv",
       "https://yandex.uz/maps/org/smiles_dental_group/10769129756/",
@@ -467,6 +468,7 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
       "worstRating": "1",
     },
     "sameAs": [
+      "https://g.page/r/Can7lHvF_ZNWECE/review",
       "https://www.google.com/maps?cid=18369680373809674194",
       "https://share.google/cG5vFoJOH4GX6Y3qv",
       "https://yandex.uz/maps/org/smiles_dental_group/10769129756/",
@@ -535,6 +537,7 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
             "Atravmatik tish olish va aql tishlari jarrohligi",
           ],
     "sameAs": [
+      "https://g.page/r/Can7lHvF_ZNWECE/review",
       "https://www.google.com/maps?cid=18369680373809674194",
       "https://share.google/cG5vFoJOH4GX6Y3qv",
       "https://yandex.uz/maps/org/smiles_dental_group/10769129756/",

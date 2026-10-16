@@ -7,8 +7,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const publicDir = path.join(__dirname, '..', 'public');
 
-// Google Maps CID & Yandex short URL for Dr. Ozodbek Otaxonov / Smiles Dental Group
-const GOOGLE_URL = 'https://www.google.com/maps?cid=18369680373809674194';
+// Official verified Google Review link & Yandex short URL for Dr. Ozodbek Otaxonov
+const GOOGLE_URL = 'https://g.page/r/Can7lHvF_ZNWECE/review';
 const YANDEX_URL = 'https://yandex.uz/maps/-/CXu-iKzx';
 
 const BRAND_COLOR = '#DF301C'; // Dr. Ozodbek's primary signature brand red

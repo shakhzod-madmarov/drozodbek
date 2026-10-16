@@ -64,6 +64,7 @@ export const CLINICS = [
       yandex: "https://yandex.uz/maps/org/smiles_dental_group/10769129756/",
       yandexShort: "https://yandex.uz/maps/-/CXu-iKzx",
       yandexOrgId: "10769129756",
+      yandexReviewUrl: "https://yandex.uz/maps/org/smiles_dental_group/10769129756/reviews/",
       googlePlaceId: "ChIJH0eS4APtvDgR0nehl6d47v4",
       googleCid: "18369680373809674194",
       googleReviewUrl: "https://g.page/r/Can7lHvF_ZNWECE/review",

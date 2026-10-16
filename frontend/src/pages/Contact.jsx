@@ -13,6 +13,7 @@ import {
   IconTelegram,
   IconInstagram,
   IconLocationPin,
+  IconMail,
 } from "../components/MedicalIcons";
 
 const Contact = () => {
@@ -73,10 +74,10 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* 4 Contact & Location Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      {/* 5 Contact & Location Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-5">
         {/* Phone */}
-        <div className="p-6 rounded-3xl bg-white border border-amber-200 shadow-sm space-y-4 flex flex-col justify-between">
+        <div className="p-5 sm:p-6 rounded-3xl bg-white border border-amber-200 shadow-sm space-y-4 flex flex-col justify-between hover:border-amber-300 transition-all">
           <div className="space-y-4">
             <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
               <IconPhone className="w-6 h-6 text-primary" />
@@ -92,14 +93,14 @@ const Contact = () => {
           </div>
           <a
             href={DOCTOR_INFO.phoneHref}
-            className="inline-block text-base font-bold text-primary hover:underline"
+            className="inline-block text-sm sm:text-base font-bold text-primary hover:underline"
           >
             {DOCTOR_INFO.phoneDisplay}
           </a>
         </div>
 
         {/* Telegram */}
-        <div className="p-6 rounded-3xl bg-white border border-amber-200 shadow-sm space-y-4 flex flex-col justify-between">
+        <div className="p-5 sm:p-6 rounded-3xl bg-white border border-amber-200 shadow-sm space-y-4 flex flex-col justify-between hover:border-amber-300 transition-all">
           <div className="space-y-4">
             <div className="w-12 h-12 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center">
               <IconTelegram className="w-6 h-6 text-sky-500" />
@@ -117,14 +118,14 @@ const Contact = () => {
             href={DOCTOR_INFO.telegramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block text-base font-bold text-sky-600 hover:underline"
+            className="inline-block text-sm sm:text-base font-bold text-sky-600 hover:underline"
           >
             @Stamatolog07 ↗
           </a>
         </div>
 
         {/* Instagram */}
-        <div className="p-6 rounded-3xl bg-white border border-amber-200 shadow-sm space-y-4 flex flex-col justify-between">
+        <div className="p-5 sm:p-6 rounded-3xl bg-white border border-amber-200 shadow-sm space-y-4 flex flex-col justify-between hover:border-amber-300 transition-all">
           <div className="space-y-4">
             <div className="w-12 h-12 rounded-2xl bg-pink-50 text-pink-600 flex items-center justify-center">
               <IconInstagram className="w-6 h-6 text-pink-500" />
@@ -142,14 +143,38 @@ const Contact = () => {
             href={DOCTOR_INFO.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block text-base font-bold text-pink-600 hover:underline"
+            className="inline-block text-sm sm:text-base font-bold text-pink-600 hover:underline"
           >
             @_vrach_stomatolog ↗
           </a>
         </div>
 
+        {/* Official Email */}
+        <div className="p-5 sm:p-6 rounded-3xl bg-white border border-amber-200 shadow-sm space-y-4 flex flex-col justify-between hover:border-amber-300 transition-all">
+          <div className="space-y-4">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+              <IconMail className="w-6 h-6 text-emerald-600" />
+            </div>
+            <div>
+              <h3 className="text-base font-bold text-slate-900">
+                {lang === "uz" ? "Rasmiy Email" : lang === "ru" ? "Эл. Почта" : "Official Email"}
+              </h3>
+              <p className="text-xs text-slate-500 mt-1">
+                {lang === "uz" ? "Xatlar va murojaatlar uchun:" : lang === "ru" ? "Для официальных запросов:" : "For official inquiries:"}
+              </p>
+            </div>
+          </div>
+          <a
+            href={DOCTOR_INFO.emailHref}
+            className="inline-block text-xs sm:text-sm font-bold text-emerald-700 hover:underline truncate"
+            title={DOCTOR_INFO.email}
+          >
+            {DOCTOR_INFO.email}
+          </a>
+        </div>
+
         {/* Clinic Location Card */}
-        <div className="p-6 rounded-3xl bg-white border border-amber-200 shadow-sm space-y-4 flex flex-col justify-between">
+        <div className="p-5 sm:p-6 rounded-3xl bg-white border border-amber-200 shadow-sm space-y-4 flex flex-col justify-between hover:border-amber-300 transition-all">
           <div className="space-y-4">
             <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center">
               <IconLocationPin className="w-6 h-6 text-primary" />

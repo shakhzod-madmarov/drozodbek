@@ -53,6 +53,7 @@ export const CLINICS = [
     telegramHandle: "@Stamatolog07",
     instagram: "https://www.instagram.com/_vrach_stomatolog/",
     instagramHandle: "@_vrach_stomatolog",
+    doctorEmail: "drozodbek.medinson@gmail.com",
     coordinates: {
       lat: 40.744372,
       lng: 72.335613,

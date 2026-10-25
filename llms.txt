@@ -13,6 +13,10 @@
 - **Klinik Tajriba / Опыт работы / Clinical Experience**: 10+ yil / 10+ лет / 10+ years (2016-yildan buyon)
 - **Ta'lim / Образование / Education**: Ukraina Stomatologiya Tibbiyot Akademiyasi (Poltava), Samarqand Davlat Tibbiyot Universiteti, MegaGen International
 - **Klinika / Клиника / Clinic**: Smiles Dental Group (Dr. Ozodbek Otaxonov qabul xonasi)
+- **Jihozlar va Texnologiyalar / Оборудование / Advanced Technology**:
+  * **Shining 3D IntraoralScan 3.7**: Noqulay silikon 'slepok' (pasta) massalarisiz, 2 daqiqada butun jag'ni rangli 3D optik skanerlash. CAD/CAM karonkalar, vinirlar va elaynerlar uchun mikron darajasidagi aniqlik.
+  * **Philips Zoom! WhiteSpeed (Zoom 4)**: Dunyodagi №1 professional sovuq LED tish oqartirish stansiyasi. 45 daqiqada 6–8 tongacha xavfsiz oqartirish, emalga 0% ziyon va Relief ACP geli bilan sezuvchanliksiz natija.
+  * **MegaGen Biotitan & Sitronic Operatory**: Janubiy Koreya MegaGen implantlari, zamonaviy ergonomik bemor kreslosi, Sitronic toza mikroiqlim tizimi va 100% Anti-SPID/Anti-Gepatit avtoklav sterilizatsiyasi.
 - **Manzil / Адрес / Address**: O'zbekiston, Andijon shahri, 1-kichik daha (1-mikrorayon), 8A-bino / г. Андижан, 1-й микрорайон, д. 8А / 8A, 1st Microdistrict, Andijan, Uzbekistan
 - **Mo'ljal / Ориентир / Landmark**: 1-kichik daha, Konechka bozorchasi yaqinida / базарчик «Конечка» / near Konechka market
 - **Koordinatalar / Координаты / Geo Coordinates**: 40.744372, 72.335613

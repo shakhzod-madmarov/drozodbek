@@ -34,7 +34,7 @@
     "src": "_vendor-utils-DHtLVDbd.css"
   },
   "index.html": {
-    "file": "assets/index-B5ngmVwD.js",
+    "file": "assets/index-BYGwqTc9.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
@@ -48,7 +48,7 @@
       "node_modules/qrcode/lib/browser.js"
     ],
     "css": [
-      "assets/index-mItRrpD2.css"
+      "assets/index-OhnIdvjv.css"
     ],
     "assets": [
       "assets/logo-RobtL5SJ.png",
@@ -61,7 +61,9 @@
       "assets/cert_seminar-D-s3dpfO.webp",
       "assets/hero_smile-Xx0LVDIw.webp",
       "assets/hero_3d_tooth-BtnQGPNK.webp",
-      "assets/clinic_room-DUwk5xIL.webp",
+      "assets/clinic_room-3FxS60Jp.webp",
+      "assets/scanner_3d-BcuNtWk4.webp",
+      "assets/philips_zoom-C9yQ9Z2a.webp",
       "assets/treatment_implant-EUoIaf_F.webp",
       "assets/treatment_braces-OrWaRMeg.webp",
       "assets/treatment_aligners-D393Kjtt.webp",
@@ -99,7 +101,7 @@
     "src": "src/assets/cert_seminar.webp"
   },
   "src/assets/clinic_room.webp": {
-    "file": "assets/clinic_room-DUwk5xIL.webp",
+    "file": "assets/clinic_room-3FxS60Jp.webp",
     "src": "src/assets/clinic_room.webp"
   },
   "src/assets/hero_3d_tooth.webp": {
@@ -125,6 +127,14 @@
   "src/assets/logo_icon.webp": {
     "file": "assets/logo_icon-C-up3xU1.webp",
     "src": "src/assets/logo_icon.webp"
+  },
+  "src/assets/philips_zoom.webp": {
+    "file": "assets/philips_zoom-C9yQ9Z2a.webp",
+    "src": "src/assets/philips_zoom.webp"
+  },
+  "src/assets/scanner_3d.webp": {
+    "file": "assets/scanner_3d-BcuNtWk4.webp",
+    "src": "src/assets/scanner_3d.webp"
   },
   "src/assets/treatment_aligners.webp": {
     "file": "assets/treatment_aligners-D393Kjtt.webp",

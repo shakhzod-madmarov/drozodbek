@@ -16,6 +16,7 @@ import { FAQ_ITEMS } from "../constants/faq";
 import { buildHomeSchema } from "../utils/structuredData";
 import { SERVICES_CATALOG } from "../constants/servicesCatalog";
 import CertificatesShowcase from "../components/CertificatesShowcase";
+import ClinicEquipmentShowcase from "../components/ClinicEquipmentShowcase";
 import Interactive3DCostCalculator from "../components/Interactive3DCostCalculator";
 import SmileAssessmentWizard from "../components/SmileAssessmentWizard";
 import BeforeAfterSlider from "../components/BeforeAfterSlider";
@@ -412,7 +413,10 @@ const Home = ({ onOpenBooking }) => {
       {/* 4. Verified Diplomas & MegaGen Certificates */}
       <CertificatesShowcase />
 
-      {/* 5. Before & After */}
+      {/* 5. Authentic Equipment & Clinical Operatory Tour */}
+      <ClinicEquipmentShowcase />
+
+      {/* 6. Before & After */}
       <BeforeAfterSection />
 
       {/* 6. Online Smile Assessment Wizard */}

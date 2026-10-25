@@ -60,19 +60,25 @@
 - Indications: Multiple or complete tooth loss (edentulism), restoring chewing efficiency and speech articulation
 
 ### 6. Clear Aligners (Invisible Orthodontic Trays)
-- Technology: Custom 3D digital planning and sequential transparent medical-grade polyurethane aligners
+- Technology: Shining 3D Intraoral optical 3D scanning (zero messy paste) and sequential transparent medical-grade polyurethane aligners
 - Benefits: Fully removable during eating and brushing, invisible in public and photography
 
-### 7. Professional Teeth Whitening
-- Method: Safe clinical hydrogen peroxide formulation activated by specialized photopolymerizing LED lamp
-- Outcome: 4 to 8 shades lighter without causing thermal sensitivity or enamel demineralization
+### 7. Professional Teeth Whitening (Philips Zoom! WhiteSpeed / Zoom 4)
+- Equipment: Genuine Philips Zoom! WhiteSpeed (Zoom 4) cold LED clinical whitening station
+- Method: Cold LED light activation with Relief ACP desensitizing protection formula
+- Outcome: 6 to 8 shades lighter in a 45-minute appointment without thermal sensitivity or enamel demineralization
 
-### 8. Painless Tooth Therapy & Caries Treatment (Restorative Dentistry)
+### 8. Digital Intraoral 3D Scanning (Shining 3D IntraoralScan)
+- Equipment: Shining 3D IntraoralScan 3.7 cart with Mac Studio / Mac Mini workstation
+- Indications: High-precision optical impressions for CAD/CAM zirconia crowns, E-max veneers, MegaGen 3D guided surgical guides, and clear aligners
+- Patient Comfort: Completely replaces gag-inducing alginate and silicone pastes with quick 2-minute optical digital scans
+
+### 9. Painless Tooth Therapy & Caries Treatment (Restorative Dentistry)
 - Indications: Acute toothache, pulpitis, deep caries, periodontitis, lost or fractured fillings
 - Materials: German (3M Filtek) and Japanese (Estelite) nano-hybrid light-curing composites
 - Pain Protocol: Pre-injection fruit-flavored topical numbing gel followed by gentle European local anesthetic
 
-### 9. Atraumatic Oral Surgery & Wisdom Tooth Extraction
+### 10. Atraumatic Oral Surgery & Wisdom Tooth Extraction
 - Indications: Impacted wisdom teeth (third molars), fractured retained roots, orthodontic extractions
 - Technique: Micro-surgical piezosurgical and minimally invasive luxation preventing alveolar bone damage
 

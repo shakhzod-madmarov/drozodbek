@@ -9,6 +9,8 @@ import cert_seminar from "./cert_seminar.webp";
 import hero_smile from "./hero_smile.webp";
 import hero_3d_tooth from "./hero_3d_tooth.webp";
 import clinic_room from "./clinic_room.webp";
+import scanner_3d from "./scanner_3d.webp";
+import philips_zoom from "./philips_zoom.webp";
 import treatment_implant from "./treatment_implant.webp";
 import treatment_braces from "./treatment_braces.webp";
 import treatment_aligners from "./treatment_aligners.webp";
@@ -31,6 +33,8 @@ export const assets = {
   hero_smile,
   hero_3d_tooth,
   clinic_room,
+  scanner_3d,
+  philips_zoom,
   treatment_implant,
   treatment_braces,
   treatment_aligners,

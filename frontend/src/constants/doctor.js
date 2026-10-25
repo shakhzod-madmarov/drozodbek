@@ -22,6 +22,11 @@ export const DOCTOR_INFO = {
   instagramHandle: "@_vrach_stomatolog",
   email: "drozodbek.medinson@gmail.com",
   emailHref: "mailto:drozodbek.medinson@gmail.com",
+  technologies: {
+    uz: "Shining 3D Intraoral raqamli skaneri (pastasiz o'lchov), Philips Zoom! WhiteSpeed (Zoom 4) professional oqartirish, MegaGen biotitan implantlari, CAD/CAM monolit sirkoniy",
+    ru: "Интраоральный 3D-сканер Shining 3D (без слепков), профессиональное отбеливание Philips Zoom! WhiteSpeed (Zoom 4), биоимпланты MegaGen, монолитный цирконий CAD/CAM",
+    en: "Shining 3D intraoral optical 3D scanner (impression-free), Philips Zoom! WhiteSpeed (Zoom 4) whitening, MegaGen titanium implants, CAD/CAM monolithic zirconia",
+  },
 };
 
 export const getYearsOfExperience = () => 10;

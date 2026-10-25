@@ -502,6 +502,8 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
     "knowsAbout":
       lang === "ru"
         ? [
+            "Интраоральное 3D-сканирование Shining 3D IntraoralScan (без слепков)",
+            "Клиническое отбеливание зубов Philips Zoom! WhiteSpeed (Zoom 4)",
             "Лечение острой зубной боли, пульпита и периодонтита",
             "Безболезненное лечение кариеса (двухэтапная анестезия)",
             "Дентальная имплантация зубов MegaGen (Южная Корея)",
@@ -510,11 +512,12 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
             "Эстетические керамические виниры E-max",
             "Прозрачные элайнеры (капы для выравнивания)",
             "Съемное и несъемное протезирование (бюгельные и гибкие протезы)",
-            "Профессиональное отбеливание зубов",
             "Атравматичное удаление зубов и сложных зубов мудрости",
           ]
         : lang === "en"
         ? [
+            "Shining 3D Intraoral optical 3D scanning (impression-free)",
+            "Philips Zoom! WhiteSpeed (Zoom 4) clinical teeth whitening",
             "Emergency toothache relief & root canal therapy (pulpitis)",
             "100% painless dental cavity & caries treatment",
             "MegaGen biocompatible titanium dental implants",
@@ -523,10 +526,11 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
             "Aesthetic E-max porcelain veneers (Hollywood smile)",
             "Clear orthodontic aligners",
             "Flexible Valplast & precision cast partial dentures",
-            "Professional dental teeth whitening",
             "Atraumatic tooth and wisdom tooth extraction",
           ]
         : [
+            "Shining 3D Intraoral raqamli 3D optik skaneri (pastasiz o'lchov)",
+            "Philips Zoom! WhiteSpeed (Zoom 4) professional tish oqartirish",
             "Tish og'rig'i (Toothache) va pulpitni tezkor davolash",
             "Kariesni 100% og'riqsiz davolash (2 bosqichli anesteziya)",
             "MegaGen biotitan dental implantatsiya (Janubiy Koreya)",
@@ -535,7 +539,6 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
             "Estetik E-max keramik vinirlar",
             "Shaffof ko'rinmas elaynerlar (kapalar)",
             "Moslashuvchan neylon va byugel tish protezlari",
-            "Professional tish oqartirish (Zoom whitening)",
             "Atravmatik tish olish va aql tishlari jarrohligi",
           ],
     "sameAs": [

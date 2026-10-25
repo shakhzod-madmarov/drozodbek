@@ -8,6 +8,7 @@ import Seo from "../components/Seo";
 import { buildAboutPageSchema } from "../utils/structuredData";
 import ClinicLocationMap from "../components/ClinicLocationMap";
 import CertificatesShowcase from "../components/CertificatesShowcase";
+import ClinicEquipmentShowcase from "../components/ClinicEquipmentShowcase";
 import {
   IconAward,
   IconShieldCheck,
@@ -210,6 +211,9 @@ const About = ({ onOpenBooking }) => {
 
       {/* Verified Certificates Showcase */}
       <CertificatesShowcase />
+
+      {/* Advanced Equipment & Operatory Showcase */}
+      <ClinicEquipmentShowcase />
 
       {/* Clinical Values & Standards */}
       <div className="space-y-6">

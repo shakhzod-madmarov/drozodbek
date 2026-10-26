@@ -416,8 +416,8 @@ const Home = ({ onOpenBooking }) => {
       {/* 5. Authentic Equipment & Clinical Operatory Tour */}
       <ClinicEquipmentShowcase />
 
-      {/* 6. Before & After */}
-      <BeforeAfterSection />
+      {/* Before & After (Hidden by user request) */}
+      {/* <BeforeAfterSection /> */}
 
       {/* 6. Online Smile Assessment Wizard */}
       <SmileAssessmentWizard />

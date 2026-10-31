@@ -1,4 +1,3 @@
-import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 
 const Logo = ({ className = "h-8 sm:h-9", inverted = false }) => {

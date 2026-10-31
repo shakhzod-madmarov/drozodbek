@@ -1,7 +1,6 @@
-import React, { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { getA11yLabels } from "../constants/a11yLabels";
-import { IconSparkleStar } from "./MedicalIcons";
 
 const clamp = (n) => Math.max(0, Math.min(100, n));
 

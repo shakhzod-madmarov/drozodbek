@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { assets } from "../assets/assets";
 import { useLanguage } from "../context/LanguageContext";
 import {
   IconShieldCheck,
   IconSparkleStar,
   IconAward,
-  IconCheckCircle,
 } from "./MedicalIcons";
 
 /**
@@ -287,6 +286,7 @@ export default function ClinicEquipmentShowcase() {
             {/* Simple Classic Footer Button */}
             <div className="p-5 pt-0 border-t border-amber-100/60 mt-2">
               <button
+                type="button"
                 onClick={() => setActiveModalItem(item)}
                 className="w-full py-2.5 px-4 rounded-xl bg-slate-50 hover:bg-primary/5 hover:text-primary border border-slate-200/80 text-slate-700 text-xs font-bold transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer group/btn"
               >
@@ -301,6 +301,9 @@ export default function ClinicEquipmentShowcase() {
       {/* Lightbox Modal for High-Resolution Inspection */}
       {activeModalItem && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={activeModalItem.title}
           onClick={() => setActiveModalItem(null)}
           className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 animate-fadeIn"
         >
@@ -310,7 +313,9 @@ export default function ClinicEquipmentShowcase() {
           >
             {/* Close Button */}
             <button
+              type="button"
               onClick={() => setActiveModalItem(null)}
+              aria-label={lang === "ru" ? "Закрыть" : lang === "en" ? "Close" : "Yopish"}
               className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center text-lg font-bold backdrop-blur-md transition-all cursor-pointer"
             >
               ✕

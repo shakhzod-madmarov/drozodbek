@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { assets } from "../assets/assets";
 import {
@@ -118,9 +118,9 @@ const treatments = [
     durationPerUnit: 30,
     warranty: { uz: "10 yilgacha rasmiy kafolat", ru: "Гарантия до 10 лет", en: "Up to 10-year warranty" },
     features: [
+      { uz: "Shining 3D pastasiz skan", ru: "3D-сканирование без слепков", en: "Impression-free 3D scan" },
       { uz: "Metall qorayishi yo'q", ru: "Без темных ободков у десны", en: "No dark metallic edges" },
       { uz: "Mikron aniqlikdagi CAD/CAM", ru: "Фрезеровка CAD/CAM", en: "CAD/CAM precision fit" },
-      { uz: "Tabiiy emal yaltiroqligi", ru: "Блеск натуральной эмали", en: "Natural enamel gloss" },
     ],
   },
   {
@@ -236,22 +236,22 @@ const treatments = [
     shortTitle: { uz: "Oqartirish", ru: "Отбеливание", en: "Whitening" },
     icon: <DentalWhiteningZoom className="w-5 h-5" />,
     badgeTitle: {
-      uz: "PROFESSIONAL TISH OQARTIRISH & AIRFLOW GIGIYENA",
-      ru: "ПРОФЕССИОНАЛЬНОЕ ОТБЕЛИВАНИЕ & AIRFLOW",
-      en: "PROFESSIONAL WHITENING & AIRFLOW",
+      uz: "PHILIPS ZOOM! 4 OQARTIRISH & AIRFLOW GIGIENA",
+      ru: "PHILIPS ZOOM! 4 ОТБЕЛИВАНИЕ & AIRFLOW",
+      en: "PHILIPS ZOOM! 4 WHITENING & AIRFLOW",
     },
     title: {
-      uz: "Professional Tish Oqartirish & AirFlow",
-      ru: "Профессиональное Отбеливание Зубов",
-      en: "Professional Teeth Whitening",
+      uz: "Philips Zoom! 4 Oqartirish & AirFlow",
+      ru: "Отбеливание Philips Zoom! 4 и AirFlow",
+      en: "Philips Zoom! 4 Whitening & AirFlow",
     },
     desc: {
-      uz: "Emalga zarar yetkazmagan holda tishlarni 4–8 tongacha oqartirish hamda ultratovush va AirFlow bilan toshlarni tozalash.",
-      ru: "Безопасное осветление на 4–8 тонов и чистка AirFlow от налета и зубного камня.",
-      en: "Non-damaging whitening by 4–8 shades combined with ultrasonic AirFlow tartar removal.",
+      uz: "Dunyodagi yetakchi Philips Zoom! WhiteSpeed sovuq LED tizimi bilan emalga ziyon yetkazmasdan tishlarni 6–8 tongacha oqartirish hamda ultratovush va AirFlow bilan tozalash.",
+      ru: "Оригинальная система Philips Zoom! WhiteSpeed (Zoom 4) с холодным LED-светом для безопасного осветления на 6–8 тонов и чистка AirFlow.",
+      en: "Cold LED photo-activated clinical whitening by Philips Zoom! WhiteSpeed (Zoom 4) brightening teeth by 6-8 shades safely, combined with AirFlow hygiene.",
     },
     options: [
-      { name: "Kabinet Fotootbelivaniye", desc: { uz: "40 daqiqada yorqin oqlik", ru: "Белоснежная улыбка за 40 минут", en: "Instant 40-min shade lift" } },
+      { name: "Philips Zoom! WhiteSpeed (Zoom 4)", desc: { uz: "45 daqiqada 6-8 ton xavfsiz oqlik", ru: "Осветление на 6-8 тонов за 45 минут", en: "6-8 shades brighter in 45 mins" } },
       { name: "AirFlow + Ultratovush", desc: { uz: "Kofe dog'lari va toshlarni tozalash", ru: "Удаление налета от кофе и камня", en: "Complete stain & plaque scale" } },
     ],
     durationPerUnit: 45,

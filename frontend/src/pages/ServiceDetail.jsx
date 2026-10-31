@@ -1,18 +1,14 @@
-import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
 import { SERVICES_CATALOG } from "../constants/servicesCatalog";
-import { DOCTOR_INFO, getExperienceBadge } from "../constants/doctor";
-import { PAGE_KEYWORDS, SITE_ORIGIN } from "../constants/seo";
+import { DOCTOR_INFO } from "../constants/doctor";
+import { PAGE_KEYWORDS } from "../constants/seo";
 import Seo from "../components/Seo";
 import { buildMedicalProcedureSchema } from "../utils/structuredData";
 import {
   IconCheckCircle,
-  IconClock,
   IconShieldCheck,
   IconPhone,
-  IconTelegram,
-  IconAward,
   IconSparkleStar,
 } from "../components/MedicalIcons";
 import { useBooking } from "../context/BookingContext";
@@ -189,6 +185,7 @@ const ServiceDetail = () => {
 
             <div className="flex flex-wrap items-center gap-3.5 pt-2">
               <button
+                type="button"
                 onClick={() => openBooking(service.id)}
                 className="px-7 py-3.5 rounded-2xl bg-primary hover:bg-primary-hover text-white text-xs sm:text-sm font-bold uppercase tracking-wider shadow-luxury cursor-pointer hover:shadow-2xl hover:-translate-y-0.5 transition-all"
               >
@@ -273,6 +270,7 @@ const ServiceDetail = () => {
           </div>
 
           <button
+            type="button"
             onClick={() => openBooking(service.id)}
             className="w-full py-4 rounded-2xl bg-primary hover:bg-primary-hover text-white text-xs font-bold uppercase tracking-wider shadow-luxury cursor-pointer"
           >
@@ -312,6 +310,7 @@ const ServiceDetail = () => {
               </p>
             </div>
             <button
+              type="button"
               onClick={() => openBooking(service.id)}
               className="self-start sm:self-auto px-5 py-2.5 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-bold uppercase tracking-wider shadow-luxury transition-all cursor-pointer shrink-0"
             >
@@ -412,6 +411,7 @@ const ServiceDetail = () => {
         </div>
         <div className="flex items-center gap-3 shrink-0">
           <button
+            type="button"
             onClick={() => openBooking(service.id)}
             className="px-6 py-3 rounded-2xl bg-primary hover:bg-primary-hover text-white text-xs font-bold uppercase tracking-wider shadow-luxury cursor-pointer transition-all"
           >

@@ -99,4 +99,28 @@ export const FAQ_ITEMS = [
       en: "The clinic is located at 8A, 1st Microdistrict, Andijan, Uzbekistan, inside 'Smiles Dental Group'. Main landmark: near Konechka market. You can open direct directions via Google Maps or Yandex Maps from our website.",
     },
   },
+  {
+    q: {
+      uz: "Shining 3D optik skanerlash qanday ishlaydi va 'slepok' (pasta) massalaridan nima bilan farq qiladi?",
+      ru: "Как работает оптический 3D-сканер Shining 3D и чем он лучше обычных слепков?",
+      en: "How does the Shining 3D intraoral scanner work, and what makes it better than traditional impressions?",
+    },
+    a: {
+      uz: "Shining 3D Intraoral raqamli skaneri 2 daqiqada butun tish qatorini mikron aniqlikda rangli 3D formatda kompyuterga ko'chiradi. Bu bemorlarda noqulaylik va qusish refleksini chaqiruvchi og'ir silikon va gips pastasiz amalga oshiriladi. Natijada karonkalar, vinirlar va elaynerlar mikron darajasida ideal aniqlikda tayyorlanadi.",
+      ru: "Интраоральный 3D-сканер Shining 3D за 2 минуты бесконтактно сканирует всю челюсть в естественном цвете с микронной точностью. Пациент полностью избавлен от неприятных слепочных паст и рвотного рефлекса, а коронки, виниры и элайнеры изготавливаются с идеальным краевым прилеганием.",
+      en: "The Shining 3D intraoral scanner captures your entire dental arch in high-definition color 3D within 2 minutes. It completely replaces messy alginate or silicone pastes and eliminates the gag reflex, ensuring micron-level precision for digital CAD/CAM crowns, veneers, and clear aligners.",
+    },
+  },
+  {
+    q: {
+      uz: "Philips Zoom! WhiteSpeed (Zoom 4) bilan tish oqartirish tish emaliga zarar yetkazmaydimi?",
+      ru: "Безопасно ли клиническое отбеливание Philips Zoom! WhiteSpeed (Zoom 4) для эмали зубов?",
+      en: "Is Philips Zoom! WhiteSpeed (Zoom 4) clinical teeth whitening safe for enamel?",
+    },
+    a: {
+      uz: "Philips Zoom! 4 dunyo stomatologiyasida oltin standart hisoblanadi. Unda qo'llaniladigan sovuq LED nuri tish emalini qizdirmaydi va shikastlamaydi. Muolaja so'ngida qo'llaniladigan maxsus Relief ACP formulasi tish emalini minerallar bilan to'yintiradi va sezuvchanlikning oldini oladi. Atigi 45 daqiqada tishlar 6–8 tongacha xavfsiz oqaradi.",
+      ru: "Philips Zoom! WhiteSpeed (Zoom 4) — признанный золотой мировой стандарт. Холодный светодиодный LED-свет исключает перегрев эмали и зубного нерва. Защитный гель с формулой Relief ACP восстанавливает структуру эмали и предотвращает гиперчувствительность. За один 45-минутный сеанс зубы осветляются на 6–8 тонов абсолютно безопасно.",
+      en: "Philips Zoom! WhiteSpeed (Zoom 4) is the global gold standard in clinical teeth whitening. Its cold LED light technology prevents thermal enamel damage and dental pulp irritation. The post-treatment Relief ACP formula remineralizes enamel and prevents sensitivity, achieving 6 to 8 shades lighter teeth safely in just 45 minutes.",
+    },
+  },
 ];

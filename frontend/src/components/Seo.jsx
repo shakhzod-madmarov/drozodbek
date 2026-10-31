@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import {
@@ -45,7 +45,8 @@ const Seo = ({
         .concat([{ hreflang: "x-default", href: urlFor(effectivePath, DEFAULT_LANG) }])
     : null;
 
-  const schemaKey = schemaJson ? JSON.stringify(schemaJson) : null;
+  const schemaKey = schemaJson ? JSON.stringify(schemaJson) : "";
+  const alternatesKey = alternates ? JSON.stringify(alternates) : "";
   const isPrerender = useContext(PrerenderContext);
 
   useEffect(() => {
@@ -120,6 +121,7 @@ const Seo = ({
     } else if (scriptTag) {
       scriptTag.remove();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     lang,
     resolvedTitle,
@@ -128,6 +130,7 @@ const Seo = ({
     resolvedCanonical,
     ogImage,
     schemaKey,
+    alternatesKey,
     noindex,
   ]);
 

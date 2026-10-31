@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useCallback } from "react";
+import { useMemo, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { BookingContext } from "./BookingContext";
 import { useLocalizedPath } from "./LanguageContext";

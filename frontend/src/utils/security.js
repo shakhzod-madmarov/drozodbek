@@ -3,6 +3,7 @@
  * Protects against XSS, HTML injection, spam flooding, and data leakage.
  */
 
+// eslint-disable-next-line no-control-regex
 const CONTROL_CHARS_REGEX = /[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g;
 const HTML_TAGS_REGEX = /<[^>]*>?/gm;
 

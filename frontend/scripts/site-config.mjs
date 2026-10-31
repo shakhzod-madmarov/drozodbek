@@ -137,8 +137,8 @@ export const ROUTES = [
     priority: "0.8",
     image: {
       src: "src/assets/treatment_whitening.webp",
-      title: "Lazerli Tish Oqartirish (AirFlow) — Dr. Ozodbek",
-      caption: "Emalga zarar yetkazmasdan tishlarni oqartirish",
+      title: "Philips Zoom! WhiteSpeed (Zoom 4) Tish Oqartirish — Dr. Ozodbek",
+      caption: "Philips Zoom! 4 sovuq LED texnologiyasi bilan 6-8 tongacha xavfsiz va og'riqsiz oqartirish",
     },
   },
   {

@@ -37,9 +37,9 @@ export const CLASSIC_SERVICES = [
   },
   {
     id: "tish-oqartirish",
-    uz: "Professional tish oqartirish & AirFlow",
-    ru: "Профессиональное отбеливание и AirFlow",
-    en: "Professional Teeth Whitening & AirFlow",
+    uz: "Philips Zoom! 4 & AirFlow tish oqartirish",
+    ru: "Отбеливание зубов Philips Zoom! 4 и AirFlow",
+    en: "Philips Zoom! 4 & AirFlow Teeth Whitening",
   },
   {
     id: "ogriqsiz-tish-davolash",

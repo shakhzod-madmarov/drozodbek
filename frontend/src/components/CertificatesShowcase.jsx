@@ -1,6 +1,6 @@
-import React, { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback } from "react";
 import { useLanguage } from "../context/LanguageContext";
-import { IconAward, IconCheckCircle, IconGraduationCap, IconSparkleStar } from "./MedicalIcons";
+import { IconAward, IconCheckCircle, IconGraduationCap } from "./MedicalIcons";
 import { useModalA11y } from "../hooks/useModalA11y";
 import { getA11yLabels } from "../constants/a11yLabels";
 
@@ -304,7 +304,9 @@ const CertificatesShowcase = () => {
                 </h3>
               </div>
               <button
+                type="button"
                 onClick={closeCert}
+                aria-label={a11y.closeModal || "Close modal"}
                 className="w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-lg cursor-pointer transition-colors"
               >
                 ✕

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { useBooking } from "../context/BookingContext";
@@ -224,44 +224,52 @@ const InlineBookingSection = ({ initialService = null }) => {
     const available = initDays.find((d) => d.times.length > 0) || initDays[0];
     return available?.times?.[0] || "";
   });
-  const [service, setService] = useState(initialService || CLASSIC_SERVICES[0].id);
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("+998 ");
+  const resolveTargetService = (req, init, sp) => {
+    const target = req?.service || init || sp?.get("service") || sp?.get("serviceId");
+    if (!target) return null;
+    return (
+      CLASSIC_SERVICES.find(
+        (s) =>
+          s.id === target ||
+          s.id.toLowerCase() === String(target).toLowerCase() ||
+          s.id.includes(target) ||
+          String(target).includes(s.id),
+      )?.id || null
+    );
+  };
+
+  const [service, setService] = useState(() => resolveTargetService(bookingRequest, initialService, searchParams) || CLASSIC_SERVICES[0].id);
+  const [name, setName] = useState(() => bookingRequest?.name || "");
+  const [phone, setPhone] = useState(() => (bookingRequest?.phone ? formatUzPhone(bookingRequest.phone) : "+998 "));
   const [dob, setDob] = useState("");
-  const [note, setNote] = useState("");
+  const [note, setNote] = useState(() => bookingRequest?.note || "");
   const [errors, setErrors] = useState({});
   const [honeypot, setHoneypot] = useState("");
-  const formMountTime = useMemo(() => Date.now(), []);
+  const formMountTimeRef = useRef(0);
+  const prevBookingRequestRef = useRef(bookingRequest);
 
   useEffect(() => {
-    const targetService =
-      bookingRequest?.service ||
-      initialService ||
-      searchParams.get("service") ||
-      searchParams.get("serviceId");
+    formMountTimeRef.current = Date.now();
+  }, []);
 
-    if (targetService) {
-      const match = CLASSIC_SERVICES.find(
-        (s) =>
-          s.id === targetService ||
-          s.id.toLowerCase() === String(targetService).toLowerCase() ||
-          s.id.includes(targetService) ||
-          String(targetService).includes(s.id),
-      );
-      if (match) {
-        setService(match.id);
+  useEffect(() => {
+    if (bookingRequest && bookingRequest !== prevBookingRequestRef.current) {
+      prevBookingRequestRef.current = bookingRequest;
+      if (bookingRequest.service) {
+        const match = CLASSIC_SERVICES.find(
+          (s) =>
+            s.id === bookingRequest.service ||
+            s.id.toLowerCase() === String(bookingRequest.service).toLowerCase() ||
+            s.id.includes(bookingRequest.service) ||
+            String(bookingRequest.service).includes(s.id),
+        );
+        if (match) setService(match.id);
       }
+      if (bookingRequest.name) setName(bookingRequest.name);
+      if (bookingRequest.phone) setPhone(formatUzPhone(bookingRequest.phone));
+      if (bookingRequest.note) setNote(bookingRequest.note);
     }
-    if (bookingRequest?.name) {
-      setName(bookingRequest.name);
-    }
-    if (bookingRequest?.phone) {
-      setPhone(formatUzPhone(bookingRequest.phone));
-    }
-    if (bookingRequest?.note) {
-      setNote(bookingRequest.note);
-    }
-  }, [bookingRequest, initialService, searchParams]);
+  }, [bookingRequest]);
 
   const [isRelayEnabled, setIsRelayEnabled] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -344,7 +352,7 @@ const InlineBookingSection = ({ initialService = null }) => {
     }
 
     // 2. Velocity check: human patient takes at least 1.2s to fill the form
-    if (Date.now() - formMountTime < 1200) {
+    if (Date.now() - formMountTimeRef.current < 1200) {
       toast.warn(lang === "uz" ? "Iltimos, ma'lumotlarni tekshirib qayta bosing." : "Пожалуйста, проверьте данные.");
       return;
     }

@@ -7,8 +7,7 @@
  * Relay Server: https://dentist-medinson-license.uz
  */
 
-import { useState, useEffect } from "react";
-import { DOCTOR_INFO } from "../constants/doctor";
+import { useState, useEffect, useMemo } from "react";
 import { sanitizePatientName, sanitizeNote, isValidIsoDate } from "../utils/security";
 
 export const DEFAULT_API_URL =
@@ -304,13 +303,11 @@ export function getClinicOpeningHours(lang = "uz") {
  * and automatically re-renders when the dentist updates them from the app.
  */
 export function useClinicHours(lang = "uz") {
-  const [hours, setHours] = useState(() => getClinicOpeningHours(lang));
+  const [, setTick] = useState(0);
 
   useEffect(() => {
-    setHours(getClinicOpeningHours(lang));
-
     const handler = () => {
-      setHours(getClinicOpeningHours(lang));
+      setTick((t) => t + 1);
     };
 
     if (typeof window !== "undefined") {
@@ -320,9 +317,9 @@ export function useClinicHours(lang = "uz") {
       }
       return () => window.removeEventListener("dentist_availability_updated", handler);
     }
-  }, [lang]);
+  }, []);
 
-  return hours;
+  return useMemo(() => getClinicOpeningHours(lang), [lang]);
 }
 
 /**

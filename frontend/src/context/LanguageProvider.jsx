@@ -1,7 +1,7 @@
 import { useMemo, useCallback } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { LanguageContext } from "./LanguageContext";
-import { LANGS, DEFAULT_LANG, langFromPath, localizePath, stripLangPrefix } from "../utils/language";
+import { LANGS, langFromPath, localizePath, stripLangPrefix } from "../utils/language";
 
 export const LanguageProvider = ({ children }) => {
   const location = useLocation();

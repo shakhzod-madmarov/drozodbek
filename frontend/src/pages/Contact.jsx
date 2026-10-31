@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
 import { DOCTOR_INFO } from "../constants/doctor";

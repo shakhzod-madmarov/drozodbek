@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { DOCTOR_INFO } from "../constants/doctor";
 import { IconTelegram, IconInstagram, IconPhone } from "./MedicalIcons";
@@ -101,6 +101,7 @@ const FloatingActionHub = () => {
           )}
 
           <button
+            type="button"
             onClick={() => setExpanded(!expanded)}
             aria-label={expanded ? a11y.closeQuickActions : a11y.openQuickActions}
             aria-expanded={expanded}

@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
 import Seo from "../components/Seo";
@@ -9,8 +8,6 @@ import { buildBookingPageSchema } from "../utils/structuredData";
 import { PAGE_SEO } from "../constants/seo";
 import {
   IconPhone,
-  IconTelegram,
-  IconInstagram,
   IconShieldCheck,
   IconGraduationCap,
 } from "../components/MedicalIcons";

@@ -1,12 +1,6 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { assets } from "../assets/assets";
 import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
-import {
-  DOCTOR_INFO,
-  getYearsOfExperience,
-  getHeroTag,
-} from "../constants/doctor";
+import { DOCTOR_INFO } from "../constants/doctor";
 import { PAGE_SEO, PAGE_KEYWORDS } from "../constants/seo";
 import Seo from "../components/Seo";
 import InlineBookingSection from "../components/InlineBookingSection";
@@ -19,17 +13,13 @@ import CertificatesShowcase from "../components/CertificatesShowcase";
 import ClinicEquipmentShowcase from "../components/ClinicEquipmentShowcase";
 import Interactive3DCostCalculator from "../components/Interactive3DCostCalculator";
 import SmileAssessmentWizard from "../components/SmileAssessmentWizard";
-import BeforeAfterSlider from "../components/BeforeAfterSlider";
 import PatientCareGuides from "../components/PatientCareGuides";
 import {
   IconShieldCheck,
   IconSparkleStar,
-  IconAward,
   IconClock,
   IconPhone,
-  IconCheckCircle,
   IconGraduationCap,
-  IconTelegram,
 } from "../components/MedicalIcons";
 import Doctor3DCard from "../components/Doctor3DCard";
 
@@ -141,6 +131,7 @@ const HeroSection = ({ onOpenBooking }) => {
           {/* CTA Buttons */}
           <div className="flex flex-col xs:flex-row flex-wrap items-stretch xs:items-center gap-2.5 sm:gap-3 pt-1">
             <button
+              type="button"
               onClick={() => onOpenBooking()}
               className="relative overflow-hidden inline-flex justify-center items-center gap-2 px-5 sm:px-6 py-3.5 rounded-xl bg-primary hover:bg-primary-hover text-white font-semibold text-xs sm:text-sm uppercase tracking-wider shadow-xs transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 cursor-pointer group"
             >
@@ -318,6 +309,7 @@ const SpecialitiesSection = ({ onOpenBooking }) => {
                 <span className="group-hover/btn:translate-x-1 transition-transform">→</span>
               </Link>
               <button
+                type="button"
                 onClick={() => onOpenBooking(s.id)}
                 className="px-4 py-2 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-bold shadow-xs cursor-pointer hover:shadow-md hover:-translate-y-0.5 transition-all"
               >
@@ -326,59 +318,6 @@ const SpecialitiesSection = ({ onOpenBooking }) => {
             </div>
           </div>
         ))}
-      </div>
-    </section>
-  );
-};
-
-/* ═══════════════════════════════════════════════════════════════════
-   3. BEFORE & AFTER GALLERY SHOWCASE
-   ═══════════════════════════════════════════════════════════════════ */
-const BeforeAfterSection = () => {
-  const { lang } = useLanguage();
-
-  return (
-    <section className="py-12 sm:py-16 space-y-8">
-      <div className="text-center max-w-2xl mx-auto space-y-2">
-        <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-[11px] font-medium uppercase tracking-wider bg-amber-50 text-amber-800 border border-amber-200/80 shadow-2xs">
-          <IconSparkleStar className="w-3.5 h-3.5 text-amber-600" />
-          <span>{lang === "uz" ? "NATIJALAR VA TAQQOSLASH" : lang === "ru" ? "РЕЗУЛЬТАТЫ ДО И ПОСЛЕ" : "BEFORE & AFTER GALLERY"}</span>
-        </span>
-        <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-serif-classic">
-          {lang === "uz"
-            ? "Muvaffaqiyatli Tabassum Restavratsiyalari"
-            : lang === "ru"
-            ? "Примеры Преображения Улыбки"
-            : "Smile Transformation Results"}
-        </h2>
-        <p className="text-sm text-slate-600">
-          {lang === "uz"
-            ? "Slayderni o'ngga va chapga surib, davolashdan oldingi va keyingi natijalarni taqqoslang."
-            : lang === "ru"
-            ? "Перемещайте ползунок, чтобы сравнить состояние зубов до и после лечения."
-            : "Drag the slider handle to inspect authentic clinical smile improvements."}
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <BeforeAfterSlider
-          beforeImg={assets.treatment_implant}
-          afterImg={assets.hero_smile}
-          title={lang === "uz" ? "Dental Implantatsiya & Tsirkoniy" : "Имплантация и Цирконий"}
-          subtitle={lang === "uz" ? "MegaGen implant va CAD/CAM karonka" : "MegaGen и коронка CAD/CAM"}
-        />
-        <BeforeAfterSlider
-          beforeImg={assets.treatment_crowns}
-          afterImg={assets.treatment_veneers}
-          title={lang === "uz" ? "E-max Estetik Vinirlar" : "Виниры E-max"}
-          subtitle={lang === "uz" ? "Gollivud tabassumi dizayni" : "Дизайн Голливудской улыбки"}
-        />
-        <BeforeAfterSlider
-          beforeImg={assets.treatment_therapy}
-          afterImg={assets.treatment_whitening}
-          title={lang === "uz" ? "Tish Oqartirish & Restavratsiya" : "Отбеливание и Реставрация"}
-          subtitle={lang === "uz" ? "AirFlow va fotopolimer restavratsiya" : "AirFlow и нано-композиты"}
-        />
       </div>
     </section>
   );

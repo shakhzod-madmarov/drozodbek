@@ -109,6 +109,7 @@ const Nav = ({ topOffset = 0 }) => {
               {["uz", "ru", "en"].map((l) => (
                 <button
                   key={l}
+                  type="button"
                   onClick={() => changeLanguage(l)}
                   aria-pressed={lang === l}
                   className={`px-1.5 py-0.5 rounded text-[11px] font-bold uppercase transition-all duration-150 ${
@@ -135,6 +136,7 @@ const Nav = ({ topOffset = 0 }) => {
 
             {/* Compact Book CTA Button (Desktop & Tablet) */}
             <button
+              type="button"
               onClick={() => {
                 navigate(to("/booking"));
               }}
@@ -155,6 +157,7 @@ const Nav = ({ topOffset = 0 }) => {
 
             {/* Mobile Hamburger Menu Toggle */}
             <button
+              type="button"
               onClick={() => setShowMenu(true)}
               aria-label={a11y.openMenu}
               aria-expanded={showMenu}
@@ -190,6 +193,7 @@ const Nav = ({ topOffset = 0 }) => {
           <div className="flex items-center justify-between p-4 border-b border-amber-100 bg-[#FFFDF9]">
             <Logo className="h-8" />
             <button
+              type="button"
               onClick={closeDrawer}
               aria-label={a11y.closeMenu}
               className="p-1.5 rounded-lg text-slate-500 hover:bg-amber-100/60 transition-colors cursor-pointer"
@@ -266,11 +270,12 @@ const Nav = ({ topOffset = 0 }) => {
           {/* Drawer Footer Book Button */}
           <div className="p-4 border-t border-amber-100 bg-[#FFFDF9]">
             <button
+              type="button"
               onClick={() => {
                 closeDrawer();
                 navigate(to("/booking"));
               }}
-              className="w-full py-3 rounded-xl bg-primary hover:bg-primary-hover text-white text-center font-bold text-xs uppercase tracking-wider shadow-md"
+              className="w-full py-3 rounded-xl bg-primary hover:bg-primary-hover text-white text-center font-bold text-xs uppercase tracking-wider shadow-md cursor-pointer"
             >
               {lang === "uz"
                 ? "Qabulga Yozilish"

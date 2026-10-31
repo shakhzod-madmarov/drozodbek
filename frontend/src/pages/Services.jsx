@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
-import { DOCTOR_INFO, getServicesTag } from "../constants/doctor";
+import { getServicesTag } from "../constants/doctor";
 import { PAGE_SEO, PAGE_KEYWORDS } from "../constants/seo";
 import { SERVICES_CATALOG } from "../constants/servicesCatalog";
 import Seo from "../components/Seo";
@@ -93,6 +93,8 @@ const Services = ({ onOpenBooking }) => {
         {categories.map((c) => (
           <button
             key={c.id}
+            type="button"
+            aria-pressed={activeCategory === c.id}
             onClick={() => setActiveCategory(c.id)}
             className={`shrink-0 whitespace-nowrap px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
               activeCategory === c.id
@@ -197,6 +199,7 @@ const Services = ({ onOpenBooking }) => {
                 <span className="group-hover/btn:translate-x-1 transition-transform">→</span>
               </Link>
               <button
+                type="button"
                 onClick={() => onOpenBooking(service.id)}
                 className="px-5 py-2.5 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-bold uppercase tracking-wider shadow-xs cursor-pointer hover:shadow-md hover:-translate-y-0.5 transition-all"
               >

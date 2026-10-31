@@ -1,4 +1,4 @@
-import React, { useRef, useState, useCallback } from "react";
+import { useRef, useState, useCallback } from "react";
 import { DOCTOR_INFO } from "../constants/doctor";
 import { IconTelegram, IconInstagram } from "./MedicalIcons";
 
@@ -123,9 +123,9 @@ const Doctor3DCard = ({
           }}
         >
           <div className="min-w-0">
-            <h2 className="font-serif-classic text-base sm:text-lg font-bold text-slate-900 tracking-tight truncate">
+            <p className="font-serif-classic text-base sm:text-lg font-bold text-slate-900 tracking-tight truncate">
               Dr. Ozodbek Otaxonov
-            </h2>
+            </p>
             <p className="text-[11px] font-bold uppercase tracking-wider text-primary truncate">
               {specialtyText}
             </p>

@@ -1,4 +1,3 @@
-import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { DOCTOR_INFO } from "../constants/doctor";
 import { PRIMARY_CLINIC } from "../constants/clinics";
@@ -9,7 +8,6 @@ import {
   IconPhone,
   IconTelegram,
   IconInstagram,
-  IconShieldCheck,
 } from "./MedicalIcons";
 
 const ClinicLocationMap = ({ compact = false }) => {
@@ -147,11 +145,10 @@ const ClinicLocationMap = ({ compact = false }) => {
               src="https://yandex.uz/map-widget/v1/org/smiles_dental_group/10769129756/?ll=72.335613%2C40.744372&z=17"
               width="100%"
               height="100%"
-              frameBorder="0"
               allowFullScreen={true}
               loading="lazy"
               title="Smiles Dental Group Joylashuvi"
-              className="w-full h-full"
+              className="w-full h-full border-0"
             />
           </div>
 

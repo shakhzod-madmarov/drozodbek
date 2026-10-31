@@ -1,6 +1,4 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import { assets } from "../assets/assets";
 import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
 import { DOCTOR_INFO, getYearsOfExperience, getExperienceBadge } from "../constants/doctor";
 import { PAGE_SEO, PAGE_KEYWORDS, SITE_ORIGIN } from "../constants/seo";
@@ -14,9 +12,6 @@ import {
   IconShieldCheck,
   IconSparkleStar,
   IconPhone,
-  IconTelegram,
-  IconInstagram,
-  IconGraduationCap,
 } from "../components/MedicalIcons";
 import Doctor3DCard from "../components/Doctor3DCard";
 
@@ -187,6 +182,7 @@ const About = ({ onOpenBooking }) => {
 
           <div className="flex flex-col xs:flex-row flex-wrap items-stretch xs:items-center gap-2.5 sm:gap-3 pt-1">
             <button
+              type="button"
               onClick={() => onOpenBooking()}
               className="relative overflow-hidden inline-flex justify-center items-center px-5 sm:px-6 py-3.5 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs sm:text-sm font-semibold uppercase tracking-wider shadow-xs transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 cursor-pointer group"
             >

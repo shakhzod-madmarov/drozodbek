@@ -38,7 +38,7 @@ User-agent: Applebot
 Allow: /
 
 # Sitemaps & AI Knowledge Base
-Host: https://drozodbek.uz
+Host: drozodbek.uz
 Sitemap: https://drozodbek.uz/sitemap.xml
 # AI Model Knowledge Manifests:
 # https://drozodbek.uz/llms.txt

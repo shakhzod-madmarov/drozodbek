@@ -245,6 +245,7 @@ export const buildAboutPageSchema = (lang = "uz", breadcrumbs = []) => {
       "telephone": DOCTOR_INFO.phoneRaw,
       "email": DOCTOR_INFO.email,
       "sameAs": [
+        "https://yandex.uz/maps/org/dr_ozodbek_otaxonov/",
         DOCTOR_INFO.telegramUrl,
         DOCTOR_INFO.instagramUrl,
       ],
@@ -293,6 +294,7 @@ export const buildContactPageSchema = (lang = "uz", breadcrumbs = []) => {
         "longitude": PRIMARY_CLINIC.coordinates.lng,
       },
       "hasMap": [
+        "https://yandex.uz/maps/org/dr_ozodbek_otaxonov/",
         PRIMARY_CLINIC.maps.googleFull,
         PRIMARY_CLINIC.maps.yandex,
       ],
@@ -374,6 +376,7 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
       "longitude": PRIMARY_CLINIC.coordinates.lng,
     },
     "hasMap": [
+      "https://yandex.uz/maps/org/dr_ozodbek_otaxonov/",
       PRIMARY_CLINIC.maps.googleFull,
       PRIMARY_CLINIC.maps.yandex,
     ],
@@ -393,6 +396,7 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
       "areaServed": "UZ",
     },
     "sameAs": [
+      "https://yandex.uz/maps/org/dr_ozodbek_otaxonov/",
       "https://g.page/r/Can7lHvF_ZNWECE/review",
       "https://www.google.com/maps?cid=18369680373809674194",
       "https://share.google/cG5vFoJOH4GX6Y3qv",
@@ -408,7 +412,16 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
     "@type": ["Dentist", "MedicalBusiness"],
     "@id": `${SITE_ORIGIN}/#dentist`,
     "name": `${DOCTOR_INFO.name} — Smiles Dental Group`,
-    "alternateName": [`${DOCTOR_INFO.name} Stomatolog`, "Dr. Ozodbek Otaxonov", "Стоматолог Озодбек Отахонов"],
+    "alternateName": [
+      "Ozodbek Stomatolog",
+      "Stomatolog Ozodbek",
+      "Ozodbek Dentist",
+      "Стоматолог Озодбек",
+      "Озодбек Стоматолог",
+      `${DOCTOR_INFO.name} Stomatolog`,
+      "Dr. Ozodbek Otaxonov",
+      "Стоматолог Озодбек Отахонов",
+    ],
     "url": `${SITE_ORIGIN}/`,
     "logo": `${SITE_ORIGIN}/logo_icon.png`,
     "image": `${SITE_ORIGIN}/dr_ozodbek_og.jpg`,
@@ -437,6 +450,7 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
       "longitude": PRIMARY_CLINIC.coordinates.lng,
     },
     "hasMap": [
+      "https://yandex.uz/maps/org/dr_ozodbek_otaxonov/",
       PRIMARY_CLINIC.maps.googleFull,
       PRIMARY_CLINIC.maps.yandex,
     ],
@@ -469,6 +483,7 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
       "worstRating": "1",
     },
     "sameAs": [
+      "https://yandex.uz/maps/org/dr_ozodbek_otaxonov/",
       "https://g.page/r/Can7lHvF_ZNWECE/review",
       "https://www.google.com/maps?cid=18369680373809674194",
       "https://share.google/cG5vFoJOH4GX6Y3qv",
@@ -542,6 +557,7 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
             "Atravmatik tish olish va aql tishlari jarrohligi",
           ],
     "sameAs": [
+      "https://yandex.uz/maps/org/dr_ozodbek_otaxonov/",
       "https://g.page/r/Can7lHvF_ZNWECE/review",
       "https://www.google.com/maps?cid=18369680373809674194",
       "https://share.google/cG5vFoJOH4GX6Y3qv",

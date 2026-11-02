@@ -10,16 +10,16 @@ export const getPageSeo = (pageKey, lang = "uz") =>
 export const PAGE_SEO = {
   home: {
     uz: {
-      title: "Dr. Ozodbek Otaxonov — Vrach Stomatolog | 10 Yillik Tajriba",
-      description: `Dr. Ozodbek Otaxonov — 10 yillik tajribaga ega vrach stomatolog. Ukraina Stomatologiya Tibbiyot Akademiyasi bitiruvchisi. Dental implantatsiya, breketlar, sirkon va keramik karonkalar, vinirlar, pratezlar, elaynerlar va 100% og'riqsiz davolash. Tel: +998 97 833 89 97.`,
+      title: "Ozodbek Stomatolog — Dr. Ozodbek Otaxonov | Vrach Stomatolog Andijon",
+      description: `Ozodbek Stomatolog — Dr. Ozodbek Otaxonov. 10 yillik tajribaga ega vrach stomatolog (Andijon). Ukraina Stomatologiya Tibbiyot Akademiyasi bitiruvchisi. Dental implantatsiya, breketlar, sirkon va keramik karonkalar, vinirlar, pratezlar, elaynerlar va 100% og'riqsiz davolash. Tel: +998 97 833 89 97.`,
     },
     ru: {
-      title: "Д-р Озодбек Отахонов — Врач-Стоматолог | 10 Лет Опыта",
-      description: `Врач-стоматолог Д-р Озодбек Отахонов. 10 лет клинической практики, выпускник Украинской Медицинской Стоматологической Академии. Имплантация MegaGen, брекеты, циркониевые коронки, виниры, элайнеры, лечение зубов без боли. +998 97 833 89 97.`,
+      title: "Стоматолог Озодбек Отахонов — Андижан | Д-р Озодбек Врач-Стоматолог",
+      description: `Стоматолог Озодбек Отахонов — прием в Андижане. 10 лет клинической практики, выпускник Украинской Медицинской Стоматологической Академии. Имплантация MegaGen, брекеты, циркониевые коронки, виниры, элайнеры, лечение зубов без боли. +998 97 833 89 97.`,
     },
     en: {
-      title: "Dr. Ozodbek Otaxonov — Modern Dentist & Implantologist | 10 Years Experience",
-      description: `Dr. Ozodbek Otaxonov, restorative dentist & implantologist with 10 years experience. Graduate of Ukrainian Medical Stomatological Academy. MegaGen dental implants, brackets, zirconia crowns, veneers, aligners, painless therapy. Tel: +998 97 833 89 97.`,
+      title: "Ozodbek Dentist — Dr. Ozodbek Otaxonov | Modern Dentist Andijan",
+      description: `Ozodbek Dentist — Dr. Ozodbek Otaxonov, restorative dentist & implantologist with 10 years experience in Andijan. Graduate of Ukrainian Medical Stomatological Academy. MegaGen dental implants, brackets, zirconia crowns, veneers, aligners, painless therapy. Tel: +998 97 833 89 97.`,
     },
   },
   services: {
@@ -105,8 +105,13 @@ export const PAGE_SEO = {
 
 export const PAGE_KEYWORDS = {
   uz: [
-    "dr ozodbek otaxonov",
     "ozodbek stomatolog",
+    "stomatolog ozodbek",
+    "dr ozodbek otaxonov",
+    "dr ozodbek",
+    "ozodbek stomatolog andijon",
+    "stomatolog ozodbek andijon",
+    "vrach stomatolog ozodbek",
     "vrach stomatolog andijon",
     "stomatolog andijon",
     "yaxshi stomatolog andijon",
@@ -141,8 +146,11 @@ export const PAGE_KEYWORDS = {
     "stamatolog07",
   ].join(", "),
   ru: [
-    "озодбек отахонов",
     "стоматолог озодбек",
+    "озодбек стоматолог",
+    "озодбек отахонов",
+    "стоматолог озодбек андижан",
+    "врач стоматолог озодбек",
     "врач стоматолог андижан",
     "стоматолог андижан",
     "хороший стоматолог андижан",
@@ -171,8 +179,10 @@ export const PAGE_KEYWORDS = {
     "украинская медицинская стоматологическая академия",
   ].join(", "),
   en: [
-    "dr ozodbek otaxonov",
+    "ozodbek dentist",
     "dentist ozodbek",
+    "dr ozodbek otaxonov",
+    "dr ozodbek",
     "dentist in andijan",
     "best dentist in andijan uzbekistan",
     "dental clinic andijan",

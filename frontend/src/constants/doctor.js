@@ -20,6 +20,7 @@ export const DOCTOR_INFO = {
   telegramHandle: "@Stamatolog07",
   instagramUrl: "https://www.instagram.com/_vrach_stomatolog/",
   instagramHandle: "@_vrach_stomatolog",
+  yandexMapsUrl: "https://yandex.uz/maps/org/dr_ozodbek_otaxonov/",
   email: "drozodbek.medinson@gmail.com",
   emailHref: "mailto:drozodbek.medinson@gmail.com",
   technologies: {

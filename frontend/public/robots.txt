@@ -1,24 +1,30 @@
-# Robots.txt for drozodbek.uz — Dr. Ozodbek Otaxonov (Andijon)
+# Robots.txt for drozodbek.uz — Dr. Ozodbek Otaxonov (Ozodbek Stomatolog, Andijon)
 User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /dist-ssr/
 
-# Google Search & Google AI
+# Google Search, Googlebot & Google AI Overviews
 User-agent: Googlebot
 Allow: /
 
 User-agent: Google-Extended
 Allow: /
 
-# Yandex Search & Yandex Neuro
+User-agent: GoogleOther
+Allow: /
+
+# Yandex Search & Yandex Neuro / Alice
 User-agent: Yandex
 Allow: /
 
 User-agent: YandexBot
 Allow: /
 
-# OpenAI / ChatGPT Search
+# OpenAI / ChatGPT Search (OAI-SearchBot) & ChatGPT User
+User-agent: OAI-SearchBot
+Allow: /
+
 User-agent: GPTBot
 Allow: /
 
@@ -29,17 +35,34 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-# Anthropic / Claude
+# Anthropic Claude & Claude-Web
 User-agent: ClaudeBot
 Allow: /
 
-# Apple Intelligence
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Apple Intelligence Siri & Spotlight AI Search
 User-agent: Applebot
 Allow: /
 
-# Sitemaps & AI Knowledge Base
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI & Cohere
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# Host & Sitemaps
 Host: drozodbek.uz
 Sitemap: https://drozodbek.uz/sitemap.xml
-# AI Model Knowledge Manifests:
+
+# AI Model Knowledge Manifests (GEO / Generative Engine Optimization):
 # https://drozodbek.uz/llms.txt
 # https://drozodbek.uz/llms-full.txt

@@ -128,10 +128,21 @@ export const buildMedicalProcedureSchema = (service, lang = "uz", breadcrumbs = 
         "addressCountry": "UZ",
       },
       "hasMap": [
+        "https://yandex.uz/maps/org/dr_ozodbek_otaxonov/",
         "https://www.google.com/maps?cid=18369680373809674194",
         "https://share.google/cG5vFoJOH4GX6Y3qv",
         "https://yandex.uz/maps/org/smiles_dental_group/10769129756/",
         "https://yandex.uz/maps/-/CXu-iKzx",
+      ],
+      "sameAs": [
+        "https://yandex.uz/maps/org/dr_ozodbek_otaxonov/",
+        "https://g.page/r/Can7lHvF_ZNWECE/review",
+        "https://www.google.com/maps?cid=18369680373809674194",
+        "https://share.google/cG5vFoJOH4GX6Y3qv",
+        "https://yandex.uz/maps/org/smiles_dental_group/10769129756/",
+        "https://yandex.uz/maps/-/CXu-iKzx",
+        DOCTOR_INFO.telegramUrl,
+        DOCTOR_INFO.instagramUrl,
       ],
     },
     "performer": {
@@ -141,6 +152,12 @@ export const buildMedicalProcedureSchema = (service, lang = "uz", breadcrumbs = 
       "jobTitle": DOCTOR_INFO.title,
       "telephone": DOCTOR_INFO.phoneRaw,
       "url": `${SITE_ORIGIN}/`,
+      "image": `${SITE_ORIGIN}/dr_ozodbek_og.jpg`,
+      "sameAs": [
+        "https://yandex.uz/maps/org/dr_ozodbek_otaxonov/",
+        DOCTOR_INFO.telegramUrl,
+        DOCTOR_INFO.instagramUrl,
+      ],
       "alumniOf": {
         "@type": "EducationalOrganization",
         "name": DOCTOR_INFO.education[lang] || DOCTOR_INFO.education.uz,
@@ -238,14 +255,25 @@ export const buildAboutPageSchema = (lang = "uz", breadcrumbs = []) => {
       "@id": `${SITE_ORIGIN}/#doctor`,
       "name": DOCTOR_INFO.name,
       "jobTitle": DOCTOR_INFO.title,
+      "image": `${SITE_ORIGIN}/dr_ozodbek_og.jpg`,
+      "medicalSpecialty": "https://schema.org/Dentistry",
       "alumniOf": {
         "@type": "EducationalOrganization",
         "name": DOCTOR_INFO.education[lang] || DOCTOR_INFO.education.uz,
       },
       "telephone": DOCTOR_INFO.phoneRaw,
       "email": DOCTOR_INFO.email,
+      "worksFor": {
+        "@id": `${SITE_ORIGIN}/#clinic`,
+      },
       "sameAs": [
         "https://yandex.uz/maps/org/dr_ozodbek_otaxonov/",
+        "https://g.page/r/Can7lHvF_ZNWECE/review",
+        "https://www.google.com/maps?cid=18369680373809674194",
+        "https://share.google/cG5vFoJOH4GX6Y3qv",
+        "https://yandex.uz/maps/org/smiles_dental_group/10769129756/reviews/",
+        "https://yandex.uz/maps/org/smiles_dental_group/10769129756/",
+        "https://yandex.uz/maps/-/CXu-iKzx",
         DOCTOR_INFO.telegramUrl,
         DOCTOR_INFO.instagramUrl,
       ],
@@ -297,6 +325,25 @@ export const buildContactPageSchema = (lang = "uz", breadcrumbs = []) => {
         "https://yandex.uz/maps/org/dr_ozodbek_otaxonov/",
         PRIMARY_CLINIC.maps.googleFull,
         PRIMARY_CLINIC.maps.yandex,
+      ],
+      "sameAs": [
+        "https://yandex.uz/maps/org/dr_ozodbek_otaxonov/",
+        "https://g.page/r/Can7lHvF_ZNWECE/review",
+        "https://www.google.com/maps?cid=18369680373809674194",
+        "https://share.google/cG5vFoJOH4GX6Y3qv",
+        "https://yandex.uz/maps/org/smiles_dental_group/10769129756/reviews/",
+        "https://yandex.uz/maps/org/smiles_dental_group/10769129756/",
+        "https://yandex.uz/maps/-/CXu-iKzx",
+        DOCTOR_INFO.telegramUrl,
+        DOCTOR_INFO.instagramUrl,
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "08:30",
+          "closes": "18:30",
+        },
       ],
     },
   };
@@ -352,6 +399,13 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
     "@id": `${SITE_ORIGIN}/#website`,
     "url": `${SITE_ORIGIN}/`,
     "name": DOCTOR_INFO.name,
+    "alternateName": [
+      "Dr. Ozodbek Otaxonov",
+      "Ozodbek Stomatolog",
+      "Ozodbek Dentist",
+      "Стоматолог Озодбек",
+      "Озодбек Стоматолог",
+    ],
     "description": "Dr. Ozodbek Otaxonov — 10 yillik tajribaga ega vrach stomatolog. Ukraina Stomatologiya Tibbiyot Akademiyasi bitiruvchisi.",
     "inLanguage": ["uz", "ru", "en"],
   };
@@ -482,6 +536,84 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
       "bestRating": "5",
       "worstRating": "1",
     },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": lang === "ru" ? "Стоматологические услуги" : lang === "en" ? "Dental Services & Treatments" : "Stomatologik xizmatlar",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "MedicalProcedure",
+            "name": "Dental Implantatsiya (MegaGen Biotitan)",
+            "url": `${SITE_ORIGIN}/services/dental-implant/`,
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "MedicalProcedure",
+            "name": "Ortodontik Breket Tizimlari (Damon)",
+            "url": `${SITE_ORIGIN}/services/breketlar/`,
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "MedicalProcedure",
+            "name": "Monolit Sirkon va Keramika Karonkalar (CAD/CAM)",
+            "url": `${SITE_ORIGIN}/services/sirkon-keramika-karonkalar/`,
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "MedicalProcedure",
+            "name": "E-max Keramik Vinirlar (Gollivud Tabassumi)",
+            "url": `${SITE_ORIGIN}/services/vinirlar/`,
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "MedicalProcedure",
+            "name": "Zamonaviy Tish Protezlari (Byugel, Valplast)",
+            "url": `${SITE_ORIGIN}/services/pratezlar/`,
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "MedicalProcedure",
+            "name": "Shaffof Ko'rinmas Elaynerlar (3D Kapalar)",
+            "url": `${SITE_ORIGIN}/services/elaynerlar/`,
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "MedicalProcedure",
+            "name": "Philips Zoom! WhiteSpeed (Zoom 4) Tish Oqartirish",
+            "url": `${SITE_ORIGIN}/services/tish-oqartirish/`,
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "MedicalProcedure",
+            "name": "Og'riqsiz Tish Davolash va Karies Terapiyasi",
+            "url": `${SITE_ORIGIN}/services/ogriqsiz-tish-davolash/`,
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "MedicalProcedure",
+            "name": "Atravmatik Tish Olish va Aql Tishlari Jarrohligi",
+            "url": `${SITE_ORIGIN}/services/ogriqsiz-tish-olish/`,
+          },
+        },
+      ],
+    },
     "sameAs": [
       "https://yandex.uz/maps/org/dr_ozodbek_otaxonov/",
       "https://g.page/r/Can7lHvF_ZNWECE/review",
@@ -512,6 +644,39 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
       "@type": "EducationalOrganization",
       "name": DOCTOR_INFO.education[lang] || DOCTOR_INFO.education.uz,
     },
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "degree",
+        "name": DOCTOR_INFO.education[lang] || DOCTOR_INFO.education.uz,
+        "recognizedBy": {
+          "@type": "EducationalOrganization",
+          "name": "Ukrainian Medical Stomatological Academy",
+        },
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "name": "MegaGen International Implantology Certificate (South Korea)",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MegaGen International",
+        },
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "name": "Samarkand State Medical University Postgraduate Certification",
+        "recognizedBy": {
+          "@type": "EducationalOrganization",
+          "name": "Samarkand State Medical University",
+        },
+      },
+    ],
+    "award": [
+      "10+ Years of Clinical Dental Practice in Andijan",
+      "MegaGen International Implantology Fellow",
+    ],
     "medicalSpecialty": "https://schema.org/Dentistry",
     "knowsLanguage": ["uz", "ru", "en"],
     "knowsAbout":

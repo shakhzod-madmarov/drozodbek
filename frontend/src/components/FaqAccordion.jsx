@@ -71,16 +71,16 @@ const FaqAccordion = ({ items, badgeText, title, subtitle }) => {
                     ▼
                   </span>
                 </button>
-                {isOpen && (
-                  <div
-                    id={`faq-panel-${idx}`}
-                    role="region"
-                    aria-labelledby={`faq-btn-${idx}`}
-                    className="px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-amber-100/70 pt-3"
-                  >
-                    {item.a[lang] || item.a.uz}
-                  </div>
-                )}
+                <div
+                  id={`faq-panel-${idx}`}
+                  role="region"
+                  aria-labelledby={`faq-btn-${idx}`}
+                  className={`px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-amber-100/70 pt-3 ${
+                    isOpen ? "block" : "hidden"
+                  }`}
+                >
+                  {item.a[lang] || item.a.uz}
+                </div>
               </div>
             );
           })}

@@ -94,9 +94,9 @@ const ServiceDetail = () => {
   }[lang];
 
   const seoSuffix = {
-    uz: "Dr. Ozodbek Otaxonov | Vrach Stomatolog",
-    ru: "Д-р Озодбек Отахонов | Врач-Стоматолог",
-    en: "Dr. Ozodbek Otaxonov | Dental Surgeon",
+    uz: "Andijonda — Dr. Ozodbek Otaxonov | Vrach Stomatolog",
+    ru: "в Андижане — Д-р Озодбек Отахонов | Врач-Стоматолог",
+    en: "in Andijan — Dr. Ozodbek Otaxonov | Dental Specialist",
   }[lang];
 
   const breadcrumbs = [

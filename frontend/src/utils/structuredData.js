@@ -305,7 +305,15 @@ export const buildContactPageSchema = (lang = "uz", breadcrumbs = []) => {
     "mainEntity": {
       "@type": ["Dentist", "MedicalBusiness"],
       "@id": `${SITE_ORIGIN}/#dentist`,
-      "name": `${DOCTOR_INFO.name} — Smiles Dental Group`,
+      "name": `${DOCTOR_INFO.name} — Andijonda Vrach Stomatolog | Smiles Dental Group`,
+      "alternateName": [
+        "Andijonda stomatolog",
+        "Andijonda stomatologiya",
+        "Andijondagi stomatologiya klinikalari",
+        "Стоматология в Андижане",
+        "Стоматолог в Андижане",
+        "Dr. Ozodbek Otaxonov",
+      ],
       "telephone": DOCTOR_INFO.phoneRaw,
       "email": DOCTOR_INFO.email,
       "address": {

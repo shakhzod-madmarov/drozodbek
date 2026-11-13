@@ -24,65 +24,65 @@ export const PAGE_SEO = {
   },
   services: {
     uz: {
-      title: "Stomatologik Xizmatlar — Ozodbek Stomatolog | Dr. Ozodbek Otaxonov Andijon",
+      title: "Andijonda Stomatologiya Xizmatlari — Dr. Ozodbek Otaxonov | Barcha Xizmatlar",
       description:
-        "Ozodbek Stomatolog xizmatlari: dental implantatsiya MegaGen, breketlar, sirkon va keramik karonkalar, E-max vinirlar, tish protezlari, elaynerlar, Philips Zoom 4 oqartirish va og'riqsiz davolash.",
+        "Andijonda stomatologiya xizmatlari: dental implantatsiya MegaGen, breketlar, sirkon va keramik karonkalar, E-max vinirlar, tish protezlari, elaynerlar, Philips Zoom 4 oqartirish va 100% og'riqsiz davolash.",
     },
     ru: {
-      title: "Стоматологические Услуги — Стоматолог Озодбек Отахонов | Андижан",
+      title: "Стоматология в Андижане — Услуги и Цены | Стоматолог Озодбек Отахонов",
       description:
         "Все стоматологические услуги в Андижане: имплантация MegaGen, брекеты, циркониевые коронки, виниры E-max, протезирование, элайнеры, отбеливание Zoom 4 и удаление зубов без боли.",
     },
     en: {
-      title: "Dental Services & Treatments — Dr. Ozodbek Otaxonov | Andijan",
+      title: "Dental Services in Andijan — Dr. Ozodbek Otaxonov | Modern Clinic",
       description:
         "Comprehensive dentistry by Dr. Ozodbek Otaxonov in Andijan: MegaGen dental implants, braces, zirconia crowns, E-max veneers, dentures, clear aligners, whitening, and 100% painless therapy.",
     },
   },
   about: {
     uz: {
-      title: `Dr. Ozodbek Otaxonov Haqida — Ozodbek Stomatolog Andijon | ${years} Yillik Tajriba`,
-      description: `Dr. Ozodbek Otaxonov (Ozodbek Stomatolog) — Ukraina Stomatologiya Tibbiyot Akademiyasi (bakalavr) bitiruvchisi, Samarqand davlat tibbiyot universiteti va MegaGen xalqaro implantologiya sertifikatlari sohibi. ${years} yillik klinik tajriba.`,
+      title: `Dr. Ozodbek Otaxonov — Andijonda Vrach Stomatolog | ${years} Yillik Tajriba`,
+      description: `Dr. Ozodbek Otaxonov — Andijonda 10 yillik tajribaga ega vrach stomatolog. Ukraina Stomatologiya Tibbiyot Akademiyasi (bakalavr) bitiruvchisi, Samarqand davlat tibbiyot universiteti va MegaGen xalqaro implantologiya sertifikatlari sohibi.`,
     },
     ru: {
       title: `О Докторе Озодбеке Отахонове — Стоматолог в Андижане | ${years} Лет Опыта`,
       description: `Врач-стоматолог Д-р Озодбек Отахонов в Андижане. Выпускник Украинской Медицинской Стоматологической Академии (бакалавр), сертифицированный специалист по имплантологии MegaGen. ${years} лет практики.`,
     },
     en: {
-      title: `About Dr. Ozodbek Otaxonov — Dentist & Implantologist (${years} Years Experience)`,
+      title: `About Dr. Ozodbek Otaxonov — Dentist in Andijan (${years} Years Experience)`,
       description: `Meet Dr. Ozodbek Otaxonov, graduate of Ukrainian Medical Stomatological Academy (Bachelor of Dentistry) and certified MegaGen implantologist with ${years} years of dental practice in Andijan.`,
     },
   },
   contact: {
     uz: {
-      title: "Aloqa va Manzil — Ozodbek Stomatolog | Dr. Ozodbek Otaxonov Andijon",
+      title: "Andijonda Stomatologiya Manzili va Aloqa — Dr. Ozodbek Otaxonov | Smiles Dental Group",
       description:
-        "Ozodbek Stomatolog (Dr. Ozodbek Otaxonov) qabuli — Smiles Dental Group (Andijon, 1-kichik daha, 8A-bino). Telefon: +998 97 833 89 97, Telegram: @Stamatolog07, Instagram: @_vrach_stomatolog.",
+        "Andijonda stomatolog qabuli: Dr. Ozodbek Otaxonov — Smiles Dental Group (1-kichik daha, 8A-bino, Konechka bozorchasi yaqinida). Telefon: +998 97 833 89 97, Telegram: @Stamatolog07, Instagram: @_vrach_stomatolog.",
     },
     ru: {
-      title: "Контакты и Адрес — Стоматолог Озодбек Отахонов | Андижан",
+      title: "Стоматология в Андижане — Адрес и Контакты | Стоматолог Озодбек Отахонов",
       description:
         "Приём Стоматолога Озодбека Отахонова в клинике Smiles Dental Group (г. Андижан, 1-й микрорайон, 8A). Телефон: +998 97 833 89 97, Telegram: @Stamatolog07.",
     },
     en: {
-      title: "Contact & Location — Dr. Ozodbek Otaxonov | Dentist in Andijan",
+      title: "Dentist in Andijan — Location & Contact | Dr. Ozodbek Otaxonov",
       description:
         "Book visit with Dr. Ozodbek Otaxonov at Smiles Dental Group (8A, 1st Microdistrict, Andijan). Tel: +998 97 833 89 97, Telegram: @Stamatolog07.",
     },
   },
   booking: {
     uz: {
-      title: "Qabulga Yozilish — Ozodbek Stomatolog | Onlayn Qabul Andijon",
+      title: "Andijonda Stomatolog Qabuliga Yozilish — Dr. Ozodbek Otaxonov | Onlayn Bron",
       description:
-        "Dr. Ozodbek Otaxonov (Ozodbek Stomatolog) qabuliga onlayn yozilish. Bo'sh kun va soatni tanlang, qulay va navbatsiz ro'yxatdan o'ting. Tel: +998 97 833 89 97.",
+        "Andijonda Dr. Ozodbek Otaxonov qabuliga onlayn yozilish. Bo'sh kun va soatni tanlang, qulay va navbatsiz ro'yxatdan o'ting. Tel: +998 97 833 89 97.",
     },
     ru: {
-      title: "Запись на Приём — Стоматолог Озодбек Отахонов | Онлайн Запись Андижан",
+      title: "Запись к Стоматологу в Андижане — Д-р Озодбек Отахонов | Онлайн Запись",
       description:
         "Онлайн запись к Стоматологу Озодбеку Отахонову в Андижане: выберите удобный день и время приёма без очередей. Телефон: +998 97 833 89 97.",
     },
     en: {
-      title: "Book Dental Appointment — Dr. Ozodbek Otaxonov | Andijan",
+      title: "Book Dentist Appointment in Andijan — Dr. Ozodbek Otaxonov",
       description:
         "Book your dental visit online with Dr. Ozodbek Otaxonov in Andijan. Select preferred date and time slot. Tel: +998 97 833 89 97.",
     },

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
 import { DOCTOR_INFO, getExperienceBadge, getExperienceText } from "../constants/doctor";
+import { PRIMARY_CLINIC } from "../constants/clinics";
 import { useClinicHours } from "../lib/medinsonBooking";
 import {
   IconShieldCheck,
@@ -12,6 +13,7 @@ import {
   IconGraduationCap,
   IconClock,
   IconMail,
+  IconLocationPin,
 } from "./MedicalIcons";
 
 const Footer = () => {
@@ -172,6 +174,37 @@ const Footer = () => {
               <div className="flex items-start gap-2 text-slate-400 pt-1 text-[11px] leading-relaxed">
                 <IconClock className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
                 <span>{hoursDisplay}</span>
+              </div>
+
+              {/* Physical Clinic Location & Direct Map Links */}
+              <div className="pt-3 border-t border-white/10 space-y-1.5 text-[11px]">
+                <div className="flex items-start gap-1.5">
+                  <IconLocationPin className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                  <div className="space-y-0.5">
+                    <p className="font-semibold text-white">Smiles Dental Group</p>
+                    <p className="text-slate-300 leading-snug">{PRIMARY_CLINIC.shortAddress[lang]}</p>
+                    <p className="text-slate-400 text-[10px]">Mo&apos;ljal: {PRIMARY_CLINIC.landmark[lang]}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 pt-1 font-semibold text-[11px]">
+                  <a
+                    href={PRIMARY_CLINIC.maps.google}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-amber-300 hover:text-amber-200 hover:underline"
+                  >
+                    Google Maps ↗
+                  </a>
+                  <span className="text-slate-600">•</span>
+                  <a
+                    href={PRIMARY_CLINIC.maps.yandex}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-amber-300 hover:text-amber-200 hover:underline"
+                  >
+                    Yandex Xarita ↗
+                  </a>
+                </div>
               </div>
             </div>
           </div>

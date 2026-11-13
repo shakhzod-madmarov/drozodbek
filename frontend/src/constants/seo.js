@@ -10,16 +10,16 @@ export const getPageSeo = (pageKey, lang = "uz") =>
 export const PAGE_SEO = {
   home: {
     uz: {
-      title: "Ozodbek Stomatolog — Dr. Ozodbek Otaxonov | Vrach Stomatolog Andijon",
-      description: `Ozodbek Stomatolog — Dr. Ozodbek Otaxonov. 10 yillik tajribaga ega vrach stomatolog (Andijon). Ukraina Stomatologiya Tibbiyot Akademiyasi bitiruvchisi. Dental implantatsiya, breketlar, sirkon va keramik karonkalar, vinirlar, pratezlar, elaynerlar va 100% og'riqsiz davolash. Tel: +998 97 833 89 97.`,
+      title: "Andijonda Stomatolog — Dr. Ozodbek Otaxonov | Stomatologiya Klinikasi",
+      description: `Andijonda stomatologiya va vrach stomatolog qabuli: Dr. Ozodbek Otaxonov (10 yillik tajriba). Ukraina Stomatologiya Tibbiyot Akademiyasi bitiruvchisi. Dental implantatsiya MegaGen, breketlar, sirkon va keramik karonkalar, E-max vinirlar, pratezlar, elaynerlar va 100% og'riqsiz davolash. Tel: +998 97 833 89 97.`,
     },
     ru: {
-      title: "Стоматолог Озодбек Отахонов — Андижан | Д-р Озодбек Врач-Стоматолог",
-      description: `Стоматолог Озодбек Отахонов — прием в Андижане. 10 лет клинической практики, выпускник Украинской Медицинской Стоматологической Академии. Имплантация MegaGen, брекеты, циркониевые коронки, виниры, элайнеры, лечение зубов без боли. +998 97 833 89 97.`,
+      title: "Стоматология в Андижане — Стоматолог Озодбек Отахонов | Лечение Без Боли",
+      description: `Стоматология в Андижане и приём врача-стоматолога: Д-р Озодбек Отахонов. 10 лет клинической практики, выпускник Украинской Медицинской Стоматологической Академии. Имплантация MegaGen, брекеты, циркониевые коронки, виниры, элайнеры, лечение зубов без боли. +998 97 833 89 97.`,
     },
     en: {
-      title: "Ozodbek Dentist — Dr. Ozodbek Otaxonov | Modern Dentist Andijan",
-      description: `Ozodbek Dentist — Dr. Ozodbek Otaxonov, restorative dentist & implantologist with 10 years experience in Andijan. Graduate of Ukrainian Medical Stomatological Academy. MegaGen dental implants, brackets, zirconia crowns, veneers, aligners, painless therapy. Tel: +998 97 833 89 97.`,
+      title: "Dentist in Andijan — Dr. Ozodbek Otaxonov | Modern Dental Clinic",
+      description: `Modern dental clinic in Andijan, Uzbekistan: Dr. Ozodbek Otaxonov, restorative dentist & implantologist with 10 years experience. Graduate of Ukrainian Medical Stomatological Academy. MegaGen dental implants, brackets, zirconia crowns, veneers, aligners, painless therapy. Tel: +998 97 833 89 97.`,
     },
   },
   services: {
@@ -105,6 +105,17 @@ export const PAGE_SEO = {
 
 export const PAGE_KEYWORDS = {
   uz: [
+    "andijonda stomatolog",
+    "andijonda stomatologiya",
+    "andijondagi stomatologiya",
+    "andijon stomatologiya klinikalari",
+    "andijonda stomatologiya narxlari",
+    "andijonda tish davolash",
+    "andijonda eng yaxshi stomatolog",
+    "andijonda tish klinikasi",
+    "andijonda tish shifokori",
+    "andijonda implantat",
+    "andijonda breket",
     "ozodbek stomatolog",
     "stomatolog ozodbek",
     "dr ozodbek otaxonov",
@@ -127,8 +138,6 @@ export const PAGE_KEYWORDS = {
     "1-kichik daha stomatolog",
     "smiles dental group",
     "smiles dental group andijon",
-    "andijon tish davolash",
-    "andijon tish shifokori",
     "andijon implantat",
     "dental implant andijon",
     "megagen implant andijon",
@@ -151,6 +160,13 @@ export const PAGE_KEYWORDS = {
     "stamatolog07",
   ].join(", "),
   ru: [
+    "стоматология в андижане",
+    "стоматолог в андижане",
+    "стоматология андижан",
+    "клиники андижана стоматология",
+    "стоматологические клиники андижана",
+    "лучшая стоматология в андижане",
+    "стоматология в андижане цены",
     "стоматолог озодбек",
     "озодбек стоматолог",
     "озодбек отахонов",
@@ -188,11 +204,15 @@ export const PAGE_KEYWORDS = {
     "украинская медицинская стоматологическая академия",
   ].join(", "),
   en: [
+    "dentist in andijan",
+    "dental clinic in andijan",
+    "dental clinics andijan",
+    "dentistry in andijan",
+    "best dentist in andijan",
     "ozodbek dentist",
     "dentist ozodbek",
     "dr ozodbek otaxonov",
     "dr ozodbek",
-    "dentist in andijan",
     "best dentist in andijan uzbekistan",
     "best dental clinic andijan",
     "dental clinic andijan",

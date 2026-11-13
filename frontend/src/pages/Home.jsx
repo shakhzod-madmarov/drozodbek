@@ -14,6 +14,7 @@ import ClinicEquipmentShowcase from "../components/ClinicEquipmentShowcase";
 import Interactive3DCostCalculator from "../components/Interactive3DCostCalculator";
 import SmileAssessmentWizard from "../components/SmileAssessmentWizard";
 import PatientCareGuides from "../components/PatientCareGuides";
+import LocalClinicSummarySection from "../components/LocalClinicSummarySection";
 import {
   IconShieldCheck,
   IconSparkleStar,
@@ -32,12 +33,12 @@ const HeroSection = ({ onOpenBooking }) => {
 
   const T = {
     uz: {
-      badge: "Vrach-Stomatolog · 10 Yillik Tajriba",
+      badge: "Andijonda Vrach-Stomatolog · 10 Yillik Tajriba",
       doctorName: DOCTOR_INFO.name,
       specialtyTitle: "Implantolog · Ortoped · Ortodont · Terapevt",
-      headline: "Tabiiy va Sog'lom Tabassum Uchun 100% Og'riqsiz Zamonaviy Stomatologiya",
+      headline: "Andijonda Zamonaviy Stomatologiya va 100% Og'riqsiz Tish Davolash",
       subtitle:
-        "Ukraina Stomatologiya Tibbiyot Akademiyasi bitiruvchisi. MegaGen biotitan implantlari, breketlar, tsirkoniy karonkalar, E-max vinirlar, ko'rinmas elaynerlar va og'riqsiz davolash.",
+        "Dr. Ozodbek Otaxonov — Ukraina Stomatologiya Tibbiyot Akademiyasi bitiruvchisi, 10 yillik tajribaga ega vrach stomatolog. Andijon shahrida dental implantatsiya, breketlar, monolit sirkon karonkalar, E-max vinirlar va shoshilinch tish og'rig'ini og'riqsiz davolash.",
       ctaBook: "Qabulga Yozilish",
       ctaServices: "Barcha Xizmatlar",
       stat1Num: "10 Yil",
@@ -50,12 +51,12 @@ const HeroSection = ({ onOpenBooking }) => {
       stat4Label: "Xalqaro Sertifikat",
     },
     ru: {
-      badge: "Врач-Стоматолог · 10 Лет Опыта",
+      badge: "Врач-Стоматолог в Андижане · 10 Лет Опыта",
       doctorName: DOCTOR_INFO.name,
       specialtyTitle: "Имплантолог · Ортопед · Ортодонт · Терапевт",
-      headline: "Современная Стоматология Без Боли для Вашей Безупречной Улыбки",
+      headline: "Современная Стоматология в Андижане и Лечение Зубов Без Боли",
       subtitle:
-        "Выпускник Украинской Медицинской Стоматологической Академии. Дентальная имплантация MegaGen, брекеты, циркониевые коронки, виниры E-max, элайнеры и бережное лечение зубов.",
+        "Д-р Озодбек Отахонов — выпускник Украинской Медицинской Стоматологической Академии, 10 лет клинической практики. Дентальная имплантация MegaGen, брекеты, циркониевые коронки, виниры E-max, элайнеры и бережная стоматология в Андижане.",
       ctaBook: "Записаться на Приём",
       ctaServices: "Все Услуги",
       stat1Num: "10 Лет",
@@ -68,12 +69,12 @@ const HeroSection = ({ onOpenBooking }) => {
       stat4Label: "Сертификация",
     },
     en: {
-      badge: "Dental Surgeon · 10 Years Experience",
+      badge: "Dentist in Andijan · 10 Years Experience",
       doctorName: DOCTOR_INFO.name,
       specialtyTitle: "Implantologist · Prosthodontist · Orthodontist",
-      headline: "Gentle & 100% Painless Modern Dental Care for Your Natural Smile",
+      headline: "Modern Dentistry in Andijan — 100% Gentle & Painless Dental Care",
       subtitle:
-        "Graduate of Ukrainian Medical Stomatological Academy. MegaGen dental implants, orthodontic braces, monolithic zirconia crowns, E-max veneers, and gentle tooth therapy.",
+        "Dr. Ozodbek Otaxonov, restorative dentist & implantologist with 10 years experience in Andijan, Uzbekistan. Graduate of Ukrainian Medical Stomatological Academy. MegaGen dental implants, orthodontic braces, zirconia crowns, veneers, and emergency dental relief.",
       ctaBook: "Book Appointment",
       ctaServices: "Explore Services",
       stat1Num: "10 Yrs",
@@ -364,7 +365,10 @@ const Home = ({ onOpenBooking }) => {
       {/* 7. Patient Aftercare Guides */}
       <PatientCareGuides />
 
-      {/* 8. Inline Booking Section */}
+      {/* 8. Andijan Local Dentistry Summary (Google AI Overview & Local SEO Guide) */}
+      <LocalClinicSummarySection />
+
+      {/* 9. Inline Booking Section */}
       <InlineBookingSection />
 
       {/* 9. FAQ Accordion */}

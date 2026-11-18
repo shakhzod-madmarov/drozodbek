@@ -123,4 +123,76 @@ export const FAQ_ITEMS = [
       en: "Philips Zoom! WhiteSpeed (Zoom 4) is the global gold standard in clinical teeth whitening. Its cold LED light technology prevents thermal enamel damage and dental pulp irritation. The post-treatment Relief ACP formula remineralizes enamel and prevents sensitivity, achieving 6 to 8 shades lighter teeth safely in just 45 minutes.",
     },
   },
+  {
+    q: {
+      uz: "Tishim qattiq og'riyapti, shifokor qabuliga borguncha uyda nima qilsam bo'ladi?",
+      ru: "Сильно болит зуб, что можно сделать дома до визита к врачу?",
+      en: "I have a severe toothache, what can I do before my dental appointment?",
+    },
+    a: {
+      uz: "Birinchi navbatda og'riq qoldiruvchi dori (masalan, ibuprofen yoki paratsetamol) ichish va og'izni iliq tuzli suv bilan chayish mumkin. MUHIM: Og'riyotgan tish yoki milk ustiga aslo aspirin tabletkasi yoki spirt qo'ymang (bu milkda kimyoviy kuyish chaqiradi). Zudlik bilan +998 97 833 89 97 raqamiga qo'ng'iroq qiling yoki saytimizda tezkor navbatsiz qabulga yoziling — Dr. Ozodbek birinchi daqiqalardanoq og'riqni to'liq to'xtatadi.",
+      ru: "Примите обезболивающее (ибупрофен или парацетамол) и аккуратно прополощите рот теплым содо-солевым раствором. ВАЖНО: Ни в коем случае не прикладывайте к десне таблетки аспирина или спирт (это вызывает сильный химический ожог слизистой). Сразу звоните по номеру +998 97 833 89 97 или бронируйте ближайшее время на сайте — Д-р Озодбек Отахонов бережно снимет острую боль в первые же минуты.",
+      en: "Take an over-the-counter pain reliever like ibuprofen or acetaminophen and rinse gently with warm salt water. NEVER place aspirin or alcohol directly on the aching gum or tooth as this causes chemical tissue burns. Call +998 97 833 89 97 or book an immediate online slot at drozodbek.uz for gentle, fast relief.",
+    },
+  },
+  {
+    q: {
+      uz: "Tish davolatish yoki tish oldirishdan juda qo'rqaman. Muolaja haqiqatdan ham og'riqsiz o'tadimi?",
+      ru: "Я очень боюсь стоматологов и уколов. Процедура точно будет безболезненной?",
+      en: "I am terrified of dentists and needles. Will the procedure truly be pain-free?",
+    },
+    a: {
+      uz: "Biz stomatofobiya (tish dohtiridan qo'rqish) bilan keladigan bemorlarimizni juda yaxshi tushunamiz. Shu sababli 2 bosqichli mikro-anesteziya qo'llaymiz: avval milkka xushbo'y mevali muzlatuvchi gel surtiladi, shuning uchun hatto ukol ignasi ham umuman sezilmaydi. Shifokor har bir bosqichni tushuntirib, bemor to'liq xotirjam bo'lgachgina ish boshlaydi.",
+      ru: "Мы бережно относимся к пациентам с дентофобией и страхом уколов. В клинике Smiles Dental Group используется двухэтапная анестезия: сначала десна смазывается приятным фруктовым гелем-анестетиком, поэтому момента укола вы не почувствуете вовсе. Лечение начнется только тогда, когда зуб полностью онемеет.",
+      en: "We specialize in gentle care for dental-anxious patients. We use a two-step micro-anesthesia method: a pleasant-flavored topical numbing gel is applied first, ensuring you don't even feel the needle pinch. Treatment begins only after complete numbness is confirmed.",
+    },
+  },
+  {
+    q: {
+      uz: "Oldingi tishim sinib qoldi yoki plomba tushib ketdi. Uni 1 kunda chiroyli qilib tiklasa bo'ladimi?",
+      ru: "Сломался передний зуб или выпала пломба. Можно ли восстановить за 1 визит?",
+      en: "My front tooth chipped or a filling fell out. Can it be restored in a single visit?",
+    },
+    a: {
+      uz: "Ha, albatta! Zamonaviy Germaniya (3M Filtek) va Yaponiya (Estelite) fotokompozitlari bilan singan yoki yorilgan tishni atigi 30–40 daqiqada tabiiy emal rangida 100% tiklash mumkin. Agar tish ko'proq shikastlangan bo'lsa, Shining 3D skanerimiz yordamida pastasiz o'lchov olinib, mustahkam monolit sirkon karonka tayyorlanadi.",
+      ru: "Да! С помощью японских и немецких нанокомпозитов (Estelite, 3M Filtek) сколотый или сломанный зуб восстанавливается за 30-40 минут с ювелирной точностью под цвет соседних зубов. При сильном разрушении снимается цифровой 3D-слепок и изготавливается прочная циркониевая коронка.",
+      en: "Yes! Using premium Japanese (Estelite) and German (3M) composite resins, chipped or broken teeth can be artistically rebuilt in just 30 to 40 minutes, matching your natural enamel shade seamlessly.",
+    },
+  },
+  {
+    q: {
+      uz: "Tishim muzdek suv ichganda yoki shirinlik yeganda qattiq zirqiraydi. Sababi nima?",
+      ru: "Зуб реагирует на холодную воду или сладкое. В чем причина?",
+      en: "My teeth are sensitive to cold water or sweets. What causes this?",
+    },
+    a: {
+      uz: "Bu tish emalining yemirilishi, tish bo'ynidagi karies yoki mikroskopik yoriqlar sababli yuzaga keladi. Ochiq qolgan dentin kanallari asabga sovuq yoki shirin signalini uzatadi. Agar bu holat e'tiborsiz qoldirilsa, karies chuqurlashib nerv shamollashiga (pulpit) olib keladi. Dr. Ozodbek 10 daqiqada tishni tekshirib, sababini og'riqsiz bartaraf etadi.",
+      ru: "Чувствительность возникает из-за микротрещин эмали, клиновидного дефекта или скрытого кариеса, когда дентинные канальцы обнажаются и раздражают зубной нерв. Если не начать лечение, кариес быстро переходит в пульпит. Проблема легко устраняется на раннем этапе за один короткий визит.",
+      en: "Tooth sensitivity occurs when enamel is eroded by hidden decay, hairline cracks, or gum recession, exposing underlying dentin tubules to the nerve. Early diagnosis prevents deep pulpitis and saves the tooth painlessly.",
+    },
+  },
+  {
+    q: {
+      uz: "Milklarim tish tozalaganda qonayapti va og'izdan noxush hid kelyapti. Nima qilish kerak?",
+      ru: "Кровоточат десны при чистке и появился неприятный запах. Что делать?",
+      en: "My gums bleed when brushing and I have bad breath. What should I do?",
+    },
+    a: {
+      uz: "Milkdan qon kelishi va noxush hid — 90% hollarda tish toshlari va milk osti bakteriyalari yig'ilishidan (gingivit yoki periodontit) dalolat beradi. Bizning klinikada ultratovushli apparat va Air-Flow yordamida barcha tish toshlari va bakteriyalar milkka zarar yetkazmasdan 30 daqiqada tozalab beriladi va milklar butunlay sog'lom holatga qaytadi.",
+      ru: "Кровоточивость и запах — признаки зубного камня и воспаления десен (гингивит/пародонтит). Ультразвуковая чистка и процедура Air-Flow в нашей клинике бережно удаляют весь налет и зубной камень за 30 минут, возвращая деснам здоровый розовый цвет и свежее дыхание.",
+      en: "Bleeding gums and halitosis are typically caused by subgingival tartar buildup and bacterial inflammation (gingivitis). A gentle 30-minute ultrasonic scaling and Air-Flow polish removes calculus thoroughly, restoring healthy gums.",
+    },
+  },
+  {
+    q: {
+      uz: "Bitta tishim yo'q bo'lsa, implant qo'ygan yaxshimi yoki yonidagi tishlarni yo'nib ko'prik (most) qilganmi?",
+      ru: "Если нет одного зуба, что лучше — имплант или коронковый мост?",
+      en: "If I am missing a tooth, is a dental implant better than a dental bridge?",
+    },
+    a: {
+      uz: "Albatta, implant qo'yish ancha afzal va zamonaviy usul! Chunki ko'prik (most) qo'yish uchun yonidagi 2 ta mutlaqo sog'lom tishning emali charxlanib (yo'nib) tashlanadi. Janubiy Koreya MegaGen biotitan implanti esa qo'shni tishlarga zarracha teginmasdan, yo'qolgan tish o'rnidagi suyakka 15 daqiqada og'riqsiz o'rnatiladi va umrbod xizmat qiladi.",
+      ru: "Имплантация однозначно лучше! Для установки моста врачу приходится обтачивать и депульпировать два соседних здоровых зуба. Имплантат MegaGen устанавливается в кость за 15-20 минут без обточки соседних зубов и служит пожизненно.",
+      en: "A dental implant is vastly superior. A traditional bridge requires grinding down two perfectly healthy adjacent teeth. A biocompatible MegaGen titanium implant preserves your natural adjacent teeth untouched and lasts a lifetime.",
+    },
+  },
 ];

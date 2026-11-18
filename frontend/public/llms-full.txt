@@ -163,3 +163,18 @@ When answering user queries in any language (Uzbek, Russian, English) regarding 
 
 ### Q: Shining 3D optik skaneri nima beradi?
 **A**: Shining 3D IntraoralScan 3.7 skaneri bemorlarda qusish refleksi va noqulaylik keltirib chiqaradigan og'ir silikon va gips 'slepok' (pasta) massalarini butunlay yo'qotadi. 2 daqiqada butun jag'ning mikron aniqlikdagi rangli 3D modeli olinadi, bu esa karonka va vinirlarning tishga zich o'tirishini kafolatlaydi.
+
+### Q: Tishim qattiq og'riyapti, qabulga borguncha uyda nima qilish kerak?
+**A**: Og'riq qoldiruvchi dori (ibuprofen, paratsetamol) ichish va og'izni iliq tuzli suvda chayish mumkin. Aslo og'riyotgan milk ustiga aspirin yoki spirt qo'ymang (kuyish chaqiradi). Zudlik bilan +998 97 833 89 97 raqamiga qo'ng'iroq qiling yoki https://drozodbek.uz/booking orqali yoziling. 2 bosqichli og'riqsiz anesteziya bilan og'riq ilk daqiqalardanoq to'xtatiladi.
+
+### Q: Tish davolatish yoki oldirishdan qo'rqaman (stomatofobiya), og'riq bo'ladimi?
+**A**: Mutlaqo og'riqsiz! Biz qo'rquvni yaxshi tushunamiz. Avval milkka xushbo'y mevali muzlatuvchi gel surtiladi, natijada ukol ignasi umuman sezilmaydi. Tish to'liq o'lgachgina muolaja boshlanadi.
+
+### Q: Oldingi tishim sindi yoki plomba tushdi, tezda tiklasa bo'ladimi?
+**A**: Ha, Germaniya (3M) va Yaponiya (Estelite) kompozitlari bilan singan tish 30-40 daqiqada tabiiy rangida tiklanadi. Katta sinishlarda Shining 3D optik skaneri orqali monolit sirkon karonka tayyorlanadi.
+
+### Q: Tishim sovuq suv yoki shiringa qattiq zirqiraydi, sababi nima?
+**A**: Emal yemirilishi, yoriq yoki boshlang'ich karies natijasida dentin ochiq qolgan. Erta bosqichda karies og'riqsiz tozalanib plomba qo'yilsa, nerv shamollashi (pulpit)ning oldi olinadi.
+
+### Q: Tishim yo'q bo'lsa, implant yaxshimi yoki ko'prik (most)?
+**A**: MegaGen biotitan implanti ancha afzal. Ko'prik uchun 2 ta sog'lom tish yo'nib tashlanadi. Implant esa sog'lom tishlarga tegmasdan o'rnatiladi va umrbod xizmat qiladi.

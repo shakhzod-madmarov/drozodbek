@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smiles Dental Group — Dr. Ozodbek Otaxonov | Google & Yandex Review QR Stend (A5/A4 Print)</title>
+  <title>Dr. Ozodbek Otaxonov — Google & Yandex Sharh Stendi (A4 Print)</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
 
@@ -14,8 +14,8 @@
     }
 
     body {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #F8FAFC;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0F172A;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -25,462 +25,565 @@
       color: #0F172A;
     }
 
-    .wrapper {
+    /* Floating Screen Action Bar */
+    .screen-actions {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-    }
-
-    /* A5/A4 Landscape Ratio: 210mm x 148mm */
-    .stand-card {
-      width: 210mm;
-      height: 148mm;
-      background: #FFFFFF;
-      border-radius: 20px;
-      box-shadow: 0 25px 50px -12px rgba(223, 48, 28, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.05);
-      padding: 7mm 9mm 6mm 9mm;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Top Brand Red Accent Bar */
-    .top-red-bar {
-      width: 90%;
-      height: 4.5px;
-      background: #DF301C;
-      border-radius: 9999px;
-      margin: 0 auto 3mm auto;
-    }
-
-    /* Header: Logo & Clinic Branding */
-    .header-branding {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 2mm;
-    }
-
-    .header-logo {
-      width: 46px;
-      height: 46px;
-      object-fit: contain;
-    }
-
-    .header-text {
-      text-align: left;
-    }
-
-    .clinic-title-main {
-      font-size: 21px;
-      font-weight: 900;
-      letter-spacing: 0.5px;
-      line-height: 1.1;
-      text-transform: uppercase;
-    }
-
-    .brand-red {
-      color: #DF301C;
-    }
-
-    .brand-navy {
-      color: #0F172A;
-    }
-
-    .clinic-title-sub1 {
-      font-size: 9px;
-      font-weight: 800;
-      color: #1E293B;
-      letter-spacing: 1.6px;
-      text-transform: uppercase;
-      margin-top: 2px;
-    }
-
-    .clinic-title-sub2 {
-      font-size: 7.5px;
-      font-weight: 600;
-      color: #64748B;
-      letter-spacing: 1.1px;
-      text-transform: uppercase;
-    }
-
-    /* Hero Headline */
-    .headline-section {
-      margin-bottom: 2mm;
-    }
-
-    .headline-main {
-      font-size: 23px;
-      font-weight: 900;
-      color: #DF301C;
-      letter-spacing: -0.3px;
-      line-height: 1.2;
-      margin-bottom: 2px;
-    }
-
-    .headline-sub-uz {
-      font-size: 12px;
-      font-weight: 700;
-      color: #0F172A;
-      line-height: 1.3;
-    }
-
-    .headline-sub-ru {
-      font-size: 10px;
-      font-weight: 500;
-      color: #64748B;
-      margin-top: 1px;
-      line-height: 1.3;
-    }
-
-    /* Two QR Cards Grid */
-    .qr-grid {
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6.5mm;
-      margin: 1mm 0 2mm 0;
-    }
-
-    .qr-card-item {
-      background: #FFFFFF;
-      border-radius: 20px;
-      padding: 3.5mm 3mm 3mm 3mm;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      transition: all 0.2s ease;
-    }
-
-    .qr-card-google {
-      border: 1.5px solid #BAE6FD;
-      box-shadow: 0 4px 16px rgba(59, 130, 246, 0.04);
-    }
-
-    .qr-card-yandex {
-      border: 1.5px solid #FECDD3;
-      box-shadow: 0 4px 16px rgba(239, 68, 68, 0.04);
-    }
-
-    /* Pill Badges */
-    .pill-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #FFFFFF;
-      padding: 3px 14px;
-      border-radius: 9999px;
-      font-size: 10.5px;
-      font-weight: 700;
-      margin-bottom: 4px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
-    }
-
-    .pill-google {
-      border: 1px solid #BAE6FD;
-      color: #0F172A;
-    }
-
-    .pill-yandex {
-      border: 1px solid #FECDD3;
-      color: #0F172A;
-    }
-
-    .pill-icon {
-      width: 13px;
-      height: 13px;
-    }
-
-    /* Star Rating */
-    .stars-bar {
-      display: inline-flex;
-      gap: 4px;
-      color: #F59E0B;
-      font-size: 15px;
-      line-height: 1;
-      margin-bottom: 3px;
-      letter-spacing: 2px;
-    }
-
-    /* QR Code Box */
-    .qr-code-box {
-      width: 136px;
-      height: 136px;
-      background: #FFFFFF;
-      border: 1px solid #E2E8F0;
-      border-radius: 14px;
-      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
-      padding: 7px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 3px 0 5px 0;
-    }
-
-    .qr-code-box img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: contain;
-    }
-
-    /* Card Bottom Text */
-    .card-footer-prompt {
-      font-size: 11px;
-      font-weight: 800;
-      color: #0F172A;
-      margin-top: 3px;
-    }
-
-    .card-footer-link {
-      font-size: 10px;
-      font-weight: 700;
-      margin-top: 1px;
-      text-decoration: none;
-      display: inline-block;
-      cursor: pointer;
-    }
-
-    .link-google {
-      color: #2563EB;
-    }
-
-    .link-yandex {
-      color: #DC2626;
-    }
-
-    /* Stand Bottom Footer */
-    .stand-footer {
-      width: 100%;
-      text-align: center;
-      font-size: 10px;
-      color: #475569;
-      line-height: 1.45;
-      margin-top: 1mm;
-    }
-
-    .footer-phone-line {
-      font-size: 11px;
-      font-weight: 800;
-      color: #0F172A;
-      margin-bottom: 2px;
-    }
-
-    .footer-web-line {
-      font-size: 13.5px;
-      font-weight: 900;
-      color: #DF301C;
-      margin-bottom: 2px;
-      letter-spacing: 0.3px;
-    }
-
-    .footer-tagline {
-      font-size: 9px;
-      font-weight: 500;
-      color: #64748B;
-    }
-
-    /* Screen Action Buttons */
-    .controls-bar {
-      display: flex;
-      gap: 12px;
       flex-wrap: wrap;
+      gap: 12px;
       justify-content: center;
-      margin-top: 10px;
+      align-items: center;
+      background: rgba(30, 41, 59, 0.95);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 12px 24px;
+      border-radius: 9999px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      margin-bottom: 24px;
+      z-index: 100;
     }
 
-    .btn {
-      padding: 11px 22px;
-      border-radius: 9999px;
-      font-size: 13px;
-      font-weight: 800;
-      cursor: pointer;
-      text-decoration: none;
+    .btn-action {
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      cursor: pointer;
       border: none;
       transition: all 0.2s ease;
+      font-family: inherit;
     }
 
     .btn-print {
       background: #DF301C;
       color: #FFFFFF;
-      box-shadow: 0 10px 20px -5px rgba(223, 48, 28, 0.4);
+      box-shadow: 0 4px 14px rgba(223, 48, 28, 0.4);
     }
 
     .btn-print:hover {
-      background: #C52412;
+      background: #C42614;
       transform: translateY(-1px);
     }
 
     .btn-qr {
-      background: #FFFFFF;
-      color: #0F172A;
-      border: 1px solid #CBD5E1;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      background: rgba(255, 255, 255, 0.1);
+      color: #F8FAFC;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .btn-qr:hover {
-      background: #F8FAFC;
+      background: rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
     }
 
-    /* PRINT SPECIFICATIONS: Perfect Landscape */
+    /* A4 PORTRAIT SHEET: 210mm x 297mm */
+    .a4-sheet {
+      width: 210mm;
+      min-height: 297mm;
+      height: 297mm;
+      background: #FFFFFF;
+      border-radius: 4px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+      padding: 14mm 16mm 12mm 16mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle Outer Medical Border */
+    .a4-sheet::before {
+      content: "";
+      position: absolute;
+      inset: 6mm;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 16px;
+      pointer-events: none;
+    }
+
+    /* Top Red Accent Accent */
+    .sheet-top-accent {
+      width: 120px;
+      height: 5px;
+      background: linear-gradient(90deg, #DF301C, #FF6B4A);
+      border-radius: 9999px;
+      margin: 0 auto 10px auto;
+    }
+
+    /* Header Section */
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1.5px solid #F1F5F9;
+    }
+
+    .header-logo {
+      width: 68px;
+      height: 68px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 10px rgba(223, 48, 28, 0.15));
+    }
+
+    .header-meta {
+      text-align: left;
+    }
+
+    .doctor-name {
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .doctor-name .highlight {
+      color: #DF301C;
+    }
+
+    .doctor-name .primary {
+      color: #0F172A;
+    }
+
+    .doctor-specialty {
+      font-size: 11.5px;
+      font-weight: 800;
+      color: #334155;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .doctor-clinic {
+      font-size: 10px;
+      font-weight: 700;
+      color: #64748B;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* Hero / Question Section */
+    .hero-banner {
+      text-align: center;
+      margin: 14px 0 10px 0;
+    }
+
+    .hero-title {
+      font-size: 27px;
+      font-weight: 900;
+      color: #0F172A;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+
+    .hero-title .red {
+      color: #DF301C;
+    }
+
+    .hero-sub-uz {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #1E293B;
+      margin-top: 5px;
+      line-height: 1.4;
+    }
+
+    .hero-sub-ru {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: #64748B;
+      margin-top: 3px;
+      line-height: 1.4;
+    }
+
+    /* Trust 5 Stars Badge */
+    .rating-callout {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      padding: 6px 18px;
+      border-radius: 9999px;
+      margin: 8px auto 0 auto;
+    }
+
+    .rating-callout .stars {
+      color: #F59E0B;
+      font-size: 17px;
+      letter-spacing: 3px;
+    }
+
+    .rating-callout .text {
+      font-size: 12px;
+      font-weight: 800;
+      color: #92400E;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* QR Columns Grid (Google & Yandex) */
+    .qr-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 14px 0;
+    }
+
+    .qr-box {
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 18px 14px 16px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .qr-box-google {
+      border: 2px solid #BAE6FD;
+      background: linear-gradient(180deg, #F0F9FF 0%, #FFFFFF 30%);
+      box-shadow: 0 8px 24px rgba(14, 165, 233, 0.08);
+    }
+
+    .qr-box-yandex {
+      border: 2px solid #FECDD3;
+      background: linear-gradient(180deg, #FFF1F2 0%, #FFFFFF 30%);
+      box-shadow: 0 8px 24px rgba(239, 68, 68, 0.08);
+    }
+
+    /* Platform Header Badge */
+    .platform-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FFFFFF;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .badge-google {
+      border: 1.5px solid #BAE6FD;
+      color: #0369A1;
+    }
+
+    .badge-yandex {
+      border: 1.5px solid #FECDD3;
+      color: #BE123C;
+    }
+
+    .platform-icon {
+      width: 18px;
+      height: 18px;
+      display: block;
+    }
+
+    /* Platform Subtitle */
+    .platform-title {
+      font-size: 15px;
+      font-weight: 900;
+      color: #0F172A;
+      margin-bottom: 2px;
+    }
+
+    .platform-sub {
+      font-size: 11px;
+      font-weight: 600;
+      color: #64748B;
+      margin-bottom: 10px;
+    }
+
+    /* QR Code Display */
+    .qr-image-wrapper {
+      width: 185px;
+      height: 185px;
+      background: #FFFFFF;
+      border-radius: 16px;
+      border: 1.5px solid #E2E8F0;
+      padding: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .qr-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      image-rendering: -webkit-optimize-contrast;
+    }
+
+    /* Instructions Under QR */
+    .camera-instruction {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 4px;
+    }
+
+    .camera-instruction svg {
+      width: 15px;
+      height: 15px;
+      color: #DF301C;
+    }
+
+    .camera-sub-ru {
+      font-size: 10px;
+      font-weight: 500;
+      color: #64748B;
+    }
+
+    /* Footer Trust Section */
+    .footer-section {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 12px 18px;
+      text-align: center;
+      margin-top: 6px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .footer-pill {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-pill-label {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: #64748B;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .footer-pill-value {
+      font-size: 12.5px;
+      font-weight: 800;
+      color: #0F172A;
+      margin-top: 1px;
+    }
+
+    .footer-bottom-bar {
+      border-top: 1px solid #E2E8F0;
+      padding-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-address {
+      font-size: 11px;
+      font-weight: 600;
+      color: #475569;
+      text-align: left;
+    }
+
+    .footer-website {
+      font-size: 13px;
+      font-weight: 900;
+      color: #DF301C;
+      letter-spacing: 0.5px;
+      text-align: right;
+    }
+
+    /* PRINT SPECIFIC STYLES */
     @page {
-      size: landscape;
+      size: A4 portrait;
       margin: 0;
     }
 
     @media print {
       body {
-        background: transparent !important;
+        background: #FFFFFF !important;
         padding: 0 !important;
-        margin: 0 !important;
-        min-height: auto;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
+        min-height: 100vh !important;
       }
 
-      .controls-bar {
+      .screen-actions {
         display: none !important;
       }
 
-      .stand-card {
-        width: 100vw !important;
-        height: 100vh !important;
-        max-width: none !important;
-        max-height: none !important;
-        border-radius: 0 !important;
+      .a4-sheet {
+        width: 210mm !important;
+        height: 297mm !important;
         box-shadow: none !important;
-        border: none !important;
-        padding: 6mm 10mm 5mm 10mm !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
         page-break-after: avoid;
         page-break-inside: avoid;
-      }
-
-      .qr-code-box {
-        width: 135px !important;
-        height: 135px !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="wrapper">
+  <!-- Floating Screen Buttons (Hidden on Print) -->
+  <div class="screen-actions">
+    <button class="btn-action btn-print" onclick="window.print()">
+      🖨️ A4 Stendni Chop Etish (Ctrl + P)
+    </button>
+    <a href="/qr-google-branded.png" download="Dr_Ozodbek_Google_Review_QR.png" class="btn-action btn-qr">
+      📥 Google QR (PNG)
+    </a>
+    <a href="/qr-yandex-branded.png" download="Dr_Ozodbek_Yandex_Review_QR.png" class="btn-action btn-qr">
+      📥 Yandex QR (PNG)
+    </a>
+  </div>
 
-    <!-- The Acrylic Stand Card (Landscape / Albom) -->
-    <div class="stand-card">
+  <!-- A4 PRINTABLE SHEET -->
+  <div class="a4-sheet">
+
+    <!-- Top Red Brand Bar -->
+    <div class="sheet-top-accent"></div>
+
+    <!-- Header: Logo + Doctor & Clinic Identity -->
+    <header class="header-box">
+      <img src="/logo_icon.png" alt="Dr. Ozodbek Otaxonov" class="header-logo">
+      <div class="header-meta">
+        <h1 class="doctor-name">
+          <span class="highlight">DR. OZODBEK</span> <span class="primary">OTAXONOV</span>
+        </h1>
+        <p class="doctor-specialty">VRACH-STOMATOLOG &amp; IMPLANTOLOG</p>
+        <p class="doctor-clinic">SMILES DENTAL GROUP • ANDIJON</p>
+      </div>
+    </header>
+
+    <!-- Hero / Call to Action -->
+    <section class="hero-banner">
+      <h2 class="hero-title">Xizmatimiz <span class="red">yoqdimi?</span></h2>
+      <p class="hero-sub-uz">Sizga qulay xaritani tanlang va bir necha soniyada o'z bahoingizni qoldiring!</p>
+      <p class="hero-sub-ru">Оцените качество лечения и поделитесь впечатлениями в Google или Яндекс Картах</p>
       
-      <!-- Top Red Accent Bar -->
-      <div class="top-red-bar"></div>
-
-      <!-- Header: Logo + Dr. Ozodbek Otaxonov -->
-      <div class="header-branding">
-        <img src="/logo_icon.png" alt="Dr. Ozodbek Otaxonov" class="header-logo">
-        <div class="header-text">
-          <h1 class="clinic-title-main">
-            <span class="brand-red">DR. OZODBEK</span> <span class="brand-navy">OTAXONOV</span>
-          </h1>
-          <p class="clinic-title-sub1">VRACH-STOMATOLOG &amp; IMPLANTOLOG</p>
-          <p class="clinic-title-sub2">SMILES DENTAL GROUP · ANDIJON</p>
-        </div>
+      <div class="rating-callout">
+        <span class="stars">★★★★★</span>
+        <span class="text">Bemorlarimiz ishonchi va mehrini qadrlaymiz</span>
       </div>
+    </section>
 
-      <!-- Headline Section -->
-      <div class="headline-section">
-        <h2 class="headline-main">Xizmatimiz yoqdimi?</h2>
-        <p class="headline-sub-uz">Sizga qulay bo'lgan xaritani tanlang va o'z bahoingizni qoldiring</p>
-        <p class="headline-sub-ru">Оцените наш сервис и оставьте отзыв в Google Maps или Яндекс Карты</p>
-      </div>
+    <!-- Dual QR Columns: Google Maps & Yandex Maps -->
+    <main class="qr-container">
 
-      <!-- Two Side-by-Side Cards (Google & Yandex) -->
-      <div class="qr-grid">
+      <!-- GOOGLE MAPS QR CARD -->
+      <div class="qr-box qr-box-google">
         
-        <!-- CARD 1: GOOGLE MAPS -->
-        <div class="qr-card-item qr-card-google">
-          
-          <!-- Pill Badge -->
-          <div class="pill-badge pill-google">
-            <svg class="pill-icon" viewBox="0 0 24 24">
-              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-            </svg>
-            <span>Google Xaritalar • Google Maps</span>
-          </div>
-
-          <!-- 5 Stars -->
-          <div class="stars-bar">★ ★ ★ ★ ★</div>
-
-          <!-- Branded Red QR Code with Google "G" in Center -->
-          <div class="qr-code-box">
-            <img src="/qr-google-branded.svg" alt="Google Review QR Code">
-          </div>
-
-          <!-- Prompt Text -->
-          <p class="card-footer-prompt">Kamerani QR-kodga qarating</p>
-          <a href="https://g.page/r/Can7lHvF_ZNWECE/review" target="_blank" rel="noopener noreferrer" class="card-footer-link link-google">Google Xaritalarda baholash</a>
-
+        <div class="platform-badge badge-google">
+          <svg class="platform-icon" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+          </svg>
+          <span>Google Xaritalar</span>
         </div>
 
-        <!-- CARD 2: YANDEX MAPS -->
-        <div class="qr-card-item qr-card-yandex">
-          
-          <!-- Pill Badge -->
-          <div class="pill-badge pill-yandex">
-            <svg class="pill-icon" viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="11" fill="#FC3F1D"/>
-              <path fill="#FFFFFF" d="M13.5 17h-1.8l-2.7-4.9-1.2 1.3v3.6H6.6V6.5h2.2v5.4l3.6-5.4h2.4l-3.8 5.5 3.7 5.5z"/>
-            </svg>
-            <span>Yandeks Xaritalar • Яндекс Карты</span>
-          </div>
+        <h3 class="platform-title">Google Maps</h3>
+        <p class="platform-sub">5 yulduzli baho qo'yish</p>
 
-          <!-- 5 Stars -->
-          <div class="stars-bar">★ ★ ★ ★ ★</div>
-
-          <!-- Branded Red QR Code with Yandex "Я" in Center -->
-          <div class="qr-code-box">
-            <img src="/qr-yandex-branded.svg" alt="Yandex Review QR Code">
-          </div>
-
-          <!-- Prompt Text -->
-          <p class="card-footer-prompt">Kamerani QR-kodga qarating</p>
-          <a href="https://yandex.uz/maps/org/smiles_dental_group/10769129756/reviews/" target="_blank" rel="noopener noreferrer" class="card-footer-link link-yandex">Yandeks Xaritalarda baholash</a>
-
+        <!-- Google Direct Review QR -->
+        <div class="qr-image-wrapper">
+          <img src="/qr-google-branded.png" alt="Google Review QR Code Dr. Ozodbek">
         </div>
+
+        <div class="camera-instruction">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+            <circle cx="12" cy="13" r="4"></circle>
+          </svg>
+          <span>Kamerani QR-kodga qarating</span>
+        </div>
+        <p class="camera-sub-ru">Наведите камеру смартфона</p>
 
       </div>
 
-      <!-- Stand Footer: Contacts & Clinic Info -->
-      <div class="stand-footer">
-        <p class="footer-phone-line">Telefon: +998 97 833 89 97 • Email: drozodbek.medinson@gmail.com</p>
-        <p class="footer-web-line">www.drozodbek.uz</p>
-        <p class="footer-tagline">Dr. Ozodbek Otaxonov — Oliy toifali tish davolash va implantatsiya markazi (Smiles Dental Group)</p>
+      <!-- YANDEX MAPS QR CARD -->
+      <div class="qr-box qr-box-yandex">
+        
+        <div class="platform-badge badge-yandex">
+          <svg class="platform-icon" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="11" fill="#FC3F1D"/>
+            <path fill="#FFFFFF" d="M13.5 17h-1.8l-2.7-4.9-1.2 1.3v3.6H6.6V6.5h2.2v5.4l3.6-5.4h2.4l-3.8 5.5 3.7 5.5z"/>
+          </svg>
+          <span>Yandeks Xaritalar</span>
+        </div>
+
+        <h3 class="platform-title">Яндекс Карты</h3>
+        <p class="platform-sub">5 yulduzli baho qo'yish</p>
+
+        <!-- Yandex Direct Review QR -->
+        <div class="qr-image-wrapper">
+          <img src="/qr-yandex-branded.png" alt="Yandex Review QR Code Dr. Ozodbek">
+        </div>
+
+        <div class="camera-instruction">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+            <circle cx="12" cy="13" r="4"></circle>
+          </svg>
+          <span>Kamerani QR-kodga qarating</span>
+        </div>
+        <p class="camera-sub-ru">Наведите камеру смартфона</p>
+
       </div>
 
-    </div>
+    </main>
 
-    <!-- Screen Buttons (Hidden on Print) -->
-    <div class="controls-bar">
-      <button class="btn btn-print" onclick="window.print()">
-        🖨️ Stendni Chop Etish (Ctrl + P)
-      </button>
-      <a href="/qr-google-branded.png" download="Google_Review_QR.png" class="btn btn-qr">
-        📥 Google QR (PNG)
-      </a>
-      <a href="/qr-yandex-branded.png" download="Yandex_Review_QR.png" class="btn btn-qr">
-        📥 Yandex QR (PNG)
-      </a>
-    </div>
+    <!-- Footer: Clinic Location, Phone, Hours & Website -->
+    <footer class="footer-section">
+      
+      <div class="footer-grid">
+        <div class="footer-pill">
+          <span class="footer-pill-label">Telefon</span>
+          <span class="footer-pill-value">+998 97 833 89 97</span>
+        </div>
+        <div class="footer-pill">
+          <span class="footer-pill-label">Ish Vaqti</span>
+          <span class="footer-pill-value">Du – Sha: 08:30 – 22:00</span>
+        </div>
+        <div class="footer-pill">
+          <span class="footer-pill-label">Telegram / Instagram</span>
+          <span class="footer-pill-value">@Stamatolog07</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p class="footer-address">
+          📍 Andijon shahri, 1-kichik daha (1-mikrorayon), 8A-bino (Konechka bozorchasi yaqinida)
+        </p>
+        <p class="footer-website">
+          🌐 drozodbek.uz
+        </p>
+      </div>
+
+    </footer>
 
   </div>
 

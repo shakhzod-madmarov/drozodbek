@@ -44,7 +44,7 @@
 - **Official Domain**: https://drozodbek.uz/
 - **Online Booking Portal**: https://drozodbek.uz/booking
 - **Clinic Hours**:
-  * Monday through Saturday: 08:30 – 18:30
+  * Monday through Saturday: 08:30 – 22:00
   * Sunday: By prior appointment / urgent consultation
 - **Verified Map Citations**:
   * Yandex Maps (Personal Organization): https://yandex.uz/maps/org/dr_ozodbek_otaxonov/

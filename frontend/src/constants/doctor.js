@@ -20,7 +20,7 @@ export const DOCTOR_INFO = {
   telegramHandle: "@Stamatolog07",
   instagramUrl: "https://www.instagram.com/_vrach_stomatolog/",
   instagramHandle: "@_vrach_stomatolog",
-  yandexMapsUrl: "https://yandex.uz/maps/org/dr_ozodbek_otaxonov/",
+  yandexMapsUrl: "https://yandex.uz/maps/org/dr_ozodbek_otaxonov/195949152054/",
   email: "drozodbek.medinson@gmail.com",
   emailHref: "mailto:drozodbek.medinson@gmail.com",
   technologies: {
@@ -33,24 +33,24 @@ export const DOCTOR_INFO = {
 export const getYearsOfExperience = () => 10;
 
 export const OPENING_HOURS = {
-  weekdays: { opens: "08:30", closes: "18:30" },
+  weekdays: { opens: "08:30", closes: "22:00" },
   labels: {
     uz: {
       days: "Dushanba – Shanba",
-      hours: "08:30 – 18:30",
-      full: "Dushanba – Shanba: 08:30 – 18:30",
+      hours: "08:30 – 22:00",
+      full: "Dushanba – Shanba: 08:30 – 22:00",
       sunday: "Yakshanba — oldindan yozilish bo'yicha",
     },
     ru: {
       days: "Понедельник – Суббота",
-      hours: "08:30 – 18:30",
-      full: "Понедельник – Суббота: 08:30 – 18:30",
+      hours: "08:30 – 22:00",
+      full: "Понедельник – Суббота: 08:30 – 22:00",
       sunday: "Воскресенье — по предварительной записи",
     },
     en: {
       days: "Monday – Saturday",
-      hours: "08:30 – 18:30",
-      full: "Monday – Saturday: 08:30 – 18:30",
+      hours: "08:30 – 22:00",
+      full: "Monday – Saturday: 08:30 – 22:00",
       sunday: "Sunday — by prior appointment",
     },
   },

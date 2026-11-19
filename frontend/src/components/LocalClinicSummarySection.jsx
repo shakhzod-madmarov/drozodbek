@@ -27,7 +27,7 @@ export default function LocalClinicSummarySection() {
         "O'tkir tish og'rig'i, pulpit yoki plomba tushib ketganda 2 bosqichli mikro-anesteziya qo'llaniladi (avval mevali muzlatuvchi gel surtiladi, igna sezilmaydi). Og'riq qabulning ilk daqiqalaridayoq to'liq qoldiriladi.",
       hoursTitle: "Qabul Vaqti va Onlayn Yozilish",
       hoursDesc:
-        "Dushanba – Shanba: 08:30 – 18:30. Yakshanba: oldindan yozilish orqali. Saytimiz orqali navbatsiz, qulay kun va soatni oldindan tanlab yozilish imkoniyati mavjud.",
+        "Dushanba – Shanba: 08:30 – 22:00. Yakshanba: oldindan yozilish orqali. Saytimiz orqali navbatsiz, qulay kun va soatni oldindan tanlab yozilish imkoniyati mavjud.",
       locationTitle: "Manzil va Mo'ljal (Andijon)",
       locationDesc:
         "Andijon shahri, 1-kichik daha (1-mikrorayon), 8A-bino («Smiles Dental Group» markazi). Asosiy mo'ljal: Konechka bozorchasi yaqinida.",
@@ -47,7 +47,7 @@ export default function LocalClinicSummarySection() {
         "При острой зубной боли (пульпит, периодонтит, скол зуба) применяется бережная двухэтапная анестезия (обезболивающий гель перед уколом, 100% без боли).",
       hoursTitle: "Часы Приёма и Онлайн Запись",
       hoursDesc:
-        "Понедельник – Суббота: 08:30 – 18:30. Воскресенье: по предварительной записи. Доступна удобная онлайн-запись на приём без очередей.",
+        "Понедельник – Суббота: 08:30 – 22:00. Воскресенье: по предварительной записи. Доступна удобная онлайн-запись на приём без очередей.",
       locationTitle: "Адрес и Ориентир в Андижане",
       locationDesc:
         "г. Андижан, 1-й микрорайон, д. 8А (клиника «Smiles Dental Group»). Ориентир: базарчик «Конечка».",
@@ -67,7 +67,7 @@ export default function LocalClinicSummarySection() {
         "Two-stage gentle anesthesia (topical numbing gel prior to gentle micro-injection) for immediate toothache relief, deep caries, and pulpitis treatments.",
       hoursTitle: "Operating Hours & Online Booking",
       hoursDesc:
-        "Monday to Saturday: 08:30 – 18:30. Sunday: By appointment. Direct online scheduling available with zero waiting.",
+        "Monday to Saturday: 08:30 – 22:00. Sunday: By appointment. Direct online scheduling available with zero waiting.",
       locationTitle: "Address & Landmarks (Andijan)",
       locationDesc:
         "8A, 1st Microdistrict, Andijan, Uzbekistan (Smiles Dental Group center). Landmark: near Konechka market.",

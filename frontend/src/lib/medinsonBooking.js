@@ -199,7 +199,7 @@ export const filterAvailabilitySchedule = (days = [], minLeadHours = 2) => {
 };
 
 /**
- * Builds a working hours schedule (Mon-Sat 08:30-18:30) when relay slots are empty or offline.
+ * Builds a working hours schedule (Mon-Sat 08:30-22:00) when relay slots are empty or offline.
  */
 export const buildWorkingHoursSchedule = (daysCount = 10, minLeadHours = 2) => {
   const workingDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -247,7 +247,7 @@ export function getCachedAvailability() {
 export function getClinicOpeningHours(lang = "uz") {
   const data = getCachedAvailability();
   let startTime = "08:30";
-  let endTime = "18:30";
+  let endTime = "22:00";
 
   if (data?.days && Array.isArray(data.days) && data.days.length > 0) {
     let minT = "";

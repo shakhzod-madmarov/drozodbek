@@ -21,10 +21,10 @@ export default function LocalClinicSummarySection() {
         "Andijon shahrida 10 yillik tajribaga ega vrach stomatolog Dr. Ozodbek Otaxonov qabulxonasi — zamonaviy stomatologik xizmatlar, tish davolash, dental implantatsiya va shoshilinch yordam haqidagi asosiy ma'lumotlar.",
       servicesTitle: "Klinik Xizmatlar",
       servicesDesc:
-        "Janubiy Koreya MegaGen biotitan implantlari, Damon breketlari, Germaniya va Yaponiya sirkon karonkalari, Ivoclar E-max vinirlar, shaffof elaynerlar, Philips Zoom! 4 oqartirish, Shining 3D optik skanerlash hamda karies va tish asabini 100% og'riqsiz davolash.",
-      emergencyTitle: "Shoshilinch Tish Og'rig'i (24/7 Maslahat)",
+        "Tish qo'yish, Janubiy Koreya MegaGen biotitan implantlari, tish breketlari, sirkon karonkalari, E-max vinirlar, tish olish, shaffof elaynerlar, Philips Zoom! 4 oqartirish, Shining 3D optik skanerlash hamda karies va tish asabini 100% og'riqsiz davolash.",
+      emergencyTitle: "Kechki Payt Tish Og'rig'i (Soat 22:00 Gacha Tezkor Qabul)",
       emergencyDesc:
-        "O'tkir tish og'rig'i, pulpit yoki plomba tushib ketganda 2 bosqichli mikro-anesteziya qo'llaniladi (avval mevali muzlatuvchi gel surtiladi, igna sezilmaydi). Og'riq qabulning ilk daqiqalaridayoq to'liq qoldiriladi.",
+        "«Kechki payt tishim ogriyapti» deb murojaat qiluvchi bemorlar uchun klinikamiz soat 22:00 gacha ochiq. O'tkir tish og'rig'i, pulpit yoki plomba tushib ketganda 2 bosqichli mikro-anesteziya qo'llaniladi (avval mevali muzlatuvchi gel surtiladi, igna sezilmaydi). Og'riq qabulning ilk daqiqalaridayoq to'liq qoldiriladi.",
       hoursTitle: "Qabul Vaqti va Onlayn Yozilish",
       hoursDesc:
         "Dushanba – Shanba: 08:30 – 22:00. Yakshanba: oldindan yozilish orqali. Saytimiz orqali navbatsiz, qulay kun va soatni oldindan tanlab yozilish imkoniyati mavjud.",
@@ -41,10 +41,10 @@ export default function LocalClinicSummarySection() {
         "Кабинет врача-стоматолога Д-ра Озодбека Отахонова с 10-летним клиническим опытом в Андижане — современная стоматология, имплантация, брекеты и лечение острой зубной боли.",
       servicesTitle: "Стоматологические Услуги",
       servicesDesc:
-        "Имплантация MegaGen (Южная Корея), брекеты Damon, монолитные коронки из циркония CAD/CAM, виниры E-max, элайнеры, клиническое отбеливание Philips Zoom! 4, 3D-сканирование Shining 3D и лечение зубов без боли.",
-      emergencyTitle: "Неотложная Помощь при Зубной Боли",
+        "Вставить зуб, имплантация MegaGen (Южная Корея), брекеты на зубы, коронки из циркония CAD/CAM, виниры E-max, удаление зубов без боли, элайнеры, отбеливание Zoom! 4 и лечение кариеса без боли.",
+      emergencyTitle: "Острая Зубная Боль Вечером (Приём до 22:00)",
       emergencyDesc:
-        "При острой зубной боли (пульпит, периодонтит, скол зуба) применяется бережная двухэтапная анестезия (обезболивающий гель перед уколом, 100% без боли).",
+        "Для пациентов с запросом «вечером болит зуб» клиника открыта до 22:00. При острой зубной боли (пульпит, периодонтит, скол зуба) применяется бережная двухэтапная анестезия (обезболивающий гель перед уколом, 100% без боли).",
       hoursTitle: "Часы Приёма и Онлайн Запись",
       hoursDesc:
         "Понедельник – Суббота: 08:30 – 22:00. Воскресенье: по предварительной записи. Доступна удобная онлайн-запись на приём без очередей.",
@@ -61,10 +61,10 @@ export default function LocalClinicSummarySection() {
         "Comprehensive dental care in Andijan, Uzbekistan by Dr. Ozodbek Otaxonov (10 years experience) — restorative dentistry, MegaGen implants, orthodontic braces, and emergency toothache relief.",
       servicesTitle: "Dental Specialties & Treatments",
       servicesDesc:
-        "MegaGen biocompatible titanium implants, Damon orthodontic braces, monolithic zirconia crowns, Ivoclar E-max veneers, clear aligners, Philips Zoom! 4 whitening, and Shining 3D optical scanning.",
-      emergencyTitle: "Emergency Dental Pain Relief",
+        "Tooth replacement, MegaGen biocompatible titanium implants, Damon braces, zirconia crowns, Ivoclar E-max veneers, painless extractions, and Philips Zoom! 4 whitening.",
+      emergencyTitle: "Emergency Evening Toothache Relief (Open Until 22:00)",
       emergencyDesc:
-        "Two-stage gentle anesthesia (topical numbing gel prior to gentle micro-injection) for immediate toothache relief, deep caries, and pulpitis treatments.",
+        "Severe toothache in the evening? We are open Monday to Saturday until 22:00. Two-stage gentle anesthesia (topical numbing gel prior to micro-injection) guarantees immediate, 100% painless relief.",
       hoursTitle: "Operating Hours & Online Booking",
       hoursDesc:
         "Monday to Saturday: 08:30 – 22:00. Sunday: By appointment. Direct online scheduling available with zero waiting.",

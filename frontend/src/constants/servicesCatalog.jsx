@@ -41,13 +41,13 @@ export const SERVICES_CATALOG = [
       en: "Dental Implantology",
     },
     title: {
-      uz: "Dental Implantatsiya (MegaGen & Biotitan)",
-      ru: "Дентальная Имплантация Зубов (MegaGen)",
-      en: "Dental Implants (MegaGen & Titanium Systems)",
+      uz: "Dental Implantatsiya va Tish Qo'yish (MegaGen & Biotitan)",
+      ru: "Имплантация и Восстановление Зубов (MegaGen)",
+      en: "Dental Implants & Tooth Replacement (MegaGen)",
     },
     shortDesc: {
-      uz: "Yo'qotilgan tishlarni qo'shni tishlarni charxlamasdan, Janubiy Koreyaning MegaGen premium biotitan implantlari bilan 15-20 daqiqada og'riqsiz tiklash.",
-      ru: "Восстановление утраченных зубов без обточки соседних за 15-20 минут с корейскими имплантатами MegaGen и пожизненной гарантией.",
+      uz: "Yo'qotilgan tishlarni qo'shni sog'lom tishlarni charxlamasdan, Janubiy Koreyaning MegaGen premium biotitan implantlari bilan 15-20 daqiqada og'riqsiz tiklash va tish qo'yish.",
+      ru: "Восстановление утраченных зубов без обточки соседних за 15-20 минут с корейскими имплантатами MegaGen и пожизненной гарантией приживаемости.",
       en: "Restore missing teeth gently in 15-20 minutes with world-class MegaGen titanium implants without grinding adjacent healthy teeth.",
     },
     duration: { uz: "20 daqiqa (1 qabul)", ru: "20 минут (1 визит)", en: "20 mins (1 visit)" },
@@ -74,12 +74,14 @@ export const SERVICES_CATALOG = [
     },
     indications: {
       uz: [
+        "Tish qo'yish, tish soldirish va yo'qolgan tish o'rnini to'ldirish istagi",
         "Bir yoki bir nechta tish yo'qolishi va chaynash noqulayligi",
         "Qo'shni sog'lom tishlarni charxlamasdan tish tiklash istagi",
         "Noqulay olinadigan protezlar o'rniga mustahkam tish kerakligi",
         "Tish olingandan keyin jag' suyagi yupqalashishining oldini olish",
       ],
       ru: [
+        "Желание надежно вставить зуб без коронок и обточки соседних",
         "Отсутствие одного или нескольких зубов, дискомфорт при жевании",
         "Желание восстановить зуб без обточки соседних здоровых зубов",
         "Замена неудобных съемных протезов на надежные постоянные зубы",
@@ -149,13 +151,13 @@ export const SERVICES_CATALOG = [
       en: "Orthodontics",
     },
     title: {
-      uz: "Ortodontik Breketlar (Metall va Keramik)",
-      ru: "Ортодонтические Брекеты (Металл и Керамика)",
-      en: "Orthodontic Brackets (Metal & Ceramic Braces)",
+      uz: "Tish Breketlari va Tish Tekislash (Metall, Keramika va Damon)",
+      ru: "Брекеты на Зубы в Андижане — Виды и Цены (Damon)",
+      en: "Orthodontic Braces & Teeth Straightening (Damon)",
     },
     shortDesc: {
-      uz: "Egri tishlar, orasi ochiqliklar va noto'g'ri tishlash (prikus) holatlarini zamonaviy metall va ko'rinmas estetik sapfir/keramik breketlar yordamida to'g'rilash.",
-      ru: "Исправление прикуса и выравнивание зубного ряда металлическими и эстетическими керамическими брекет-системами.",
+      uz: "Andijonda tish breketlari turlari va narxlari: egri tishlar, orasi ochiqliklar va noto'g'ri tishlash (prikus) holatlarini zamonaviy metall, sapfir va Damon breketlar bilan to'g'rilash.",
+      ru: "Выравнивание зубного ряда и исправление прикуса в Андижане: металлические, керамические и самолигирующие брекет-системы Damon.",
       en: "Comprehensive smile straightening and bite alignment using precision metal and discreet ceramic brackets.",
     },
     duration: { uz: "Individual davolash rejasi", ru: "Индивидуальный план", en: "Personalized plan" },
@@ -257,13 +259,13 @@ export const SERVICES_CATALOG = [
       en: "Prosthodontics",
     },
     title: {
-      uz: "Sirkon va Keramika Karonkalar (CAD/CAM)",
-      ru: "Циркониевые и Керамические Коронки (CAD/CAM)",
-      en: "Zirconia & Ceramic Crowns (CAD/CAM Precision)",
+      uz: "Tish Karonkalari — Sirkon va Keramika Qoplamalar (CAD/CAM)",
+      ru: "Коронки на Зубы — Циркониевые и Керамические (CAD/CAM)",
+      en: "Dental Crowns — Zirconia & Ceramic Restorations (CAD/CAM)",
     },
     shortDesc: {
-      uz: "Sinib ketgan yoki yemirilgan tishlarni metall-siz, milkka mutlaqo zarar bermaydigan monolit tsirkoniy va press-keramika qoplamalar bilan tabiiy tiklash.",
-      ru: "Эстетическое восстановление зубов безметалловыми циркониевыми коронками и керамикой без тёмного ободка у десны.",
+      uz: "Tish karonkalari va qoplamalari: sinib ketgan yoki yemirilgan tishlarni metall-siz, milkka zarar bermaydigan monolit tsirkoniy va press-keramika tish koronkasi bilan tabiiy tiklash.",
+      ru: "Коронки из диоксида циркония и керамики: долговечное восстановление разрушенных зубов без металла и тёмных ободков у десны.",
       en: "Restore fractured or damaged teeth with monolithic zirconia and press-ceramic crowns for superior strength and natural luster.",
     },
     duration: { uz: "2 – 3 kun", ru: "2 – 3 дня", en: "2 – 3 days" },
@@ -797,14 +799,14 @@ export const SERVICES_CATALOG = [
       en: "Restorative Therapy",
     },
     title: {
-      uz: "Og'riqsiz Tish Davolash & Fotopolimer Restavratsiya",
-      ru: "Безболезненное Лечение Зубов и Нано-Пломбы",
-      en: "Painless Tooth Care & Nano-Composite Restorations",
+      uz: "Og'riqsiz Tish Davolash & Kechki Qabul (Soat 22:00 Gacha)",
+      ru: "Лечение Зубов Без Боли & Вечерний Приём до 22:00",
+      en: "Painless Tooth Care & Evening Appointments (Until 22:00)",
     },
     shortDesc: {
-      uz: "O'tkir tish og'rig'ini zudlik bilan to'xtatish, karies, pulpit va ildiz kanallarini Germaniya (3M Filtek) va Yaponiya (Estelite) fotopolimer plombalari bilan davolash.",
-      ru: "Снятие острой боли за 1 визит, лечение кариеса и корневых каналов с нанокомпозитами из Германии (3M Filtek) и Японии (Estelite).",
-      en: "Immediate relief from acute toothache and microscopic cavity treatment using authentic German and Japanese nano-composites.",
+      uz: "Kechki payt yoki kunduzi tish og'riyaptimi? Dr. Ozodbek klinikasida soat 22:00 gacha shoshilinch qabul: karies, pulpit va tish og'rig'ini 2 bosqichli og'riqsiz mikro-anesteziya bilan 100% og'riqsiz davolash.",
+      ru: "Снятие острой зубной боли за 1 визит, вечерний приём до 22:00, лечение кариеса и пульпита без боли с нанокомпозитами из Германии (3M Filtek) и Японии (Estelite).",
+      en: "Immediate relief from acute toothache and microscopic cavity treatment until 22:00 using authentic German and Japanese nano-composites.",
     },
     duration: { uz: "30 – 45 daqiqa", ru: "30 – 45 минут", en: "30 – 45 mins" },
     warranty: { uz: "5 yilgacha rasmiy kafolat", ru: "Гарантия до 5 лет", en: "Up to 5-year warranty" },
@@ -830,12 +832,14 @@ export const SERVICES_CATALOG = [
     },
     indications: {
       uz: [
+        "Kechki payt tishim ogriyapti degan o'tkir og'riqlar va tunda zirqirash",
         "Kechasi bezovta qiluvchi, simillovchi yoki o'tkir pulsatsiyalanuvchi tish og'rig'i",
         "Sovuq, issiq yoki shirin yeguliklardan so'ng paydo bo'ladigan og'riq",
         "Tishda karies qora dog'lari paydo bo'lishi, plomba tushib ketishi yoki tish sinishi",
         "Chaynash paytida tish tagiga og'riq berishi va ovqat tiqilib qolishi",
       ],
       ru: [
+        "Острая зубная боль вечером и ночью, пульсирующая боль при накусывании",
         "Острая пульсирующая или ноющая зубная боль, усиливающаяся ночью",
         "Чувствительность и боль от горячего, холодного или сладкого",
         "Выпадение старой пломбы, скол зуба или темные кариозные полости",
@@ -905,12 +909,12 @@ export const SERVICES_CATALOG = [
       en: "Oral Surgery",
     },
     title: {
-      uz: "Og'riqsiz Tish Olish & Atravmatik Xirurgiya",
-      ru: "Бережное Безболезненное Удаление Зубов и Хирургия",
+      uz: "Tish Olish va Oldirish (Og'riqsiz Atravmatik Jarrohlik)",
+      ru: "Удаление Зубов Без Боли в Андижане (Атравматично)",
       en: "Gentle Tooth Extraction & Oral Surgery",
     },
     shortDesc: {
-      uz: "Murakkab, sinib qolgan tishlar hamda aql tishlarini (donolik tishlari) suyak va milk to'qimalarini asragan holda mutlaqo og'riqsiz va tez sug'urish.",
+      uz: "Andijonda tish olish va oldirish narxlari: murakkab, sinib qolgan tishlar hamda aql tishlarini (donolik tishlari) suyak va milk to'qimalarini asragan holda mutlaqo og'riqsiz (0% og'riq) va tez sug'urish.",
       ru: "Атравматичное удаление зубов мудрости и разрушенных корней без боли с сохранением костной лунки для будущей имплантации.",
       en: "Atraumatic extraction of wisdom teeth and fractured roots, conserving surrounding bone for swift recovery or future implants.",
     },
@@ -938,12 +942,14 @@ export const SERVICES_CATALOG = [
     },
     indications: {
       uz: [
+        "Tish oldirish va og'riqsiz tish sug'urish ehtiyoji",
         "Noto'g'ri o'sayotgan, yonoqqa urilayotgan yoki tish qatorini siqayotgan aql tishlari (sakkizliklar)",
         "Qattiq yiringlagan, ildizi singan va davolab bo'lmaydigan darajada yemirilgan tishlar",
         "Milk shishishi, periostit (flyus) xavfi va tish ildizi atrofidagi kista",
         "Ortodontik davolashdan oldin shifokor ko'rsatmasi bo'yicha tish olish",
       ],
       ru: [
+        "Необходимость удалить больной зуб или разрушенный корень без боли",
         "Ретинированные и дистопированные зубы мудрости («восьмерки»), травмирующие щеку",
         "Полное разрушение коронки и корня, не подлежащее терапевтическому лечению",
         "Отек десны, риск флюса, периодонтит и кисты на верхушке корня",

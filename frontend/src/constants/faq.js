@@ -195,4 +195,64 @@ export const FAQ_ITEMS = [
       en: "A dental implant is vastly superior. A traditional bridge requires grinding down two perfectly healthy adjacent teeth. A biocompatible MegaGen titanium implant preserves your natural adjacent teeth untouched and lasts a lifetime.",
     },
   },
+  {
+    q: {
+      uz: "Kechki payt tishim qattiq og'riyapti, nima qilishim kerak? Dr. Ozodbek qabuliga kechki payt borsa bo'ladimi?",
+      ru: "Вечером сильно разболелся зуб, что делать? Можно ли попасть на приём к стоматологу вечером в Андижане?",
+      en: "My tooth hurts severely in the evening, what should I do? Can I see Dr. Ozodbek in the evening in Andijan?",
+    },
+    a: {
+      uz: "Kechki payt yoki yotganda tish og'rig'i (ayniqsa pulpit yoki periodontitda) bosh sohasida qon oqimi va bosim oshishi sababli keskin kuchayadi. Ko'pchilik stomatologiyalar soat 17:00 yoki 18:00 da yopilsa-da, Dr. Ozodbek Otaxonov klinikasi Dushanbadan Shanbagacha kechki soat 22:00 gacha ochiq! Kechki shoshilinch holatlarda zudlik bilan +998 97 833 89 97 raqamiga qo'ng'iroq qiling yoki saytimizda navbatsiz qabulga yozilib keling. 2 bosqichli mikro-anesteziya qo'llanadi: avval muzlatuvchi gel surtiladi, igna sezilmaydi va og'riq ilk daqiqalardanoq to'xtatiladi.",
+      ru: "Вечерняя зубная боль усиливается из-за притока крови к голове в положении лёжа (при пульпите или воспалении нерва). В то время как большинство клиник закрываются в 17:00-18:00, клиника Д-ра Озодбека Отахонова открыта с понедельника по субботу до 22:00! При острой вечерней боли сразу звоните по номеру +998 97 833 89 97 или бронируйте ближайшее время на сайте. Двухэтапная анестезия с обезболивающим гелем полностью снимает боль в первые же минуты приёма.",
+      en: "Evening tooth pain typically throbs more intensely due to increased blood flow when lying down (characteristic of acute pulpitis). While most dental clinics close early, Dr. Ozodbek Otaxonov's clinic is open Monday through Saturday until 22:00 (10:00 PM). For evening dental emergencies, call +998 97 833 89 97 immediately or book online. Our two-stage gentle anesthesia stops pain within minutes.",
+    },
+  },
+  {
+    q: {
+      uz: "Tish qo'yish yaxshimi yoki dental implantatsiya? Narxi va chidamliligi qanday?",
+      ru: "Что лучше — вставить зуб (мост/протез) или поставить имплант? В чем разница цен и долговечности?",
+      en: "Is traditional tooth replacement (bridge/denture) better or a dental implant? What is the difference in longevity?",
+    },
+    a: {
+      uz: "Xalq tilida «tish qo'yish» yoki «tish soldirish» deganda sun'iy tish protezi, ko'prik (most) yoki zamonaviy dental implantatsiya nazarda tutiladi. Bugungi kunda eng yaxshi va uzoq muddatli yechim — bu Janubiy Koreya MegaGen biotitan dental implantatsiyasidir. Chunki u qo'shni 2 ta sog'lom tishni yo'nib charxlamasdan, yo'qolgan tish ildizi o'rniga o'rnatiladi va unga umrbod rasmiy kafolat beriladi. Ko'prik yoki yechiladigan protezlar esa arzonroq variant hisoblanadi. Dr. Ozodbek konsultatsiya chog'ida suyak qalinligi va byudjetingizga mos eng maqbul variantni tanlab beradi.",
+      ru: "В народе под выражением «вставить зуб» понимают коронковый мост, съемный протез или дентальный имплант. Самым надежным и долговечным решением является корейский биотитановый имплантат MegaGen с пожизненной гарантией: он не требует обточки соседних здоровых зубов и предотвращает убыль кости. Мостовидные и съемные протезы — более экономичная альтернатива. Доктор Озодбек подберёт оптимальный метод с учётом анатомии и бюджета.",
+      en: "In everyday terms, 'tooth replacement' encompasses dental bridges, removable dentures, and dental implants. The gold standard today is South Korean MegaGen biocompatible titanium implantation. It preserves adjacent healthy teeth untouched, prevents bone loss, and comes with a lifetime manufacturer warranty. Removable dentures and bridges remain an economical alternative depending on your clinical situation.",
+    },
+  },
+  {
+    q: {
+      uz: "Tish karonkalari (qoplamalari) qanday turlarga bo'linadi va sirkoniy qoplamaning narxi qancha?",
+      ru: "Какие виды зубных коронок существуют и сколько стоит циркониевая коронка в Андижане?",
+      en: "What types of dental crowns exist and how much do zirconia crowns cost in Andijan?",
+    },
+    a: {
+      uz: "Tish karonkalari asosan 3 turga bo'linadi: metallokeramika (an'anaviy, arzonroq, lekin milkda qorayish berishi mumkin), presslangan keramika E-max (old tishlar uchun yuqori estetik) va monolit tsirkoniy CAD/CAM (eng mustahkam, sirkon karonka). Sirkoniy karonka 100% metall-siz, milkni aslo qoraytirmaydi, tabiiy tishdek nur o'tkazadi va 10–15 yildan ortiq xizmat qiladi. Narxlar karonka materiali va o'rnatiladigan tish joylashuviga bog'liq bo'lib, Shining 3D optik skaneri yordamida pastasiz o'lchov olinadi va 2-3 kunda tayyor bo'ladi.",
+      ru: "Коронки делятся на 3 основных вида: металлокерамика (традиционный доступный вариант, но со временем даёт синеву на десне), безметалловая керамика E-max (идеальна для зоны улыбки) и монолитный диоксид циркония CAD/CAM (сверхпрочные, биосовместимые, без металла). Цирконий не вызывает аллергии, не темнеет и служит более 15 лет. С помощью 3D-сканера Shining 3D цифровой слепок снимается за 2 минуты без слепочной массы.",
+      en: "Dental crowns are primarily categorized into porcelain-fused-to-metal (traditional), IPS e.max press-ceramic (aesthetic for front teeth), and CAD/CAM monolithic zirconia (the strongest, 100% metal-free option). Zirconia crowns never cause dark gumlines, match natural translucency, and last 15+ years. Captured via Shining 3D optical scanning without gag-inducing impression paste.",
+    },
+  },
+  {
+    q: {
+      uz: "Tish breketlari narxi qancha va qancha vaqt taqish kerak bo'ladi?",
+      ru: "Сколько стоят брекеты на зубы в Андижане и сколько времени их нужно носить?",
+      en: "How much do dental braces cost in Andijan and how long do you have to wear them?",
+    },
+    a: {
+      uz: "Tish breketlari narxi tanlangan tizimga bog'liq: klassik metall breketlar (eng mustahkam va tejamkor), estetik keramik/sapfir breketlar (tish rangida, deyarli ko'rinmaydi) yoki Damon o'z-o'zini ligaturlaydigan tizimlar (kamroq og'riq, tish shifokoriga kamroq qatnash talab qilinadi). O'rtacha taqish muddati tishlarning egrilik darajasiga qarab 10 oydan 18 oygacha bo'ladi. Dr. Ozodbek konsultatsiyada tish qatorini to'liq tekshirib, yakuniy narx va qulay bo'lib to'lash shartlarini belgilab beradi.",
+      ru: "Стоимость брекетов зависит от выбранной системы: надёжные металлические, эстетические керамические/сапфировые (под цвет зубов) или самолигирующие брекеты Damon (минимальный дискомфорт, более редкие визиты к врачу). Средний срок лечения составляет от 10 до 18 месяцев. На первичной консультации Д-р Озодбек составляет индивидуальный план выравнивания зубов с прозрачными условиями оплаты.",
+      en: "The cost of dental braces depends on the system chosen: durable metal brackets, tooth-colored aesthetic ceramic/sapphire braces, or advanced Damon self-ligating brackets (gentler movement and fewer adjustment visits). Treatment duration typically spans 10 to 18 months depending on malocclusion complexity. Dr. Ozodbek provides a comprehensive treatment and transparent pricing plan at your initial consultation.",
+    },
+  },
+  {
+    q: {
+      uz: "Tishni oldirib tashlagan ma'qulmi yoki davolatib saqlab qolishmi? Tish olish og'ritadimi?",
+      ru: "Стоит ли удалять разрушенный зуб или лучше его вылечить? Больно ли вырывать зуб?",
+      en: "Is it better to extract a damaged tooth or save it? Does tooth extraction hurt?",
+    },
+    a: {
+      uz: "Dr. Ozodbekning asosiy klinik tamoyili — bemorning tabiiy tishini oxirgi imkoniyatgacha saqlab qolishdir. Hatto toj qismi 70-80% buzilib ketgan yoki faqat ildizi qolgan tishlarni ham zamonaviy ildiz kanallarini davolash, shpat (vkladka) va sirkon karonka orqali butunlay tiklash mumkin. Agar tish yorilib ketgan bo'lsa yoki aql tishi noto'g'ri o'sib og'riq berayotgan bo'lsa, 2 bosqichli mikro-anesteziya ostida suyak va milkka teginmasdan mutlaqo og'riqsiz (0% og'riq) olinadi.",
+      ru: "Главный клинический принцип Д-ра Озодбека — сохранять естественные зубы пациента при любой возможности. Даже при разрушении 70-80% коронковой части зуб можно восстановить с помощью лечения корневых каналов, культевой вкладки и циркониевой коронки. Если же зуб расколот продольно или зуб мудрости растёт криво, атравматичное удаление проводится под двухэтапной анестезией абсолютно без боли (0% боли).",
+      en: "Dr. Ozodbek's primary philosophy is preserving natural teeth whenever clinically viable. Even teeth damaged by 70-80% can frequently be saved through microscopic root canal therapy, cast posts, and zirconia crowns. When extraction is unavoidable (e.g. impacted wisdom teeth or non-restorable vertical root fractures), atraumatic extraction under two-stage anesthesia guarantees a 100% painless experience.",
+    },
+  },
 ];

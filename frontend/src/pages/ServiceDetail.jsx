@@ -1,8 +1,9 @@
 import { useParams, Link } from "react-router-dom";
 import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
 import { SERVICES_CATALOG } from "../constants/servicesCatalog";
+import { SERVICE_GUIDES } from "../constants/serviceGuides";
 import { DOCTOR_INFO } from "../constants/doctor";
-import { PAGE_KEYWORDS } from "../constants/seo";
+import { PRIMARY_CLINIC } from "../constants/clinics";
 import Seo from "../components/Seo";
 import { buildMedicalProcedureSchema } from "../utils/structuredData";
 import {
@@ -10,6 +11,8 @@ import {
   IconShieldCheck,
   IconPhone,
   IconSparkleStar,
+  IconLocationPin,
+  IconClock,
 } from "../components/MedicalIcons";
 import { useBooking } from "../context/BookingContext";
 import FaqAccordion from "../components/FaqAccordion";
@@ -93,11 +96,28 @@ const ServiceDetail = () => {
     ],
   }[lang];
 
+  const guide = SERVICE_GUIDES[service.id] || null;
+  const allFaqs = [
+    ...(Array.isArray(service.faq) ? service.faq : []),
+    ...(Array.isArray(guide?.extraFaqs) ? guide.extraFaqs : []),
+  ];
+
   const seoSuffix = {
     uz: "Andijonda — Dr. Ozodbek Otaxonov | Vrach Stomatolog",
     ru: "в Андижане — Д-р Озодбек Отахонов | Врач-Стоматолог",
     en: "in Andijan — Dr. Ozodbek Otaxonov | Dental Specialist",
   }[lang];
+
+  const resolvedTitle =
+    guide?.seoTitle?.[lang] || `${service.title[lang]} — ${seoSuffix}`;
+  const resolvedDescription =
+    guide?.seoDescription?.[lang] ||
+    `${service.shortDesc[lang]} Andijonda Dr. Ozodbek Otaxonov, 10 yillik tajriba (08:30–22:00). Tel: ${DOCTOR_INFO.phoneDisplay}.`;
+  const resolvedKeywords =
+    guide?.keywords?.[lang] ||
+    [service.title[lang], service.category[lang], service.badge?.[lang], service.techTag?.[lang]]
+      .filter(Boolean)
+      .join(", ");
 
   const breadcrumbs = [
     { name: lang === "ru" ? "Главная" : lang === "en" ? "Home" : "Bosh sahifa", path: "/" },
@@ -105,23 +125,14 @@ const ServiceDetail = () => {
     { name: service.title[lang] || service.title.uz, path: `/services/${service.id}` },
   ];
 
-  const procedureSchema = buildMedicalProcedureSchema(service, lang, breadcrumbs);
-
-  const serviceKeywords = [
-    service.title[lang],
-    service.category[lang],
-    service.badge?.[lang],
-    service.techTag?.[lang],
-    ...(service.indications?.[lang] || []),
-    PAGE_KEYWORDS[lang],
-  ].filter(Boolean).join(", ");
+  const procedureSchema = buildMedicalProcedureSchema(service, lang, breadcrumbs, guide);
 
   return (
     <div className="py-6 sm:py-10 space-y-10">
       <Seo
-        title={`${service.title[lang]} — ${seoSuffix}`}
-        description={`${service.shortDesc[lang]} Dr. Ozodbek Otaxonov, 10 yillik tajriba. Tel: ${DOCTOR_INFO.phoneDisplay}.`}
-        keywords={serviceKeywords}
+        title={resolvedTitle}
+        description={resolvedDescription}
+        keywords={resolvedKeywords}
         schemaJson={procedureSchema}
       />
 
@@ -160,12 +171,24 @@ const ServiceDetail = () => {
             </div>
 
             <h1 className="font-serif-classic text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.15]">
-              {service.title[lang]}
+              {guide?.h1Title?.[lang] || service.title[lang]}
             </h1>
 
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
               {service.shortDesc[lang]}
             </p>
+
+            {/* Location, Hours & Freshness Bar for Local & AI Signals */}
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[11px] sm:text-xs text-slate-300">
+              <span className="inline-flex items-center gap-1.5">
+                <IconLocationPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                <span>{PRIMARY_CLINIC.shortAddress[lang]} ({PRIMARY_CLINIC.landmark[lang]})</span>
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <IconClock className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <span>{PRIMARY_CLINIC.hours[lang]}</span>
+              </span>
+            </div>
 
             {/* Quick Metrics Badges */}
             <div className="grid grid-cols-3 gap-2.5 sm:gap-3 pt-1">
@@ -363,10 +386,111 @@ const ServiceDetail = () => {
         </div>
       </section>
 
+      {/* Clinical Guide: Overview, Comparison Table & Buyer Checklist (for Patients, Search Engines & AI) */}
+      {guide && (
+        <section className="space-y-8">
+          {/* Overview Article Block */}
+          <article className="p-6 sm:p-8 lg:p-10 rounded-3xl bg-white border border-amber-200/90 shadow-sm space-y-4">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-primary/5 text-primary border border-primary/20">
+                <IconSparkleStar className="w-3.5 h-3.5 text-primary" />
+                <span>
+                  {lang === "ru"
+                    ? "КЛИНИЧЕСКОЕ РУКОВОДСТВО"
+                    : lang === "en"
+                    ? "CLINICAL GUIDE"
+                    : "KLINIK QO'LLANMA"}
+                </span>
+              </span>
+              <time
+                dateTime={guide.updatedDate}
+                className="text-[11px] font-semibold text-slate-500"
+              >
+                {lang === "ru"
+                  ? `Обновлено: ${guide.updatedDate}`
+                  : lang === "en"
+                  ? `Updated: ${guide.updatedDate}`
+                  : `Yangilangan: ${guide.updatedDate}`}
+              </time>
+            </div>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 font-serif-classic leading-snug">
+              {guide.overviewTitle[lang]}
+            </h2>
+            <p className="text-xs sm:text-sm md:text-base text-slate-700 leading-relaxed">
+              {guide.overview[lang]}
+            </p>
+          </article>
+
+          {/* Structured Comparison Table */}
+          {guide.comparisonRows?.[lang] && (
+            <div className="p-6 sm:p-8 rounded-3xl bg-[#FFFDF9] border border-amber-200 shadow-2xs space-y-5">
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 font-serif-classic">
+                {guide.comparisonTitle[lang]}
+              </h2>
+              <div className="overflow-x-auto rounded-2xl border border-amber-200 bg-white">
+                <table className="w-full text-left border-collapse text-xs sm:text-sm">
+                  <thead>
+                    <tr className="bg-amber-50/80 border-b border-amber-200 text-slate-900">
+                      {guide.comparisonHeaders[lang].map((head, i) => (
+                        <th key={i} className="p-3.5 sm:p-4 font-bold whitespace-nowrap">
+                          {head}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-amber-100">
+                    {guide.comparisonRows[lang].map((row, rIdx) => (
+                      <tr key={rIdx} className="hover:bg-amber-50/30 transition-colors">
+                        {row.map((cell, cIdx) => (
+                          <td
+                            key={cIdx}
+                            className={`p-3.5 sm:p-4 leading-snug ${
+                              cIdx === 0
+                                ? "font-bold text-slate-900 bg-slate-50/40"
+                                : cIdx === 1
+                                ? "font-semibold text-primary"
+                                : "text-slate-600"
+                            }`}
+                          >
+                            {cell}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+
+          {/* Decision Checklist */}
+          {guide.selectionChecklist?.[lang] && (
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-amber-200 shadow-sm space-y-4">
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 font-serif-classic">
+                {guide.selectionTitle[lang]}
+              </h2>
+              <ul className="space-y-3">
+                {guide.selectionChecklist[lang].map((item, idx) => (
+                  <li
+                    key={idx}
+                    className="flex items-start gap-3 p-3.5 rounded-2xl bg-amber-50/40 border border-amber-200/60"
+                  >
+                    <IconCheckCircle className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </section>
+      )}
+
       {/* Service-Specific FAQ Section */}
-      {service.faq && service.faq.length > 0 && (
+      {allFaqs.length > 0 && (
         <FaqAccordion
-          items={service.faq}
+          items={allFaqs}
           badgeText={
             lang === "uz"
               ? `${service.title[lang]} — Savol-Javob`
@@ -396,18 +520,32 @@ const ServiceDetail = () => {
         <div className="space-y-2 text-center sm:text-left">
           <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-serif-classic">
             {lang === "uz"
-              ? "Savollaringiz bormi yoki tishingiz bezovta qilyaptimi?"
+              ? "Savollaringiz bormi yoki kechki payt tishingiz bezovta qilyaptimi?"
               : lang === "ru"
               ? "Беспокоит зубная боль или остались вопросы?"
               : "Experiencing a toothache or need advice?"}
           </h3>
           <p className="text-xs sm:text-sm text-slate-600">
             {lang === "uz"
-              ? `Dr. Ozodbek Otaxonov qabuliga yoziling yoki to'g'ridan-to'g'ri qo'ng'iroq qiling: ${DOCTOR_INFO.phoneDisplay}`
+              ? `Dr. Ozodbek Otaxonov qabuli soat 22:00 gacha ochiq. Onlayn yoziling yoki qo'ng'iroq qiling: ${DOCTOR_INFO.phoneDisplay}`
               : lang === "ru"
-              ? `Запишитесь на приём к Д-ру Озодбеку Отахонову или звоните напрямую: ${DOCTOR_INFO.phoneDisplay}`
-              : `Book an appointment with Dr. Ozodbek Otaxonov or call directly: ${DOCTOR_INFO.phoneDisplay}`}
+              ? `Приём Д-ра Озодбека Отахонова открыт до 22:00. Запишитесь онлайн или звоните: ${DOCTOR_INFO.phoneDisplay}`
+              : `Open Mon–Sat until 22:00. Book online with Dr. Ozodbek Otaxonov or call: ${DOCTOR_INFO.phoneDisplay}`}
           </p>
+          <div className="pt-1">
+            <Link
+              to={to("/tish-ogrigi-yordam")}
+              className="text-xs font-bold text-primary hover:underline inline-flex items-center gap-1"
+            >
+              <span>
+                {lang === "uz"
+                  ? "Tish og'riganda birinchi yordam va kechki qabul qo'llanmasi →"
+                  : lang === "ru"
+                  ? "Что делать при зубной боли вечером: памятка пациента →"
+                  : "Evening Toothache Emergency & Symptom Guide →"}
+              </span>
+            </Link>
+          </div>
         </div>
         <div className="flex items-center gap-3 shrink-0">
           <button

@@ -80,17 +80,24 @@ const SERVICE_INDICATIONS = {
   },
 };
 
-export const buildMedicalProcedureSchema = (service, lang = "uz", breadcrumbs = []) => {
+export const buildMedicalProcedureSchema = (service, lang = "uz", breadcrumbs = [], guide = null) => {
   const serviceUrl = urlFor(`/services/${service.id}`, lang);
   const breadcrumbObj = breadcrumbs.length > 0 ? buildBreadcrumbSchema(breadcrumbs, lang) : null;
   const indicationsList = service.indications?.[lang] || service.indications?.uz;
   const fallbackIndication = SERVICE_INDICATIONS[service.id]?.[lang] || SERVICE_INDICATIONS[service.id]?.uz;
+  const allFaqs = [
+    ...(Array.isArray(service.faq) ? service.faq : []),
+    ...(Array.isArray(guide?.extraFaqs) ? guide.extraFaqs : []),
+  ];
+  const updatedDate = guide?.updatedDate || "2026-11-26";
+  const pageTitle = guide?.seoTitle?.[lang] || guide?.seoTitle?.uz || service.title[lang] || service.title.uz;
+  const pageDescription = guide?.seoDescription?.[lang] || guide?.seoDescription?.uz || service.shortDesc[lang] || service.shortDesc.uz;
 
   const procedure = {
     "@type": "MedicalProcedure",
     "@id": `${serviceUrl}#procedure`,
-    "name": service.title[lang] || service.title.uz,
-    "description": service.shortDesc[lang] || service.shortDesc.uz,
+    "name": guide?.h1Title?.[lang] || service.title[lang] || service.title.uz,
+    "description": pageDescription,
     "procedureType": service.id.includes("implant") || service.id.includes("olish")
       ? "https://schema.org/SurgicalProcedure"
       : "https://schema.org/NoninvasiveProcedure",
@@ -99,6 +106,7 @@ export const buildMedicalProcedureSchema = (service, lang = "uz", breadcrumbs = 
       "@type": "MedicalSpecialty",
       "name": "Dentistry",
     },
+    ...(guide?.overview?.[lang] ? { "howPerformed": guide.overview[lang] } : {}),
     ...(Array.isArray(indicationsList) && indicationsList.length > 0
       ? {
           "indication": indicationsList.map((text) => ({
@@ -174,17 +182,126 @@ export const buildMedicalProcedureSchema = (service, lang = "uz", breadcrumbs = 
     },
   };
 
+  const medicalWebPage = {
+    "@type": "MedicalWebPage",
+    "@id": `${serviceUrl}#webpage`,
+    "url": serviceUrl,
+    "name": pageTitle,
+    "description": pageDescription,
+    "inLanguage": lang,
+    "datePublished": "2026-03-01",
+    "dateModified": updatedDate,
+    "lastReviewed": updatedDate,
+    "author": {
+      "@type": "Physician",
+      "@id": `${SITE_ORIGIN}/#doctor`,
+      "name": DOCTOR_INFO.name,
+    },
+    "reviewedBy": {
+      "@type": "Physician",
+      "@id": `${SITE_ORIGIN}/#doctor`,
+      "name": DOCTOR_INFO.name,
+    },
+    "mainEntity": {
+      "@id": `${serviceUrl}#procedure`,
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": `${SITE_ORIGIN}/#website`,
+      "url": `${SITE_ORIGIN}/`,
+      "name": DOCTOR_INFO.name,
+    },
+  };
+
   const graph = [];
   if (breadcrumbObj) {
     graph.push(breadcrumbObj);
   }
-  graph.push(procedure);
+  graph.push(medicalWebPage, procedure);
 
-  if (Array.isArray(service.faq) && service.faq.length > 0) {
+  if (allFaqs.length > 0) {
     graph.push({
       "@type": "FAQPage",
       "@id": `${serviceUrl}#faq`,
-      "mainEntity": service.faq.map((item) => ({
+      "mainEntity": allFaqs.map((item) => ({
+        "@type": "Question",
+        "name": item.q[lang] || item.q.uz,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.a[lang] || item.a.uz,
+        },
+      })),
+    });
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": graph,
+  };
+};
+
+export const buildToothacheGuideSchema = (faqItems = [], lang = "uz", breadcrumbs = []) => {
+  const pageUrl = urlFor("/tish-ogrigi-yordam", lang);
+  const breadcrumbObj = breadcrumbs.length > 0 ? buildBreadcrumbSchema(breadcrumbs, lang) : null;
+
+  const pageName =
+    lang === "ru"
+      ? "Болит зуб вечером или ночью: первая помощь и приём до 22:00 в Андижане"
+      : lang === "en"
+      ? "Severe Toothache at Night: Emergency Relief & Evening Care in Andijan"
+      : "Kechki payt tishim og'riyapti: sabablari, birinchi yordam va 22:00 gacha qabul";
+
+  const pageDesc =
+    lang === "ru"
+      ? "Клиническое руководство стоматолога Д-ра Озодбека Отахонова: почему зуб болит ночью, что можно сделать дома и когда срочно обращаться в клинику (приём до 22:00)."
+      : lang === "en"
+      ? "Clinical emergency guide by Dr. Ozodbek Otaxonov: causes of evening tooth pain, safe temporary care, and urgent dental clinic open until 22:00 in Andijan."
+      : "Dr. Ozodbek Otaxonov klinik qo'llanmasi: kechki payt tish nega qattiq og'riydi, uy sharoitida xavfsiz yordam va Andijonda soat 22:00 gacha og'riqsiz davolash.";
+
+  const guidePage = {
+    "@type": "MedicalWebPage",
+    "@id": `${pageUrl}#webpage`,
+    "url": pageUrl,
+    "name": pageName,
+    "description": pageDesc,
+    "inLanguage": lang,
+    "datePublished": "2026-03-01",
+    "dateModified": "2026-11-26",
+    "lastReviewed": "2026-11-26",
+    "author": {
+      "@type": "Physician",
+      "@id": `${SITE_ORIGIN}/#doctor`,
+      "name": DOCTOR_INFO.name,
+    },
+    "about": [
+      { "@type": "MedicalCondition", "name": "Toothache (Dental Pain)" },
+      { "@type": "MedicalCondition", "name": "Pulpitis" },
+      { "@type": "MedicalCondition", "name": "Dental Caries" },
+      { "@type": "MedicalCondition", "name": "Periapical Abscess" },
+    ],
+    "provider": {
+      "@type": ["Dentist", "MedicalBusiness"],
+      "@id": `${SITE_ORIGIN}/#dentist`,
+      "name": `${DOCTOR_INFO.name} — Smiles Dental Group`,
+      "telephone": DOCTOR_INFO.phoneRaw,
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": `${SITE_ORIGIN}/#website`,
+      "url": `${SITE_ORIGIN}/`,
+      "name": DOCTOR_INFO.name,
+    },
+  };
+
+  const graph = [];
+  if (breadcrumbObj) graph.push(breadcrumbObj);
+  graph.push(guidePage);
+
+  if (Array.isArray(faqItems) && faqItems.length > 0) {
+    graph.push({
+      "@type": "FAQPage",
+      "@id": `${pageUrl}#faq`,
+      "mainEntity": faqItems.map((item) => ({
         "@type": "Question",
         "name": item.q[lang] || item.q.uz,
         "acceptedAnswer": {
@@ -488,15 +605,20 @@ export const buildHomeSchema = (lang = "uz", faqItems = []) => {
     "name": `${DOCTOR_INFO.name} — Andijonda Vrach Stomatolog`,
     "alternateName": [
       "Andijonda stomatolog",
+      "Andijonda tish implantatsiyasi",
       "Andijonda stomatologiya",
+      "Stomatolog Implantolog Andijon",
+      "Kechki stomatologiya Andijon 22:00",
       "Andijondagi stomatologiya klinikalari",
       "Ozodbek Stomatolog",
       "Stomatolog Ozodbek",
       "Ozodbek Dentist",
       "Стоматология в Андижане",
+      "Имплантация зубов в Андижане",
       "Стоматолог в Андижане",
       "Стоматолог Озодбек",
       "Озодбек Стоматолог",
+      "Тиш имплантацияси Андижон",
       `${DOCTOR_INFO.name} Stomatolog`,
       "Dr. Ozodbek Otaxonov",
       "Стоматолог Озодбек Отахонов",

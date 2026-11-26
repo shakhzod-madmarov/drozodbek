@@ -26,6 +26,7 @@ const Footer = () => {
   const quickLinks = [
     { path: "/", label: { uz: "Bosh Sahifa", ru: "Главная", en: "Home" } },
     { path: "/services", label: { uz: "Stomatologik Xizmatlar", ru: "Стоматологические Услуги", en: "Dental Services" } },
+    { path: "/tish-ogrigi-yordam", label: { uz: "Kechki Tish Og'rig'i & Yordam", ru: "Острая Боль Вечером: Помощь", en: "Evening Toothache Guide" } },
     { path: "/about", label: { uz: "Dr. Ozodbek Haqida", ru: "О Докторе Озодбеке", en: "About Dr. Ozodbek" } },
     { path: "/booking", label: { uz: "Onlayn Qabulga Yozilish", ru: "Онлайн Запись на Приём", en: "Book Appointment" } },
     { path: "/contact", label: { uz: "Aloqa va Manzil", ru: "Контакты и Адрес", en: "Contact & Location" } },
@@ -115,7 +116,7 @@ const Footer = () => {
               {lang === "uz" ? "Xizmat Yo'nalishlari" : lang === "ru" ? "Специализация" : "Specialties"}
             </p>
             <ul className="space-y-2 text-xs font-medium text-slate-300">
-              {specialtyLinks.slice(0, 7).map((link) => (
+              {specialtyLinks.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={to(link.path)}

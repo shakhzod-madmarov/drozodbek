@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
 import { DOCTOR_INFO, getYearsOfExperience, getExperienceBadge } from "../constants/doctor";
-import { PAGE_SEO, PAGE_KEYWORDS, SITE_ORIGIN } from "../constants/seo";
+import { PAGE_SEO, getPageKeywords, SITE_ORIGIN } from "../constants/seo";
 import Seo from "../components/Seo";
 import { buildAboutPageSchema } from "../utils/structuredData";
 import ClinicLocationMap from "../components/ClinicLocationMap";
@@ -128,7 +128,7 @@ const About = ({ onOpenBooking }) => {
       <Seo
         title={seo.title}
         description={seo.description}
-        keywords={PAGE_KEYWORDS[lang]}
+        keywords={getPageKeywords("about", lang)}
         ogImage={`${SITE_ORIGIN}/dr_ozodbek_og.jpg`}
         schemaJson={aboutSchema}
       />

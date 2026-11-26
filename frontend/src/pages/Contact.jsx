@@ -3,7 +3,7 @@ import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
 import { DOCTOR_INFO } from "../constants/doctor";
 import { PRIMARY_CLINIC } from "../constants/clinics";
 import { useClinicHours } from "../lib/medinsonBooking";
-import { PAGE_SEO, PAGE_KEYWORDS } from "../constants/seo";
+import { PAGE_SEO, getPageKeywords } from "../constants/seo";
 import Seo from "../components/Seo";
 import { buildContactPageSchema } from "../utils/structuredData";
 import ClinicLocationMap from "../components/ClinicLocationMap";
@@ -32,7 +32,7 @@ const Contact = () => {
       <Seo
         title={seo.title}
         description={seo.description}
-        keywords={PAGE_KEYWORDS[lang]}
+        keywords={getPageKeywords("contact", lang)}
         schemaJson={contactSchema}
       />
 

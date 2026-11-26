@@ -8,6 +8,7 @@ import Services from "./pages/Services";
 import ServiceDetail from "./pages/ServiceDetail";
 import Contact from "./pages/Contact";
 import Booking from "./pages/Booking";
+import ToothacheGuide from "./pages/ToothacheGuide";
 import NotFound from "./pages/NotFound";
 import FloatingActionHub from "./components/FloatingActionHub";
 import { useBooking } from "./context/BookingContext";
@@ -77,6 +78,7 @@ const AppShell = () => {
               <Route key={`${code}-gallery`} path={at("/gallery")} element={<Navigate to={at("/about")} replace />} />,
               <Route key={`${code}-booking`} path={at("/booking")} element={<Booking />} />,
               <Route key={`${code}-qabul`} path={at("/qabul")} element={<Booking />} />,
+              <Route key={`${code}-toothache`} path={at("/tish-ogrigi-yordam")} element={<ToothacheGuide />} />,
               <Route key={`${code}-contact`} path={at("/contact")} element={<Contact />} />,
             ];
           })}

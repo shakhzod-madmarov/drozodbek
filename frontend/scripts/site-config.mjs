@@ -72,6 +72,17 @@ export const ROUTES = [
     priority: "0.8",
   },
   {
+    path: "/tish-ogrigi-yordam",
+    changefreq: "weekly",
+    priority: "0.9",
+    image: {
+      src: "src/assets/treatment_therapy.webp",
+      title: "Kechki Payt Tishim Og'riyapti — Tezkor Yordam va 22:00 Gacha Qabul | Andijon",
+      caption:
+        "Tish og'riganda birinchi yordam, pulpit, karies va Andijonda soat 22:00 gacha shoshilinch stomatolog qabuli",
+    },
+  },
+  {
     path: "/services/dental-implant",
     changefreq: "monthly",
     priority: "0.85",

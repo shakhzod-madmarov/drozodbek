@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
 import { DOCTOR_INFO } from "../constants/doctor";
-import { PAGE_SEO, PAGE_KEYWORDS } from "../constants/seo";
+import { PAGE_SEO, getPageKeywords } from "../constants/seo";
 import Seo from "../components/Seo";
 import InlineBookingSection from "../components/InlineBookingSection";
 import ClinicLocationMap from "../components/ClinicLocationMap";
@@ -38,7 +38,7 @@ const HeroSection = ({ onOpenBooking }) => {
       specialtyTitle: "Implantolog · Ortoped · Ortodont · Terapevt",
       headline: "Andijonda Zamonaviy Stomatologiya va 100% Og'riqsiz Tish Davolash",
       subtitle:
-        "Dr. Ozodbek Otaxonov — Ukraina Stomatologiya Tibbiyot Akademiyasi bitiruvchisi, 10 yillik tajribaga ega vrach stomatolog. Andijon shahrida dental implantatsiya, breketlar, monolit sirkon karonkalar, E-max vinirlar va shoshilinch tish og'rig'ini og'riqsiz davolash.",
+        "Dr. Ozodbek Otaxonov — Ukraina Stomatologiya Tibbiyot Akademiyasi bitiruvchisi, 10 yillik tajribaga ega vrach stomatolog va implantolog. Andijon shahrida MegaGen tish implantatsiyasi va tish qo'yish, breketlar, sirkon karonkalar, E-max vinirlar hamda kechki soat 22:00 gacha shoshilinch tish og'rig'ini og'riqsiz davolash.",
       ctaBook: "Qabulga Yozilish",
       ctaServices: "Barcha Xizmatlar",
       stat1Num: "10 Yil",
@@ -337,7 +337,7 @@ const Home = ({ onOpenBooking }) => {
       <Seo
         title={seo.title}
         description={seo.description}
-        keywords={PAGE_KEYWORDS[lang]}
+        keywords={getPageKeywords("home", lang)}
         schemaJson={homeSchema}
       />
 

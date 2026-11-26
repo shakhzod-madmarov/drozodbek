@@ -126,6 +126,7 @@ for (const route of routes) {
 
   let page = template.replace('<div id="root"></div>', `<div id="root">${html}</div>`);
   page = setTitle(page, seo?.title);
+  page = setMetaName(page, "title", seo?.title);
   page = setMetaName(page, "description", seo?.description);
   page = setMetaName(page, "keywords", seo?.keywords);
   page = setCanonical(page, canonical);
@@ -133,6 +134,11 @@ for (const route of routes) {
   page = setMetaProperty(page, "og:description", seo?.description);
   page = setMetaProperty(page, "og:url", canonical);
   page = setMetaProperty(page, "og:image", seo?.ogImage);
+  page = setMetaProperty(
+    page,
+    "og:locale",
+    seo?.lang === "ru" ? "ru_RU" : seo?.lang === "en" ? "en_US" : "uz_UZ"
+  );
   page = setMetaName(page, "twitter:title", seo?.title);
   page = setMetaName(page, "twitter:description", seo?.description);
   page = setMetaName(page, "twitter:image", seo?.ogImage);

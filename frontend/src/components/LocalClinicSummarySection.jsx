@@ -110,6 +110,18 @@ export default function LocalClinicSummarySection() {
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
               {T.servicesDesc}
             </p>
+            <div className="pt-1">
+              <Link
+                to={to("/services/dental-implant")}
+                className="text-xs font-bold text-primary hover:underline"
+              >
+                {lang === "uz"
+                  ? "Tish implantatsiyasi & bosqichlari →"
+                  : lang === "ru"
+                  ? "Имплантация зубов и этапы →"
+                  : "Dental Implants Guide →"}
+              </Link>
+            </div>
           </div>
 
           {/* Card 2: Emergency Relief */}
@@ -121,6 +133,18 @@ export default function LocalClinicSummarySection() {
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
               {T.emergencyDesc}
             </p>
+            <div className="pt-1">
+              <Link
+                to={to("/tish-ogrigi-yordam")}
+                className="text-xs font-bold text-brandOrange hover:underline"
+              >
+                {lang === "uz"
+                  ? "Kechki tish og'rig'ida birinchi yordam →"
+                  : lang === "ru"
+                  ? "Первая помощь при боли вечером →"
+                  : "Evening Toothache Emergency Guide →"}
+              </Link>
+            </div>
           </div>
 
           {/* Card 3: Hours & Booking */}

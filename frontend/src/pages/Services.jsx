@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage, useLocalizedPath } from "../context/LanguageContext";
 import { getServicesTag } from "../constants/doctor";
-import { PAGE_SEO, PAGE_KEYWORDS } from "../constants/seo";
+import { PAGE_SEO, getPageKeywords } from "../constants/seo";
 import { SERVICES_CATALOG } from "../constants/servicesCatalog";
 import Seo from "../components/Seo";
 import { buildServicesCatalogSchema } from "../utils/structuredData";
@@ -51,7 +51,7 @@ const Services = ({ onOpenBooking }) => {
       <Seo
         title={seo.title}
         description={seo.description}
-        keywords={PAGE_KEYWORDS[lang]}
+        keywords={getPageKeywords("services", lang)}
         schemaJson={catalogSchema}
       />
 
@@ -208,6 +208,36 @@ const Services = ({ onOpenBooking }) => {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Emergency Toothache Quick Link */}
+      <div className="p-5 sm:p-6 rounded-3xl bg-gradient-to-r from-rose-50 via-amber-50/70 to-white border border-rose-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="space-y-1 text-center sm:text-left">
+          <p className="text-xs font-black uppercase tracking-wider text-rose-700">
+            {lang === "uz"
+              ? "KECHKI SOAT 22:00 GACHA SHOSHILINCH QABUL"
+              : lang === "ru"
+              ? "ЭКСТРЕННЫЙ ПРИЁМ ДО 22:00 В АНДИЖАНЕ"
+              : "EVENING URGENT CARE UNTIL 22:00"}
+          </p>
+          <p className="text-sm sm:text-base font-bold text-slate-900">
+            {lang === "uz"
+              ? "Kechki payt tishingiz qattiq og'riyaptimi yoki plomba tushdimi?"
+              : lang === "ru"
+              ? "Болит зуб вечером или выпала пломба? Не терпите боль!"
+              : "Suffering from evening toothache or a lost filling?"}
+          </p>
+        </div>
+        <Link
+          to={to("/tish-ogrigi-yordam")}
+          className="px-5 py-2.5 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-bold uppercase tracking-wider shadow-xs transition-all shrink-0"
+        >
+          {lang === "uz"
+            ? "Tezkor Yordam Qo'llanmasi →"
+            : lang === "ru"
+            ? "Что делать при боли →"
+            : "Toothache Relief Guide →"}
+        </Link>
       </div>
 
       {/* Interactive Cost Calculator */}

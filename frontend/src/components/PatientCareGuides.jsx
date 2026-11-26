@@ -251,10 +251,18 @@ const PatientCareGuides = () => {
         </div>
 
         {/* Tab Buttons */}
-        <div className="flex overflow-x-auto sm:flex-wrap items-center justify-start sm:justify-center gap-2 pb-2 px-1 -mx-2 sm:mx-0 no-scrollbar scroll-touch">
+        <div
+          role="tablist"
+          aria-label={lang === "uz" ? "Parvarish qoidalari" : lang === "ru" ? "Правила ухода" : "Aftercare guides"}
+          className="flex overflow-x-auto sm:flex-wrap items-center justify-start sm:justify-center gap-2 pb-2 px-1 -mx-2 sm:mx-0 no-scrollbar scroll-touch"
+        >
           {guides.map((g) => (
             <button
               key={g.id}
+              type="button"
+              role="tab"
+              aria-selected={activeTab.id === g.id}
+              aria-controls={`care-panel-${g.id}`}
               onClick={() => setActiveTab(g)}
               className={`flex shrink-0 whitespace-nowrap items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold transition-all cursor-pointer ${
                 activeTab.id === g.id
@@ -268,51 +276,63 @@ const PatientCareGuides = () => {
           ))}
         </div>
 
-        {/* Content Box */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-[#FFFDF9] border border-amber-200 space-y-6">
-          <div className="flex items-center gap-3">
-            <span className="w-12 h-12 rounded-2xl bg-amber-100 text-primary flex items-center justify-center">
-              {activeTab.icon}
-            </span>
-            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-serif-classic">
-              {activeTab.title[lang]}
-            </h3>
-          </div>
+        {/* All Panels Rendered in DOM so Search Crawlers & AI Read All 5 Guides */}
+        {guides.map((g) => {
+          const isSelected = activeTab.id === g.id;
+          return (
+            <div
+              key={g.id}
+              id={`care-panel-${g.id}`}
+              role="tabpanel"
+              className={`p-6 sm:p-8 rounded-3xl bg-[#FFFDF9] border border-amber-200 space-y-6 ${
+                isSelected ? "block" : "hidden"
+              }`}
+            >
+              <div className="flex items-center gap-3">
+                <span className="w-12 h-12 rounded-2xl bg-amber-100 text-primary flex items-center justify-center">
+                  {g.icon}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-serif-classic">
+                  {g.title[lang]}
+                </h3>
+              </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
-            {/* DOS */}
-            <div className="p-5 rounded-2xl bg-emerald-50/70 border border-emerald-200/70 space-y-3">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-800 flex items-center gap-1.5">
-                <IconCheckCircle className="w-4 h-4 text-emerald-600" />
-                <span>{lang === "uz" ? "NIMALARNI QILISH KERAK (TAVSIYALAR):" : lang === "ru" ? "ЧТО НУЖНО ДЕЛАТЬ (РЕКОМЕНДАЦИИ):" : "WHAT TO DO (RECOMMENDED):"}</span>
-              </h4>
-              <ul className="space-y-2 text-xs sm:text-sm text-slate-700">
-                {activeTab.dos[lang].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-2">
-                    <span className="text-emerald-600 font-bold shrink-0">✓</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                {/* DOS */}
+                <div className="p-5 rounded-2xl bg-emerald-50/70 border border-emerald-200/70 space-y-3">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-800 flex items-center gap-1.5">
+                    <IconCheckCircle className="w-4 h-4 text-emerald-600" />
+                    <span>{lang === "uz" ? "NIMALARNI QILISH KERAK (TAVSIYALAR):" : lang === "ru" ? "ЧТО НУЖНО ДЕЛАТЬ (РЕКОМЕНДАЦИИ):" : "WHAT TO DO (RECOMMENDED):"}</span>
+                  </h4>
+                  <ul className="space-y-2 text-xs sm:text-sm text-slate-700">
+                    {g.dos[lang].map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <span className="text-emerald-600 font-bold shrink-0">✓</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-            {/* DONTS */}
-            <div className="p-5 rounded-2xl bg-rose-50/70 border border-rose-200/70 space-y-3">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-rose-800 flex items-center gap-1.5">
-                <span className="text-rose-600 font-bold">✕</span>
-                <span>{lang === "uz" ? "NIMALARNI QILISH MUMKIN EMAS (CHEKLOVLAR):" : lang === "ru" ? "ЧЕГО ДЕЛАТЬ НЕЛЬЗЯ (ОГРАНИЧЕНИЯ):" : "WHAT TO AVOID (RESTRICTIONS):"}</span>
-              </h4>
-              <ul className="space-y-2 text-xs sm:text-sm text-slate-700">
-                {activeTab.donts[lang].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-2">
-                    <span className="text-rose-600 font-bold shrink-0">✕</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+                {/* DONTS */}
+                <div className="p-5 rounded-2xl bg-rose-50/70 border border-rose-200/70 space-y-3">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-rose-800 flex items-center gap-1.5">
+                    <span className="text-rose-600 font-bold">✕</span>
+                    <span>{lang === "uz" ? "NIMALARNI QILISH MUMKIN EMAS (CHEKLOVLAR):" : lang === "ru" ? "ЧЕГО ДЕЛАТЬ НЕЛЬЗЯ (ОГРАНИЧЕНИЯ):" : "WHAT TO AVOID (RESTRICTIONS):"}</span>
+                  </h4>
+                  <ul className="space-y-2 text-xs sm:text-sm text-slate-700">
+                    {g.donts[lang].map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <span className="text-rose-600 font-bold shrink-0">✕</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          );
+        })}
       </div>
     </section>
   );

@@ -5,7 +5,7 @@ import InlineBookingSection from "../components/InlineBookingSection";
 import { DOCTOR_INFO, getYearsOfExperience } from "../constants/doctor";
 import { useClinicHours } from "../lib/medinsonBooking";
 import { buildBookingPageSchema } from "../utils/structuredData";
-import { PAGE_SEO } from "../constants/seo";
+import { PAGE_SEO, getPageKeywords } from "../constants/seo";
 import {
   IconPhone,
   IconShieldCheck,
@@ -30,6 +30,7 @@ const Booking = () => {
       <Seo
         title={seo.title}
         description={seo.description}
+        keywords={getPageKeywords("booking", lang)}
         schemaJson={bookingSchema}
       />
 

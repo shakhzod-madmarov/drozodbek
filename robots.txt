@@ -8,17 +8,31 @@ Disallow: /dist-ssr/
 User-agent: Googlebot
 Allow: /
 
+User-agent: Googlebot-Image
+Allow: /
+
 User-agent: Google-Extended
 Allow: /
 
 User-agent: GoogleOther
 Allow: /
 
-# Yandex Search & Yandex Neuro / Alice
+# Microsoft Bing & Copilot
+User-agent: Bingbot
+Allow: /
+
+# DuckDuckGo Search
+User-agent: DuckDuckBot
+Allow: /
+
+# Yandex Search, Images & Yandex Neuro / Alice
 User-agent: Yandex
 Allow: /
 
 User-agent: YandexBot
+Allow: /
+
+User-agent: YandexImages
 Allow: /
 
 # OpenAI / ChatGPT Search (OAI-SearchBot) & ChatGPT User
